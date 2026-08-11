@@ -5,7 +5,7 @@ How the JSON the app reads gets built, and how to add more of it.
 ```
 oggdudes-data/                    raw OggDude export (any format)
         |
-        |  oggdude_species_to_app.py      <- reshapes to the app's schema
+        |  oggdude_<type>_to_app.py       <- reshapes to the app's schema
         v
 xml_to_json/xml_sources/<set>/*.xml       <- app-schema XML, one folder per set
         |
@@ -15,9 +15,10 @@ data/json/*.json                          <- what index.html actually loads
 ```
 
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml` and `Gear.xml` are already in
-the app's schema and are copied straight into `xml_sources/oggdude/`. **Species
-are the exception** — OggDude ships them one file per species in a different
-schema, so they have to go through `oggdude_species_to_app.py` first.
+the app's schema and are copied straight into `xml_sources/oggdude/`. **Species,
+Vehicles, Careers and Talents are the exceptions** — the first three ship one
+file per row in a different schema, and Talents ships flat but with two fields
+the app would misread, so each goes through its own `oggdude_*_to_app.py` first.
 
 Both the XML sources and the generated JSON are committed. A data change is
 expected to include the regenerated JSON in the same commit.
@@ -31,7 +32,10 @@ expected to include the regenerated JSON in the same commit.
 | `convert.php` | The original converter. Needs PHP 7. |
 | `convert.py` | Python port of `convert.php`, for machines without PHP. **Must stay byte-identical in output.** |
 | `oggdude_species_to_app.py` | Reshapes OggDude's per-species XML into the app's species schema. |
-| `verify_convert.py` | Regression checks. Run after touching any of the above. |
+| `oggdude_vehicles_to_app.py` | The same for the 413 per-vehicle files. |
+| `oggdude_careers_to_app.py` | The same for the 20 per-career files, resolving skill and specialization keys. |
+| `oggdude_talents_to_app.py` | Reshapes the single flat `Talents.xml` — see *Talents* below for why it is not just copied. |
+| `verify_convert.py` | Regression checks, one per importer. Run after touching any of the above. |
 | `wiki_diff.py` | Reports what a wiki category has that the JSON does not, and vice versa. Read-only. |
 
 ```bash
@@ -61,7 +65,7 @@ here that needs network access.
 ```bash
 python xml_to_json/wiki_diff.py --list        # the configured targets
 python xml_to_json/wiki_diff.py species       # one target
-python xml_to_json/wiki_diff.py --all         # all six
+python xml_to_json/wiki_diff.py --all         # all eight
 ```
 
 Targets are one line each in `TARGETS` at the top of the script — wiki category,
@@ -300,18 +304,25 @@ what differs is the import.
 | Candidate | Volume | Import effort |
 | --- | --- | --- |
 | **Vehicles** | 413 files | Done — `oggdude_vehicles_to_app.py`, see below |
+| **Talents** | 604 rows | Done — `oggdude_talents_to_app.py`, see below. Not the copy job this table first estimated. |
+| **Careers** | 20 files | Done — `oggdude_careers_to_app.py`, see below |
+| **Vehicle attachments** | 125 rows | Done — no import at all, a second tab over `ItemAttachments.json` split by `attachmentClass`, the way Starships split off Vehicles. |
 | **Adversaries** | none | **Already half-built in `items.html`** (29 `name == 'Adversary'` conditions, full characteristic columns). OggDude ships no adversary export, so the UI exists and the data does not. Blocked on a data source, not on code. |
-| Talents | 604 rows | Easy. Single `Talents.xml`, flat rows, and `talentFilter` in `SWApp.js` already maps every key to a display name. Best value per unit of work. |
-| Vehicle attachments | 126 rows | Zero import work — they are already in `ItemAttachments.json` with `Type: Vehicle`. A filtered view or a split-out tab, not an import. |
-| Specializations | 123 files | Talent *trees* — a 4×5 grid with directional links between nodes. Needs a renderer, not a table. |
+| Skills | 35 rows | Trivially table-shaped: flat single file, `Key`/`Name`/`Description`/`Sources`/`CharKey`/`TypeValue`. At 35 rows it is a reference list rather than something the sliders-and-filters table earns its keep on. |
+| Specializations | 123 files | Talent *trees* — a 4×5 grid with directional links between nodes. Needs a renderer, not a table. Their **names** are already listed on the Careers tab. |
 | Force powers | 20 files | Same shape as specializations: upgrade trees, not rows. |
-| Careers | 20 files | Small, but mostly cross-references into skills and specializations. |
 | Signature abilities | 38 files | Same tree problem as specializations. |
 
-The two single-file exports (Talents, and the vehicle attachments already
-imported) are table-shaped and cheap. Everything under Specializations, Force
-Powers and Signature Abilities is tree-shaped and would need UI this app does not
-have yet.
+What is left is Skills, which is table-shaped and cheap but thin, and everything
+under Specializations, Force Powers and Signature Abilities, which is tree-shaped
+and would need UI this app does not have yet.
+
+The Talents row is worth reading twice. It was estimated here as a straight copy —
+"single file, flat rows" — and it is not: `<ActivationValue>taPassive` would have
+reached the Type column as a code, and eight talents use `<Attributes>` for what
+the talent *grants* while `fetchSource()` reads that tag as a species' *starting
+stats*. **A flat single file is not by itself evidence that a type can be copied
+straight across.** Check what the app already does with each tag name first.
 
 ---
 
@@ -383,3 +394,105 @@ and makes a far better sidenav filter than `Type`, which has 91.
 
 Artwork: `oggdudes-data/VehicleImages/` covers 327 of 413 (79%), named by bare
 `Key`, so `cp VehicleImages/<KEY>.png data/img/Vehicle<KEY>.png`.
+
+---
+
+## Careers
+
+20 careers, one file each under `oggdudes-data/Careers/`, in OggDude's own
+schema — so, like Species and Vehicles, they go through a translation script
+before the converter sees them:
+
+```bash
+python xml_to_json/oggdude_careers_to_app.py    # rebuild the app-schema source
+python xml_to_json/convert.py --only Career     # rebuild data/json/Careers.json
+```
+
+A career is almost entirely cross-references, so almost all the work is
+resolving them:
+
+- **Career skills are keys.** `<CareerSkills><Key>ASTRO` becomes "Astrogation"
+  out of `Skills.xml` — 146 references covering all 35 skills in the game. They
+  are written as `<Skills><Skill><Name>`, which is deliberately the shape
+  Species already use, so `fetchSource()` unwraps them with no new app code.
+- **Specializations are keys too.** `<Specializations><Key>DRIVER` becomes
+  "Driver" out of the 123 files under `Specializations/` — 118 references, 112
+  distinct, since a few specializations belong to two careers. **Only the name is
+  taken.** The specialization itself is a 4×5 talent tree with directional links
+  between its nodes; listing which ones a career opens is the useful part and
+  needs no renderer.
+- **The `<Attributes>` block is almost all zeros.** Seven Force careers carry
+  `WoundThreshold`, `StrainThreshold`, `DefenseRanged`, `DefenseMelee`,
+  `SoakValue` and `Experience` set to `0`, plus an empty `<Requirement>`. Only a
+  non-zero `ForceRating` is written out — that is the one thing a career actually
+  grants, and `fetchSource()` already copies `Attributes/ForceRating` onto the
+  row, so it reuses the `Adversary` Force column.
+- **Those same seven get a `<Categories><Category>Force`**, the tag the talent
+  importer already writes, which is what makes "Force career" a *filter* rather
+  than just a column — the app builds its Category multi-select from it. The tag
+  and the rating are two views of one fact, so `verify_convert.py` asserts they
+  never disagree.
+
+**`FreeRanks` is deliberately left incomplete.** OggDude writes it on eight rows
+(3 for the Force and Destiny careers, 4 for Clone Soldier) and omits it on the
+other twelve, because those grant the standard four. It is *not* defaulted to 4
+here: that number is a rules claim the source does not make, and inventing it
+would put it in the data rather than in the rulebook. The template shows the line
+only for the rows that carry one.
+
+`CLONE` is the only career citing two books (*Rise of the Separatists* and
+*Collapse of the Republic*, both p18); the other 19 cite one.
+
+Artwork: none. OggDude ships no career images, so every row falls back to
+`img/no_image.png` and the tab has no image column.
+
+---
+
+## Talents
+
+604 listings in a single flat `oggdudes-data/Talents.xml` — and still an
+importer, not a copy:
+
+```bash
+python xml_to_json/oggdude_talents_to_app.py    # rebuild the app-schema source
+python xml_to_json/convert.py --only Talent     # rebuild data/json/Talents.json
+```
+
+- **Activation is a code.** `<ActivationValue>taPassive` is what OggDude's
+  character builder switches on; copied straight across it would have shown
+  "taPassive" in the Type column *and* in the Type dropdown. It becomes display
+  text here — Passive (248), Incidental (161), Action (99), Maneuver (49),
+  Incidental (out of turn) (44) — the same call the vehicle importer makes for
+  the `sr…` sensor ranges.
+- **`<Attributes>` means something else here.** On a species it holds the
+  starting wound threshold, strain threshold and experience, and `fetchSource()`
+  copies those onto the row. Eight talents carry the same tag for what the talent
+  *grants*: `TOUGH` has `<WoundThreshold>2`, `FORCERAT` has `<ForceRating>1`,
+  `GRIT` has `<StrainThreshold>1`. Copying the file across would have put "2" in
+  a talent's Wound Thr. column and given the tab a set of nonsense sliders.
+  Dropped — every one of them is spelled out in the talent's own description.
+- **Three keys are listed twice.** `FORCEWILL` and `WORKLIKECHARM` are the same
+  talent reprinted in a second book, `ANALYZEDATA` is written out verbatim twice.
+  The converter's first-Key-wins merge would keep whichever came first and throw
+  the other citation away, so "Force of Will" would have vanished from the app
+  the moment the Age of Rebellion line was switched off, despite also being in
+  *Collapse of the Republic*. `merge_duplicate_keys()` folds them and unions the
+  citations; the first listing still decides name, type and description. The two
+  listings always disagree on the description — each says "please see page N of
+  *its own book*" — so only the mechanical fields are compared, and a
+  disagreement there is reported rather than merged quietly.
+- **Ranked, ForceTalent and Conflict become `<Categories>`**: Ranked (162),
+  Force (131), Conflict (14). That is the same tag vehicles use for their
+  Starship/Walker/… list, so the app already renders it under the talent name and
+  already builds a multi-select from it — three filterable flags for no new UI.
+  `<Conflict>` is `1` on all fourteen rows that carry it, so the tag alone says
+  everything the number would.
+
+Everything else OggDude carries drives the character builder rather than
+describing the talent, and is dropped: `DieModifiers` (31 rows), `SkillChars`,
+`SkillChoice`, `CharacteristicChoices`, `ChooseCareerSkills`, `ItemChanges`,
+`SelectedItem`, `RosterMods`, `JuryRigged`, `Rigger`, `Damage`,
+`ModPercentDiscount`, `LessStrain`, `AddlHP`, `HPPerItem`, `AddlCyber`,
+`SetForceRating`.
+
+Artwork: none, same as careers.

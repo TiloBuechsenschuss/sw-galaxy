@@ -38,17 +38,38 @@ Check 3 -- vehicle schema mapping
       * every sensor range resolves to display text
       * no unresolved key beyond the two dangling references OggDude's own
         export contains (MINCONCLNCH, TSMEU6)
+
+Check 4 -- career schema mapping
+    The same idea for oggdude_careers_to_app.py:
+
+      * one row per file under oggdudes-data/Careers/, keys unique
+      * no career skill and no specialization is lost on the way, and every key
+        resolves to a display name
+      * only a non-zero ForceRating survives the all-zero <Attributes> block
+
+Check 5 -- talent schema mapping
+    The same idea for oggdude_talents_to_app.py:
+
+      * every talent in Talents.xml reaches a row, with the three keys OggDude
+        lists twice merged rather than dropped
+      * a merged row keeps every citation both listings carried
+      * every ActivationValue resolves to display text
+      * the Ranked / Force / Conflict categories match the flags in the source,
+        and nothing else is invented
 """
 import glob
 import json
 import os
 import sys
 import xml.etree.ElementTree as ET
+from collections import OrderedDict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import convert                        # noqa: E402
 import oggdude_species_to_app as O    # noqa: E402
 import oggdude_vehicles_to_app as V   # noqa: E402
+import oggdude_careers_to_app as C    # noqa: E402
+import oggdude_talents_to_app as T    # noqa: E402
 
 ROOT = convert.REPO_ROOT
 
@@ -303,10 +324,202 @@ def check_vehicles():
     return not failures
 
 
-if __name__ == '__main__':
-    a = check_converter()
-    b = check_mapping()
-    c = check_vehicles()
+def check_careers():
     print()
-    print('RESULT:', 'PASS' if (a and b and c) else 'FAIL')
-    sys.exit(0 if (a and b and c) else 1)
+    print('=' * 72)
+    print('Check 4: OggDude -> app schema career translation holds')
+    print('=' * 72)
+    source_dir = os.path.join(ROOT, 'oggdudes-data')
+    if not os.path.isdir(os.path.join(source_dir, 'Careers')):
+        print('  oggdudes-data/Careers not present -- skipped')
+        return True
+
+    warn = []
+    records, _, _ = C.build(source_dir, warn)
+    by_key = {r['Key']: r for r in records}
+    failures = []
+
+    # --- one row per file, keys unique ------------------------------------
+    expected = {}
+    for path in sorted(glob.glob(os.path.join(source_dir, 'Careers', '*.xml'))):
+        root = ET.parse(path).getroot()
+        expected[(root.findtext('Key') or '').strip()] = root
+    missing = set(expected) - set(by_key)
+    extra = set(by_key) - set(expected)
+    if missing or extra:
+        failures.append('row set: missing %s, unexpected %s'
+                        % (sorted(missing)[:5], sorted(extra)[:5]))
+    print('  %d rows, one per source file: %s'
+          % (len(records), len(records) == len(expected) and not missing and not extra))
+
+    # --- both key lists carried in full -----------------------------------
+    # Resolving a key to a display name must never lose one, so the counts have
+    # to match file by file. This is the check that would catch a <Key/> element
+    # being skipped the way Cerean.xml's empty one is on the species side.
+    lost = []
+    for key, root in expected.items():
+        rec = by_key.get(key)
+        if rec is None:
+            continue
+        for tag, path, field in (('career skill', 'CareerSkills/Key', 'Skills'),
+                                 ('specialization', 'Specializations/Key',
+                                  'Specializations')):
+            want = len([k for k in root.findall(path) if (k.text or '').strip()])
+            if want != len(rec[field]):
+                lost.append('%s: %d %ss in, %d out' % (key, want, tag, len(rec[field])))
+    if lost:
+        failures.append('key lists not carried in full (%d)' % len(lost))
+    print('  every career skill and specialization carried: %s' % (not lost))
+    for l in lost[:8]:
+        print('      %s' % l)
+
+    # --- the all-zero attribute block did not leak ------------------------
+    # Seven Force careers carry <WoundThreshold>0</WoundThreshold> and friends,
+    # plus an empty <Requirement>. Only a real ForceRating may survive.
+    leaked = []
+    for key, root in expected.items():
+        rec = by_key.get(key)
+        if rec is None:
+            continue
+        source_force = (root.findtext('Attributes/ForceRating') or '').strip()
+        want = source_force if source_force and source_force != '0' else None
+        if rec['ForceRating'] != want:
+            leaked.append('%s: ForceRating %r, source has %r'
+                          % (key, rec['ForceRating'], source_force))
+        # The Force category is what the sidenav filters on, so it must say
+        # exactly what the rating says -- a career tagged Force with no rating,
+        # or the other way round, would filter to the wrong set.
+        tagged = 'Force' in rec['Categories']
+        if tagged != bool(want):
+            leaked.append('%s: Force category %s, ForceRating %r'
+                          % (key, tagged, rec['ForceRating']))
+    if leaked:
+        failures.append('ForceRating mismatches (%d)' % len(leaked))
+    print('  only a non-zero ForceRating survives <Attributes>,'
+          ' and the Force category agrees with it: %s' % (not leaked))
+    for l in leaked[:8]:
+        print('      %s' % l)
+
+    # --- key resolution ----------------------------------------------------
+    print('  all skill/specialization keys resolve: %s' % (not warn))
+    for w in warn[:8]:
+        print('      %s' % w)
+    if warn:
+        failures.append('unresolved keys (%d)' % len(warn))
+
+    if failures:
+        print()
+        print('  FAILURES:')
+        for f in failures:
+            print('    %s' % f)
+    return not failures
+
+
+def check_talents():
+    print()
+    print('=' * 72)
+    print('Check 5: OggDude -> app schema talent translation holds')
+    print('=' * 72)
+    source_dir = os.path.join(ROOT, 'oggdudes-data')
+    talents_xml = os.path.join(source_dir, 'Talents.xml')
+    if not os.path.isfile(talents_xml):
+        print('  oggdudes-data/Talents.xml not present -- skipped')
+        return True
+
+    warn = []
+    records = T.build(source_dir, warn)
+    by_key = {r['Key']: r for r in records}
+    failures = []
+
+    root = ET.parse(talents_xml).getroot()
+    listings = root.findall('Talent')
+
+    # --- every talent reaches a row, duplicates merged rather than dropped --
+    expected = OrderedDict()
+    for el in listings:
+        expected.setdefault((el.findtext('Key') or '').strip(), []).append(el)
+    missing = set(expected) - set(by_key)
+    extra = set(by_key) - set(expected)
+    duplicated = [k for k, els in expected.items() if len(els) > 1]
+    if missing or extra:
+        failures.append('row set: missing %s, unexpected %s'
+                        % (sorted(missing)[:5], sorted(extra)[:5]))
+    print('  %d listings -> %d rows, %d keys listed twice: %s'
+          % (len(listings), len(records), len(duplicated),
+             not missing and not extra))
+
+    # --- a merged row kept both listings' citations -------------------------
+    def cited(el):
+        out = []
+        single = el.find('Source')
+        if single is not None and (single.text or '').strip():
+            out.append(((single.text or '').strip(), single.attrib.get('Page')))
+        for s in el.findall('Sources/Source'):
+            if (s.text or '').strip():
+                out.append(((s.text or '').strip(), s.attrib.get('Page')))
+        return out
+
+    dropped = []
+    for key, els in expected.items():
+        rec = by_key.get(key)
+        if rec is None:
+            continue
+        for src in [s for el in els for s in cited(el)]:
+            if src not in rec['Sources']:
+                dropped.append('%s: lost citation %s' % (key, src))
+    if dropped:
+        failures.append('citations lost (%d)' % len(dropped))
+    print('  no citation lost, including across the merged keys: %s' % (not dropped))
+    for d in dropped[:8]:
+        print('      %s' % d)
+
+    # --- activations resolved to display text ------------------------------
+    bad = sorted({r['Type'] for r in records
+                  if r['Type'] not in T.ACTIVATIONS.values()})
+    if bad:
+        failures.append('unmapped activations: %s' % bad)
+    print('  every activation resolved to display text: %s' % (not bad))
+
+    # --- categories are exactly the flags the source carries ---------------
+    wrong = []
+    for key, els in expected.items():
+        rec = by_key.get(key)
+        if rec is None:
+            continue
+        want = []
+        first = els[0]
+        for tag, label in T.CATEGORY_FLAGS:
+            if (first.findtext(tag) or '').strip().lower() == 'true':
+                want.append(label)
+        if (first.findtext('Conflict') or '').strip():
+            want.append('Conflict')
+        if want != rec['Categories']:
+            wrong.append('%s: categories %s, flags say %s'
+                         % (key, rec['Categories'], want))
+    if wrong:
+        failures.append('category mismatches (%d)' % len(wrong))
+    print('  Ranked/Force/Conflict categories match the flags: %s' % (not wrong))
+    for w in wrong[:8]:
+        print('      %s' % w)
+
+    # --- key resolution -----------------------------------------------------
+    print('  no warnings from the transform: %s' % (not warn))
+    for w in warn[:8]:
+        print('      %s' % w)
+    if warn:
+        failures.append('transform warnings (%d)' % len(warn))
+
+    if failures:
+        print()
+        print('  FAILURES:')
+        for f in failures:
+            print('    %s' % f)
+    return not failures
+
+
+if __name__ == '__main__':
+    checks = [check_converter(), check_mapping(), check_vehicles(),
+              check_careers(), check_talents()]
+    print()
+    print('RESULT:', 'PASS' if all(checks) else 'FAIL')
+    sys.exit(0 if all(checks) else 1)

@@ -1,0 +1,978 @@
+{
+    "Career": [
+        {
+            "Key": "THEACE",
+            "Name": "Ace",
+            "Source": {
+                "Book": "Age of Rebellion Core Rulebook",
+                "Page": 64
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Astrogation"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Gunnery"
+                    },
+                    {
+                        "Name": "Mechanics"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Piloting - Planetary"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    },
+                    {
+                        "Name": "Ranged - Light"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Driver",
+                    "Gunner",
+                    "Pilot",
+                    "Beast Rider",
+                    "Hotshot",
+                    "Rigger"
+                ]
+            },
+            "Description": "[H4]Ace [h4]\nPlease see page 64 of the Age of Rebellion Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "COMMANDER",
+            "Name": "Commander",
+            "Source": {
+                "Book": "Age of Rebellion Core Rulebook",
+                "Page": 70
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Coercion"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Warfare"
+                    },
+                    {
+                        "Name": "Leadership"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Ranged - Light"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Commodore",
+                    "Squadron Leader",
+                    "Tactician",
+                    "Figurehead",
+                    "Instructor",
+                    "Strategist"
+                ]
+            },
+            "Description": "[H4]Commander [h4]\nPlease see page 70 of the Age of Rebellion Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "DIPLOMAT",
+            "Name": "Diplomat",
+            "Source": {
+                "Book": "Age of Rebellion Core Rulebook",
+                "Page": 76
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Charm"
+                    },
+                    {
+                        "Name": "Deception"
+                    },
+                    {
+                        "Name": "Core Worlds"
+                    },
+                    {
+                        "Name": "Lore"
+                    },
+                    {
+                        "Name": "Leadership"
+                    },
+                    {
+                        "Name": "Negotiation"
+                    },
+                    {
+                        "Name": "Outer Rim"
+                    },
+                    {
+                        "Name": "Xenology"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Ambassador",
+                    "Agitator",
+                    "Quartermaster",
+                    "Advocate",
+                    "Analyst",
+                    "Propagandist"
+                ]
+            },
+            "Description": "[H4]Diplomat[h4]\nPlease see page 76 of the Age of Rebellion Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "ENGINEER",
+            "Name": "Engineer",
+            "Source": {
+                "Book": "Age of Rebellion Core Rulebook",
+                "Page": 82
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Computers"
+                    },
+                    {
+                        "Name": "Education"
+                    },
+                    {
+                        "Name": "Ranged - Light"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    },
+                    {
+                        "Name": "Mechanics"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Mechanic",
+                    "Saboteur",
+                    "Scientist",
+                    "Droid Specialist",
+                    "Shipwright",
+                    "Sapper"
+                ]
+            },
+            "Description": "[H4]Engineer[h4]\nPlease see page 82 of the Age of Rebellion Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SOLDIER",
+            "Name": "Soldier",
+            "Source": {
+                "Book": "Age of Rebellion Core Rulebook",
+                "Page": 88
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Brawl"
+                    },
+                    {
+                        "Name": "Warfare"
+                    },
+                    {
+                        "Name": "Melee"
+                    },
+                    {
+                        "Name": "Medicine"
+                    },
+                    {
+                        "Name": "Ranged - Light"
+                    },
+                    {
+                        "Name": "Survival"
+                    },
+                    {
+                        "Name": "Ranged - Heavy"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Commando",
+                    "Medic",
+                    "Sharpshooter",
+                    "Heavy",
+                    "Trailblazer",
+                    "Vanguard"
+                ]
+            },
+            "Description": "[H4]Soldier[h4]\nPlease see page 88 of the Age of Rebellion Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SPY",
+            "Name": "Spy",
+            "Source": {
+                "Book": "Age of Rebellion Core Rulebook",
+                "Page": 94
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Computers"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Coordination"
+                    },
+                    {
+                        "Name": "Deception"
+                    },
+                    {
+                        "Name": "Warfare"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Skulduggery"
+                    },
+                    {
+                        "Name": "Stealth"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Scout",
+                    "Infiltrator",
+                    "Slicer",
+                    "Courier",
+                    "Interrogator",
+                    "Sleeper Agent"
+                ]
+            },
+            "Description": "[H4]Spy[h4]\nPlease see page 94 of the Age of Rebellion Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BOUNT",
+            "Name": "Bounty Hunter",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 56
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Brawl"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Piloting - Planetary"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    },
+                    {
+                        "Name": "Ranged - Heavy"
+                    },
+                    {
+                        "Name": "Streetwise"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Assassin",
+                    "Gadgeteer",
+                    "Survivalist",
+                    "Martial Artist",
+                    "Operator",
+                    "Skip Tracer"
+                ]
+            },
+            "Description": "[H4]Bounty Hunter[h4]\nPlease see page 56 of the Edge of the Empire Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "COLO",
+            "Name": "Colonist",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 62
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Charm"
+                    },
+                    {
+                        "Name": "Deception"
+                    },
+                    {
+                        "Name": "Core Worlds"
+                    },
+                    {
+                        "Name": "Education"
+                    },
+                    {
+                        "Name": "Lore"
+                    },
+                    {
+                        "Name": "Leadership"
+                    },
+                    {
+                        "Name": "Negotiation"
+                    },
+                    {
+                        "Name": "Streetwise"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Doctor",
+                    "Politico",
+                    "Scholar",
+                    "Entrepreneur",
+                    "Marshal",
+                    "Performer"
+                ]
+            },
+            "Description": "[H4]Colonist[h4]\nPlease see page 62 of the Edge of the Empire Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "EXPLORER",
+            "Name": "Explorer",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 67
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Astrogation"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Lore"
+                    },
+                    {
+                        "Name": "Outer Rim"
+                    },
+                    {
+                        "Name": "Xenology"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    },
+                    {
+                        "Name": "Survival"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Fringer",
+                    "Scout",
+                    "Trader",
+                    "Driver",
+                    "Archaeologist",
+                    "Big-Game Hunter"
+                ]
+            },
+            "Description": "[H4]Explorer[h4]\nPlease see page 67 of the Edge of the Empire Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HIREDGUN",
+            "Name": "Hired Gun",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 74
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Brawl"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Melee"
+                    },
+                    {
+                        "Name": "Piloting - Planetary"
+                    },
+                    {
+                        "Name": "Ranged - Light"
+                    },
+                    {
+                        "Name": "Resilience"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Bodyguard",
+                    "Marauder",
+                    "Mercenary Soldier",
+                    "Enforcer",
+                    "Demolitionist",
+                    "Heavy"
+                ]
+            },
+            "Description": "[H4]Hired Gun[h4]\nPlease see page 74 of the Edge of the Empire Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SMUG",
+            "Name": "Smuggler",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 80
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Coordination"
+                    },
+                    {
+                        "Name": "Deception"
+                    },
+                    {
+                        "Name": "Underworld"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    },
+                    {
+                        "Name": "Skulduggery"
+                    },
+                    {
+                        "Name": "Streetwise"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Pilot",
+                    "Scoundrel",
+                    "Thief",
+                    "Charmer",
+                    "Gambler",
+                    "Gunslinger"
+                ]
+            },
+            "Description": "[H4]Smuggler[h4]\nPlease see page 80 of the Edge of the Empire Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "TECHNICIAN",
+            "Name": "Technician",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 86
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Astrogation"
+                    },
+                    {
+                        "Name": "Computers"
+                    },
+                    {
+                        "Name": "Coordination"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Outer Rim"
+                    },
+                    {
+                        "Name": "Mechanics"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Piloting - Planetary"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Mechanic",
+                    "Outlaw Tech",
+                    "Slicer",
+                    "Cyber Tech",
+                    "Droid Tech",
+                    "Modder"
+                ]
+            },
+            "Description": "[H4]Technician[h4]\nPlease see page 86 of the Edge of the Empire Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CONSULAR",
+            "Name": "Consular",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 66
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Education"
+                    },
+                    {
+                        "Name": "Leadership"
+                    },
+                    {
+                        "Name": "Lore"
+                    },
+                    {
+                        "Name": "Negotiation"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Healer",
+                    "Niman Disciple",
+                    "Sage",
+                    "Arbiter",
+                    "Ascetic",
+                    "Teacher"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Consular[h4]\nPlease see page 66 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "GUARD",
+            "Name": "Guardian",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 72
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Brawl"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Melee"
+                    },
+                    {
+                        "Name": "Resilience"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Armorer",
+                    "Peacekeeper",
+                    "Protector",
+                    "Soresu Defender",
+                    "Warden",
+                    "Warleader"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Guardian[h4]\nPlease see page 72 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MYSTIC",
+            "Name": "Mystic",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 78
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Charm"
+                    },
+                    {
+                        "Name": "Coercion"
+                    },
+                    {
+                        "Name": "Lore"
+                    },
+                    {
+                        "Name": "Outer Rim"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Advisor",
+                    "Makashi Duelist",
+                    "Seer",
+                    "Alchemist",
+                    "Magus",
+                    "Prophet"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Mystic[h4]\nPlease see page 78 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SEEKER",
+            "Name": "Seeker",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 84
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Piloting - Planetary"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    },
+                    {
+                        "Name": "Ranged - Heavy"
+                    },
+                    {
+                        "Name": "Survival"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    },
+                    {
+                        "Name": "Xenology"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Ataru Striker",
+                    "Hunter",
+                    "Pathfinder",
+                    "Executioner",
+                    "Hermit",
+                    "Navigator"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Seeker[h4]\nPlease see page 84 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SENTINEL",
+            "Name": "Sentinel",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 90
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Computers"
+                    },
+                    {
+                        "Name": "Core Worlds"
+                    },
+                    {
+                        "Name": "Deception"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Skulduggery"
+                    },
+                    {
+                        "Name": "Stealth"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Artisan",
+                    "Shadow",
+                    "Shien Expert",
+                    "Investigator",
+                    "Racer",
+                    "Sentry"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Sentinel[h4]\nPlease see page 90 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "WAR",
+            "Name": "Warrior",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 96
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Brawl"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Melee"
+                    },
+                    {
+                        "Name": "Perception"
+                    },
+                    {
+                        "Name": "Survival"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Aggressor",
+                    "Shii-Cho Knight",
+                    "Starfighter Ace",
+                    "Colossus",
+                    "Juyo Berserker",
+                    "Steel Hand Adept"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Warrior[h4]\nPlease see page 96 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CLONE",
+            "Name": "Clone Soldier",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 18
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 18
+                    }
+                ]
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Brawl"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Medicine"
+                    },
+                    {
+                        "Name": "Ranged - Heavy"
+                    },
+                    {
+                        "Name": "Ranged - Light"
+                    },
+                    {
+                        "Name": "Vigilance"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "ARC Trooper",
+                    "Clone Commander",
+                    "Clone Officer",
+                    "Clone Pilot",
+                    "Clone Trooper",
+                    "Clone Veteran"
+                ]
+            },
+            "FreeRanks": 4,
+            "Description": "[H4]Clone Soldier[h4]\nPlease see page 18 of the Rise of the Separatists Sourcebook and page 18 of the Collapse of the Republic Sourcebook  for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "JEDI",
+            "Name": "Jedi",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 24
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Athletics"
+                    },
+                    {
+                        "Name": "Cool"
+                    },
+                    {
+                        "Name": "Discipline"
+                    },
+                    {
+                        "Name": "Lightsaber"
+                    },
+                    {
+                        "Name": "Lore"
+                    },
+                    {
+                        "Name": "Piloting - Space"
+                    }
+                ]
+            },
+            "Specializations": {
+                "Specialization": [
+                    "Knight",
+                    "Padawan",
+                    "General",
+                    "Master"
+                ]
+            },
+            "Categories": {
+                "Category": "Force"
+            },
+            "Attributes": {
+                "ForceRating": 1
+            },
+            "FreeRanks": 3,
+            "Description": "[H4]Jedi[h4]\nPlease see page 24 of the Rise of the Separatists Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        }
+    ]
+}

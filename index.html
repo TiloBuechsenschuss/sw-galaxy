@@ -31,7 +31,7 @@
         <md-tab ng-repeat="tab in tabs">
             <md-tab-label>{{tab.label}}</md-tab-label>
             <md-tab-body>
-                <div item-list source-name='{{tab.name}}' source-url='{{tab.url}}' vehicle-class='{{tab.vehicleClass}}' keyDesc='data/json/ItemDescriptors.json' is-active='{{currentTab==$index}}' layout="column" style="height: 100%"></div>
+                <div item-list source-name='{{tab.name}}' source-url='{{tab.url}}' vehicle-class='{{tab.vehicleClass}}' attachment-class='{{tab.attachmentClass}}' keyDesc='data/json/ItemDescriptors.json' is-active='{{currentTab==$index}}' layout="column" style="height: 100%"></div>
             </md-tab-body>
         </md-tab>
     </md-tabs>

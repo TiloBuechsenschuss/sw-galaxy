@@ -1,0 +1,832 @@
+<?xml version="1.0" ?>
+<CareerList>
+  <Career>
+    <Key>THEACE</Key>
+    <Name>Ace</Name>
+    <Source Page="64">Age of Rebellion Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Astrogation</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Gunnery</Name>
+      </Skill>
+      <Skill>
+        <Name>Mechanics</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Planetary</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Light</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Driver</Specialization>
+      <Specialization>Gunner</Specialization>
+      <Specialization>Pilot</Specialization>
+      <Specialization>Beast Rider</Specialization>
+      <Specialization>Hotshot</Specialization>
+      <Specialization>Rigger</Specialization>
+    </Specializations>
+    <Description>[H4]Ace [h4]
+Please see page 64 of the Age of Rebellion Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>BOUNT</Key>
+    <Name>Bounty Hunter</Name>
+    <Source Page="56">Edge of the Empire Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Brawl</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Planetary</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Heavy</Name>
+      </Skill>
+      <Skill>
+        <Name>Streetwise</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Assassin</Specialization>
+      <Specialization>Gadgeteer</Specialization>
+      <Specialization>Survivalist</Specialization>
+      <Specialization>Martial Artist</Specialization>
+      <Specialization>Operator</Specialization>
+      <Specialization>Skip Tracer</Specialization>
+    </Specializations>
+    <Description>[H4]Bounty Hunter[h4]
+Please see page 56 of the Edge of the Empire Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>CLONE</Key>
+    <Name>Clone Soldier</Name>
+    <Sources>
+      <Source Page="18">Rise of the Separatists</Source>
+      <Source Page="18">Collapse of the Republic</Source>
+    </Sources>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Brawl</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Medicine</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Heavy</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Light</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>ARC Trooper</Specialization>
+      <Specialization>Clone Commander</Specialization>
+      <Specialization>Clone Officer</Specialization>
+      <Specialization>Clone Pilot</Specialization>
+      <Specialization>Clone Trooper</Specialization>
+      <Specialization>Clone Veteran</Specialization>
+    </Specializations>
+    <FreeRanks>4</FreeRanks>
+    <Description>[H4]Clone Soldier[h4]
+Please see page 18 of the Rise of the Separatists Sourcebook and page 18 of the Collapse of the Republic Sourcebook  for details.</Description>
+  </Career>
+  <Career>
+    <Key>COLO</Key>
+    <Name>Colonist</Name>
+    <Source Page="62">Edge of the Empire Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Charm</Name>
+      </Skill>
+      <Skill>
+        <Name>Deception</Name>
+      </Skill>
+      <Skill>
+        <Name>Core Worlds</Name>
+      </Skill>
+      <Skill>
+        <Name>Education</Name>
+      </Skill>
+      <Skill>
+        <Name>Lore</Name>
+      </Skill>
+      <Skill>
+        <Name>Leadership</Name>
+      </Skill>
+      <Skill>
+        <Name>Negotiation</Name>
+      </Skill>
+      <Skill>
+        <Name>Streetwise</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Doctor</Specialization>
+      <Specialization>Politico</Specialization>
+      <Specialization>Scholar</Specialization>
+      <Specialization>Entrepreneur</Specialization>
+      <Specialization>Marshal</Specialization>
+      <Specialization>Performer</Specialization>
+    </Specializations>
+    <Description>[H4]Colonist[h4]
+Please see page 62 of the Edge of the Empire Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>COMMANDER</Key>
+    <Name>Commander</Name>
+    <Source Page="70">Age of Rebellion Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Coercion</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Warfare</Name>
+      </Skill>
+      <Skill>
+        <Name>Leadership</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Light</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Commodore</Specialization>
+      <Specialization>Squadron Leader</Specialization>
+      <Specialization>Tactician</Specialization>
+      <Specialization>Figurehead</Specialization>
+      <Specialization>Instructor</Specialization>
+      <Specialization>Strategist</Specialization>
+    </Specializations>
+    <Description>[H4]Commander [h4]
+Please see page 70 of the Age of Rebellion Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>CONSULAR</Key>
+    <Name>Consular</Name>
+    <Source Page="66">Force and Destiny Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Education</Name>
+      </Skill>
+      <Skill>
+        <Name>Leadership</Name>
+      </Skill>
+      <Skill>
+        <Name>Lore</Name>
+      </Skill>
+      <Skill>
+        <Name>Negotiation</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Healer</Specialization>
+      <Specialization>Niman Disciple</Specialization>
+      <Specialization>Sage</Specialization>
+      <Specialization>Arbiter</Specialization>
+      <Specialization>Ascetic</Specialization>
+      <Specialization>Teacher</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Consular[h4]
+Please see page 66 of the Force and Destiny Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>DIPLOMAT</Key>
+    <Name>Diplomat</Name>
+    <Source Page="76">Age of Rebellion Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Charm</Name>
+      </Skill>
+      <Skill>
+        <Name>Deception</Name>
+      </Skill>
+      <Skill>
+        <Name>Core Worlds</Name>
+      </Skill>
+      <Skill>
+        <Name>Lore</Name>
+      </Skill>
+      <Skill>
+        <Name>Leadership</Name>
+      </Skill>
+      <Skill>
+        <Name>Negotiation</Name>
+      </Skill>
+      <Skill>
+        <Name>Outer Rim</Name>
+      </Skill>
+      <Skill>
+        <Name>Xenology</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Ambassador</Specialization>
+      <Specialization>Agitator</Specialization>
+      <Specialization>Quartermaster</Specialization>
+      <Specialization>Advocate</Specialization>
+      <Specialization>Analyst</Specialization>
+      <Specialization>Propagandist</Specialization>
+    </Specializations>
+    <Description>[H4]Diplomat[h4]
+Please see page 76 of the Age of Rebellion Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>ENGINEER</Key>
+    <Name>Engineer</Name>
+    <Source Page="82">Age of Rebellion Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Computers</Name>
+      </Skill>
+      <Skill>
+        <Name>Education</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Light</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+      <Skill>
+        <Name>Mechanics</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Mechanic</Specialization>
+      <Specialization>Saboteur</Specialization>
+      <Specialization>Scientist</Specialization>
+      <Specialization>Droid Specialist</Specialization>
+      <Specialization>Shipwright</Specialization>
+      <Specialization>Sapper</Specialization>
+    </Specializations>
+    <Description>[H4]Engineer[h4]
+Please see page 82 of the Age of Rebellion Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>EXPLORER</Key>
+    <Name>Explorer</Name>
+    <Source Page="67">Edge of the Empire Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Astrogation</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Lore</Name>
+      </Skill>
+      <Skill>
+        <Name>Outer Rim</Name>
+      </Skill>
+      <Skill>
+        <Name>Xenology</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+      <Skill>
+        <Name>Survival</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Fringer</Specialization>
+      <Specialization>Scout</Specialization>
+      <Specialization>Trader</Specialization>
+      <Specialization>Driver</Specialization>
+      <Specialization>Archaeologist</Specialization>
+      <Specialization>Big-Game Hunter</Specialization>
+    </Specializations>
+    <Description>[H4]Explorer[h4]
+Please see page 67 of the Edge of the Empire Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>GUARD</Key>
+    <Name>Guardian</Name>
+    <Source Page="72">Force and Destiny Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Brawl</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Melee</Name>
+      </Skill>
+      <Skill>
+        <Name>Resilience</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Armorer</Specialization>
+      <Specialization>Peacekeeper</Specialization>
+      <Specialization>Protector</Specialization>
+      <Specialization>Soresu Defender</Specialization>
+      <Specialization>Warden</Specialization>
+      <Specialization>Warleader</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Guardian[h4]
+Please see page 72 of the Force and Destiny Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>HIREDGUN</Key>
+    <Name>Hired Gun</Name>
+    <Source Page="74">Edge of the Empire Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Brawl</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Melee</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Planetary</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Light</Name>
+      </Skill>
+      <Skill>
+        <Name>Resilience</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Bodyguard</Specialization>
+      <Specialization>Marauder</Specialization>
+      <Specialization>Mercenary Soldier</Specialization>
+      <Specialization>Enforcer</Specialization>
+      <Specialization>Demolitionist</Specialization>
+      <Specialization>Heavy</Specialization>
+    </Specializations>
+    <Description>[H4]Hired Gun[h4]
+Please see page 74 of the Edge of the Empire Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>JEDI</Key>
+    <Name>Jedi</Name>
+    <Source Page="24">Rise of the Separatists</Source>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Lightsaber</Name>
+      </Skill>
+      <Skill>
+        <Name>Lore</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Knight</Specialization>
+      <Specialization>Padawan</Specialization>
+      <Specialization>General</Specialization>
+      <Specialization>Master</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Jedi[h4]
+Please see page 24 of the Rise of the Separatists Sourcebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>MYSTIC</Key>
+    <Name>Mystic</Name>
+    <Source Page="78">Force and Destiny Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Charm</Name>
+      </Skill>
+      <Skill>
+        <Name>Coercion</Name>
+      </Skill>
+      <Skill>
+        <Name>Lore</Name>
+      </Skill>
+      <Skill>
+        <Name>Outer Rim</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Advisor</Specialization>
+      <Specialization>Makashi Duelist</Specialization>
+      <Specialization>Seer</Specialization>
+      <Specialization>Alchemist</Specialization>
+      <Specialization>Magus</Specialization>
+      <Specialization>Prophet</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Mystic[h4]
+Please see page 78 of the Force and Destiny Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>SEEKER</Key>
+    <Name>Seeker</Name>
+    <Source Page="84">Force and Destiny Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Piloting - Planetary</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Heavy</Name>
+      </Skill>
+      <Skill>
+        <Name>Survival</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+      <Skill>
+        <Name>Xenology</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Ataru Striker</Specialization>
+      <Specialization>Hunter</Specialization>
+      <Specialization>Pathfinder</Specialization>
+      <Specialization>Executioner</Specialization>
+      <Specialization>Hermit</Specialization>
+      <Specialization>Navigator</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Seeker[h4]
+Please see page 84 of the Force and Destiny Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>SENTINEL</Key>
+    <Name>Sentinel</Name>
+    <Source Page="90">Force and Destiny Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Computers</Name>
+      </Skill>
+      <Skill>
+        <Name>Core Worlds</Name>
+      </Skill>
+      <Skill>
+        <Name>Deception</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Skulduggery</Name>
+      </Skill>
+      <Skill>
+        <Name>Stealth</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Artisan</Specialization>
+      <Specialization>Shadow</Specialization>
+      <Specialization>Shien Expert</Specialization>
+      <Specialization>Investigator</Specialization>
+      <Specialization>Racer</Specialization>
+      <Specialization>Sentry</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Sentinel[h4]
+Please see page 90 of the Force and Destiny Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>SMUG</Key>
+    <Name>Smuggler</Name>
+    <Source Page="80">Edge of the Empire Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Coordination</Name>
+      </Skill>
+      <Skill>
+        <Name>Deception</Name>
+      </Skill>
+      <Skill>
+        <Name>Underworld</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Space</Name>
+      </Skill>
+      <Skill>
+        <Name>Skulduggery</Name>
+      </Skill>
+      <Skill>
+        <Name>Streetwise</Name>
+      </Skill>
+      <Skill>
+        <Name>Vigilance</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Pilot</Specialization>
+      <Specialization>Scoundrel</Specialization>
+      <Specialization>Thief</Specialization>
+      <Specialization>Charmer</Specialization>
+      <Specialization>Gambler</Specialization>
+      <Specialization>Gunslinger</Specialization>
+    </Specializations>
+    <Description>[H4]Smuggler[h4]
+Please see page 80 of the Edge of the Empire Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>SOLDIER</Key>
+    <Name>Soldier</Name>
+    <Source Page="88">Age of Rebellion Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Brawl</Name>
+      </Skill>
+      <Skill>
+        <Name>Warfare</Name>
+      </Skill>
+      <Skill>
+        <Name>Melee</Name>
+      </Skill>
+      <Skill>
+        <Name>Medicine</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Light</Name>
+      </Skill>
+      <Skill>
+        <Name>Survival</Name>
+      </Skill>
+      <Skill>
+        <Name>Ranged - Heavy</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Commando</Specialization>
+      <Specialization>Medic</Specialization>
+      <Specialization>Sharpshooter</Specialization>
+      <Specialization>Heavy</Specialization>
+      <Specialization>Trailblazer</Specialization>
+      <Specialization>Vanguard</Specialization>
+    </Specializations>
+    <Description>[H4]Soldier[h4]
+Please see page 88 of the Age of Rebellion Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>SPY</Key>
+    <Name>Spy</Name>
+    <Source Page="94">Age of Rebellion Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Computers</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Coordination</Name>
+      </Skill>
+      <Skill>
+        <Name>Deception</Name>
+      </Skill>
+      <Skill>
+        <Name>Warfare</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Skulduggery</Name>
+      </Skill>
+      <Skill>
+        <Name>Stealth</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Scout</Specialization>
+      <Specialization>Infiltrator</Specialization>
+      <Specialization>Slicer</Specialization>
+      <Specialization>Courier</Specialization>
+      <Specialization>Interrogator</Specialization>
+      <Specialization>Sleeper Agent</Specialization>
+    </Specializations>
+    <Description>[H4]Spy[h4]
+Please see page 94 of the Age of Rebellion Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>TECHNICIAN</Key>
+    <Name>Technician</Name>
+    <Source Page="86">Edge of the Empire Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Astrogation</Name>
+      </Skill>
+      <Skill>
+        <Name>Computers</Name>
+      </Skill>
+      <Skill>
+        <Name>Coordination</Name>
+      </Skill>
+      <Skill>
+        <Name>Discipline</Name>
+      </Skill>
+      <Skill>
+        <Name>Outer Rim</Name>
+      </Skill>
+      <Skill>
+        <Name>Mechanics</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Piloting - Planetary</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Mechanic</Specialization>
+      <Specialization>Outlaw Tech</Specialization>
+      <Specialization>Slicer</Specialization>
+      <Specialization>Cyber Tech</Specialization>
+      <Specialization>Droid Tech</Specialization>
+      <Specialization>Modder</Specialization>
+    </Specializations>
+    <Description>[H4]Technician[h4]
+Please see page 86 of the Edge of the Empire Core Rulebook for details.</Description>
+  </Career>
+  <Career>
+    <Key>WAR</Key>
+    <Name>Warrior</Name>
+    <Source Page="96">Force and Destiny Core Rulebook</Source>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+      </Skill>
+      <Skill>
+        <Name>Brawl</Name>
+      </Skill>
+      <Skill>
+        <Name>Cool</Name>
+      </Skill>
+      <Skill>
+        <Name>Melee</Name>
+      </Skill>
+      <Skill>
+        <Name>Perception</Name>
+      </Skill>
+      <Skill>
+        <Name>Survival</Name>
+      </Skill>
+    </Skills>
+    <Specializations>
+      <Specialization>Aggressor</Specialization>
+      <Specialization>Shii-Cho Knight</Specialization>
+      <Specialization>Starfighter Ace</Specialization>
+      <Specialization>Colossus</Specialization>
+      <Specialization>Juyo Berserker</Specialization>
+      <Specialization>Steel Hand Adept</Specialization>
+    </Specializations>
+    <Categories>
+      <Category>Force</Category>
+    </Categories>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+    <FreeRanks>3</FreeRanks>
+    <Description>[H4]Warrior[h4]
+Please see page 96 of the Force and Destiny Core Rulebook for details.</Description>
+  </Career>
+</CareerList>

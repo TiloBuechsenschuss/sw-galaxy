@@ -29,18 +29,23 @@ App.constant('defaultDisabledSources', []);
  * the tabs means moving lines here, and a new tab is one more line. Nothing
  * refers to a tab by position.
  *
- * Two entries may share a file and a type key: Vehicles.json feeds both the
- * Vehicles and the Starships tab, split by the optional vehicleClass, which the
- * vehicleClassFilter reads. Leave it off and the tab shows the whole file.
+ * Two entries may share a file and a type key. Vehicles.json feeds both the
+ * Vehicles and the Starships tab, split by the optional vehicleClass, and
+ * ItemAttachments.json feeds both Attachments and Vehicle Attachments, split by
+ * the optional attachmentClass. vehicleClassFilter and attachmentClassFilter
+ * read them; leave one off and the tab shows the whole file.
  */
 App.constant('tabs', [
     {label: 'Weapons', name: 'Weapon', url: 'data/json/Weapons.json'},
     {label: 'Armors', name: 'Armor', url: 'data/json/Armor.json'},
     {label: 'Gear', name: 'Gear', url: 'data/json/Gear.json'},
-    {label: 'Attachments', name: 'ItemAttachments', url: 'data/json/ItemAttachments.json'},
+    {label: 'Attachments', name: 'ItemAttachments', url: 'data/json/ItemAttachments.json', attachmentClass: 'item'},
     {label: 'Vehicles', name: 'Vehicle', url: 'data/json/Vehicles.json', vehicleClass: 'land'},
     {label: 'Starships', name: 'Vehicle', url: 'data/json/Vehicles.json', vehicleClass: 'space'},
+    {label: 'Vehicle Attachments', name: 'ItemAttachments', url: 'data/json/ItemAttachments.json', attachmentClass: 'vehicle'},
     {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
+    {label: 'Careers', name: 'Career', url: 'data/json/Careers.json'},
+    {label: 'Talents', name: 'Talent', url: 'data/json/Talents.json'},
 ]);
 
 /**
@@ -1491,6 +1496,51 @@ App.filter('vehicleClassFilter', function () {
     };
 });
 
+/**
+ * Keeps the attachments of one class, so ItemAttachments.json can feed more than
+ * one tab -- the same split the vehicles get, and for the same reason: 125 of the
+ * 357 attachments bolt onto a vehicle and share nothing with the 232 that bolt
+ * onto a weapon, a suit of armor or a piece of gear. An empty class keeps every
+ * row, which is what the tabs that are not attachments pass.
+ *
+ * The rule is the attachment's own Type, which every row but one carries, and it
+ * needs no category lists: 'Vehicle' is a vehicle attachment and everything else
+ * is not. The four 'Mount' rows -- saddlebags, riding tack -- stay with the item
+ * attachments on purpose, since a riding animal is a creature and no mount
+ * appears in Vehicles.json.
+ *
+ * A Type this does not know lands in the item tab and logs, in the house style,
+ * so new data surfaces instead of quietly picking a side. The one row with no
+ * Type at all is the Christophsis Crystal, a lightsaber crystal, and it is silent
+ * because it is an item attachment by the only field it has -- its Lightsaber
+ * category limit.
+ *
+ * The two halves must stay a partition: item + vehicle == 357 today, with
+ * nothing in both and nothing in neither.
+ */
+App.filter('attachmentClassFilter', function () {
+    var itemTypes = ['Weapon', 'Armor', 'Gear', 'Mount'];
+
+    function classOf(item) {
+        if (item.Type == 'Vehicle') {
+            return 'vehicle';
+        }
+        if (typeof item.Type == 'string' && itemTypes.indexOf(item.Type) == -1) {
+            console.log('Please add an attachment class mapping for: ' + item.Type);
+        }
+        return 'item';
+    }
+
+    return function (items, attachmentClass) {
+        if (!attachmentClass) {
+            return items;
+        }
+        return items.filter(function (item) {
+            return classOf(item) == attachmentClass;
+        });
+    };
+});
+
 App.directive('errSrc', function () {
     return {
         link: function (scope, element, attrs) {
@@ -1512,12 +1562,16 @@ App.directive('itemList', function () {
                 name: '@sourceName',
                 keyDesc: '@keyDesc',
                 vehicleClass: '@',
+                attachmentClass: '@',
             },
             link: function (scope, elem, attrs) {
-                // Two tabs share the Vehicle type key, so the class has to be part
-                // of the id -- $mdSidenav looks components up by it.
+                // Two tabs share the Vehicle type key and two more share
+                // ItemAttachments, so the class has to be part of the id --
+                // $mdSidenav looks components up by it, and two sideNav-Vehicles
+                // would toggle each other's panel.
                 scope.sideNavComponentId = 'sideNav-' + scope.name +
-                    (scope.vehicleClass ? '-' + scope.vehicleClass : '');
+                    (scope.vehicleClass ? '-' + scope.vehicleClass : '') +
+                    (scope.attachmentClass ? '-' + scope.attachmentClass : '');
             },
             controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources, sourceLineSelection) {
                 $scope.items = [];
@@ -1526,6 +1580,7 @@ App.directive('itemList', function () {
                 $scope.categories = [];
                 $scope.sensorRanges = [];
                 $scope.skills = [];
+                $scope.careerSkills = [];
                 $scope.sources = [];
                 $scope.ranges = [];
                 $scope.qualities = [];
@@ -1594,6 +1649,7 @@ App.directive('itemList', function () {
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.range, 'RangeValue');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.sensorRange, 'SensorRange');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.category, 'Categories', 'Key');
+                            filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.careerSkill, 'Skills', 'Name');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.baseMod, 'BaseMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.addedMod, 'AddedMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.quality, 'Qualities', 'Key');
@@ -1676,11 +1732,12 @@ App.directive('itemList', function () {
                 $scope.fetchSource = function () {
                     $scope.loading = true;
                     $http.get($scope.sourceUrl).then(function (res) {
-                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, categories, vehicleWeapons, builtInAttachments, outputItems = [];
+                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, categories, vehicleWeapons, builtInAttachments, specializations, outputItems = [];
                         items = res.data[$scope.name];
                         // Before anything reads the rows, so the sliders' ranges and
                         // the filter dropdowns describe this tab's half of the file.
                         items = $filter('vehicleClassFilter')(items, $scope.vehicleClass);
+                        items = $filter('attachmentClassFilter')(items, $scope.attachmentClass);
                         l = items.length;
                         $scope.min.Damage = $scope.getMinValue(items, 'Damage');
                         $scope.max.Damage = $scope.getMaxValue(items, 'Damage');
@@ -1723,6 +1780,7 @@ App.directive('itemList', function () {
                             categories = [];
                             vehicleWeapons = [];
                             builtInAttachments = [];
+                            specializations = [];
                             itemLimits = [];
                             skillLimits = [];
                             typeLimits = [];
@@ -2076,19 +2134,31 @@ App.directive('itemList', function () {
                             // Weapons, Armor and Gear carry <Categories> too, but some of
                             // their rows use the whitespace-quirk array shape this block
                             // does not read, which would give those tabs a half-populated
-                            // Category filter. Vehicles only, until that shape is handled.
-                            if ($scope.name == 'Vehicle' && typeof items[i].Categories == 'object') {
-                                if (typeof items[i].Categories.Category == 'string') {
-                                    categories.push({'Key': items[i].Categories.Category});
-                                }
-                                if (typeof items[i].Categories.Category == 'object') {
-                                    if (typeof items[i].Categories.Category.length == 'number') {
-                                        l2 = items[i].Categories.Category.length;
-                                        for (i2 = 0; i2 < l2; i2++) {
-                                            categories.push({'Key': items[i].Categories.Category[i2]});
+                            // Category filter. Vehicles, talents and careers only, until
+                            // that shape is handled -- all three of those files are written
+                            // by an importer that emits nothing but plain <Category>
+                            // strings. On careers the one value is 'Force'.
+                            if ($scope.name == 'Vehicle' || $scope.name == 'Talent' ||
+                                $scope.name == 'Career') {
+                                if (typeof items[i].Categories == 'object') {
+                                    if (typeof items[i].Categories.Category == 'string') {
+                                        categories.push({'Key': items[i].Categories.Category});
+                                    }
+                                    if (typeof items[i].Categories.Category == 'object') {
+                                        if (typeof items[i].Categories.Category.length == 'number') {
+                                            l2 = items[i].Categories.Category.length;
+                                            for (i2 = 0; i2 < l2; i2++) {
+                                                categories.push({'Key': items[i].Categories.Category[i2]});
+                                            }
                                         }
                                     }
                                 }
+                                // Assigned even when the row carries no <Categories> at
+                                // all, so this is an array on every row of the tab the
+                                // way Qualities and Sources are: arrayFulltextFilter
+                                // reads .length on each one, and picking a category used
+                                // to throw on the 16 vehicles -- and would have thrown on
+                                // the 323 talents -- that have none.
                                 items[i].Categories = categories;
                                 $scope.collectValues(items[i].Categories, 'Key', $scope.categories);
                             }
@@ -2128,6 +2198,31 @@ App.directive('itemList', function () {
                                 }
                             }
                             items[i].BuiltInAttachments = builtInAttachments;
+                            // A career's specialisations: the names only, since the
+                            // specialisation itself is a talent tree this app has no
+                            // renderer for. One comes through as a string, several as an
+                            // array -- the BuiltInAttachments shape exactly.
+                            if (typeof items[i].Specializations == 'object') {
+                                if (typeof items[i].Specializations.Specialization == 'string') {
+                                    specializations.push(items[i].Specializations.Specialization);
+                                }
+                                if (typeof items[i].Specializations.Specialization == 'object') {
+                                    if (typeof items[i].Specializations.Specialization.length == 'number') {
+                                        l2 = items[i].Specializations.Specialization.length;
+                                        for (i2 = 0; i2 < l2; i2++) {
+                                            specializations.push(items[i].Specializations.Specialization[i2]);
+                                        }
+                                    }
+                                }
+                            }
+                            items[i].Specializations = specializations;
+                            // Species carry a Skills array too, but theirs are starting
+                            // ranks rather than the six or eight skills a career makes
+                            // cheap, and the dropdown is labelled for careers -- so the
+                            // values are collected on that tab only.
+                            if ($scope.name == 'Career') {
+                                $scope.collectValues(items[i].Skills, 'Name', $scope.careerSkills);
+                            }
                             $scope.collectValues(items[i].Qualities, 'Key', $scope.qualities);
                             $scope.collectValues(items[i].BaseMods, 'Key', $scope.baseMods);
                             $scope.collectValues(items[i].AddedMods, 'Key', $scope.addedMods);
