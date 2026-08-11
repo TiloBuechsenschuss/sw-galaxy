@@ -10,6 +10,11 @@ from their smartphones even when they are currently in a pen and paper session.
 
 ### Run the project locally
 
+> **These commands are for you, the person reading this — not for an AI coding agent.**
+> Starting a server and checking the page in a browser is the repository owner's job.
+> Agents should verify their work with scripts and the pipeline checks instead; see
+> *Verifying changes* in [AGENTS.md](AGENTS.md).
+
 STAR WARS GALAXY is a static AngularJS app. There is no build step and no dependencies to
 install — everything needed is already in this repository. You only need to serve the
 project folder over HTTP.

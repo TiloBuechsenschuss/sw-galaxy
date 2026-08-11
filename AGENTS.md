@@ -108,7 +108,51 @@ The short version:
 Recognized XML file names are fixed in `$validFileNames` in `convert.php`:
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`.
 Adding a new data type means touching `convert.php`, `index.html`, and usually
-`items.html`.
+`items.html` — see the next section for the full list.
+
+### Adding a new data type (a new tab)
+
+Five touch points, in the order it makes sense to do them. Derived from tracing how
+Species — the most recently added type — is wired end to end.
+
+1. **Importer, only if OggDude's schema differs from the app's.** `Armor`, `Weapons`,
+   `ItemAttachments` and `Gear` are copied straight from `oggdudes-data/` into
+   `xml_to_json/xml_sources/oggdude/`. Species and Vehicles are not: OggDude ships them
+   **one file per row** in its own schema, so they need a script that merges and reshapes
+   into a single app-schema XML — `oggdude_species_to_app.py`, `oggdude_vehicles_to_app.py`.
+   The tell is a folder under `oggdudes-data/` rather than a single `.xml`.
+2. **Converter registration** — one line in `VALID_FILE_NAMES` (`convert.py`) *and*
+   `$validFileNames` (`convert.php`); the two must stay in sync. The key is the singular
+   type name used inside the JSON (`Weapon`, `Vehicle`), the value the plural file name
+   (`Weapons.xml`, `Vehicles.xml`). Sorting, `Key` de-duplication, excluded books,
+   `<Source Page>` expansion, duplicate-sibling collapsing and `Thumbnail` wiring all come
+   free once registered.
+3. **Artwork** — `data/img/<TypeKey><Key>.png`. OggDude's images are named by bare `Key`
+   under `oggdudes-data/<Type>Images/`, so they only need the type prefix added.
+   Coverage is never complete; the rest fall back to `img/no_image.png` automatically.
+4. **`index.html`** — one more `<md-tab>` with `source-name` (the type key) and
+   `source-url` (the JSON). The `is-active='{{currentTab==N}}'` indices are positional,
+   so inserting a tab anywhere but the end means renumbering the ones after it.
+5. **`app/components/items.html` + `app/module/SWApp.js`** — the table is one shared
+   `<table md-table>` whose every `<th>`/`<td>` carries
+   `ng-if="name == 'Weapon' || name == 'Armor' || ..."`. A new type joins the shared
+   columns by adding `|| name == 'X'` to those conditions, and gets its own columns as new
+   `<th>`/`<td>` pairs. In `SWApp.js` each numeric column needs a `min`/`max` pair in
+   `filterItems()` and in the `$scope.min`/`$scope.max` block, and each dropdown filter a
+   `fulltextFilter`/`arrayFulltextFilter` line — all flat, repetitive lists. Match them.
+
+`verify_convert.py` should grow a section for the new type, the way it checks the species
+schema mapping. `wiki_diff.py` takes one line in `TARGETS` if the wiki has a matching
+category.
+
+**`Adversary` is a half-built sixth type.** `items.html` references `name == 'Adversary'`
+29 times — Soak, Wound/Strain Threshold, Experience, all six characteristics and Force
+Rating columns are already wired — but there is no `Adversary.json`, no tab in
+`index.html`, and OggDude ships no adversary export. It is missing its data, not its UI.
+Do not treat those `ng-if`s as dead code to clean up.
+
+`xml_to_json/README.md` carries the inventory of what else in `oggdudes-data/` could
+become a tab, with volumes and the effort each would take.
 
 ### Source selection defaults
 
@@ -192,17 +236,58 @@ map to single characters of the `eote_symbolregularmod` font, wrapped in
 
 ## Verifying changes
 
-There are no automated tests. Verification is manual:
+### Do not start a server and do not drive a browser
 
-1. Serve the repo root over HTTP (see `readme.md` — `file://` will not work, `$http.get`
-   of the JSON is blocked by the browser).
-2. Load the page and check each of the five tabs.
-3. Open the browser console. It should stay quiet — `Please add base mod mapping for: …`
-   and `debugging!` messages indicate unmapped data.
-4. Exercise the sidenav filters, the search box, sorting and "show more"/"show all" on at
-   least the Weapons tab, which has the most fields.
-5. Angular Material is responsive; check a narrow viewport too. The app is explicitly
-   optimized for phones, since players use it at the table.
+**Running the app is the repository owner's job, not an agent's.** Do not start a web
+server (`python -m http.server`, `npx http-server`, `php -S`, `live-server`, …), do not
+open or automate a browser, and do not use browser tooling or extensions to look at the
+page. The commands in `readme.md` are instructions *for the owner*, not a task list to
+execute. When a change needs to be seen running, finish the work, say what should be
+checked, and leave the serving and the clicking to the owner.
+
+Writing scripts and test files is fine — that is the encouraged alternative below. What is
+off-limits is serving the app and interacting with it.
+
+### What an agent can verify
+
+There are no automated tests, but most of what matters can be checked without a browser,
+and a throwaway script beats a guess. Everything below has caught a real bug in this repo:
+
+- **Run the pipeline.** `python xml_to_json/convert.py --check` reports without writing;
+  `python xml_to_json/verify_convert.py` rebuilds every JSON from the committed XML and
+  checks the schema mappings. Both must pass.
+- **Syntax-check the app code.** `node --check app/module/SWApp.js`. Remember it is ES5
+  only, so a passing check is necessary, not sufficient.
+- **Check the table stays aligned.** Every `<th>` and `<td>` in `items.html` carries an
+  `ng-if` naming the types it belongs to. Count them per type with the conditions
+  evaluated: the two numbers must match for *every* type, or that tab's columns shift
+  under their headers. Compare against `git show HEAD:app/components/items.html` to prove
+  the types you did not touch are unchanged. (`Adversary` is 16/15 in the committed file
+  — pre-existing, and dormant since it has no data.)
+- **Check tag balance** of `items.html` and `index.html` with an HTML parser after any
+  large insertion.
+- **Check the wiring.** Every `filters.X` bound with `ng-model` in the template should
+  appear in `filterItems()`; every `min.X`/`max.X` used in an `ng-if` should be assigned
+  in `fetchSource()`; every list an `ng-repeat` walks should be initialised on `$scope`.
+- **Simulate the normalisation in Node** against the real `data/json/*.json` to confirm a
+  new type produces the shapes the template expects — and that the other tabs are
+  untouched.
+- **Predict the console.** The page should stay quiet. Extract the keys the data actually
+  contains and check them against the `text.replace(/^KEY$/g, …)` lists in
+  `descriptorFilter`/`talentFilter`/`qualityFilter`; anything unmapped becomes a
+  `Please add base mod mapping for: …` line at runtime.
+
+### What only the owner can check
+
+Hand these back as a list of things to look at, with the app left unserved:
+
+1. Each tab renders, and its columns sit under the right headers.
+2. The browser console is quiet — `Please add base mod mapping for: …` and `debugging!`
+   indicate unmapped data.
+3. The sidenav filters, search box, sorting and "show more"/"show all" behave, on at least
+   the Weapons tab, which has the most fields.
+4. A narrow viewport. Angular Material is responsive and the app is explicitly optimized
+   for phones, since players use it at the table.
 
 ## Git
 

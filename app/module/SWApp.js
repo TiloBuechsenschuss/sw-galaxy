@@ -1127,9 +1127,17 @@ App.filter('tooltipFilter', function ($filter) {
     }
 });
 
+/**
+ * An empty box means "no bound"; 0 is a bound like any other. `!search` treated
+ * the two the same, so a min or max of 0 silently did nothing -- which matters
+ * most for Handling, the one stat that runs negative (-6 to +3), where 0 sits in
+ * the middle of the range rather than at the bottom of it. An empty number input
+ * gives undefined, a cleared one '', and an unparseable one NaN; all three mean
+ * unfiltered.
+ */
 App.filter('min', function () {
     return function (items, search, attribute) {
-        if (!search) {
+        if (search === undefined || search === null || search === '' || isNaN(search)) {
             return items;
         }
         return items.filter(function (item) {
@@ -1140,7 +1148,7 @@ App.filter('min', function () {
 
 App.filter('max', function () {
     return function (items, search, attribute) {
-        if (!search) {
+        if (search === undefined || search === null || search === '' || isNaN(search)) {
             return items;
         }
         return items.filter(function (item) {
@@ -1177,6 +1185,8 @@ App.directive('itemList', function () {
                 $scope.items = [];
                 $scope.favourites = [];
                 $scope.types = [];
+                $scope.categories = [];
+                $scope.sensorRanges = [];
                 $scope.skills = [];
                 $scope.sources = [];
                 $scope.ranges = [];
@@ -1211,6 +1221,18 @@ App.directive('itemList', function () {
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxHP, 'HP');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minPrice, 'Price');
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxPrice, 'Price');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minSilhouette, 'Silhouette');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxSilhouette, 'Silhouette');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minSpeed, 'Speed');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxSpeed, 'Speed');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minHandling, 'Handling');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxHandling, 'Handling');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minArmor, 'Armor');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxArmor, 'Armor');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minHullTrauma, 'HullTrauma');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxHullTrauma, 'HullTrauma');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minSystemStrain, 'SystemStrain');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxSystemStrain, 'SystemStrain');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minWoundThreshold, 'WoundThreshold');
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxWoundThreshold, 'WoundThreshold');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minStrainThreshold, 'StrainThreshold');
@@ -1232,6 +1254,8 @@ App.directive('itemList', function () {
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.type, 'Type');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.skill, 'SkillKey');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.range, 'RangeValue');
+                            filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.sensorRange, 'SensorRange');
+                            filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.category, 'Categories', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.baseMod, 'BaseMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.addedMod, 'AddedMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.quality, 'Qualities', 'Key');
@@ -1247,6 +1271,29 @@ App.directive('itemList', function () {
                             }
                         }
                     });
+                };
+                $scope.hasFilters = function () {
+                    // True when anything is narrowing the list. `source` is skipped:
+                    // it always holds the default selection, so counting it would
+                    // pin "Clear filters" open permanently.
+                    //
+                    // Tested per value rather than for truthiness, because a min or
+                    // max of 0 is a real bound -- see the min/max filters.
+                    var key, value;
+                    for (key in $scope.filters) {
+                        if (!$scope.filters.hasOwnProperty(key) || key == 'source') {
+                            continue;
+                        }
+                        value = $scope.filters[key];
+                        if (value === undefined || value === null || value === '') {
+                            continue;
+                        }
+                        if (typeof value.length == 'number' && value.length == 0) {
+                            continue;
+                        }
+                        return true;
+                    }
+                    return false;
                 };
                 $scope.getDefaultSources = function () {
                     var i, l = $scope.sources.length, defaultSources = [];
@@ -1288,7 +1335,7 @@ App.directive('itemList', function () {
                 $scope.fetchSource = function () {
                     $scope.loading = true;
                     $http.get($scope.sourceUrl).then(function (res) {
-                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, outputItems = [];
+                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, categories, vehicleWeapons, builtInAttachments, outputItems = [];
                         items = res.data[$scope.name];
                         l = items.length;
                         $scope.min.Damage = $scope.getMinValue(items, 'Damage');
@@ -1305,6 +1352,18 @@ App.directive('itemList', function () {
                         $scope.max.HP = $scope.getMaxValue(items, 'HP');
                         $scope.min.Price = $scope.getMinValue(items, 'Price');
                         $scope.max.Price = $scope.getMaxValue(items, 'Price');
+                        $scope.min.Silhouette = $scope.getMinValue(items, 'Silhouette');
+                        $scope.max.Silhouette = $scope.getMaxValue(items, 'Silhouette');
+                        $scope.min.Speed = $scope.getMinValue(items, 'Speed');
+                        $scope.max.Speed = $scope.getMaxValue(items, 'Speed');
+                        $scope.min.Handling = $scope.getMinValue(items, 'Handling');
+                        $scope.max.Handling = $scope.getMaxValue(items, 'Handling');
+                        $scope.min.Armor = $scope.getMinValue(items, 'Armor');
+                        $scope.max.Armor = $scope.getMaxValue(items, 'Armor');
+                        $scope.min.HullTrauma = $scope.getMinValue(items, 'HullTrauma');
+                        $scope.max.HullTrauma = $scope.getMaxValue(items, 'HullTrauma');
+                        $scope.min.SystemStrain = $scope.getMinValue(items, 'SystemStrain');
+                        $scope.max.SystemStrain = $scope.getMaxValue(items, 'SystemStrain');
                         for (i = 0; i < l; i++) {
                             //if (items[i].Type == 'Vehicle') {
                             //    continue;
@@ -1317,6 +1376,9 @@ App.directive('itemList', function () {
                             baseMods = [];
                             addedMods = [];
                             categoryLimits = [];
+                            categories = [];
+                            vehicleWeapons = [];
+                            builtInAttachments = [];
                             itemLimits = [];
                             skillLimits = [];
                             typeLimits = [];
@@ -1667,6 +1729,61 @@ App.directive('itemList', function () {
                                 }
                             }
                             items[i].SkillLimit = skillLimits;
+                            // Weapons, Armor and Gear carry <Categories> too, but some of
+                            // their rows use the whitespace-quirk array shape this block
+                            // does not read, which would give those tabs a half-populated
+                            // Category filter. Vehicles only, until that shape is handled.
+                            if ($scope.name == 'Vehicle' && typeof items[i].Categories == 'object') {
+                                if (typeof items[i].Categories.Category == 'string') {
+                                    categories.push({'Key': items[i].Categories.Category});
+                                }
+                                if (typeof items[i].Categories.Category == 'object') {
+                                    if (typeof items[i].Categories.Category.length == 'number') {
+                                        l2 = items[i].Categories.Category.length;
+                                        for (i2 = 0; i2 < l2; i2++) {
+                                            categories.push({'Key': items[i].Categories.Category[i2]});
+                                        }
+                                    }
+                                }
+                                items[i].Categories = categories;
+                                $scope.collectValues(items[i].Categories, 'Key', $scope.categories);
+                            }
+                            // One vehicle weapon comes through as an object, several as an
+                            // array -- the same SimpleXML shape the Qualities block above
+                            // has to cope with.
+                            if (typeof items[i].VehicleWeapons == 'object') {
+                                if (typeof items[i].VehicleWeapons.VehicleWeapon == 'object') {
+                                    if (typeof items[i].VehicleWeapons.VehicleWeapon.Name == 'string') {
+                                        vehicleWeapons.push(items[i].VehicleWeapons.VehicleWeapon);
+                                    } else {
+                                        if (typeof items[i].VehicleWeapons.VehicleWeapon.length == 'number') {
+                                            l2 = items[i].VehicleWeapons.VehicleWeapon.length;
+                                            for (i2 = 0; i2 < l2; i2++) {
+                                                vehicleWeapons.push(items[i].VehicleWeapons.VehicleWeapon[i2]);
+                                            }
+                                        }
+                                    }
+                                }
+                                l2 = vehicleWeapons.length;
+                                for (i2 = 0; i2 < l2; i2++) {
+                                    vehicleWeapons[i2].Qualities = $scope.readQualities(vehicleWeapons[i2], $filter);
+                                }
+                            }
+                            items[i].VehicleWeapons = vehicleWeapons;
+                            if (typeof items[i].BuiltInAttachments == 'object') {
+                                if (typeof items[i].BuiltInAttachments.Attachment == 'string') {
+                                    builtInAttachments.push(items[i].BuiltInAttachments.Attachment);
+                                }
+                                if (typeof items[i].BuiltInAttachments.Attachment == 'object') {
+                                    if (typeof items[i].BuiltInAttachments.Attachment.length == 'number') {
+                                        l2 = items[i].BuiltInAttachments.Attachment.length;
+                                        for (i2 = 0; i2 < l2; i2++) {
+                                            builtInAttachments.push(items[i].BuiltInAttachments.Attachment[i2]);
+                                        }
+                                    }
+                                }
+                            }
+                            items[i].BuiltInAttachments = builtInAttachments;
                             $scope.collectValues(items[i].Qualities, 'Key', $scope.qualities);
                             $scope.collectValues(items[i].BaseMods, 'Key', $scope.baseMods);
                             $scope.collectValues(items[i].AddedMods, 'Key', $scope.addedMods);
@@ -1680,6 +1797,7 @@ App.directive('itemList', function () {
                         $scope.collectValues(outputItems, 'SkillKey', $scope.skills);
                         $scope.collectValues(outputItems, 'Type', $scope.types);
                         $scope.collectValues(outputItems, 'RangeValue', $scope.ranges);
+                        $scope.collectValues(outputItems, 'SensorRange', $scope.sensorRanges);
                         $scope.min.WoundThreshold = $scope.getMinValue(items, 'WoundThreshold');
                         $scope.max.WoundThreshold = $scope.getMaxValue(items, 'WoundThreshold');
                         $scope.min.StrainThreshold = $scope.getMinValue(items, 'StrainThreshold');
@@ -1704,6 +1822,36 @@ App.directive('itemList', function () {
                         $scope.loading = false;
                     });
                    
+                };
+                $scope.readQualities = function (owner, $filter) {
+                    // A vehicle weapon carries the same <Qualities><Quality> block a
+                    // weapon does, so it needs the same unwrapping: one quality is an
+                    // object, several are an array, and the key has to be turned into
+                    // a display name with a tooltip.
+                    var quality, i, l, out = [];
+                    if (typeof owner.Qualities != 'object') {
+                        return out;
+                    }
+                    if (typeof owner.Qualities.Quality != 'object') {
+                        return out;
+                    }
+                    if (typeof owner.Qualities.Quality.Key == 'string') {
+                        out.push(owner.Qualities.Quality);
+                    } else {
+                        if (typeof owner.Qualities.Quality.length == 'number') {
+                            l = owner.Qualities.Quality.length;
+                            for (i = 0; i < l; i++) {
+                                out.push(owner.Qualities.Quality[i]);
+                            }
+                        }
+                    }
+                    l = out.length;
+                    for (i = 0; i < l; i++) {
+                        quality = out[i];
+                        quality.Tooltip = $filter('tooltipFilter')(quality.Key);
+                        quality.Key = $filter('qualityFilter')(quality.Key);
+                    }
+                    return out;
                 };
                 $scope.collectValues = function (items, attribute, values) {
                     var value, i, l = items.length;
