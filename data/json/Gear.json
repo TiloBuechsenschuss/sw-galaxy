@@ -12819,17 +12819,6 @@
                 }
             },
             "Thumbnail": "img\/no_image.png"
-        },
-        {
-            "Key": "PROTGOG",
-            "Name": "Protective Goggles",
-            "Description": "\n      [H3]Protective Goggles[h3]\n      These goggles protect the wearer from the effects of \n      bright light.  They can negate negative consequences of\n      light and can prevent blindness in very bright conditions.\n      Defels wear them due to their high sensitivity to\n      visible light.  When worn by a Defel, it eliminates their\n      light sensitivity trait.\n    ",
-            "Source": "Unofficial Species Menagerie",
-            "Price": 100,
-            "Encumbrance": 0,
-            "Rarity": 2,
-            "Type": "Detection\/Surveillance Devices",
-            "Thumbnail": "img\/no_image.png"
         }
     ]
 }

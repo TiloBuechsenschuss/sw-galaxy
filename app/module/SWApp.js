@@ -14,10 +14,11 @@ App.config(function ($mdThemingProvider) {
  * Sources that are not selected when the app starts or when the filters are cleared.
  * They stay available in the "Source" filter, so they can be switched on by choice.
  * Names must match the Book name in the data exactly.
+ *
+ * Empty on purpose: the only entry this ever held was excluded from the import
+ * instead, so no data carries it any more. See $excludedBooks in convert.php.
  */
-App.constant('defaultDisabledSources', [
-    'Unofficial Species Menagerie'
-]);
+App.constant('defaultDisabledSources', []);
 
 App.filter('searchFilter', function () {
     return function (items, search, ctrl) {

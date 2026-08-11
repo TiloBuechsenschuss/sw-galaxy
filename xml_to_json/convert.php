@@ -11,10 +11,10 @@ $validFileNames = array(
 );
 
 /**
- * Fan-made books. An entry sourced only from these always loses to an entry
- * with an official book, whatever order the source folders are read in.
+ * Books that are not imported at all. A row whose every source is one of these
+ * is skipped, so neither the row nor the book name reaches the JSON.
  */
-$deprioritisedBooks = array('Unofficial Species Menagerie');
+$excludedBooks = array('Unofficial Species Menagerie');
 
 
 /**
@@ -94,24 +94,48 @@ function sourceBooks($row)
 }
 
 /**
- * True when every source for this row is fan-made.
+ * True when the row has sources and every one of them is an excluded book, so
+ * the row can be dropped. A row with no source at all is kept -- seven generic
+ * Gear entries have none, and they are legitimate.
  *
  * @param stdClass $row
- * @param string[] $deprioritisedBooks
+ * @param string[] $excludedBooks
  * @return bool
  */
-function isDeprioritised($row, $deprioritisedBooks)
+function isExcluded($row, $excludedBooks)
 {
     $books = sourceBooks($row);
     if (count($books) === 0) {
         return false;
     }
     foreach ($books as $book) {
-        if (!in_array($book, $deprioritisedBooks, true)) {
+        if (!in_array($book, $excludedBooks, true)) {
             return false;
         }
     }
     return true;
+}
+
+/**
+ * True when the row mixes an excluded book with a book that is kept. No row in
+ * the current data does, so such a row is reported rather than handled: keeping
+ * it would leak the excluded book name into the app's Source filter, dropping it
+ * would lose official content. Decide deliberately if this ever fires.
+ *
+ * @param stdClass $row
+ * @param string[] $excludedBooks
+ * @return bool
+ */
+function mixesExcludedBook($row, $excludedBooks)
+{
+    $books = sourceBooks($row);
+    $excluded = 0;
+    foreach ($books as $book) {
+        if (in_array($book, $excludedBooks, true)) {
+            $excluded++;
+        }
+    }
+    return $excluded > 0 && $excluded < count($books);
 }
 
 /**
@@ -166,18 +190,24 @@ foreach ($validFileNames as $typeKey => $fileName) {
         unset($data->comment);
         $data = json_decode(json_encode($data, JSON_NUMERIC_CHECK));
         $values = reset($data);
+        $excludedRows = 0;
         foreach ($values as &$row) {
             if (isset($row->Key) && isset($row->Name) && strlen(trim($row->Name)) > 0) {
                 if (empty($row->Key) || is_numeric($row->Key)) {
                     $row->Key = 'MISSING_KEY_' . strtoupper(preg_replace("/(\"|\'| |-)/", '_', $row->Name));
                 }
+                // Excluded before de-duplication, so an excluded row never takes
+                // a Key that a kept row would otherwise have claimed.
+                if (isExcluded($row, $excludedBooks)) {
+                    $excludedRows++;
+                    continue;
+                }
+                if (mixesExcludedBook($row, $excludedBooks)) {
+                    print "  ! {$row->Key} mixes an excluded book with a kept one -- see mixesExcludedBook()\n";
+                }
                 if (isset($fileData[$typeKey][$row->Key])) {
-                    // First one wins, unless the entry already held is fan-made
-                    // only and this one carries an official book.
-                    $incumbentIsFanMade = isDeprioritised($fileData[$typeKey][$row->Key], $deprioritisedBooks);
-                    if (!$incumbentIsFanMade || isDeprioritised($row, $deprioritisedBooks)) {
-                        continue;
-                    }
+                    // First one wins.
+                    continue;
                 }
                 if (!isset($row->Description) || !is_string($row->Description)) {
                     $row->Description = "";
@@ -203,7 +233,7 @@ foreach ($validFileNames as $typeKey => $fileName) {
                 // print "$row: ". $row;
             }
         }
-        print "Read {$xmlFile}\n";
+        print "Read {$xmlFile}" . ($excludedRows > 0 ? " ({$excludedRows} excluded)" : "") . "\n";
     }
     foreach ($fileData as $dataKey => $rows) {
         $rows = array_values($rows);

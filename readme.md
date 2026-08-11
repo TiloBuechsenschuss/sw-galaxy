@@ -85,8 +85,11 @@ Then copy your custom XML files in. Currently following file names are supported
 Then run the `convert.php` like described above.
 
 Folders are read in alphabetical order and the first entry for a given `Key` wins, so an
-earlier-sorting folder takes priority. The exception is fan-made data: an entry sourced
-only from the *Unofficial Species Menagerie* always loses to one from an official book.
+earlier-sorting folder takes priority.
+
+Some books can be left out of the import entirely: any entry whose sources are all listed in
+`$excludedBooks` (`convert.php`) / `EXCLUDED_BOOKS` (`convert.py`) is skipped, so it shows up
+neither in the data nor in the app's Source filter. Add a book name there to drop it.
 
 Species XML from OggDude uses a different schema than this app reads, so it has to be
 translated first with `python xml_to_json/oggdude_species_to_app.py`.

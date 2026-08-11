@@ -16,9 +16,8 @@ Merge rules
 -----------
 * Sources are read in alphabetical folder order and the first occurrence of a
   Key wins -- so a folder sorting earlier overrides later ones.
-* EXCEPT that an entry whose only source book is in DEPRIORITISED_BOOKS (the
-  Unofficial Species Menagerie) is always beaten by an entry with an official
-  book, regardless of folder order.
+* A row whose every source book is in EXCLUDED_BOOKS is not imported at all, so
+  neither the row nor the book name reaches the JSON.
 * Rows are then sorted by their first Source book, then by Name, then by Key,
   so the committed JSON has a stable diff.
 
@@ -43,8 +42,9 @@ VALID_FILE_NAMES = OrderedDict([
     ('Species', 'Species.xml'),
 ])
 
-# Fan-made data. Anything printed in an official book wins over these.
-DEPRIORITISED_BOOKS = ('Unofficial Species Menagerie',)
+# Books that are not imported at all. A row whose every source is one of these
+# is skipped, so neither the row nor the book name reaches the JSON.
+EXCLUDED_BOOKS = ('Unofficial Species Menagerie',)
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -173,10 +173,26 @@ def source_books(row):
     return out
 
 
-def is_deprioritised(row):
-    """True when every source for this row is fan-made."""
+def is_excluded(row):
+    """
+    True when the row has sources and every one of them is an excluded book, so
+    the row can be dropped. A row with no source at all is kept -- seven generic
+    Gear entries have none, and they are legitimate.
+    """
     books = source_books(row)
-    return bool(books) and all(b in DEPRIORITISED_BOOKS for b in books)
+    return bool(books) and all(b in EXCLUDED_BOOKS for b in books)
+
+
+def mixes_excluded_book(row):
+    """
+    True when the row mixes an excluded book with a book that is kept. No row in
+    the current data does, so such a row is reported rather than handled: keeping
+    it would leak the excluded book name into the app's Source filter, dropping
+    it would lose official content. Decide deliberately if this ever fires.
+    """
+    books = source_books(row)
+    n = sum(1 for b in books if b in EXCLUDED_BOOKS)
+    return 0 < n < len(books)
 
 
 # --------------------------------------------------------------------------
@@ -232,7 +248,7 @@ def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
             values = next(iter(data.values())) if data else []
             if isinstance(values, dict):
                 values = [values]
-            kept = replaced = 0
+            kept = excluded = 0
             for row in values:
                 if not isinstance(row, dict):
                     continue
@@ -244,14 +260,17 @@ def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
                     key_s = 'MISSING_KEY_' + re.sub(r'["\' \-]', '_', str(name)).upper()
                     row['Key'] = key_s
 
+                # Excluded before de-duplication, so an excluded row never takes
+                # a Key that a kept row would otherwise have claimed.
+                if is_excluded(row):
+                    excluded += 1
+                    continue
+                if mixes_excluded_book(row):
+                    print("  ! %s mixes an excluded book with a kept one"
+                          " -- see mixes_excluded_book()" % key_s)
                 if key_s in rows:
-                    # First one wins -- unless the incumbent is fan-made only
-                    # and this one is not.
-                    if not (is_deprioritised(rows[key_s]) and not is_deprioritised(row)):
-                        continue
-                    replaced += 1
-                else:
-                    kept += 1
+                    continue                   # first one wins
+                kept += 1
 
                 if not isinstance(row.get('Description'), str):
                     row['Description'] = ""
@@ -267,7 +286,7 @@ def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
                     os.path.join(repo_root, thumb)) else 'img/no_image.png'
                 rows[key_s] = row
             if verbose:
-                extra = ', %d replaced a fan-made entry' % replaced if replaced else ''
+                extra = ', %d excluded' % excluded if excluded else ''
                 print("Read %s (%d new%s)" % (xml_file, kept, extra))
 
         out_rows = sorted(rows.values(), key=sort_key)

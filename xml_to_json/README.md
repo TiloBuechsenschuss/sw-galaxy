@@ -53,12 +53,13 @@ in alphabetical order**, and:
 1. **First occurrence of a `Key` wins.** A folder sorting earlier overrides later
    ones. There is currently only one folder, `oggdude`, so nothing collides —
    but this is what to reason about when adding a second.
-2. **…except that fan-made data always loses.** An entry whose every source book
-   is in `$deprioritisedBooks` / `DEPRIORITISED_BOOKS` (currently just
-   *Unofficial Species Menagerie*) is replaced by any entry carrying an official
-   book, whatever the folder order. 27 species are Menagerie-only and have no
-   official version, so they stay; the app hides them by default via
-   `defaultDisabledSources` in `SWApp.js`.
+2. **Excluded books are not imported at all.** A row whose every source book is
+   in `$excludedBooks` / `EXCLUDED_BOOKS` is skipped, so neither the row nor the
+   book name reaches the JSON or the app's Source filter. This drops 28 rows
+   (27 species and one Gear entry). A row with *no* source is kept — seven
+   generic Gear entries have none and are legitimate. A row that mixed an
+   excluded book with a kept one would be ambiguous; none exists, so the
+   converters print a warning instead of guessing.
 3. **Every type is sorted before writing** — by the row's *first* `Source` book,
    then by `Name`, with `Key` as the tie-breaker (`compareRows` in `convert.php`,
    `sort_key` in `convert.py`). Source order in the XML is not preserved: OggDude
@@ -186,6 +187,6 @@ alphabetically earlier means higher priority.
 
 ### Change how conflicts resolve
 
-`$deprioritisedBooks` / `DEPRIORITISED_BOOKS` sit at the top of `convert.php`
-and `convert.py`; the output order lives in `compareRows` / `sort_key` just
-below. **Change both files**, then run `verify_convert.py`.
+`$excludedBooks` / `EXCLUDED_BOOKS` sit at the top of `convert.php` and
+`convert.py`; the output order lives in `compareRows` / `sort_key` just below.
+**Change both files**, then run `verify_convert.py`.

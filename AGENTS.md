@@ -66,10 +66,10 @@ xml_to_json/xml_sources/<set>/ One folder per data source, each holding the XML 
    `img/no_image.png` when no matching PNG exists) and writes `data/json/<Name>.json`.
    The JSON is shaped `{ "<TypeKey>": [ ...items ] }`.
    **Precedence follows the alphabetical glob order and the first `Key` wins**, so a
-   folder that sorts earlier overrides later ones. One exception: an entry sourced
-   *only* from a book in `$deprioritisedBooks` (the Unofficial Species Menagerie)
-   always loses to one with an official book. Rows are then written sorted by their
-   first `Source` book, then `Name`, then `Key`, so a regenerated export diffs cleanly.
+   folder that sorts earlier overrides later ones. Rows whose every source book is in
+   `$excludedBooks` are skipped before de-duplication and never reach the JSON. Rows are
+   then written sorted by their first `Source` book, then `Name`, then `Key`, so a
+   regenerated export diffs cleanly.
 3. `index.html` declares one `<div item-list>` per tab, passing `source-name` (the type
    key inside the JSON) and `source-url` (the JSON file).
 4. The `itemList` directive's controller `$http.get`s that JSON, normalizes every item,
@@ -110,8 +110,10 @@ Adding a new data type means touching `convert.php`, `index.html`, and usually
 
 The "Source" sidenav filter is a multi-select listing every Book name found in the loaded
 data. By default all of them are selected except those named in the `defaultDisabledSources`
-constant at the top of `SWApp.js` — currently `Unofficial Species Menagerie`. Disabled-by-
-default sources still appear in the dropdown, so they can be switched on by choice.
+constant at the top of `SWApp.js`, which is **currently empty** — the one book it used to
+hold is now excluded at import time instead (`$excludedBooks` in `convert.php`), so no data
+carries it. The mechanism is kept for the next book that should load unselected; entries
+listed there still appear in the dropdown and can be switched on by choice.
 
 `$scope.getDefaultSources()` builds that default selection and is used both on load and by
 `resetFilters()`, so "Clear filters" returns to the default rather than selecting everything.
