@@ -8,6 +8,33 @@ This web application offers a lot of possibilities to search and filter the item
 This website is optimized for mobile devices. This enables the players to search for their preferred items
 from their smartphones even when they are currently in a pen and paper session.
 
+### Run the project locally
+
+STAR WARS GALAXY is a static AngularJS app. There is no build step and no dependencies to
+install — everything needed is already in this repository. You only need to serve the
+project folder over HTTP.
+
+Opening `index.html` directly from the file system (`file://...`) does **not** work: the app
+loads its data with AJAX requests, and browsers block those on the `file://` protocol.
+
+Pick whichever of these you already have installed and run it from the project root:
+
+```
+# Python 3
+python -m http.server 8000
+
+# Node.js
+npx http-server -p 8000
+
+# PHP
+php -S localhost:8000
+```
+
+Then open <http://localhost:8000> in your browser. An internet connection is required on
+first load, because AngularJS itself and the Material Icons font are pulled from a CDN.
+
+Any other web server works just as well — just point its document root at this folder.
+
 ### Convert the XML data from OggDude Character Generator to JSON files for the STAR WARS GALAXY web application.
 
 Just move following files from the `SWEotECharGen` folder into the folder `xml_to_json/xml_sources/oggdude` and execute
