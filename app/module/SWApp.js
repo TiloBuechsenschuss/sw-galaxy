@@ -44,8 +44,9 @@ App.constant('tabs', [
 ]);
 
 /**
- * The four lines a source book can belong to, in the order their buttons appear
- * above the tabs. Every Book name in the data belongs to exactly one of them.
+ * The four lines a source book can belong to, in the order they appear in the
+ * menu at the right of the tab strip. Every Book name in the data belongs to
+ * exactly one of them.
  *
  * "Extended Material" is the catch-all for everything published outside the three
  * core lines: the Clone Wars era books, and OggDude's "User Data" placeholder for
@@ -58,7 +59,7 @@ App.constant('tabs', [
  */
 App.constant('sourceLines', [
     {
-        key: 'eote', short: 'EotE', label: 'Edge of the Empire', books: [
+        key: 'eote', label: 'Edge of the Empire', books: [
             'Beyond the Rim',
             'Dangerous Covenants',
             'Edge of the Empire Core Rulebook',
@@ -76,7 +77,7 @@ App.constant('sourceLines', [
         ]
     },
     {
-        key: 'aor', short: 'AoR', label: 'Age of Rebellion', books: [
+        key: 'aor', label: 'Age of Rebellion', books: [
             'Age of Rebellion Beta Rulebook',
             'Age of Rebellion Core Rulebook',
             'Cyphers and Masks',
@@ -91,7 +92,7 @@ App.constant('sourceLines', [
         ]
     },
     {
-        key: 'fad', short: 'F&D', label: 'Force and Destiny', books: [
+        key: 'fad', label: 'Force and Destiny', books: [
             'Chronicles of the Gatekeeper',
             'Disciples of Harmony',
             'Endless Vigil',
@@ -106,7 +107,7 @@ App.constant('sourceLines', [
         ]
     },
     {
-        key: 'extended', short: 'Extended', label: 'Extended Material', books: [
+        key: 'extended', label: 'Extended Material', books: [
             'Collapse of the Republic',
             'Rise of the Separatists',
             'User Data'
@@ -115,8 +116,8 @@ App.constant('sourceLines', [
 ]);
 
 /**
- * Which source lines are switched on. One object for the whole app: the buttons
- * live above the tabs, every tab filters by it, and it outlives a reload.
+ * Which source lines are switched on. One object for the whole app: the menu
+ * lives in the tab strip, every tab filters by it, and it outlives a reload.
  *
  * Stored as the list of lines that are *off*, so a line added to the constant
  * later starts on rather than being silently hidden by an old saved selection.
@@ -210,6 +211,17 @@ App.controller('TabsController', function ($scope, tabs, sourceLines, sourceLine
     $scope.sourceLines = sourceLines;
     $scope.isSourceLineEnabled = sourceLineSelection.isEnabled;
     $scope.toggleSourceLine = sourceLineSelection.toggle;
+    // Colours the menu button while a line is switched off: an icon in the tab
+    // strip is the only hint that items are being held back.
+    $scope.allSourceLinesOn = function () {
+        var i, l = sourceLines.length;
+        for (i = 0; i < l; i++) {
+            if (!sourceLineSelection.isEnabled(sourceLines[i].key)) {
+                return false;
+            }
+        }
+        return true;
+    };
 });
 
 App.filter('searchFilter', function () {

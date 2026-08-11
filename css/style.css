@@ -210,18 +210,32 @@ tr.collapse-row td.md-cell {
     outline: none;
 }
 
-/* The source line buttons above the tabs. Kept short so four of them still fit
-   on one row on a phone, which is where the app is mostly used. */
-.source-lines {
-    padding: 4px 4px 0;
+/* The game line menu sits inside the 48px tab strip rather than above it, so it
+   costs no vertical space on a phone. The strip is padded by the same amount:
+   md-tabs' pagination arrows are positioned against md-tabs-wrapper's padding
+   box, so they stay clear of the button when the tabs overflow. */
+.tab-frame {
+    position: relative;
 }
 
-.source-lines md-button.source-line {
-    min-width: 0;
-    margin: 2px 4px;
-    padding: 0 10px;
+.tab-frame > .source-lines-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    padding: 0;
 }
 
-.source-lines md-button.source-line.source-line-off {
-    opacity: 0.5;
+.tab-frame md-tabs-wrapper {
+    padding-right: 48px;
+}
+
+.source-lines-menu .md-icon-button {
+    margin: 4px;
+}
+
+/* Menu content is moved to the end of the body while it is open, so this has to
+   match on the class alone. */
+.source-lines-menu-content md-menu-item md-icon {
+    margin-right: 16px;
 }

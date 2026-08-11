@@ -21,19 +21,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body layout="row" ng-controller="TabsController">
-<div flex layout="column">
-    <!-- One button per entry in the "sourceLines" constant, filtering every tab at
-         once. The selection lives in sourceLineSelection and survives a reload. -->
-    <div class="source-lines" layout="row" layout-align="center center" layout-wrap>
-        <md-button ng-repeat="line in sourceLines"
-                   class="md-raised source-line"
-                   ng-class="{'md-primary': isSourceLineEnabled(line.key), 'source-line-off': !isSourceLineEnabled(line.key)}"
-                   ng-click="toggleSourceLine(line.key)"
-                   title="{{line.label}}"
-                   aria-label="{{line.label}}">
-            {{line.short}}
-        </md-button>
-    </div>
+<div flex layout="column" class="tab-frame">
     <!-- One tab per entry in the "tabs" constant at the top of SWApp.js, in that
          order. Reorder or add tabs there, not here. -->
     <md-tabs md-border-bottom flex
@@ -47,6 +35,30 @@
             </md-tab-body>
         </md-tab>
     </md-tabs>
+    <!-- One entry per line in the "sourceLines" constant, filtering every tab at
+         once. The selection lives in sourceLineSelection and survives a reload.
+         Pinned into the tab strip by .source-lines-menu, so it costs no height.
+         The icon turns red while anything is switched off. -->
+    <md-menu class="source-lines-menu" md-offset="0 4">
+        <md-button class="md-icon-button"
+                   ng-class="{'md-primary': !allSourceLinesOn()}"
+                   ng-click="$mdMenu.open($event)"
+                   aria-label="Filter by game line">
+            <md-icon md-font-set="material-icons">filter_list</md-icon>
+            <md-tooltip md-direction="left">Game lines</md-tooltip>
+        </md-button>
+        <md-menu-content width="4" class="source-lines-menu-content">
+            <md-menu-item ng-repeat="line in sourceLines">
+                <md-button ng-click="toggleSourceLine(line.key)"
+                           md-prevent-menu-close="md-prevent-menu-close"
+                           aria-label="{{line.label}}">
+                    <md-icon md-font-set="material-icons" ng-if="isSourceLineEnabled(line.key)">check_box</md-icon>
+                    <md-icon md-font-set="material-icons" ng-if="!isSourceLineEnabled(line.key)">check_box_outline_blank</md-icon>
+                    {{line.label}}
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
 </div>
 </body>
 </html>

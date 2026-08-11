@@ -183,11 +183,22 @@ Since two tabs share the type key, the sidenav id is `'sideNav-' + name + '-' + 
 — `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would toggle each
 other's panel.
 
-### The source line buttons
+### The source line menu
 
-Four buttons sit above the tabs — **EotE**, **AoR**, **F&D**, **Extended** — switching whole
-game lines on and off for every tab at once. All four start on. This is the one piece of
-state that is neither per-tab nor derived from the data:
+A `filter_list` icon button sits at the **right end of the tab strip**, opening a checkbox
+menu that switches whole game lines — Edge of the Empire, Age of Rebellion, Force and
+Destiny, Extended Material — on and off for every tab at once. All four start on, and the
+icon turns red (`md-primary`) while any is off, since that is the only hint that items are
+being held back.
+
+It is pinned into the 48px strip with `position: absolute` and pairs with
+`.tab-frame md-tabs-wrapper { padding-right: 48px }`. That padding is not decoration: the
+pagination arrows `md-tabs` shows when the tabs overflow are positioned against the
+wrapper's *padding* box, so the reserved strip keeps the next-page arrow from landing under
+the button on a phone. The menu items carry `md-prevent-menu-close`, so several lines can be
+toggled without reopening it.
+
+This is the one piece of state that is neither per-tab nor derived from the data:
 
 - `sourceLines` (constant) lists the four lines and, under each, every Book name that
   belongs to it. All 39 books in the data are filed; a book in no list is reported once as
