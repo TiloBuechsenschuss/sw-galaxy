@@ -37,10 +37,11 @@ stylesheet on Google Fonts, so the app still needs an internet connection on fir
 ## Repository layout
 
 ```
-index.html                     App shell: <md-tabs>, one tab per data type, each
-                               instantiating the item-list directive
-app/module/SWApp.js            The entire application (~1750 lines): module, filters,
-                               and the itemList directive with its controller
+index.html                     App shell: <md-tabs> repeating over the tabs constant,
+                               one tab per data type, each instantiating item-list
+app/module/SWApp.js            The entire application (~1750 lines): module, the tabs
+                               constant, filters, and the itemList directive with its
+                               controller
 app/components/items.html      Template for the itemList directive (~1080 lines):
                                sidenav filters + result table + item detail cards
 css/style.css                  Custom styles, @font-face for the FFG symbol font
@@ -70,8 +71,9 @@ xml_to_json/xml_sources/<set>/ One folder per data source, each holding the XML 
    `$excludedBooks` are skipped before de-duplication and never reach the JSON. Rows are
    then written sorted by their first `Source` book, then `Name`, then `Key`, so a
    regenerated export diffs cleanly.
-3. `index.html` declares one `<div item-list>` per tab, passing `source-name` (the type
-   key inside the JSON) and `source-url` (the JSON file).
+3. `index.html` `ng-repeat`s over the `tabs` constant in `SWApp.js`, rendering one
+   `<div item-list>` per entry and passing it `source-name` (the type key inside the JSON)
+   and `source-url` (the JSON file). The tab order is that array's order.
 4. The `itemList` directive's controller `$http.get`s that JSON, normalizes every item,
    pre-computes min/max ranges for the numeric sliders, and collects the distinct values
    used to populate the filter dropdowns.
@@ -106,9 +108,9 @@ The short version:
   needs network, writes Markdown to `xml_to_json/wiki_diff/`. Not part of the pipeline.
 
 Recognized XML file names are fixed in `$validFileNames` in `convert.php`:
-`Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`.
-Adding a new data type means touching `convert.php`, `index.html`, and usually
-`items.html` — see the next section for the full list.
+`Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`,
+`Vehicles.xml`. Adding a new data type means touching `convert.php`, the `tabs` constant
+in `SWApp.js`, and usually `items.html` — see the next section for the full list.
 
 ### Adding a new data type (a new tab)
 
@@ -130,9 +132,10 @@ Species — the most recently added type — is wired end to end.
 3. **Artwork** — `data/img/<TypeKey><Key>.png`. OggDude's images are named by bare `Key`
    under `oggdudes-data/<Type>Images/`, so they only need the type prefix added.
    Coverage is never complete; the rest fall back to `img/no_image.png` automatically.
-4. **`index.html`** — one more `<md-tab>` with `source-name` (the type key) and
-   `source-url` (the JSON). The `is-active='{{currentTab==N}}'` indices are positional,
-   so inserting a tab anywhere but the end means renumbering the ones after it.
+4. **The `tabs` constant in `SWApp.js`** — one more
+   `{label: …, name: <type key>, url: <the JSON>}`. `index.html` `ng-repeat`s over that
+   list, so the array *is* the tab order: move a line to move a tab. Nothing refers to a
+   tab by position, and `is-active` compares against `$index`.
 5. **`app/components/items.html` + `app/module/SWApp.js`** — the table is one shared
    `<table md-table>` whose every `<th>`/`<td>` carries
    `ng-if="name == 'Weapon' || name == 'Armor' || ..."`. A new type joins the shared
@@ -146,10 +149,10 @@ schema mapping. `wiki_diff.py` takes one line in `TARGETS` if the wiki has a mat
 category — or several categories in that one line when the wiki splits what the JSON holds
 together, as `vehicles` does across `Category:Vehicles` and `Category:Starships`.
 
-**`Adversary` is a half-built sixth type.** `items.html` references `name == 'Adversary'`
+**`Adversary` is a half-built seventh type.** `items.html` references `name == 'Adversary'`
 29 times — Soak, Wound/Strain Threshold, Experience, all six characteristics and Force
-Rating columns are already wired — but there is no `Adversary.json`, no tab in
-`index.html`, and OggDude ships no adversary export. It is missing its data, not its UI.
+Rating columns are already wired — but there is no `Adversary.json`, no entry in the `tabs`
+constant, and OggDude ships no adversary export. It is missing its data, not its UI.
 Do not treat those `ng-if`s as dead code to clean up.
 
 `xml_to_json/README.md` carries the inventory of what else in `oggdudes-data/` could

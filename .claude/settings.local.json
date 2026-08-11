@@ -9,7 +9,11 @@
       "Bash(php --version)",
       "Bash(awk '/^## In the data, not on the wiki/,0' xml_to_json/wiki_diff/vehicles.md)",
       "Bash(awk '/^## Matched only after normalisation/,/^## Possibly/' xml_to_json/wiki_diff/vehicles.md)",
-      "Bash(awk '/^## Possibly/,0' xml_to_json/wiki_diff/vehicles.md)"
+      "Bash(awk '/^## Possibly/,0' xml_to_json/wiki_diff/vehicles.md)",
+      "Bash(grep -n 'mdTabsTemplate\\\\|$mdTabsTemplate' js/angular-material.js)",
+      "Bash(grep -n 'mdTabsTemplate\\\\|compile\\\\|$scope.$parent')",
+      "Bash(\" app/module/SWApp.js | head -5; git status --short)",
+      "Bash(grep -nE \"=>|\\\\blet\\\\b|\\\\bconst\\\\b|`\" app/module/SWApp.js | head -5; git status --short)"
     ]
   }
 }

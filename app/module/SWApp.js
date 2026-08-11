@@ -20,6 +20,28 @@ App.config(function ($mdThemingProvider) {
  */
 App.constant('defaultDisabledSources', []);
 
+/**
+ * The tabs, in the order they appear in the app.
+ *
+ * One entry per data type: the tab label, the type key wrapping the array inside
+ * the JSON (the itemList directive's source-name) and the file to load.
+ * index.html repeats over this list, so this array is the tab order: reordering
+ * the tabs means moving lines here, and a new tab is one more line. Nothing
+ * refers to a tab by position.
+ */
+App.constant('tabs', [
+    {label: 'Weapons', name: 'Weapon', url: 'data/json/Weapons.json'},
+    {label: 'Armors', name: 'Armor', url: 'data/json/Armor.json'},
+    {label: 'Gear', name: 'Gear', url: 'data/json/Gear.json'},
+    {label: 'Attachments', name: 'ItemAttachments', url: 'data/json/ItemAttachments.json'},
+    {label: 'Vehicles', name: 'Vehicle', url: 'data/json/Vehicles.json'},
+    {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
+]);
+
+App.controller('TabsController', function ($scope, tabs) {
+    $scope.tabs = tabs;
+});
+
 App.filter('searchFilter', function () {
     return function (items, search, ctrl) {
         if (!search) {
@@ -135,12 +157,12 @@ App.filter('nameFilter', function ($sce, $filter) {
 App.filter('descriptionFilter', function ($sce, $filter) {
     return function (item) {
         var html = '', mods = '', count;
-    
-       
+
+
         if (typeof item.Description == 'string') {
            html += "<p>" + item.Description + "</p>";
         }
-               
+
         if (html.length > 0) {
             html = html.replace("[H3]" + item.Name + "[h3]", "");
             html = html.replace("[H4]" + item.Name + "[h4]", "");
@@ -166,7 +188,7 @@ App.filter('descriptionFilter', function ($sce, $filter) {
 App.filter('infoFilter', function ($sce, $filter) {
     return function (item) {
         var html = '', mods = '', count;
-    
+
         if (typeof item.BaseMods == 'object') {
             if (typeof item.BaseMods.Mod == 'object' && item.BaseMods.Mod.length > 0) {
                 for (var i = 0, l = item.BaseMods.Mod.length; i < l; i++) {
@@ -349,7 +371,7 @@ App.filter('rangeFilter', function () {
 App.filter('modFilter', function ($filter) {
     return function (text) {
         if (typeof text === 'string') {
-            var initText = text;            
+            var initText = text;
             text = $filter('descriptorFilter')(text);
             text = $filter('talentFilter')(text);
             text = $filter('symbolFilter')(text);
@@ -1198,7 +1220,7 @@ App.directive('itemList', function () {
                 $scope.min = {};
                 $scope.max = {};
                 $scope.filters = {};
-                $scope.order = 'Name';                
+                $scope.order = 'Name';
                 $scope.filterItems = function () {
                     $scope.promise = $timeout(function () {
                         if (typeof $scope.items != 'undefined') {
@@ -1383,7 +1405,7 @@ App.directive('itemList', function () {
                             skillLimits = [];
                             typeLimits = [];
                             items[i].Deflection = 0;
-                            
+
                             items[i].Info = $filter('infoFilter')(items[i]);
                             if (typeof items[i].Defense == 'number') {
                                 items[i].Defensive = items[i].Defense;
@@ -1461,7 +1483,7 @@ App.directive('itemList', function () {
                                     if (typeof items[i].Sources.Source == 'object' && typeof items[i].Sources.Source[i4] == 'string') {
                                         sources.push({'Book': items[i].Sources.Source[i4]});
                                     }
-                                    
+
                                 }
                                 if (typeof items[i].Sources.Source == 'string') {
                                     sources.push({'Book': items[i].Sources.Source});
@@ -1472,7 +1494,7 @@ App.directive('itemList', function () {
                                     } else {
                                     	sources.push({'Book': items[i].Sources.Source.Book});
                                     }
-                                }                                
+                                }
                             }
                             if (typeof items[i].Source == 'object' && typeof items[i].Source.Book == 'string') {
                                 sources.push(items[i].Source);
@@ -1481,13 +1503,13 @@ App.directive('itemList', function () {
                             if (typeof items[i].Source == 'string') {
                                 sources.push({'Book': items[i].Source});
                                 delete items[i].Source;
-                            }                            
+                            }
                             if (sources.length == 0) {
                                 sources.push({'Book': 'Missing'});
                             }
                             items[i].Sources = sources;
-                            
-                            
+
+
                             if (typeof items[i].BaseMods == 'object') {
                                 if (typeof items[i].BaseMods.Mod == 'object' && items[i].BaseMods.Mod.length > 0) {
                                     for (var i3 = 0, l3 = items[i].BaseMods.Mod.length; i3 < l3; i3++) {
@@ -1821,7 +1843,7 @@ App.directive('itemList', function () {
                         $scope.filterItems();
                         $scope.loading = false;
                     });
-                   
+
                 };
                 $scope.readQualities = function (owner, $filter) {
                     // A vehicle weapon carries the same <Qualities><Quality> block a
