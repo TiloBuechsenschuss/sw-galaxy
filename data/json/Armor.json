@@ -20,7 +20,7 @@
             "Categories": {
                 "Category": [
                     "Full Body",
-                    "Heavy"
+                    "Light"
                 ]
             },
             "BaseMods": {
@@ -74,7 +74,7 @@
             "Rarity": 8,
             "Categories": {
                 "Category": [
-                    "Half Body",
+                    "Full Body",
                     "Heavy",
                     "Resistant"
                 ]
@@ -93,7 +93,10 @@
             "HP": 0,
             "Rarity": 2,
             "Categories": {
-                "Category": "Half Body"
+                "Category": [
+                    "Half Body",
+                    "Light"
+                ]
             },
             "BaseMods": {
                 "Mod": {
@@ -151,7 +154,10 @@
             "HP": 0,
             "Rarity": 0,
             "Categories": {
-                "Category": "Half Body"
+                "Category": [
+                    "Half Body",
+                    "Light"
+                ]
             },
             "Thumbnail": "data\/img\/ArmorHC.png"
         },
@@ -298,6 +304,9 @@
             "Name": "A\/KT Tracker Utility Vest",
             "Description": "\n      [H3]A\/KT Tracker Utility Vest[h3]\n      Please see page 45 of the Enter the Unknown Sourcebook for details.\n    ",
             "Source": "Enter the Unknown",
+            "Categories": {
+                "Category": "Light"
+            },
             "Defense": 0,
             "Soak": 0,
             "Price": 100,
@@ -348,6 +357,9 @@
             "Encumbrance": 1,
             "HP": 0,
             "Rarity": 3,
+            "Categories": {
+                "Category": "Light"
+            },
             "BaseMods": {
                 "Mod": {
                     "MiscDesc": "Has soak value of 2 against all energy-based weapons",
@@ -368,7 +380,10 @@
             "HP": 0,
             "Rarity": 4,
             "Categories": {
-                "Category": "Half Body"
+                "Category": [
+                    "Half Body",
+                    "Light"
+                ]
             },
             "BaseMods": {
                 "Mod": [
@@ -439,7 +454,7 @@
             },
             "Type": {},
             "Categories": {
-                "Category": "Heavy"
+                "Category": "Light"
             },
             "Encumbrance": 3,
             "HP": 0,
@@ -528,7 +543,7 @@
             "Source": "Dangerous Covenants",
             "Type": {},
             "Categories": {
-                "Category": "Heavy"
+                "Category": "Light"
             },
             "Encumbrance": 3,
             "HP": 1,
@@ -691,7 +706,10 @@
             "Description": "\n      [H3]Reinforced Environment Gear[h3]\n      Please see page 44 of the Far Horizons Sourcebook for details.\n    ",
             "Source": "Far Horizons",
             "Categories": {
-                "Category": "Full Body"
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
             },
             "Encumbrance": 2,
             "HP": 2,
@@ -789,7 +807,7 @@
             "Source": "Stay on Target",
             "Type": {},
             "Categories": {
-                "0": "\n    "
+                "Category": "Light"
             },
             "Defense": 0,
             "Soak": 0,
@@ -976,7 +994,10 @@
                     "0": "\n    "
                 },
                 {
-                    "Category": "Full Body"
+                    "Category": [
+                        "Full Body",
+                        "Light"
+                    ]
                 }
             ],
             "Defense": 0,
@@ -1007,7 +1028,7 @@
             "Source": "Fly Casual",
             "Type": {},
             "Categories": {
-                "Category": "Heavy"
+                "Category": "Light"
             },
             "Encumbrance": 3,
             "HP": 1,
@@ -1097,7 +1118,7 @@
             "Source": "Desperate Allies",
             "Type": {},
             "Categories": {
-                "0": "\n    "
+                "Category": "Light"
             },
             "Defense": 0,
             "Soak": 0,
@@ -1121,7 +1142,7 @@
             "Source": "Desperate Allies",
             "Type": {},
             "Categories": {
-                "0": "\n    "
+                "Category": "Light"
             },
             "Defense": 0,
             "Soak": 0,
@@ -1146,7 +1167,7 @@
             "Type": {},
             "Categories": [
                 {
-                    "0": "\n    "
+                    "Category": "Light"
                 },
                 {
                     "Category": "Half Body"
@@ -1174,7 +1195,7 @@
             "Source": "Desperate Allies",
             "Type": {},
             "Categories": {
-                "Category": "Heavy"
+                "Category": "Light"
             },
             "Defense": 0,
             "Soak": 1,
@@ -1263,7 +1284,7 @@
             "Source": "Desperate Allies",
             "Type": {},
             "Categories": {
-                "0": "\n    "
+                "Category": "Light"
             },
             "Defense": 0,
             "Soak": 1,
@@ -1293,7 +1314,10 @@
             "Source": "Desperate Allies",
             "Type": {},
             "Categories": {
-                "Category": "Half Body"
+                "Category": [
+                    "Half Body",
+                    "Light"
+                ]
             },
             "Defense": 0,
             "Soak": 0,
@@ -1317,7 +1341,7 @@
             "Source": "Desperate Allies",
             "Type": {},
             "Categories": {
-                "0": "\n    "
+                "Category": "Light"
             },
             "Defense": 0,
             "Soak": 0,
@@ -1376,7 +1400,10 @@
             "Rarity": 5,
             "Restricted": "false",
             "Categories": {
-                "Category": "Half Body"
+                "Category": [
+                    "Half Body",
+                    "Light"
+                ]
             },
             "BaseMods": {
                 "Mod": {
@@ -1424,7 +1451,10 @@
             "Rarity": 6,
             "Restricted": "false",
             "Categories": {
-                "Category": "Full Body"
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
             },
             "BaseMods": {
                 "Mod": [
@@ -1578,7 +1608,7 @@
             "Categories": {
                 "Category": [
                     "Full Body",
-                    "Heavy"
+                    "Light"
                 ]
             },
             "BaseMods": {
@@ -1848,7 +1878,10 @@
             "Source": "Special Modifications",
             "Type": {},
             "Categories": {
-                "Category": "Full Body"
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
             },
             "Defense": 0,
             "Soak": 1,
@@ -2037,7 +2070,10 @@
             "Source": "Savage Spirits",
             "Type": {},
             "Categories": {
-                "Category": "Full Body"
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
             },
             "Defense": 0,
             "Soak": 1,
@@ -2193,7 +2229,8 @@
             "Categories": {
                 "Category": [
                     "Full Body",
-                    "Resistant"
+                    "Resistant",
+                    "Light"
                 ]
             },
             "Price": 1200,
@@ -2205,6 +2242,7 @@
                 }
             },
             "Soak": 1,
+            "Defense": 0,
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -2215,7 +2253,8 @@
             "Categories": {
                 "Category": [
                     "Full Body",
-                    "Resistant"
+                    "Resistant",
+                    "Light"
                 ]
             },
             "Encumbrance": 1,
@@ -2229,6 +2268,7 @@
                 }
             },
             "Soak": 1,
+            "Defense": 0,
             "Thumbnail": "data\/img\/ArmorCRASHGEAR.png"
         },
         {
@@ -2239,7 +2279,8 @@
             "Categories": {
                 "Category": [
                     "Full Body",
-                    "Resistant"
+                    "Resistant",
+                    "Light"
                 ]
             },
             "Encumbrance": 2,
@@ -2253,6 +2294,7 @@
                 }
             },
             "Soak": 1,
+            "Defense": 0,
             "Thumbnail": "data\/img\/ArmorGSUIT.png"
         },
         {
@@ -2261,7 +2303,10 @@
             "Description": "\n      [H3]Pit Crew Coveralls[h3]\n      Please see page 44 of the Endless Vigil Sourcebook for details.\n    ",
             "Source": "Endless Vigil",
             "Categories": {
-                "Category": "Full Body"
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
             },
             "Encumbrance": 1,
             "HP": 1,
@@ -2280,6 +2325,7 @@
                 ]
             },
             "Soak": 1,
+            "Defense": 0,
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -2604,7 +2650,10 @@
             "Description": "\n      [H3]Alliance Engineer's Helmet and Vest[h3]\n      Please see page 42 of the Fully Operational Sourcebook for details.\n    ",
             "Source": "Fully Operational",
             "Categories": {
-                "Category": "Half Body"
+                "Category": [
+                    "Half Body",
+                    "Light"
+                ]
             },
             "Soak": 1,
             "Price": 75,
@@ -2653,7 +2702,7 @@
             "Categories": {
                 "Category": [
                     "Full Body",
-                    "Heavy"
+                    "Light"
                 ]
             },
             "Soak": 1,
@@ -2679,7 +2728,10 @@
             "Description": "\n      [H3]Pioneer Armor[h3]\n      Please see page 43 of the Fully Operational Sourcebook for details.\n    ",
             "Source": "Fully Operational",
             "Categories": {
-                "Category": "Full Body"
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
             },
             "Soak": 1,
             "Price": 200,
@@ -2840,8 +2892,13 @@
         {
             "Key": "PHASEIARC",
             "Name": "Phase I ARC Trooper Armor",
-            "Description": "\n      [H3]Phase I ARC Trooper Armor[h3]\n      Please see page 48 of the Knights of Fate Sourcebook for details.\n    ",
-            "Source": "Knights of Fate",
+            "Description": "\n      [H3]Phase I ARC Trooper Armor[h3]\n      Please see page 48 of the Knights of Fate Sourcebook, or page 58 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Knights of Fate",
+                    "Rise of the Separatists"
+                ]
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -2878,6 +2935,393 @@
             },
             "Defense": 1,
             "Soak": 2,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CLIMBSUIT",
+            "Name": "Climbsuit",
+            "Description": "\n      [H3]Ayelixe\/Krongbing Climbsuit[h3]\n      Please see page 41 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Light"
+                ]
+            },
+            "Defense": 0,
+            "Soak": 1,
+            "Price": 1450,
+            "Encumbrance": 2,
+            "HP": 2,
+            "Rarity": 4,
+            "Restricted": "false",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Upgrades the ability of checks to climb or rappel down a surface once."
+                    },
+                    {
+                        "MiscDesc": "Reduces damage and strain suffered from falling by 5."
+                    },
+                    {
+                        "MiscDesc": "Reduces Critical Injury results due to falling by 10.."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MKINIGHTSTALK",
+            "Name": "Mk I Nightstalker Suit",
+            "Description": "\n      [H3]Bantin Corp Mk I Nightstalker Suit[h3]\n      Please see page 41 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Categories": {
+                "Category": "Full Body"
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 4800,
+            "Encumbrance": 2,
+            "HP": 1,
+            "Rarity": 9,
+            "Restricted": "true",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Wearer adds automatic [SU] to Stealth checks.",
+                        "DieModifiers": {
+                            "DieModifier": {
+                                "SkillKey": "STEAL",
+                                "SuccessCount": 1
+                            }
+                        }
+                    },
+                    {
+                        "MiscDesc": "Wearer adds automatic [TH] to social skill checks.",
+                        "DieModifiers": {
+                            "DieModifier": [
+                                {
+                                    "SkillKey": "COERC",
+                                    "ThreatCount": 1
+                                },
+                                {
+                                    "SkillKey": "DECEP",
+                                    "ThreatCount": 1
+                                },
+                                {
+                                    "SkillKey": "LEAD",
+                                    "ThreatCount": 1
+                                },
+                                {
+                                    "SkillKey": "CHARM",
+                                    "ThreatCount": 1
+                                },
+                                {
+                                    "SkillKey": "NEG",
+                                    "ThreatCount": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MKIXMIM",
+            "Name": "Mk IX Personal Mimetic Concealment Suit",
+            "Description": "\n      [H3]Cyricept Mk IX Personal Mimetic Concealment Suit[h3]\n      Please see page 42 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Categories": {
+                "Category": "Full Body"
+            },
+            "Defense": 1,
+            "Soak": 1,
+            "Price": 8000,
+            "Encumbrance": 2,
+            "HP": 1,
+            "Rarity": 8,
+            "Restricted": "true",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Wearer upgrades ability of all Stealth checks twice.",
+                        "DieModifiers": {
+                            "DieModifier": {
+                                "SkillKey": "STEAL",
+                                "UpgradeAbilityCount": 2
+                            }
+                        }
+                    },
+                    {
+                        "MiscDesc": "GM may spend [TH][TH][TH] or [DE] to cause the power pack to run out."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "FLIGHTCF9",
+            "Name": "CF-9 Naval Flight Suit",
+            "Description": "\n      [H3]CF-9 Naval Flight Suit[h3]\n      Please see page 56 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": [
+                    "Sealed",
+                    "Full Body"
+                ]
+            },
+            "Defense": 1,
+            "Soak": 1,
+            "Price": 1200,
+            "Restricted": "true",
+            "Encumbrance": 3,
+            "HP": 2,
+            "Rarity": 6,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Includes a built-in respirator."
+                    },
+                    {
+                        "MiscDesc": "Remove up to [SE] from Piloting checks added due to physical stress."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "GUNDSCAV",
+            "Name": "\"Gundark\" Scav-Suit",
+            "Description": "\n      [H3]\"Gundark\" Scav-Suit[h3]\n      Please see page 56 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": [
+                    "Sealed",
+                    "Full Body"
+                ]
+            },
+            "Defense": 1,
+            "Soak": 1,
+            "Price": 3000,
+            "Restricted": "false",
+            "Encumbrance": 4,
+            "HP": 2,
+            "Rarity": 6,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Adds [BO] to Perception checks.",
+                        "DieModifiers": {
+                            "DieModifier": {
+                                "SkillKey": "PERC",
+                                "BoostCount": 1
+                            }
+                        }
+                    },
+                    {
+                        "MiscDesc": "Adds [BO][BO] to checks to avoid adverse effects of cold temperatures."
+                    },
+                    {
+                        "MiscDesc": "Removes [SE] imposed by cold-weather conditions on Perception checks."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HVYROBES",
+            "Name": "Heavy Robes",
+            "Description": "\n      [H3]Heavy Robes[h3]\n      Please see page 56 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": "Full Body"
+            },
+            "Defense": 1,
+            "Soak": 0,
+            "Price": 150,
+            "Restricted": "false",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Rarity": 2,
+            "BaseMods": {
+                "0": "\n    "
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HT77COLDARM",
+            "Name": "HT-77 Cold Assault Armor",
+            "Description": "\n      [H3]HT-77 Cold Assault Armor[h3]\n      Please see page 57 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": [
+                    "Sealable",
+                    "Full Body",
+                    "Hard Full Body",
+                    "Hard",
+                    "Heavy",
+                    "Resistant"
+                ]
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 4000,
+            "Restricted": "true",
+            "Encumbrance": 6,
+            "HP": 2,
+            "Rarity": 7,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Comes with built-in comlink."
+                    },
+                    {
+                        "MiscDesc": "Adds [BO][BO] to checks to avoid adverse effects of cold temperatures."
+                    },
+                    {
+                        "MiscDesc": "Removes [SE] imposed by cold-weather conditions on Perception checks."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "JEDICOMM",
+            "Name": "Jedi Commander Armor",
+            "Description": "\n      [H3]Jedi Commander Armor[h3]\n      Please see page 57 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": [
+                    "Sealable",
+                    "Full Body",
+                    "Hard Full Body",
+                    "Hard",
+                    "Resistant"
+                ]
+            },
+            "Defense": 1,
+            "Soak": 2,
+            "Price": 5000,
+            "Restricted": "true",
+            "Encumbrance": 5,
+            "HP": 3,
+            "Rarity": 8,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MKIIINSARM",
+            "Name": "Mk II \"Hotspot\" Insulated Armor",
+            "Description": "\n      [H3]Mk II \"Hotspot\" Insulated Armor[h3]\n      Please see page 57 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": [
+                    "Sealed",
+                    "Full Body",
+                    "Hard Full Body",
+                    "Hard",
+                    "Heavy",
+                    "Resistant"
+                ]
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 5500,
+            "Restricted": "true",
+            "Encumbrance": 6,
+            "HP": 2,
+            "Rarity": 7,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Comes with built-in comlink."
+                    },
+                    {
+                        "MiscDesc": "Adds [BO][BO] to checks to avoid adverse effects of extreme heat or toxic gas."
+                    },
+                    {
+                        "MiscDesc": "Attackers must spend one additional [AD] to activate Burn quality and treat rating as one less."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PHASEICLONE",
+            "Name": "Phase I Clone Trooper Armor",
+            "Description": "\n      [H3]Phase I Clone Trooper Armor[h3]\n      Please see page 58 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body"
+                ]
+            },
+            "Encumbrance": 4,
+            "HP": 3,
+            "Price": 2000,
+            "Rarity": 6,
+            "Restricted": "true",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Provides all benefits of a comlink"
+                    },
+                    {
+                        "MiscDesc": "Wearer suffers [SE] to Coordination checks until acclimated to armor."
+                    }
+                ]
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SCAVCLONE",
+            "Name": "Scavenged Clone Armor",
+            "Description": "\n      [H3]Scavenged Clone Armor[h3]\n      Please see page 58 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body"
+                ]
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 1000,
+            "Restricted": "true",
+            "Encumbrance": 5,
+            "HP": 2,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Suffer [SE] on Coordination and Stealth checks.",
+                        "DieModifiers": {
+                            "DieModifier": [
+                                {
+                                    "SkillKey": "COORD",
+                                    "AddSetbackCount": 1
+                                },
+                                {
+                                    "SkillKey": "STEAL",
+                                    "AddSetbackCount": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "MiscDesc": "Wearer may suffers [SE] or more on interactions with Republic officials and representatives."
+                    }
+                ]
+            },
             "Thumbnail": "img\/no_image.png"
         }
     ]

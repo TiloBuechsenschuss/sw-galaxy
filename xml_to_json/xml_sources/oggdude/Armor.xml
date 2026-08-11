@@ -20,7 +20,7 @@
     <Rarity>1</Rarity>
     <Categories>
       <Category>Full Body</Category>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -72,7 +72,7 @@
     <HP>2</HP>
     <Rarity>8</Rarity>
     <Categories>
-      <Category>Half Body</Category>
+      <Category>Full Body</Category>
       <Category>Heavy</Category>
       <Category>Resistant</Category>
     </Categories>
@@ -93,6 +93,7 @@
     <Rarity>2</Rarity>
     <Categories>
       <Category>Half Body</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -151,6 +152,7 @@
     <Rarity>0</Rarity>
     <Categories>
       <Category>Half Body</Category>
+      <Category>Light</Category>
     </Categories>
   </Armor>
   <Armor>
@@ -293,6 +295,9 @@
       Please see page 45 of the Enter the Unknown Sourcebook for details.
     </Description>
     <Source Page="45">Enter the Unknown</Source>
+    <Categories>
+      <Category>Light</Category>
+    </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
     <Price>100</Price>
@@ -345,6 +350,9 @@
     <Encumbrance>1</Encumbrance>
     <HP>0</HP>
     <Rarity>3</Rarity>
+    <Categories>
+      <Category>Light</Category>
+    </Categories>
     <BaseMods>
       <Mod>
         <MiscDesc>Has soak value of 2 against all energy-based weapons</MiscDesc>
@@ -368,6 +376,7 @@
     <Rarity>4</Rarity>
     <Categories>
       <Category>Half Body</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -439,7 +448,7 @@
     </Sources>
     <Type />
     <Categories>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>3</Encumbrance>
     <HP>0</HP>
@@ -526,7 +535,7 @@
     <Source Page="49">Dangerous Covenants</Source>
     <Type />
     <Categories>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>3</Encumbrance>
     <HP>1</HP>
@@ -688,6 +697,7 @@
     <Source Page="44">Far Horizons</Source>
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>2</Encumbrance>
     <HP>2</HP>
@@ -781,6 +791,7 @@
     <Source Page="42">Stay on Target</Source>
     <Type />
     <Categories>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
@@ -965,6 +976,7 @@
     <Restricted>false</Restricted>
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -989,7 +1001,7 @@
     <Source Page="47">Fly Casual</Source>
     <Type />
     <Categories>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>3</Encumbrance>
     <HP>1</HP>
@@ -1080,6 +1092,7 @@
     <Source Page="47">Desperate Allies</Source>
     <Type />
     <Categories>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
@@ -1105,6 +1118,7 @@
     <Source Page="47">Desperate Allies</Source>
     <Type />
     <Categories>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
@@ -1130,6 +1144,7 @@
     <Source Page="47">Desperate Allies</Source>
     <Type />
     <Categories>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
@@ -1158,7 +1173,7 @@
     <Source Page="48">Desperate Allies</Source>
     <Type />
     <Categories>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>1</Soak>
@@ -1248,6 +1263,7 @@
     <Source Page="48">Desperate Allies</Source>
     <Type />
     <Categories>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>1</Soak>
@@ -1278,6 +1294,7 @@
     <Type />
     <Categories>
       <Category>Half Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
@@ -1303,6 +1320,7 @@
     <Source Page="49">Desperate Allies</Source>
     <Type />
     <Categories>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>0</Soak>
@@ -1364,6 +1382,7 @@
     <Restricted>false</Restricted>
     <Categories>
       <Category>Half Body</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -1416,6 +1435,7 @@
     <Restricted>false</Restricted>
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -1576,7 +1596,7 @@
     <Restricted>false</Restricted>
     <Categories>
       <Category>Full Body</Category>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <BaseMods>
       <Mod>
@@ -2019,6 +2039,7 @@
     <Type />
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>1</Soak>
@@ -2212,6 +2233,7 @@
     <Type />
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Defense>0</Defense>
     <Soak>1</Soak>
@@ -2370,6 +2392,7 @@
     <Categories>
       <Category>Full Body</Category>
       <Category>Resistant</Category>
+      <Category>Light</Category>
     </Categories>
     <Price>1200</Price>
     <Rarity>6</Rarity>
@@ -2380,6 +2403,7 @@
       </Mod>
     </BaseMods>
     <Soak>1</Soak>
+    <Defense>0</Defense>
   </Armor>  
   
   <!-- Endless Vigil -->
@@ -2395,6 +2419,7 @@
     <Categories>
       <Category>Full Body</Category>
       <Category>Resistant</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>1</Encumbrance>
     <HP>1</HP>
@@ -2407,6 +2432,7 @@
       </Mod>
     </BaseMods>
     <Soak>1</Soak>
+    <Defense>0</Defense>
   </Armor>
   <Armor>
     <Key>GSUIT</Key>
@@ -2419,6 +2445,7 @@
     <Categories>
       <Category>Full Body</Category>
       <Category>Resistant</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>2</Encumbrance>
     <HP>1</HP>
@@ -2431,6 +2458,7 @@
       </Mod>
     </BaseMods>
     <Soak>1</Soak>
+    <Defense>0</Defense>
   </Armor>
   <Armor>
     <Key>PITCREWCOV</Key>
@@ -2442,6 +2470,7 @@
     <Source Page="44">Endless Vigil</Source>
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Encumbrance>1</Encumbrance>
     <HP>1</HP>
@@ -2458,6 +2487,7 @@
       </Mod>
     </BaseMods>
     <Soak>1</Soak>
+    <Defense>0</Defense>
   </Armor>
   <Armor>
     <Key>ZEPHYRSTEALTH</Key>
@@ -2786,6 +2816,7 @@
     <Source Page="42">Fully Operational</Source>
     <Categories>
       <Category>Half Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Soak>1</Soak>
     <Price>75</Price>
@@ -2835,7 +2866,7 @@
     <Source Page="43">Fully Operational</Source>
     <Categories>
       <Category>Full Body</Category>
-      <Category>Heavy</Category>
+      <Category>Light</Category>
     </Categories>
     <Soak>1</Soak>
     <Price>450</Price>
@@ -2861,6 +2892,7 @@
     <Source Page="43">Fully Operational</Source>
     <Categories>
       <Category>Full Body</Category>
+      <Category>Light</Category>
     </Categories>
     <Soak>1</Soak>
     <Price>200</Price>
@@ -3026,9 +3058,12 @@
     <Name>Phase I ARC Trooper Armor</Name>
     <Description>
       [H3]Phase I ARC Trooper Armor[h3]
-      Please see page 48 of the Knights of Fate Sourcebook for details.
+      Please see page 48 of the Knights of Fate Sourcebook, or page 58 of the Rise of the Separatists Sourcebook, for details.
     </Description>
-    <Source Page="48">Knights of Fate</Source>
+    <Sources>
+      <Source Page="48">Knights of Fate</Source>
+      <Source Page="58">Rise of the Separatists</Source>
+    </Sources>
     <Categories>
       <Category>Full Body</Category>
       <Category>Hard</Category>
@@ -3061,6 +3096,380 @@
     </BaseMods>
     <Defense>1</Defense>
     <Soak>2</Soak>
+  </Armor>
+  <Armor>
+    <Key>CLIMBSUIT</Key>
+    <Name>Climbsuit</Name>
+    <Description>
+      [H3]Ayelixe/Krongbing Climbsuit[h3]
+      Please see page 41 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="41">Cyphers and Masks</Source>
+    <Categories>
+      <Category>Full Body</Category>
+      <Category>Light</Category>
+    </Categories>
+    <Defense>0</Defense>
+    <Soak>1</Soak>
+    <Price>1450</Price>
+    <Encumbrance>2</Encumbrance>
+    <HP>2</HP>
+    <Rarity>4</Rarity>
+    <Restricted>false</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgrades the ability of checks to climb or rappel down a surface once.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Reduces damage and strain suffered from falling by 5.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Reduces Critical Injury results due to falling by 10..</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Armor>
+  <Armor>
+    <Key>MKINIGHTSTALK</Key>
+    <Name>Mk I Nightstalker Suit</Name>
+    <Description>
+      [H3]Bantin Corp Mk I Nightstalker Suit[h3]
+      Please see page 41 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="41">Cyphers and Masks</Source>
+    <Categories>
+      <Category>Full Body</Category>
+    </Categories>
+    <Defense>0</Defense>
+    <Soak>2</Soak>
+    <Price>4800</Price>
+    <Encumbrance>2</Encumbrance>
+    <HP>1</HP>
+    <Rarity>9</Rarity>
+    <Restricted>true</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Wearer adds automatic [SU] to Stealth checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>STEAL</SkillKey>
+            <SuccessCount>1</SuccessCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+      <Mod>
+        <MiscDesc>Wearer adds automatic [TH] to social skill checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>COERC</SkillKey>
+            <ThreatCount>1</ThreatCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>DECEP</SkillKey>
+            <ThreatCount>1</ThreatCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>LEAD</SkillKey>
+            <ThreatCount>1</ThreatCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>CHARM</SkillKey>
+            <ThreatCount>1</ThreatCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>NEG</SkillKey>
+            <ThreatCount>1</ThreatCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </BaseMods>
+  </Armor>
+  <Armor>
+    <Key>MKIXMIM</Key>
+    <Name>Mk IX Personal Mimetic Concealment Suit</Name>
+    <Description>
+      [H3]Cyricept Mk IX Personal Mimetic Concealment Suit[h3]
+      Please see page 42 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="42">Cyphers and Masks</Source>
+    <Categories>
+      <Category>Full Body</Category>
+    </Categories>
+    <Defense>1</Defense>
+    <Soak>1</Soak>
+    <Price>8000</Price>
+    <Encumbrance>2</Encumbrance>
+    <HP>1</HP>
+    <Rarity>8</Rarity>
+    <Restricted>true</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Wearer upgrades ability of all Stealth checks twice.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>STEAL</SkillKey>
+            <UpgradeAbilityCount>2</UpgradeAbilityCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+      <Mod>
+        <MiscDesc>GM may spend [TH][TH][TH] or [DE] to cause the power pack to run out.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Armor>
+  
+  <!-- Rise of the Separatists -->
+  <Armor>
+    <Key>FLIGHTCF9</Key>
+    <Name>CF-9 Naval Flight Suit</Name>
+    <Description>
+      [H3]CF-9 Naval Flight Suit[h3]
+      Please see page 56 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="56">Rise of the Separatists</Source>
+    <Categories>
+      <Category>Sealed</Category>
+      <Category>Full Body</Category>
+    </Categories>
+    <Defense>1</Defense>
+    <Soak>1</Soak>
+    <Price>1200</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>3</Encumbrance>
+    <HP>2</HP>
+    <Rarity>6</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Includes a built-in respirator.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Remove up to [SE] from Piloting checks added due to physical stress.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Armor>
+  <Armor>
+    <Key>GUNDSCAV</Key>
+    <Name>"Gundark" Scav-Suit</Name>
+    <Description>
+      [H3]"Gundark" Scav-Suit[h3]
+      Please see page 56 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="56">Rise of the Separatists</Source>
+    <Categories>
+      <Category>Sealed</Category>
+      <Category>Full Body</Category>
+    </Categories>
+    <Defense>1</Defense>
+    <Soak>1</Soak>
+    <Price>3000</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>4</Encumbrance>
+    <HP>2</HP>
+    <Rarity>6</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds [BO] to Perception checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>PERC</SkillKey>
+            <BoostCount>1</BoostCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [BO][BO] to checks to avoid adverse effects of cold temperatures.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Removes [SE] imposed by cold-weather conditions on Perception checks.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Armor>
+  <Armor>
+    <Key>HVYROBES</Key>
+    <Name>Heavy Robes</Name>
+    <Description>
+      [H3]Heavy Robes[h3]
+      Please see page 56 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="56">Rise of the Separatists</Source>
+    <Categories>
+      <Category>Full Body</Category>
+    </Categories>
+    <Defense>1</Defense>
+    <Soak>0</Soak>
+    <Price>150</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>1</Encumbrance>
+    <HP>0</HP>
+    <Rarity>2</Rarity>
+    <BaseMods>
+    </BaseMods>
+  </Armor>
+  <Armor>
+    <Key>HT77COLDARM</Key>
+    <Name>HT-77 Cold Assault Armor</Name>
+    <Description>
+      [H3]HT-77 Cold Assault Armor[h3]
+      Please see page 57 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="57">Rise of the Separatists</Source>
+    <Categories>
+      <Category>Sealable</Category>
+      <Category>Full Body</Category>
+      <Category>Hard Full Body</Category>
+      <Category>Hard</Category>
+      <Category>Heavy</Category>
+      <Category>Resistant</Category>
+    </Categories>
+    <Defense>0</Defense>
+    <Soak>2</Soak>
+    <Price>4000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>6</Encumbrance>
+    <HP>2</HP>
+    <Rarity>7</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Comes with built-in comlink.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [BO][BO] to checks to avoid adverse effects of cold temperatures.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Removes [SE] imposed by cold-weather conditions on Perception checks.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Armor>
+  <Armor>
+    <Key>JEDICOMM</Key>
+    <Name>Jedi Commander Armor</Name>
+    <Description>
+      [H3]Jedi Commander Armor[h3]
+      Please see page 57 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="57">Rise of the Separatists</Source>
+    <Categories>
+      <Category>Sealable</Category>
+      <Category>Full Body</Category>
+      <Category>Hard Full Body</Category>
+      <Category>Hard</Category>
+      <Category>Resistant</Category>
+    </Categories>
+    <Defense>1</Defense>
+    <Soak>2</Soak>
+    <Price>5000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>5</Encumbrance>
+    <HP>3</HP>
+    <Rarity>8</Rarity>
+  </Armor>
+  <Armor>
+    <Key>MKIIINSARM</Key>
+    <Name>Mk II "Hotspot" Insulated Armor</Name>
+    <Description>
+      [H3]Mk II "Hotspot" Insulated Armor[h3]
+      Please see page 57 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="57">Rise of the Separatists</Source>
+    <Categories>
+      <Category>Sealed</Category>
+      <Category>Full Body</Category>
+      <Category>Hard Full Body</Category>
+      <Category>Hard</Category>
+      <Category>Heavy</Category>
+      <Category>Resistant</Category>
+    </Categories>
+    <Defense>0</Defense>
+    <Soak>2</Soak>
+    <Price>5500</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>6</Encumbrance>
+    <HP>2</HP>
+    <Rarity>7</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Comes with built-in comlink.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [BO][BO] to checks to avoid adverse effects of extreme heat or toxic gas.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Attackers must spend one additional [AD] to activate Burn quality and treat rating as one less.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Armor>
+
+
+  <Armor>
+    <Key>PHASEICLONE</Key>
+    <Name>Phase I Clone Trooper Armor</Name>
+    <Description>
+      [H3]Phase I Clone Trooper Armor[h3]
+      Please see page 58 of the Rise of the Separatists Sourcebook, for details.
+    </Description>
+    <Sources>
+      <Source Page="58">Rise of the Separatists</Source>
+    </Sources>
+    <Categories>
+      <Category>Full Body</Category>
+      <Category>Hard</Category>
+      <Category>Hard Full Body</Category>
+    </Categories>
+    <Encumbrance>4</Encumbrance>
+    <HP>3</HP>
+    <Price>2000</Price>
+    <Rarity>6</Rarity>
+    <Restricted>true</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Provides all benefits of a comlink</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Wearer suffers [SE] to Coordination checks until acclimated to armor.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <Defense>0</Defense>
+    <Soak>2</Soak>
+  </Armor>
+  <Armor>
+    <Key>SCAVCLONE</Key>
+    <Name>Scavenged Clone Armor</Name>
+    <Description>
+      [H3]Scavenged Clone Armor[h3]
+      Please see page 58 of the Rise of the Separatists Sourcebook, for details.
+    </Description>
+    <Sources>
+      <Source Page="58">Rise of the Separatists</Source>
+    </Sources>
+    <Categories>
+      <Category>Full Body</Category>
+      <Category>Hard</Category>
+      <Category>Hard Full Body</Category>
+    </Categories>
+    <Defense>0</Defense>
+    <Soak>2</Soak>
+    <Price>1000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>5</Encumbrance>
+    <HP>2</HP>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Suffer [SE] on Coordination and Stealth checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>COORD</SkillKey>
+            <AddSetbackCount>1</AddSetbackCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>STEAL</SkillKey>
+            <AddSetbackCount>1</AddSetbackCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+      <Mod>
+        <MiscDesc>Wearer may suffers [SE] or more on interactions with Republic officials and representatives.</MiscDesc>
+      </Mod>
+    </BaseMods>
   </Armor>
 </Armors>
       <!--

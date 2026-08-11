@@ -2457,8 +2457,13 @@
         {
             "Key": "ILUM",
             "Name": "Ilum Crystal",
-            "Description": "\n      [H3]Ilum Crystal[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Description": "\n      [H3]Ilum Crystal[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook, or page 63 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Force and Destiny Core Rulebook",
+                    "Rise of the Separatists"
+                ]
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4595,6 +4600,56 @@
                         "Count": 2
                     }
                 ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SPYBRAIN",
+            "Name": "Spy Droid Brain",
+            "Description": "\n      [H3]Spy Droid Brain[h3]\n      Please see page 74 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Type": "Vehicle",
+            "ItemLimit": {
+                "Key": "SHEATHIPEDESPY"
+            },
+            "SkillLimit": {},
+            "TypeLimit": {},
+            "CategoryLimit": {
+                "0": "\n    "
+            },
+            "Price": 0,
+            "Rarity": 6,
+            "Restricted": "false",
+            "HP": 0,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "Adds a Droid Brain with Computers 3, Perception 3, and Stealth 3.",
+                    "Count": 1,
+                    "InnateSkills": {
+                        "InnateSkill": [
+                            {
+                                "SkillKey": "COMP",
+                                "SkillRank": 3,
+                                "AbilityRank": 0
+                            },
+                            {
+                                "SkillKey": "PERC",
+                                "SkillRank": 3,
+                                "AbilityRank": 0
+                            },
+                            {
+                                "SkillKey": "STEAL",
+                                "SkillRank": 3,
+                                "AbilityRank": 0
+                            }
+                        ]
+                    }
+                }
+            },
+            "AddedMods": {
+                "0": "\n    "
             },
             "Thumbnail": "img\/no_image.png"
         },
@@ -10358,7 +10413,7 @@
                         "Count": 1
                     },
                     {
-                        "Key": "PASSADDSIL",
+                        "Key": "PASSADD",
                         "Count": 2
                     },
                     {
@@ -11189,6 +11244,1241 @@
                     },
                     {
                         "Key": "PIERCE",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "COMPONENT",
+            "Name": "Componentization",
+            "Description": "\n      [H4]Componentization[h4]\n      Please see page 56 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Weapon",
+            "Price": 1150,
+            "Rarity": 5,
+            "HP": 2,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Allows a weapon to be broken into pieces and disguised as other items.  A character must make a [B]Formidable ([DI][DI][DI][DI][DI]) Mechanics[b] or [B]Skulduggery check[b] to deduce the items are weapon parts."
+                }
+            },
+            "MaxEnc": 2,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "LIGHTFR",
+            "Name": "Lightweight Frame",
+            "Description": "\n      [H4]Lightweight Frame[h4]\n      Please see page 56 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Weapon",
+            "Price": 650,
+            "Rarity": 3,
+            "HP": 1,
+            "BaseMods": {
+                "Mod": {
+                    "Key": "ENCSUB",
+                    "Count": 1
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "ENCSUB",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SCANPROOF",
+            "Name": "Scanner-Proof Hardware",
+            "Description": "\n      [H4]Scanner-Proof Hardware[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Weapon",
+            "Price": 1000,
+            "Rarity": 6,
+            "Restricted": "true",
+            "HP": 2,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Weapon cannot be detected by standard weapon-detecting technologies.  Advanced scanner operators must make a [B]Hard ([DI][DI][DI]) Computers check[b] to find the weaopn."
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "GM may spend [TH][TH] or [DE] on a combat check to cause major damage to weapon, making it inoperable."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "ENCSUB",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "XCITEOVER",
+            "Name": "XCiter Overcharge",
+            "Description": "\n      [H4]XCiter Overcharge[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Weapon",
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 1100,
+            "Rarity": 7,
+            "Restricted": "true",
+            "HP": 2,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Count": 1,
+                        "MiscDesc": "As an incidental, may overcharge blaster.  Weapon gets the Prepare 1 quality and damge of next attack is increased by 4.  Weapon then runs out of ammo."
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "GM may spend [TH][TH][TH] or [DE] from a combat check involving an overcharged shot to cause weapon to explode and deal full damage to shooter."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "ARMINS",
+            "Name": "Armor Insert",
+            "Description": "\n      [H4]Armor Insert[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Armor",
+            "Price": 450,
+            "Rarity": 3,
+            "CategoryLimit": {
+                "Category": "Light"
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "SOAKSET",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "DEFSET",
+                        "Count": 1
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Armor inserts can be noticed by making an [B]Average ([DI][DI]) Perception check[b]."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "SOAKADD",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "DEFADD",
+                        "Count": 1
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Perception check difficulty increased to [B]Hard ([DI][DI][DI])[b]."
+                    }
+                ]
+            },
+            "MaxSoak": 1,
+            "ForceMinDefense": "true",
+            "ForceMaxDefense": "true",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BOOTBLADE",
+            "Name": "Boot Blade",
+            "Description": "\n      [H4]Boot Blade[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Armor",
+            "CategoryLimit": {
+                "Category": [
+                    "Full Body",
+                    "Sealed"
+                ]
+            },
+            "Price": 100,
+            "Rarity": 5,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Provides wearer with a retractable fighting blade"
+                }
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "CRITSUB",
+                        "Count": 1,
+                        "WeaponModifierIndex": 0
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 2,
+                        "WeaponModifierIndex": 0
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 1,
+                        "WeaponModifierIndex": 0
+                    }
+                ]
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "UnarmedName": "Retractable Fighting Blade",
+                    "SkillKey": "MELEE",
+                    "DamageAdd": 1,
+                    "Crit": 3,
+                    "Range": "Engaged"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "JUMPBOOTS",
+            "Name": "Jump Boots",
+            "Description": "\n      [H4]Jump Boots[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Armor",
+            "Price": 1200,
+            "Rarity": 6,
+            "HP": 1,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Reduces difficulty of Athletics checks made to jump or over obstacles by 1"
+                }
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Further reduces difficulty of Athletics checks made to jump or over obstacles by 1 more"
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Allows wearer to fly (see page 214 of the [B]Age of Rebellion[b] Core Rulebook) for a total of 1 minute or 3 rounds"
+                    }
+                ]
+            },
+            "MaxEnc": 4,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SCANWEAVE",
+            "Name": "Scannerweave",
+            "Description": "\n      [H4]Scannerweave[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Armor",
+            "Price": 1800,
+            "Rarity": 6,
+            "Restricted": "true",
+            "HP": 2,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Upgrades ability of all opposed Stealth checks made against sensor and scanner operators once"
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Further upgrades ability of all opposed Stealth checks made against sensor and scanner operators once more"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "STEALTHFGEN",
+            "Name": "Stealth Field Generator",
+            "Description": "\n      [H4]Stealth Field Generator[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Armor",
+            "Price": 3800,
+            "Restricted": "true",
+            "HP": 2,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Upgrades difficulty of all opposed Perception checks to spot wearer once"
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Count": 2,
+                    "MiscDesc": "Add [SE] to opposed Perception checks to spot the wearer"
+                }
+            },
+            "MaxEnc": 7,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "REFLADAPSKIN",
+            "Name": "Reflec Adaptive Skin",
+            "Description": "\n      [H4]Reflec Adaptive Skin[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Armor",
+            "Price": 3500,
+            "Rarity": 7,
+            "Restricted": "true",
+            "HP": 2,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Upgrades ability of all Stealth checks by 1",
+                    "DieModifiers": {
+                        "DieModifier": {
+                            "SkillKey": "STEAL",
+                            "UpgradeAbilityCount": 1
+                        }
+                    }
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Count": 2,
+                    "MiscDesc": "Add [BO] to all Stealth checks",
+                    "DieModifiers": {
+                        "DieModifier": {
+                            "SkillKey": "STEAL",
+                            "BoostCount": 1
+                        }
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "COMLINKBUG",
+            "Name": "Comlink Bug",
+            "Description": "\n      [H4]Comlink Bug[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "TypeLimit": {
+                "Type": "Communications"
+            },
+            "Price": 150,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Broadcasts all incoming and outgoing signals from a comlink to a remote listener at medium range"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CONCCLIMBCORD",
+            "Name": "Concealed Climbing Cord",
+            "Description": "\n      [H4]Concealed Climbing Cord[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "Price": 100,
+            "Rarity": 2,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Grants user a length of climbing cord with grappling hook.  This counts as the Right Tool for the Job for climbing and repelling."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "DARTGUN",
+            "Name": "Dart Gun",
+            "Description": "\n      [H4]Dart Gun[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "Price": 200,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Enables the item to fire a single dart"
+                }
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "UnarmedName": "Dart Gun",
+                    "SkillKey": "RANGLT",
+                    "Damage": 2,
+                    "Crit": 5,
+                    "Qualities": {
+                        "Quality": [
+                            {
+                                "Key": "LIMITEDAMMO",
+                                "Count": 1
+                            },
+                            {
+                                "Key": "PIERCE",
+                                "Count": 1
+                            }
+                        ]
+                    },
+                    "RangeValue": "wrShort",
+                    "Range": "Short"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HIDCOMP",
+            "Name": "Hidden Compartment",
+            "Description": "\n      [H4]Hidden Compartment[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "Price": 50,
+            "Rarity": 3,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Adds a small hidden compartment to a personal item.  Finding compartment requires a [B]Hard ([DI][DI][DI]) Perception check[b]."
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Upgrade difficulty of Perception check once"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HOLOCONV",
+            "Name": "Holo Converter",
+            "Description": "\n      [H4]Holo Converter[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "CategoryLimit": {
+                "Category": "Holoprojector"
+            },
+            "Price": 600,
+            "Rarity": 6,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Allows user to create up to four different holographic alter egos within holographic projector"
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Count": 2,
+                    "MiscDesc": "Add one additional alter ego to database"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SUBMINHOLO",
+            "Name": "Subminiature Holocam",
+            "Description": "\n      [H4]Subminiature Holocam[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "Price": 300,
+            "Rarity": 5,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Allows user to take still images and record holos unobtrusively"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SELFDEST",
+            "Name": "Self-Destruct System",
+            "Description": "\n      [H4]Self-Destruct System[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "Price": 450,
+            "Rarity": 5,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Adds a single-use explosive self-destruct system to item dealing 5 damage to all characters within engaged range."
+                }
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Count": 3,
+                        "MiscDesc": "Increase explosive damage by 2"
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Increase explosive range to short"
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "RETGARROTE",
+            "Name": "Retractable Garrote",
+            "Description": "\n      [H4]Retractable Garrote[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Gear",
+            "Price": 300,
+            "Rarity": 6,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Adds retractable garrote to item"
+                }
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "UnarmedName": "Retractable Garrote",
+                    "SkillKey": "BRAWL",
+                    "Qualities": {
+                        "Quality": {
+                            "Key": "STUNSETTING"
+                        }
+                    },
+                    "Range": "Engaged"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CLOAKDEV",
+            "Name": "Cloaking Device",
+            "Description": "\n      [H4]Cloaking Device[h4]\n      Please see page 62 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Vehicle",
+            "Price": 29000,
+            "Rarity": 9,
+            "HP": 4,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Count": 1,
+                        "MiscDesc": "May activate\/deactivate cloaking device with a maneuver"
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Must make a [B]Daunting ([DI][DI][DI][DI]) Perception[b] or [B]Vigilance check[b] to spot a cloaked ship"
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Cloaked ship has speed reduced by half (rounded up) and cannot use active sensors, comms, or weapons"
+                    }
+                ]
+            },
+            "MinSize": 3,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HOLOSHELL",
+            "Name": "Holographic Shell",
+            "Description": "\n      [H4]Holographic Shell[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Vehicle",
+            "Price": 5500,
+            "Rarity": 7,
+            "Restricted": "true",
+            "HP": 2,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Provides ship with holographic disguise.  A [B]Daunting ([DI][DI][DI][DI]) Perception check[b] is required to see through disguise at a distance.  Physical examination immediate detects the disguise."
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Count": 2,
+                    "MiscDesc": "Add one additional disguise to database"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HUSHKIT",
+            "Name": "Hush Kit",
+            "Description": "\n      [H4]Hush Kit[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Vehicle",
+            "Price": 450,
+            "Rarity": 6,
+            "HP": 1,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Adds [SE][SE] to all checks to detect this ship audibly in atmosphere"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MOBLISTEN",
+            "Name": "Mobile Listening Post",
+            "Description": "\n      [H4]Mobile Listening Post[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Vehicle",
+            "Price": 5500,
+            "Rarity": 5,
+            "HP": 2,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "SRANGEADD",
+                        "Count": 1
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Provides extra audio, video, and holographic capabilities"
+                    }
+                ]
+            },
+            "MinSize": 3,
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "RETWEAPSYS",
+            "Name": "Retractable Weapon System",
+            "Description": "\n      [H4]Retractable Weapon System[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Vehicle",
+            "Price": 1000,
+            "Rarity": 6,
+            "HP": 1,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "RETRACTWEAPSYSTEM",
+                        "Count": 1
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Discovering hidden weapon requires a [B]Hard ([DI][DI][DI]) Perception check[b] and thorough search of vehicle"
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SENSSHUNT",
+            "Name": "Sensor Shunt",
+            "Description": "\n      [H4]Sensor Shunt[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Source": "Cyphers and Masks",
+            "Type": "Vehicle",
+            "Price": 3200,
+            "Rarity": 8,
+            "Restricted": "true",
+            "HP": 1,
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Increase difficulty of checks to detect vehicle using passive sensors by 2 and active sensors by 1 while travelling at speed 3 or lower"
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "ASCENGUN",
+            "Name": "Ascension Gun",
+            "Description": "\n      [H3]Ascension Gun[h3]\n      Please see page 61 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 500,
+            "Encumbrance": 1,
+            "HP": 1,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "User may fire  ascension gun at an anchor point within medium range with an [B]Easy ([DI]) Ranged Light[b] or [B]Coordination check[b], adding [SE] for precise placement.  May asend one range band every round."
+                }
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Add [BO] to checks to fire ascension gun",
+                        "Count": 1
+                    },
+                    {
+                        "MiscDesc": "Increase ascension gun speed by one range band per round",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "AUGVIBROMOTOR",
+            "Name": "Augmented Vibro-Motor",
+            "Description": "\n      [H3]Augmented Vibro-Motor[h3]\n      Please see page 61 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "Category": [
+                    "Powered Melee",
+                    "Powered Brawl"
+                ]
+            },
+            "Price": 500,
+            "Encumbrance": 0,
+            "HP": 2,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMADD",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": 3,
+                        "QualSet": "true"
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMADD",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": -1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CLONEFIRE",
+            "Name": "Clone Firing Key",
+            "Description": "\n      [H3]Clone Firing Key[h3]\n      Please see page 61 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 250,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 7,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "This weapon functions only in the hands of a clone."
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "MiscDesc": "Authorize one non-clone genetic sequence.",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "COMBTEST",
+            "Name": "Combat Tested",
+            "Description": "\n      [H3]Combat Tested[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "0": "\n    "
+            },
+            "Price": 50,
+            "Encumbrance": 0,
+            "HP": 0,
+            "Rarity": 3,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "Add [BO] to Discipline checks.",
+                    "DieModifiers": {
+                        "DieModifier": {
+                            "SkillKey": "DISC",
+                            "BoostCount": 1
+                        }
+                    }
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "MiscDesc": "Add [BO] to check to resist fear.",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CORTFOR",
+            "Name": "Cortosis Forging",
+            "Description": "\n      [H3]Cortosis Forging[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "TypeLimit": {
+                "Type": "Melee"
+            },
+            "Price": 8000,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 8,
+            "BaseMods": {
+                "Mod": {
+                    "Key": "CORTOSIS",
+                    "Count": 1
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "PIERCE",
+                    "Count": 2
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "INSFIRMECH",
+            "Name": "Insulated Firing Mechanism",
+            "Description": "\n      [H3]Insulated Firing Mechanism[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 1000,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 7,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Increases [AD] or [TH] cost of any effect that damages the weapon (such as Sunder) by one."
+                    },
+                    {
+                        "Key": "PREPARE",
+                        "Count": 1,
+                        "QualSet": "true"
+                    },
+                    {
+                        "MiscDesc": "Repairs to the weapon cost half as much."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "PREPARE",
+                    "Count": -1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "IONFOCCOIL",
+            "Name": "Ionizing Focusing Coils",
+            "Description": "\n      [H3]Ionizing Focusing Coils[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 800,
+            "Encumbrance": 0,
+            "HP": 2,
+            "Rarity": 5,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Increases damage by +2 versus droids."
+                    },
+                    {
+                        "MiscDesc": "Opponents may spend [TH][TH] or [DE] to damage weapon by one step."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Increases damage by +1 versus droids",
+                        "Count": 2
+                    },
+                    {
+                        "MiscDesc": "Decreases critical rating by 1 versus droids",
+                        "Count": 1
+                    },
+                    {
+                        "MiscDesc": "Increases [TH] required to backfire by 1",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "FUSIONSHUNT",
+            "Name": "Fusion Shunt",
+            "Description": "\n      [H3]Fusion Shunt[h3]\n      Please see page 63 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "TypeLimit": {
+                "Type": "Lightsaber"
+            },
+            "Price": 2000,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 6,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Activating fusion shunt requires a maneuver.  All combat checks suffer [TH][TH][TH] when shunt is activated."
+                    },
+                    {
+                        "MiscDesc": "Lightsaber's Breach quality increases by 1 when shunt is active."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "0": "\n    "
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "IONEMIT",
+            "Name": "Ionizing Emitter Matrix",
+            "Description": "\n      [H3]Ionizing Emitter Matrix[h3]\n      Please see page 63 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "TypeLimit": {
+                "Type": "Lightsaber"
+            },
+            "Price": 4000,
+            "Encumbrance": 0,
+            "HP": 2,
+            "Rarity": 6,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Damage +2 versus droids and vehicles."
+                    },
+                    {
+                        "MiscDesc": "Damage -1 versus organic and other targets."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "0": "\n    "
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "THONTIIN",
+            "Name": "Thontiin Crystal",
+            "Description": "\n      [H3]Thontiin Crystal[h3]\n      Please see page 63 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": [
+                "Weapon",
+                "Weapon"
+            ],
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "ItemLimit": {},
+            "SkillLimit": {},
+            "TypeLimit": {},
+            "CategoryLimit": {
+                "Category": "Lightsaber"
+            },
+            "Price": 9000,
+            "Rarity": 9,
+            "HP": 2,
+            "IsCrystal": "true",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMSET",
+                        "Count": 6
+                    },
+                    {
+                        "Key": "CRITSET",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "BREACH",
+                        "Count": 1,
+                        "QualSet": "true"
+                    },
+                    {
+                        "Key": "SUNDER"
+                    },
+                    {
+                        "MiscDesc": "Once per encounter, ignore effects of an [B]Easy ([DI])[b] Critical Injury."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMADD",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "CRITSUB",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "ZOPHIS",
+            "Name": "Zophis Crystal",
+            "Description": "\n      [H3]Thontiin Crystal[h3]\n      Please see page 64 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Type": [
+                "Weapon",
+                "Weapon"
+            ],
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "ItemLimit": {},
+            "SkillLimit": {},
+            "TypeLimit": {},
+            "CategoryLimit": {
+                "Category": "Lightsaber"
+            },
+            "Price": 11000,
+            "Rarity": 10,
+            "HP": 2,
+            "IsCrystal": "true",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMSET",
+                        "Count": 8
+                    },
+                    {
+                        "Key": "CRITSET",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "BREACH",
+                        "Count": 2,
+                        "QualSet": "true"
+                    },
+                    {
+                        "Key": "SUNDER"
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 1,
+                        "QualSet": "true"
+                    },
+                    {
+                        "MiscDesc": "When Sunder quality is activated, damage suffered is increased by one step."
+                    },
+                    {
+                        "MiscDesc": "[TH][TH][TH] or [DE] may be spent to disable the weapon until the wielder's next turn."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "DAMADD",
+                    "Count": 2
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BIOSUPPORT",
+            "Name": "Bio-Support Dispenser",
+            "Description": "\n      [H3]Bio-Support Dispenser[h3]\n      Please see page 64 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Type": "Armor",
+            "CategoryLimit": {
+                "Category": "Full Body"
+            },
+            "Price": 4000,
+            "Rarity": 6,
+            "HP": 1,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "When healing strain at end of encounter, also heal 1 wound."
+                    },
+                    {
+                        "MiscDesc": "First time wounds exceed threshold in an encounter, armor automatically applies a stimpack."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "MiscDesc": "Heal 1 additional wound at end of encounter",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CEREADORN",
+            "Name": "Cermonial Adornment",
+            "Description": "\n      [H3]Cermonial Adornment[h3]\n      Please see page 65 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Type": "Armor",
+            "Price": 2500,
+            "Rarity": 4,
+            "HP": 0,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Removes [SE][SE] from social skill checks due to wearing armor in socially inappropriate situations."
+                    },
+                    {
+                        "MiscDesc": "Adds [SE] to Coordination checks.",
+                        "DieModifiers": {
+                            "DieModifier": {
+                                "SkillKey": "COORD",
+                                "AddSetbackCount": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "MiscDesc": "Remove [SE] from Coordination checks",
+                    "Count": 1,
+                    "DieModifiers": {
+                        "DieModifier": {
+                            "SkillKey": "COORD",
+                            "AddSetbackCount": -1
+                        }
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PHYSENH",
+            "Name": "Physiological Enhancement System",
+            "Description": "\n      [H3]Physiological Enhancement System[h3]\n      Please see page 65 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "CategoryLimit": {
+                "Category": "Full Body"
+            },
+            "Type": "Armor",
+            "Price": 10000,
+            "Rarity": 7,
+            "HP": 2,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Reduce strain suffered involuntarily by 1, to minimum of 1."
+                    },
+                    {
+                        "MiscDesc": "Adds [BO] to all Athletics, Coordination, and Resilience checks.",
+                        "DieModifiers": {
+                            "DieModifier": [
+                                {
+                                    "SkillKey": "ATHL",
+                                    "BoostCount": 1
+                                },
+                                {
+                                    "SkillKey": "COORD",
+                                    "BoostCount": 1
+                                },
+                                {
+                                    "SkillKey": "RESIL",
+                                    "BoostCount": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "ATHL",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "COORD",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "RESIL",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SQUADTACT",
+            "Name": "Squad Tactical Systems",
+            "Description": "\n      [H3]Squad Tactical Systems[h3]\n      Please see page 65 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Type": "Armor",
+            "Price": 2000,
+            "Rarity": 5,
+            "HP": 1,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Add [BO] to Perception and Vigilance checks while within medium range of one or more allies also using armor with this attachment."
+                    },
+                    {
+                        "MiscDesc": "Includes integrated comlink."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "PERC",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "VIGIL",
                         "Count": 1
                     }
                 ]

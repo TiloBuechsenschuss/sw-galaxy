@@ -591,7 +591,7 @@
             "Description": "\n      [H3]H-7 \"Equalizer\" Blaster Pistol[h3]\n      Please see page 95 of the Suns of Fortune Sourcebook for details.\n    ",
             "Source": "Suns of Fortune",
             "SkillKey": "RANGLT",
-            "Damage": 7,
+            "Damage": 6,
             "Crit": 2,
             "RangeValue": "wrMedium",
             "Encumbrance": 2,
@@ -2781,8 +2781,13 @@
         {
             "Key": "Z6ROTBLASTCAN",
             "Name": "Z-6 Rotary Blaster Cannon",
-            "Description": "\n      [H3]Z-6 Rotary Blaster Cannon[h3]\n      Please see page 44 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Description": "\n      [H3]Z-6 Rotary Blaster Cannon[h3]\n      Please see page 44 of the Forged in Battle Sourcebook, or page 52 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Forged in Battle",
+                    "Rise of the Separatists"
+                ]
+            },
             "Type": "Energy Weapon",
             "Categories": {
                 "Category": [
@@ -9040,6 +9045,7 @@
             "Crit": 3,
             "RangeValue": "wrEngaged",
             "Encumbrance": 4,
+            "Hands": "whTwoHanded",
             "HP": 2,
             "Price": 315,
             "Rarity": 8,
@@ -9266,8 +9272,13 @@
         {
             "Key": "LTSABERBASIC",
             "Name": "Basic Lightsaber",
-            "Description": "\n      [H3]Basic Lightsaber[h3]\n      Please see page 176 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Description": "\n      [H3]Basic Lightsaber[h3]\n      Please see page 176 of the Force and Destiny Core Rulebook, or page 54 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Force and Destiny Core Rulebook",
+                    "Rise of the Separatists"
+                ]
+            },
             "SkillKey": "LTSABER",
             "Damage": 6,
             "DamageAdd": 0,
@@ -9379,8 +9390,13 @@
         {
             "Key": "LTSABERSHOTO",
             "Name": "Shoto",
-            "Description": "\n      [H3]Shoto[h3]\n      Please see page 177 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Description": "\n      [H3]Shoto[h3]\n      Please see page 177 of the Force and Destiny Core Rulebook, or page 54 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Force and Destiny Core Rulebook",
+                    "Rise of the Separatists"
+                ]
+            },
             "SkillKey": "LTSABER",
             "Damage": 5,
             "DamageAdd": 0,
@@ -9421,8 +9437,13 @@
         {
             "Key": "LTSABERTRAIN",
             "Name": "Training Lightsaber",
-            "Description": "\n      [H3]Training Lightsaber[h3]\n      Please see page 178 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Description": "\n      [H3]Training Lightsaber[h3]\n      Please see page 178 of the Force and Destiny Core Rulebook, or page 54 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Force and Destiny Core Rulebook",
+                    "Rise of the Separatists"
+                ]
+            },
             "SkillKey": "LTSABER",
             "Damage": 6,
             "DamageAdd": 0,
@@ -9544,8 +9565,13 @@
         {
             "Key": "LTSABERBASICHILT",
             "Name": "Basic Lightsaber Hilt",
-            "Description": "\n      [H3]Basic Lightsaber Hilt[h3]\n      Please see page 177 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Description": "\n      [H3]Basic Lightsaber Hilt[h3]\n      Please see page 177 of the Force and Destiny Core Rulebook, or page 54 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Force and Destiny Core Rulebook",
+                    "Rise of the Separatists"
+                ]
+            },
             "SkillKey": "LTSABER",
             "Damage": 0,
             "DamageAdd": 0,
@@ -9647,8 +9673,13 @@
         {
             "Key": "LTSABERSHOTOHILT",
             "Name": "Shoto Hilt",
-            "Description": "\n      [H3]Shoto[h3]\n      Please see page 125 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Description": "\n      [H3]Shoto Hilt[h3]\n      Please see page 177 of the Force and Destiny Core Rulebook, or page 54 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    "Force and Destiny Core Rulebook",
+                    "Rise of the Separatists"
+                ]
+            },
             "SkillKey": "LTSABER",
             "Damage": 0,
             "DamageAdd": 0,
@@ -10615,7 +10646,7 @@
             "Restricted": "false",
             "SkillKey": "MELEE",
             "Damage": 0,
-            "DamageAdd": 2,
+            "DamageAdd": 1,
             "Crit": 2,
             "SizeLow": 0,
             "SizeHigh": 10,
@@ -13067,11 +13098,12 @@
         {
             "Key": "FLAKLT",
             "Name": "Light Flak Cannon",
-            "Description": "\n      [H3]Light Flak Cannon[h3]\n      Please see page 49 of the Stay on Target Sourcebook, or page 53 of the Lead by Example Sourcebook, for details.\n    ",
+            "Description": "\n      [H3]Light Flak Cannon[h3]\n      Please see page 49 of the Stay on Target Sourcebook, page 53 of the Lead by Example Sourcebook, or page 78 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
                     "Stay on Target",
-                    "Lead by Example"
+                    "Lead by Example",
+                    "Rise of the Separatists"
                 ]
             },
             "Type": "Vehicle",
@@ -13111,11 +13143,12 @@
         {
             "Key": "FLAKMED",
             "Name": "Medium Flak Cannon",
-            "Description": "\n      [H3]Medium Flak Cannon[h3]\n      Please see page 49 of the Stay on Target Sourcebook, or page 53 of the Lead by Example Sourcebook, for details.\n    ",
+            "Description": "\n      [H3]Medium Flak Cannon[h3]\n      Please see page 49 of the Stay on Target Sourcebook, page 53 of the Lead by Example Sourcebook, or page 78 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
                     "Stay on Target",
-                    "Lead by Example"
+                    "Lead by Example",
+                    "Rise of the Separatists"
                 ]
             },
             "Type": "Vehicle",
@@ -13155,11 +13188,12 @@
         {
             "Key": "FLAKHVY",
             "Name": "Heavy Flak Cannon",
-            "Description": "\n      [H3]Heavy Flak Cannon[h3]\n      Please see page 49 of the Stay on Target Sourcebook, or page 53 of the Lead by Example Sourcebook, for details.\n    ",
+            "Description": "\n      [H3]Heavy Flak Cannon[h3]\n      Please see page 49 of the Stay on Target Sourcebook, page 53 of the Lead by Example Sourcebook, or page 78 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
                     "Stay on Target",
-                    "Lead by Example"
+                    "Lead by Example",
+                    "Rise of the Separatists"
                 ]
             },
             "Type": "Vehicle",
@@ -16292,7 +16326,7 @@
             "Key": "WP19INCGREN",
             "Name": "WP-19 Incendiary Grenade",
             "Description": "\n      [H3]Merr-Sonn WP-19 Incendiary Grenade[h3]\n      See page 40 of the Fully Operational Sourcebook, or page 45 of the Knights of Fate Sourcebook, for details.\n    ",
-            "Sourcs": {
+            "Sources": {
                 "Source": [
                     "Fully Operational",
                     "Knights of Fate"
@@ -17425,6 +17459,991 @@
                 ]
             },
             "Range": "Long",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "A280CFEPISTOL",
+            "Name": "A280-CFE Convertible Heavy Blaster Pistol (Pistol Mode)",
+            "Description": "\n      [H3]BlasTech A280-CFE Convertible Heavy Blaster Pistol (Pistol Mode)[h3]\n      Please see page 38 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 8,
+            "Crit": 3,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 3,
+            "HP": 1,
+            "Price": 1700,
+            "Rarity": 7,
+            "Restricted": "true",
+            "Type": "Energy Weapon",
+            "Categories": {
+                "Category": [
+                    "Heavy Blaster Pistol",
+                    "Blaster",
+                    "Pistol",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": {
+                    "Key": "STUNSETTING"
+                }
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "May spend a maneuver to convert to and from pistol and rifle mode."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "A280CFERIFLE",
+            "Name": "A280-CFE Convertible Heavy Blaster Pistol (Rifle Mode)",
+            "Description": "\n      [H3]BlasTech A280-CFE Convertible Heavy Blaster Pistol (Rifle Mode)[h3]\n      Please see page 38 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 8,
+            "Crit": 3,
+            "RangeValue": "wrLong",
+            "Encumbrance": 3,
+            "HP": 1,
+            "Price": 1700,
+            "Rarity": 7,
+            "Restricted": "true",
+            "Type": "Energy Weapon",
+            "Categories": {
+                "Category": [
+                    "Heavy Blaster Rifle",
+                    "Blaster",
+                    "Rifle",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "STUNSETTING"
+                    },
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "May spend a maneuver to convert to and from pistol and rifle mode."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CS14GHOST",
+            "Name": "CS14 \"Ghost\" Light Blaster Pistol",
+            "Description": "\n      [H3]BlasTech CS14 \"Ghost\" Light Blaster Pistol[h3]\n      Please see page 38 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 5,
+            "Crit": 3,
+            "RangeValue": "wrShort",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Price": 550,
+            "Rarity": 6,
+            "Restricted": "true",
+            "Type": "Energy Weapon",
+            "Categories": {
+                "Category": [
+                    "Blaster Pistol",
+                    "Blaster",
+                    "Pistol",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": {
+                    "Key": "STUNSETTING"
+                }
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Finding a CS14 on a person requires a [B]Daunting ([DI][DI][DI][DI]) Perception check[b]."
+                    },
+                    {
+                        "MiscDesc": "Finding a CS14 on a person with a scanner requires a [B]Daunting ([DI][DI][DI][DI]) Computers check[b]."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "NIGHTSTINGER",
+            "Name": "Nightstinger Blaster Rifle",
+            "Description": "\n      [H3]Xerrol Corp. Nightstinger Blaster Rifle[h3]\n      Please see page 39 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 10,
+            "Crit": 2,
+            "RangeValue": "wrExtreme",
+            "Encumbrance": 7,
+            "HP": 4,
+            "Price": 6500,
+            "Rarity": 9,
+            "Restricted": "false",
+            "Type": "Energy Weapon",
+            "Categories": {
+                "Category": [
+                    "Blaster Rifle",
+                    "Blaster",
+                    "Rifle",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "May switch to stealth mode as a maneuver.  This makes locating shooter by the muzzle blast impossible.  It also adds the Slow Firing 2 quality for the rest of the encounter."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "STM40",
+            "Name": "ST-M40 Heavy Repeating Blaster Pistol",
+            "Description": "\n      [H3]Merr-Sonn ST-M40 Heavy Repeating Blaster Pistol[h3]\n      Please see page 39 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 6,
+            "Crit": 3,
+            "RangeValue": "wrShort",
+            "Encumbrance": 2,
+            "HP": 2,
+            "Price": 2100,
+            "Rarity": 5,
+            "Restricted": "false",
+            "Type": "Energy Weapon",
+            "Categories": {
+                "Category": [
+                    "Heavy Blaster Pistol",
+                    "Blaster",
+                    "Pistol",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "AUTOFIRE"
+                    },
+                    {
+                        "Key": "INACURATE",
+                        "Count": 1
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "GM may spend [TH][TH] or [DE] to cause this weapon to run out of ammo."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "VACMK127",
+            "Name": "Vac Attack Mk-127 Concealable Disc Launcher (Single-Line Mode)",
+            "Description": "\n      [H3]Vacutech Combine Vac Attack Mk-127 Concealable Disc Launcher (Single-Line Mode)[h3]\n      Please see page 39 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 6,
+            "Crit": 3,
+            "RangeValue": "wrShort",
+            "Encumbrance": 0,
+            "HP": 1,
+            "Price": 800,
+            "Rarity": 7,
+            "Restricted": "false",
+            "Type": "Explosives\/Other",
+            "Categories": {
+                "Category": [
+                    "Rifle",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 4
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 1
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "May spend a maneuver to change to or from single-line mode and arc mode."
+                    },
+                    {
+                        "MiscDesc": "If two are worn on each wrist, may be fired as a single weapon with the Linked 1 quality."
+                    },
+                    {
+                        "MiscDesc": "Noticing an individual wearing one or a pair of these weapons requires a [B]Hard ([DI][DI][DI]) Perception check[b]."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "VACMK127ARC",
+            "Name": "Vac Attack Mk-127 Concealable Disc Launcher (Arc Mode)",
+            "Description": "\n      [H3]Vacutech Combine Vac Attack Mk-127 Concealable Disc Launcher (Arc Mode)[h3]\n      Please see page 39 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 6,
+            "Crit": 3,
+            "RangeValue": "wrShort",
+            "Encumbrance": 0,
+            "HP": 1,
+            "Price": 800,
+            "Rarity": 7,
+            "Restricted": "false",
+            "Type": "Explosives\/Other",
+            "Categories": {
+                "Category": [
+                    "Rifle",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 6
+                    },
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 1
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "May spend a maneuver to change to or from single-line mode and arc mode."
+                    },
+                    {
+                        "MiscDesc": "If two are worn on each wrist, may be fired as a single weapon with the Linked 1 quality."
+                    },
+                    {
+                        "MiscDesc": "Noticing an individual wearing one or a pair of these weapons requires a [B]Hard ([DI][DI][DI]) Perception check[b]."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "WRISTBLAST",
+            "Name": "Wrist Blaster",
+            "Description": "\n      [H3]Wrist Blaster[h3]\n      Please see page 40 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 6,
+            "Crit": 3,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Price": 1200,
+            "Rarity": 6,
+            "Restricted": "true",
+            "Type": "Energy Weapon",
+            "Categories": {
+                "Category": [
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 4
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Noticing an individual wearing one of these weapons requires a [B]Daunting ([DI][DI][DI][DI]) Perception check[b]."
+                    },
+                    {
+                        "MiscDesc": "[TH][TH][TH] or [DE] may be used to cause the weapon to burn the wielder, causing 3 wound."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "GARROTE",
+            "Name": "Garrote",
+            "Description": "\n      [H3]Garrote[h3]\n      Please see page 40 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "SkillKey": "BRAWL",
+            "Damage": 0,
+            "Crit": 0,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Price": 50,
+            "Rarity": 2,
+            "Restricted": "false",
+            "Type": "Brawling",
+            "Categories": {
+                "Category": "Cutting Edge Melee"
+            },
+            "Qualities": {
+                "Quality": {
+                    "Key": "STUNSETTING"
+                }
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "A successful brawl attack with a garrote can cause the target to suffocate."
+                    },
+                    {
+                        "MiscDesc": "Target may attempt to break free of a garrote with a successful [B]opposed Brawl vs. Brawl check[b], adding [SE] for each round they've been caught."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MMD18DAG",
+            "Name": "MMD-18 Molecular Dagger",
+            "Description": "\n      [H3]MMD-18 Molecular Dagger[h3]\n      Please see page 40 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "Type": "Melee",
+            "Categories": {
+                "Category": "Cutting Edge Melee"
+            },
+            "Encumbrance": 1,
+            "HP": 1,
+            "Price": 100,
+            "Rarity": 4,
+            "SkillKey": "MELEE",
+            "DamageAdd": 2,
+            "Crit": 3,
+            "RangeValue": "wrEngaged",
+            "Qualities": {
+                "Quality": {
+                    "Key": "PIERCE",
+                    "Count": 2
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SAPGLOVES",
+            "Name": "Sap Gloves",
+            "Description": "\n      [H3]Sap Gloves[h3]\n      Please see page 40 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "Type": "Brawling",
+            "Categories": {
+                "Category": "Bludgeoning Brawl"
+            },
+            "Encumbrance": 1,
+            "HP": 1,
+            "Price": 50,
+            "Rarity": 4,
+            "SkillKey": "BRAWL",
+            "DamageAdd": 2,
+            "Crit": 5,
+            "RangeValue": "wrEngaged",
+            "Qualities": {
+                "Quality": {
+                    "Key": "CONCUSSIVE",
+                    "Count": 1
+                }
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "Spotting sap gloves requires [B]Daunting ([DI][DI][DI][DI]) Perception check[b]."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "REDIRCRYST",
+            "Name": "Redirection Crystal",
+            "Description": "\n      [H3]Redirection Crystal[h3]\n      Please see sidebar on page 39 of the Cyphers and Masks Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Cyphers and Masks"
+            },
+            "Type": "Explosives\/Other",
+            "Categories": {
+                "Category": "Ranged"
+            },
+            "Encumbrance": 0,
+            "HP": 0,
+            "Price": 500,
+            "Rarity": 9,
+            "Restricted": "true",
+            "SkillKey": "SKUL",
+            "Damage": 9,
+            "Crit": 4,
+            "RangeValue": "wrShort",
+            "Qualities": {
+                "Quality": {
+                    "Key": "LIMITEDAMMO",
+                    "Count": 1
+                }
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Setting up a redirection crystal requires a [B]Hard ([DI][DI][DI]) Skulduggery check[b]."
+                    },
+                    {
+                        "MiscDesc": "Hitting a redirection crystal requires a [B]Hard ([DI][DI][DI]) Ranged Light[b] or[B]Ranged Heavy check[b]."
+                    },
+                    {
+                        "MiscDesc": "The redirection crystal is destroyed upon use."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BLASTRIFDC15",
+            "Name": "DC-15 Blaster Rifle",
+            "Description": "\n      [H3]DC-15 Blaster Rifle[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 10,
+            "Crit": 3,
+            "RangeValue": "wrLong",
+            "Encumbrance": 6,
+            "HP": 4,
+            "Price": 2200,
+            "Rarity": 6,
+            "Type": "Energy Weapon",
+            "Restricted": "true",
+            "Categories": {
+                "Category": [
+                    "Rifle",
+                    "Blaster Rifle",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BLASTCARBDC15A",
+            "Name": "DC-15A Blaster Carbine",
+            "Description": "\n      [H3]DC-15A Blaster Carbine[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 9,
+            "Crit": 3,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 3,
+            "HP": 4,
+            "Price": 1500,
+            "Rarity": 5,
+            "Type": "Energy Weapon",
+            "Restricted": "true",
+            "Categories": {
+                "Category": [
+                    "Carbine",
+                    "Blaster Carbine",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "AUTOFIRE"
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BLASTDC17",
+            "Name": "DC-17 Hand Blaster",
+            "Description": "\n      [H3]DC-17 Hand Blaster[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 7,
+            "Crit": 3,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 2,
+            "HP": 3,
+            "Price": 1000,
+            "Rarity": 6,
+            "Type": "Energy Weapon",
+            "Restricted": "true",
+            "Categories": {
+                "Category": [
+                    "Pistol",
+                    "Blaster Pistol",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "May run out of ammo on a [TH][TH][TH], as well as a [DE]."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "APM1GR",
+            "Name": "AP-M1 Armor Piercing Grenade",
+            "Description": "\n      [H3]AP-M1 Armor Piercing Grenade[h3]\n      Please see page 52 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Categories": {
+                "Category": [
+                    "Ranged",
+                    "Grenade"
+                ]
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 13,
+            "Crit": 4,
+            "RangeValue": "wrShort",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Price": 200,
+            "Rarity": 6,
+            "Type": "Explosives\/Other",
+            "Restricted": "true",
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 4
+                    },
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 4
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BTX42FLAME",
+            "Name": "BT X-42 Heavy Flame Projector",
+            "Description": "\n      [H3]BT X-42 Heavy Flame Projector[h3]\n      Please see page 52 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "SkillKey": "GUNN",
+            "Damage": 10,
+            "Crit": 2,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 6,
+            "HP": 2,
+            "Price": 2000,
+            "Rarity": 7,
+            "Restricted": "true",
+            "Type": "Explosives\/Other",
+            "Categories": {
+                "Category": "Ranged"
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 6
+                    },
+                    {
+                        "Key": "BURN",
+                        "Count": 4
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 1
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "GM may spend [TH][TH][TH] to have it overheat and inoperable for three turns."
+                    },
+                    {
+                        "MiscDesc": "GM may spend [DE] to have it explode, dealing full damage to user and Blast damage to anything engaged with user."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MK1EMPGR",
+            "Name": "Mk II EMP Grenade",
+            "Description": "\n      [H3]AP-M1 Armor Piercing Grenade[h3]\n      Please see page 53 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "Categories": {
+                "Category": [
+                    "Ranged",
+                    "Grenade"
+                ]
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 8,
+            "Crit": 4,
+            "RangeValue": "wrShort",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Price": 150,
+            "Rarity": 5,
+            "Type": "Explosives\/Other",
+            "Restricted": "false",
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 6
+                    },
+                    {
+                        "Key": "DISORIENT",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "ION"
+                    },
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MODEL201MORTAR",
+            "Name": "Model 201 Mortar System",
+            "Description": "\n      [H3]Model 201 Mortar System[h3]\n      Please see page 53 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Type": "Explosives\/Other",
+            "Categories": {
+                "Category": [
+                    "Portable Gunnery",
+                    "Ranged"
+                ]
+            },
+            "Encumbrance": 10,
+            "HP": 1,
+            "Price": 5400,
+            "Rarity": 7,
+            "Restricted": "true",
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Can only be used at medium range or higher."
+                }
+            },
+            "SkillKey": "GUNN",
+            "Damage": 15,
+            "Crit": 3,
+            "RangeValue": "wrExtreme",
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 12
+                    },
+                    {
+                        "Key": "BREACH",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 5
+                    },
+                    {
+                        "Key": "PREPARE",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "SLOWFIRING",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "RPS6ROCKET",
+            "Name": "RPS-6 Rocket Launcher",
+            "Description": "\n      [H3]RPS-6 Rocket Launcher[h3]\n      Please see page 53 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Type": "Explosives\/Other",
+            "Categories": {
+                "Category": [
+                    "Portable Gunnery",
+                    "Ranged"
+                ]
+            },
+            "Encumbrance": 8,
+            "HP": 4,
+            "Price": 8200,
+            "Rarity": 8,
+            "Restricted": "true",
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "When performing the Aim maneuver, add extra [BO] against a silhouette 2 or greater target."
+                }
+            },
+            "SkillKey": "GUNN",
+            "Damage": 22,
+            "Crit": 2,
+            "RangeValue": "wrExtreme",
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 14
+                    },
+                    {
+                        "Key": "BREACH",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": 4
+                    },
+                    {
+                        "Key": "GUIDED",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "LIMITEDAMMO",
+                        "Count": 7
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "M3BLASTSHIELD",
+            "Name": "M3 Bulwark Blast Shield",
+            "Description": "\n      [H3]M3 Bulwark Blast Shield[h3]\n      Please see page 53 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Categories": {
+                "Category": [
+                    "Shield",
+                    "Bludgeoning Melee"
+                ]
+            },
+            "SkillKey": "MELEE",
+            "Damage": 0,
+            "DamageAdd": 1,
+            "Crit": 6,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 6,
+            "HP": 1,
+            "Price": 150,
+            "Rarity": 5,
+            "Type": "Melee",
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "DEFENSIVE",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "DEFLECTION",
+                        "Count": 2
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "M8KNIFE",
+            "Name": "M8 Combat Knife",
+            "Description": "\n      [H3]M8 Combat Knife[h3]\n      Please see page 54 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": "Rise of the Separatists"
+            },
+            "SkillKey": "MELEE",
+            "Damage": 0,
+            "DamageAdd": 1,
+            "Crit": 3,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 1,
+            "Price": 150,
+            "Rarity": 4,
+            "Type": "Melee",
+            "Categories": {
+                "Category": "Cutting Edge Melee"
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "TZ97SHOCKBATON",
+            "Name": "TZ-97 \"Zapper\" Shock Baton",
+            "Description": "\n      [H3]TZ-97 \"Zapper\" Shock Baton[h3]\n      Please see page 54 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Source": "Rise of the Separatists",
+            "Type": "Melee",
+            "Categories": {},
+            "Encumbrance": 2,
+            "HP": 2,
+            "Price": 900,
+            "Rarity": 6,
+            "Restricted": "false",
+            "BaseMods": {},
+            "SkillKey": "MELEE",
+            "Damage": 5,
+            "DamageAdd": 0,
+            "Crit": 4,
+            "RangeValue": "wrEngaged",
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "CONCUSSIVE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNDAMAGE"
+                    }
+                ]
+            },
             "Thumbnail": "img\/no_image.png"
         }
     ]

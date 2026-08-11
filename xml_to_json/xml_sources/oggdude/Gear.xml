@@ -51,6 +51,9 @@
     <Price>250</Price>
     <Rarity>4</Rarity>
     <Type>Communications</Type>
+    <Categories>
+      <Category>Holoprojector</Category>
+    </Categories>
   </Gear>
   <Gear>
     <Key>HYPERTRANSPIO</Key>
@@ -177,7 +180,9 @@
     </Description>
     <Source Page="45">Far Horizons</Source>
     <Type>Communications</Type>
-    <Categories />
+    <Categories>
+      <Category>Holoprojector</Category>
+    </Categories>
     <Encumbrance>15</Encumbrance>
     <HP>0</HP>
     <Price>75000</Price>
@@ -4646,7 +4651,9 @@
     </Description>
     <Source Page="58">Dangerous Covenants</Source>
     <Type>Survival</Type>
-    <Categories />
+    <Categories>
+      <Category>Holoprojector</Category>
+    </Categories>
     <Encumbrance>1</Encumbrance>
     <HP>0</HP>
     <Price>800</Price>
@@ -4732,9 +4739,12 @@
     <Name>A99 Aquata Breather</Name>
     <Description>
       [H3]A99 Aquata Breather[h3]
-      Please see page 52 of the Keeping the Peace sourcebook for details.
+      Please see page 52 of the Keeping the Peace Sourcebook, or page 59 of the Rise of the Separatists Sourcebook, for details.
     </Description>
-    <Source Page="52">Keeping the Peace</Source>
+    <Sources>
+      <Source Page="52">Keeping the Peace</Source>
+      <Source Page="59">Rise of the Separatists</Source>
+    </Sources>
     <Type>Survival</Type>
     <Categories />
     <Encumbrance>0</Encumbrance>
@@ -4772,9 +4782,12 @@
     <Name>Jedi Utility Belt</Name>
     <Description>
       [H3]Jedi Utility Belt[h3]
-      Please see page 52 of the Keeping the Peace sourcebook for details.
+      Please see page 52 of the Keeping the Peace Sourcebook, or page 59 of the Rise of the Separatists Sourcebook, for details.
     </Description>
-    <Source Page="52">Keeping the Peace</Source>
+    <Sources>
+      <Source Page="52">Keeping the Peace</Source>
+      <Source Page="59">Rise of the Separatists</Source>
+    </Sources>
     <Type>Survival</Type>
     <Categories />
     <Encumbrance>0</Encumbrance>
@@ -5424,9 +5437,12 @@
     <Name>Jedi Multi-Tool</Name>
     <Description>
       [H3]Jedi Multi-Tool (Lightsaber Maintenance Kit)[h3]
-      Please see page 53 of the Keeping the Peace Sourcebook for details.
+      Please see page 53 of the Keeping the Peace Sourcebook, or page 59 of the Rise of the Separatists Sourcebook, for details.
     </Description>
-    <Source Page="53">Keeping the Peace</Source>
+    <Sources>
+      <Source Page="53">Keeping the Peace</Source>
+      <Source Page="59">Rise of the Separatists</Source>
+    </Sources>
     <Type>Tools/Electronics</Type>
     <Categories />
     <Encumbrance>2</Encumbrance>
@@ -5436,8 +5452,10 @@
     <Restricted>true</Restricted>
     <BaseMods>
       <Mod>
+        <MiscDesc>Counts as having the right tool for the job for most Mechanics checks.</MiscDesc>
+      </Mod>
+      <Mod>
         <MiscDesc>Adds automatic [AD] to build, modify, or repair lightsabers.</MiscDesc>
-        <Count>1</Count>
       </Mod>
     </BaseMods>
   </Gear>
@@ -6601,9 +6619,12 @@
     <Name>Dataspike</Name>
     <Description>
       [H3]Dataspike[h3]
-      Please see page 51 of the Special Modifications Sourcebook for details.
+      Please see page 51 of the Special Modifications Sourcebook, or page 45 of the Cyphers and Masks Sourcebook, for details.
     </Description>
-    <Source Page="51">Special Modifications</Source>
+    <Sources>
+      <Source Page="51">Special Modifications</Source>
+      <Source Page="45">Cyphers and Masks</Source>
+    </Sources>
     <Price>100</Price>
     <Encumbrance>1</Encumbrance>
     <Rarity>3</Rarity>
@@ -6611,11 +6632,7 @@
     <Type>Slicing Tools</Type>
     <BaseMods>
       <Mod>
-        <MiscDesc>Adds [BOOST][BOOST] to any Computers check made to slice computers</MiscDesc>
-        <Count>1</Count>
-      </Mod>
-      <Mod>
-        <MiscDesc>Adds [BOOST] to any attempt  to locate the use of a data breaker in a computer system</MiscDesc>
+        <MiscDesc>Once per round, may expend dataspike to attempt to disable a security program as a maneuver, rather than an action.  Reduce difficulty of the Computers check by 2, to a minimum of [B]Simple(—)[b].</MiscDesc>
         <Count>1</Count>
       </Mod>
     </BaseMods>
@@ -7672,9 +7689,12 @@
     <Name>Fingerprint Masque</Name>
     <Description>
       [H3]Fingerprint Masque[h3]
-      Please see page 50 of the Fly Casual Sourcebook for details.
+      Please see page 50 of the Fly Casual Sourcebook, or page 48 of the Cyphers and Masks Sourcebook, for details.
     </Description>
-    <Source Page="50">Fly Casual</Source>
+    <Sources>
+      <Source Page="50">Fly Casual</Source>
+      <Source Page="48">Cyphers and Masks</Source>
+    </Sources>
     <Type>Security/Espionage</Type>
     <Categories />
     <Encumbrance>0</Encumbrance>
@@ -9006,7 +9026,9 @@ Please see page 54 of the No Disintegrations Sourcebook for details.</Descriptio
 Please see page 54 of the No Disintegrations Sourcebook for details.</Description>
     <Source Page="54">No Disintegrations</Source>
     <Type>Black Market</Type>
-    <Categories />
+    <Categories>
+      <Category>Holoprojector</Category>
+    </Categories>
     <Encumbrance>1</Encumbrance>
     <Price>10000</Price>
     <Rarity>9</Rarity>
@@ -10692,5 +10714,912 @@ Please see page 50 of the Knights of Fate Sourcebook for details.</Description>
     <Type>Droids</Type>
     <AdvImportPath>Knights of Fate\Droids\WSW Mk III _Harrier_ Combat Remote - Minion.xml</AdvImportPath>
   </Gear>
+
+  <Gear>
+    <Key>AFFIDECRYS</Key>
+    <Name>Affide Crystal</Name>
+    <Description>
+      [H3]Affide Crystal[h3]
+      Please see page 42 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="42">Cyphers and Masks</Source>
+    <Price>500</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>8</Rarity>
+    <Type>Poisons</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgraded [B]Daunting ([CH][DI][DI][DI]) Resilience check[b]. Fail: 10 wound and Critical Injury +40 per [TH].  [TH][TH][TH] or [DE] may kill instantly.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>CYAND570</Key>
+    <Name>Cyanoxis D-570</Name>
+    <Description>
+      [H3]Cyanoxis D-570[h3]
+      Please see page 43 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="43">Cyphers and Masks</Source>
+    <Price>50</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>1</Encumbrance>
+    <Rarity>4</Rarity>
+    <Type>Poisons</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>[B]Hard ([DI][DI][DI]) Resilience check[b]. Fail: 2 wound and 2 strain immediately, plus 1 wound and strain daily for 10 days. +1 wound and +1 strain daily per [TH].  Each [DE] increases days by 1.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>SKIRTOPANOL</Key>
+    <Name>Skirtopanol</Name>
+    <Description>
+      [H3]Skirtopanol[h3]
+      Please see page 43 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="43">Cyphers and Masks</Source>
+    <Price>500</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>8</Rarity>
+    <Type>Drugs and Consumables</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>[B]Hard ([DI][DI][DI]) Resilience check[b]. Fail: 5 strain, Charm and Coercion checks against target upgraded once for encounter.  +2 strain per [TH].  [DE] may force additional check next round.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>VUTALAMINE</Key>
+    <Name>Vutalamine</Name>
+    <Description>
+      [H3]Vutalamine[h3]
+      Please see page 43 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="43">Cyphers and Masks</Source>
+    <Price>125</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>5</Rarity>
+    <Type>Drugs and Consumables</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgrades checks to resist stress or fear once. One dose lasts 24 hours.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Difficulty of Ranged Light and Ranged Heavy checks reduced by one at long or extreme range.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Long-term use may impose a permanent [SE] to Intellect- and Cunning-based checks.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>CORTEXBOMB</Key>
+    <Name>Cortex Bomb</Name>
+    <Description>
+      [H3]Cortex Bomb[h3]
+      Please see page 44 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="44">Cyphers and Masks</Source>
+    </Sources>
+    <Price>1200</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Detonates and kills the wearer when he speaks, hears, or sees a pre-determined code word or signal.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>CYBERDISGUISE</Key>
+    <Name>Cyber Disguise</Name>
+    <Description>
+      [H3]Cyber Disguise[h3]
+      Please see page 44 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="44">Cyphers and Masks</Source>
+    </Sources>
+    <Price>18000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>8</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Gives all advantages of a standard disguise kit.</MiscDesc>
+      </Mod>
+      <Mod>
+        <Key>INDIS</Key>
+        <Count>2</Count>
+      </Mod>
+      <Mod>
+        <MiscDesc>Changing general features (beard, hair color) requires 1 to 3 rounds.  More complex features may take minutes or hours.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Changing appearance to a specific individual requires a [B]Hard ([DI][DI][DI]) Deception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>LOCKHAND</Key>
+    <Name>Lockbreaker Hand</Name>
+    <Description>
+      [H3]Lockbreaker Hand[h3]
+      Please see page 44 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="44">Cyphers and Masks</Source>
+    </Sources>
+    <Price>2200</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <Key>BYP</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [BO] to Skulduggery and Computers checks made to defeat locks.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>MULTITOOLHAND</Key>
+    <Name>Multi-Tool Hand</Name>
+    <Description>
+      [H3]Multi-Tool Hand[h3]
+      Please see page 44 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="44">Cyphers and Masks</Source>
+    </Sources>
+    <Price>650</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>4</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Provides all benefits of a tool kit.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>PAINDAMP</Key>
+    <Name>Pain Damper</Name>
+    <Description>
+      [H3]Pain Damper[h3]
+      Please see page 45 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="45">Cyphers and Masks</Source>
+    </Sources>
+    <Price>1800</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgrades all checks to resist pain or physical torture once.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>RETINALIMP</Key>
+    <Name>Retinal Implant</Name>
+    <Description>
+      [H3]Retinal Implant[h3]
+      Please see page 45 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="45">Cyphers and Masks</Source>
+    </Sources>
+    <Price>1250</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Programming retinal pattern requires an [B]Average ([DI][DI]) Perception check[b].</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Retina scanners require an [B]Easy ([DI])[b] to [B]Hard ([DI][DI][DI]) Cool[b] or [B]Deception check[b] to fool.  Suspicious scanner operator may requires an opposed [B]Deception vs. Computers check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>VESSELIMP</Key>
+    <Name>Vessel Implant</Name>
+    <Description>
+      [H3]Vessel Implant[h3]
+      Please see page 45 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="45">Cyphers and Masks</Source>
+    </Sources>
+    <Price>900</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>4</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Finding a vessel implant on a character requires a [B]Daunting ([DI][DI][DI][DI]) Perception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>VOCALEMUIMP</Key>
+    <Name>Vocal Emulator Implant</Name>
+    <Description>
+      [H3]Vocal Emulator Implant[h3]
+      Please see page 45 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="45">Cyphers and Masks</Source>
+    </Sources>
+    <Price>1300</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>5</Rarity>
+    <Type>Cybernetics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Changing natural voice takes 1 round.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Mimicking the voice of a specific individual requires thorough study and a [B]Hard ([DI][DI][DI]) Deception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>COMLINKE</Key>
+    <Name>Earbud Comlink</Name>
+    <Description>
+      [H3]Earbud Comlink[h3]
+      Please see page 45 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="45">Cyphers and Masks</Source>
+    </Sources>
+    <Price>75</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>5</Rarity>
+    <Type>Communications</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Noticing an individual is wearing an earbud comlink requires a [B]Hard ([DI][DI][DI]) Perception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>HID</Key>
+    <Name>Holographic Image Disguiser</Name>
+    <Description>
+      [H3]Holographic Image Disguiser[h3]
+      Please see page 46 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="46">Cyphers and Masks</Source>
+    </Sources>
+    <Categories>
+      <Category>Holoprojector</Category>
+    </Categories>
+    <Price>1100</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Detecting an HID requires a [B]Daunting ([DI][DI][DI][DI]) Perception check[b]. Droids or anyone using any technological optical device (scanner, electrobinoculars, etc.) require an [B]Average ([DI][DI]) Perception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>MEMSTIK</Key>
+    <Name>Mem-Stik</Name>
+    <Description>
+      [H3]Mem-Stik[h3]
+      Please see page 46 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="46">Cyphers and Masks</Source>
+    </Sources>
+    <Price>50</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>2</Rarity>
+    <Type>Tools/Electronics</Type>
+  </Gear>
+  <Gear>
+    <Key>SURVSCAN</Key>
+    <Name>Surveillance Scanner</Name>
+    <Description>
+      [H3]Surveillance Scanner[h3]
+      Please see page 46 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="46">Cyphers and Masks</Source>
+    </Sources>
+    <Price>750</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>5</Rarity>
+    <Type>Detection/Surveillance Devices</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Has a range of close on the planetary scale, or long on the personal scale.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Upgrades ability of any check to locate bugs, hidden cameras, data streams, or engage in any other counter-surveillance activities, once.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>TOXDET</Key>
+    <Name>Toxin Detector</Name>
+    <Description>
+      [H3]Toxin Detector[h3]
+      Please see page 46 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="46">Cyphers and Masks</Source>
+    </Sources>
+    <Price>125</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>1</Encumbrance>
+    <Rarity>4</Rarity>
+    <Type>Detection/Surveillance Devices</Type>
+  </Gear>
+  <Gear>
+    <Key>VIDVOXSCRAM</Key>
+    <Name>Vid-Vox Scrambler</Name>
+    <Description>
+      [H3]Vid-Vox Scrambler[h3]
+      Please see page 46 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="46">Cyphers and Masks</Source>
+    </Sources>
+    <Price>2400</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>8</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Requires a [B]Daunting ([DI][DI][DI][DI]) Perception check[b] to overhear conversation within the area of affect.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Using a recording device within the area of affect requires a [B]Daunting ([DI][DI][DI][DI]) Computers check[b], but recording is still incomplete.  Cannot record at all outside area of affect.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>AGENTSBAG</Key>
+    <Name>Agent's Bag</Name>
+    <Description>
+      [H3]Agent's Bag[h3]
+      Please see page 47 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="47">Cyphers and Masks</Source>
+    </Sources>
+    <Price>200</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Carrying/Storage</Type>
+  </Gear>
+  <Gear>
+    <Key>CONCESCAPEKIT</Key>
+    <Name>Concealed Escape Kit</Name>
+    <Description>
+      [H3]Concealed Escape Kit[h3]
+      Please see page 47 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="47">Cyphers and Masks</Source>
+    </Sources>
+    <Price>400</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgrades ability of Mechanics and Skulduggery checks to escape confinement once.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Upgrades difficulty of checks to detect a concealed escape kit twice.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Flexible Monoknife</UnarmedName>
+        <SkillKey>MELEE</SkillKey>
+        <DamageAdd>1</DamageAdd>
+        <Crit>3</Crit>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </Gear>
+  <Gear>
+    <Key>EXPLOSIVESBELT</Key>
+    <Name>Explosives Belt</Name>
+    <Description>
+      [H3]Explosives Belt[h3]
+      Please see page 48 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="48">Cyphers and Masks</Source>
+    </Sources>
+    <Price>450</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>1</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgrades difficulty of checks to detect belt's true nature twice.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Explosive Charge</UnarmedName>
+        <SkillKey>MECH</SkillKey>
+        <Damage>15</Damage>
+        <Crit>3</Crit>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>BLAST</Key>
+            <Count>5</Count>
+          </Quality>
+          <Quality>
+            <Key>BREACH</Key>
+            <Count>1</Count>
+          </Quality>
+          <Quality>
+            <Key>LIMITEDAMMO</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+        <BaseMods>
+          <Mod>
+            <MiscDesc>Setting explosive charge requires an [B]Average ([DI][DI]) Mechanics check[b].</MiscDesc>
+          </Mod>
+        </BaseMods>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </Gear>
+  <Gear>
+    <Key>GARROTECHRONO</Key>
+    <Name>Garrote Chrono</Name>
+    <Description>
+      [H3]Garrote Chrono[h3]
+      Please see page 48 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="48">Cyphers and Masks</Source>
+    </Sources>
+    <Price>100</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Upgrades difficulty of checks to detect concealed garrote twice.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Retractable Garrote</UnarmedName>
+        <SkillKey>BRAWL</SkillKey>
+        <Damage>0</Damage>
+        <Crit>0</Crit>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>STUNSETTING</Key>
+          </Quality>
+        </Qualities>
+        <BaseMods>
+          <Mod>
+            <MiscDesc>A successful brawl attack with a garrote can cause the target to suffocate.</MiscDesc>
+          </Mod>
+          <Mod>
+            <MiscDesc>Target may attempt to break free of a garrote with a successful [B]opposed Brawl vs. Brawl check[b], adding [SE] for each round they've been caught.</MiscDesc>
+          </Mod>
+        </BaseMods>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </Gear>
+  <Gear>
+    <Key>LOCKPICKSET</Key>
+    <Name>Lockpic Set</Name>
+    <Description>
+      [H3]Lockpic Set[h3]
+      Please see page 48 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="48">Cyphers and Masks</Source>
+    </Sources>
+    <Price>50</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>1</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Counts as a tool kit for opening mechanical and simple electrical locks.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>SHADOWCLOAK</Key>
+    <Name>Shadowcloak</Name>
+    <Description>
+      [H3]Shadowcloak[h3]
+      Please see page 49 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="49">Cyphers and Masks</Source>
+    </Sources>
+    <Price>2500</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Security/Espionage</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Noticing features of someone wearing a shadowcloak requires a [B]Daunting ([DI][DI][DI][DI]) Perception check[b].  If wearer moved that round, difficulty reduced to [B]Hard ([DI][DI][DI])[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>SLICEWIRE</Key>
+    <Name>Slicewire</Name>
+    <Description>
+      [H3]Slicewire[h3]
+      Please see page 49 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="49">Cyphers and Masks</Source>
+    </Sources>
+    <Price>2500</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Security/Espionage</Type>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Slicewire</UnarmedName>
+        <SkillKey>BRAWL</SkillKey>
+        <DamageAdd>2</DamageAdd>
+        <Crit>2</Crit>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>2</Count>
+          </Quality>
+          <Quality>
+            <Key>VICIOUS</Key>
+            <Count>3</Count>
+          </Quality>
+        </Qualities>
+        <BaseMods>
+          <Mod>
+            <MiscDesc>If user fails Brawl check to use slicewire, [TH][TH][TH] or [DE] may be used to inflict full damage onto user.</MiscDesc>
+          </Mod>
+        </BaseMods>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </Gear>
+  <Gear>
+    <Key>DROIDAC1</Key>
+    <Name>AC1-Series Surveillance Droid</Name>
+    <Description>
+      [H3]AC1-Series Surveillance Droid[h3]
+      Please see page 49 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="49">Cyphers and Masks</Source>
+    <Price>1100</Price>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>4</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\AC1-Series Surveillance Droid - Minion.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDE522</Key>
+    <Name>E522 Assassin Droid</Name>
+    <Description>
+      [H3]E522 Assassin Droid[h3]
+      Please see page 50 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="50">Cyphers and Masks</Source>
+    <Price>61000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>8</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\E522 Assassin Droid - Nemesis.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDLSX</Key>
+    <Name>LSx-Series Slicer Droid</Name>
+    <Description>
+      [H3]LSx-Series Slicer Droid[h3]
+      Please see page 51 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="51">Cyphers and Masks</Source>
+    <Price>19000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>8</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\LSX-Series Slicer Droid - Rival.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDM4</Key>
+    <Name>M4-Series Messenger Droid</Name>
+    <Description>
+      [H3]LM4-Series Messenger Droid[h3]
+      Please see page 52 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="52">Cyphers and Masks</Source>
+    <Price>6500</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\M4-Series Messenger Droid - Rival.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDQSIGNAL</Key>
+    <Name>Q-Signal Messenger Drone</Name>
+    <Description>
+      [H3]Q-Signal Messenger Drone[h3]
+      Please see page 52 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="52">Cyphers and Masks</Source>
+    <Price>50500</Price>
+    <Restricted>false</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\Q-Signal Messenger Drone - Rival.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDRA7</Key>
+    <Name>RA-7 Protocol Droid</Name>
+    <Description>
+      [H3]RA-7 Protocol Droid[h3]
+      Please see page 53 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="53">Cyphers and Masks</Source>
+    <Price>12000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\RA-7 Protocol Droid - Rival.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDRM</Key>
+    <Name>RM-Series Military Intelligence Droid</Name>
+    <Description>
+      [H3]RM-Series Military Intelligence Droid[h3]
+      Please see page 54 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="54">Cyphers and Masks</Source>
+    <Price>43000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\RM-Series Military Intelligence Droid - Nemesis.xml</AdvImportPath>
+  </Gear>
+  <Gear>
+    <Key>DROIDTS</Key>
+    <Name>TS-Series Interrogation Droid</Name>
+    <Description>
+      [H3]TS-Series Interrogation Droid[h3]
+      Please see page 55 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="55">Cyphers and Masks</Source>
+    <Price>58000</Price>
+    <Restricted>true</Restricted>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>9</Rarity>
+    <Type>Droids</Type>
+    <AdvImportPath>Cyphers and Masks\Droids\TS-Series Interrogation Droid - Rival.xml</AdvImportPath>
+  </Gear>
+
+  <!-- Rise of the Separatists -->
+  <Gear>
+    <Key>DESTRO6CHARGE</Key>
+    <Name>Destro-6 Demolition Charge</Name>
+    <Description>
+      [H3]Destro-6 Demolition Charge[h3]
+      Please see page 59 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="59">Rise of the Separatists</Source>
+    <Price>750</Price>
+    <Encumbrance>1</Encumbrance>
+    <Rarity>5</Rarity>
+    <Restricted>false</Restricted>
+    <Type>Construction/Salvage Tools</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Setup requires an [B]Easy ([DI]) Mechanics check[b] and takes 5 minutes.  Disabling safeties takes half the time, but increases difficulty to [B]Hard ([DI][DI][DI])[b].</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>GM may spend [TH][TH][TH] or [DE] on check with disabled safeties to cause premature detomation.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <Unarmed>false</Unarmed>
+        <UnarmedName>Destroy-6 Demolition Charge</UnarmedName>
+        <SkillKey>MECH</SkillKey>
+        <AllSkillKey />
+        <Damage>20</Damage>
+        <DamageAdd>0</DamageAdd>
+        <Crit>0</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrShort</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>BREACH</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+        <BaseMods>
+          <Mod>
+            <MiscDesc>Setup requires an [B]Easy ([DI]) Mechanics check[b] and takes 5 minutes.  Disabling safeties takes half the time, but increases difficulty to [B]Hard ([DI][DI][DI])[b].</MiscDesc>
+          </Mod>
+          <Mod>
+            <MiscDesc>GM may spend [TH][TH][TH] or [DE] on check with disabled safeties to cause premature detomation.</MiscDesc>
+          </Mod>
+          <Mod>
+            <MiscDesc>Each additional charge increases base damage by 5.</MiscDesc>
+          </Mod>
+        </BaseMods>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </Gear>
+  <Gear>
+    <Key>HOLOMEGA</Key>
+    <Name>Holo-Megacaster</Name>
+    <Description>
+      [H3]Holo-Megacaster[h3]
+      Please see page 59 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="59">Rise of the Separatists</Source>
+    <Encumbrance>1</Encumbrance>
+    <Price>600</Price>
+    <Rarity>3</Rarity>
+    <Type>Communications</Type>
+    <Categories>
+      <Category>Holoprojector</Category>
+    </Categories>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds [BO] to Presence-based checks to address a crowd.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Allows the user's image and voice to be clearly seen and heard up to extreme range.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>REPINSIG</Key>
+    <Name>Republic Insignia</Name>
+    <Description>
+      [H3]Republic Insignia[h3]
+      Please see page 59 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="59">Rise of the Separatists</Source>
+    <Type>Uniforms and Accessories</Type>
+    <Encumbrance>0</Encumbrance>
+    <HP>0</HP>
+    <Price>0</Price>
+    <Rarity>3</Rarity>
+    <Restricted>true</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds [BO] to all checks made to impress or persuade other characters based on their past service. Having an exceptional number of insignia may add an additional [BO].</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>REPINSIGREP</Key>
+    <Name>Republic Insignia Replica</Name>
+    <Description>
+      [H3]Republic Insignia Replica[h3]
+      Please see page 59 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="59">Rise of the Separatists</Source>
+    <Type>Uniforms and Accessories</Type>
+    <Encumbrance>0</Encumbrance>
+    <HP>0</HP>
+    <Price>100</Price>
+    <Rarity>6</Rarity>
+    <Restricted>true</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds [BO] to all checks made to impress or persuade other characters based on their past service. Having an exceptional number of insignia may add an additional [BO].</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>A [B]Hard ([DI][DI][DI]) Perception check[b] reveals replica to be a fake.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>REPSEAL</Key>
+    <Name>Republic Seal of Service</Name>
+    <Description>
+      [H3]Republic Seal of Service[h3]
+      Please see page 60 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="60">Rise of the Separatists</Source>
+    <Type>Award/Medal</Type>
+    <Encumbrance>0</Encumbrance>
+    <HP>0</HP>
+    <Price>0</Price>
+    <Rarity>9</Rarity>
+    <Restricted>true</Restricted>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds [SU] to all checks involving formal Republic proceedings, proof of identity, or verificaiton of past actions.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>X5RDEMOKIT</Key>
+    <Name>X5R Heavy Demolitions Kit</Name>
+    <Description>
+      [H3]X5R Heavy Demolitions Kit[h3]
+      Please see page 60 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Source Page="60">Rise of the Separatists</Source>
+    <Price>1000</Price>
+    <Encumbrance>4</Encumbrance>
+    <Rarity>6</Rarity>
+    <Type>Tools/Electronics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Gains [BO][BO] on Mechanics checks to prepare, set, or disarm explosives.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Once per session, a character using an XSR kit may remove one [DE] or up to [TH][TH][TH] from a Mechanics check dealing with explosives.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+
 
 </Gears>

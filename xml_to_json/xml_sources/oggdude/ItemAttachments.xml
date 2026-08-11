@@ -2433,9 +2433,12 @@ Please see page 196 of the Force and Destiny Core Rulebook for details.
     <Name>Ilum Crystal</Name>
     <Description>
       [H3]Ilum Crystal[h3]
-      Please see page 197 of the Force and Destiny Core Rulebook for details.
+      Please see page 197 of the Force and Destiny Core Rulebook, or page 63 of the Rise of the Separatists Sourcebook, for details.
     </Description>
-    <Source Page="197">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="197">Force and Destiny Core Rulebook</Source>
+      <Source Page="63">Rise of the Separatists</Source>
+    </Sources>
     <Type>Weapon</Type>
     <ItemLimit />
     <SkillLimit />
@@ -4574,6 +4577,54 @@ Please see page 105 of the Lords of Nal Hutta Sourcebook for details.
         <Key>ADVADDINIT</Key>
         <Count>2</Count>
       </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SPYBRAIN</Key>
+    <Name>Spy Droid Brain</Name>
+    <Description>
+      [H3]Spy Droid Brain[h3]
+      Please see page 74 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="74">Rise of the Separatists</Source>
+    </Sources>
+    <Type>Vehicle</Type>
+    <ItemLimit>
+      <Key>SHEATHIPEDESPY</Key>
+    </ItemLimit>
+    <SkillLimit />
+    <TypeLimit />
+    <CategoryLimit>
+    </CategoryLimit>
+    <Price>0</Price>
+    <Rarity>6</Rarity>
+    <Restricted>false</Restricted>
+    <HP>0</HP>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds a Droid Brain with Computers 3, Perception 3, and Stealth 3.</MiscDesc>
+        <Count>1</Count>
+        <InnateSkills>
+          <InnateSkill>
+            <SkillKey>COMP</SkillKey>
+            <SkillRank>3</SkillRank>
+            <AbilityRank>0</AbilityRank>
+          </InnateSkill>
+          <InnateSkill>
+            <SkillKey>PERC</SkillKey>
+            <SkillRank>3</SkillRank>
+            <AbilityRank>0</AbilityRank>
+          </InnateSkill>
+          <InnateSkill>
+            <SkillKey>STEAL</SkillKey>
+            <SkillRank>3</SkillRank>
+            <AbilityRank>0</AbilityRank>
+          </InnateSkill>
+        </InnateSkills>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
     </AddedMods>
   </ItemAttachment>
   <ItemAttachment>
@@ -10300,7 +10351,7 @@ Please see page 67 of the Special Modifications Sourcebook for details.</Descrip
         <Count>1</Count>
       </Mod>
       <Mod>
-        <Key>PASSADDSIL</Key>
+        <Key>PASSADD</Key>
         <Count>2</Count>
       </Mod>
       <Mod>
@@ -11136,4 +11187,1262 @@ Please see page 67 of the Special Modifications Sourcebook for details.</Descrip
       </Mod>
     </AddedMods>
   </ItemAttachment>
+  <ItemAttachment>
+    <Key>COMPONENT</Key>
+    <Name>Componentization</Name>
+    <Description>
+      [H4]Componentization[h4]
+      Please see page 56 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="56">Cyphers and Masks</Source>
+    <Type>Weapon</Type>
+    <Price>1150</Price>
+    <Rarity>5</Rarity>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Allows a weapon to be broken into pieces and disguised as other items.  A character must make a [B]Formidable ([DI][DI][DI][DI][DI]) Mechanics[b] or [B]Skulduggery check[b] to deduce the items are weapon parts.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <MaxEnc>2</MaxEnc>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>LIGHTFR</Key>
+    <Name>Lightweight Frame</Name>
+    <Description>
+      [H4]Lightweight Frame[h4]
+      Please see page 56 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="56">Cyphers and Masks</Source>
+    <Type>Weapon</Type>
+    <Price>650</Price>
+    <Rarity>3</Rarity>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <Key>ENCSUB</Key>
+        <Count>1</Count>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>ENCSUB</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SCANPROOF</Key>
+    <Name>Scanner-Proof Hardware</Name>
+    <Description>
+      [H4]Scanner-Proof Hardware[h4]
+      Please see page 57 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="57">Cyphers and Masks</Source>
+    <Type>Weapon</Type>
+    <Price>1000</Price>
+    <Rarity>6</Rarity>
+    <Restricted>true</Restricted>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Weapon cannot be detected by standard weapon-detecting technologies.  Advanced scanner operators must make a [B]Hard ([DI][DI][DI]) Computers check[b] to find the weaopn.</MiscDesc>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>GM may spend [TH][TH] or [DE] on a combat check to cause major damage to weapon, making it inoperable.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>ENCSUB</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>XCITEOVER</Key>
+    <Name>XCiter Overcharge</Name>
+    <Description>
+      [H4]XCiter Overcharge[h4]
+      Please see page 57 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="57">Cyphers and Masks</Source>
+    <Type>Weapon</Type>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>1100</Price>
+    <Rarity>7</Rarity>
+    <Restricted>true</Restricted>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>As an incidental, may overcharge blaster.  Weapon gets the Prepare 1 quality and damge of next attack is increased by 4.  Weapon then runs out of ammo.</MiscDesc>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>GM may spend [TH][TH][TH] or [DE] from a combat check involving an overcharged shot to cause weapon to explode and deal full damage to shooter.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>ARMINS</Key>
+    <Name>Armor Insert</Name>
+    <Description>
+      [H4]Armor Insert[h4]
+      Please see page 57 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="57">Cyphers and Masks</Source>
+    <Type>Armor</Type>
+    <Price>450</Price>
+    <Rarity>3</Rarity>
+    <CategoryLimit>
+      <Category>Light</Category>
+    </CategoryLimit>
+    <BaseMods>
+      <Mod>
+        <Key>SOAKSET</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>DEFSET</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Armor inserts can be noticed by making an [B]Average ([DI][DI]) Perception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>SOAKADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>DEFADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Perception check difficulty increased to [B]Hard ([DI][DI][DI])[b].</MiscDesc>
+      </Mod>
+    </AddedMods>
+    <MaxSoak>1</MaxSoak>
+    <ForceMinDefense>true</ForceMinDefense>
+    <ForceMaxDefense>true</ForceMaxDefense>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>BOOTBLADE</Key>
+    <Name>Boot Blade</Name>
+    <Description>
+      [H4]Boot Blade[h4]
+      Please see page 57 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="57">Cyphers and Masks</Source>
+    <Type>Armor</Type>
+    <CategoryLimit>
+      <Category>Full Body</Category>
+      <Category>Sealed</Category>
+    </CategoryLimit>
+    <Price>100</Price>
+    <Rarity>5</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Provides wearer with a retractable fighting blade</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>CRITSUB</Key>
+        <Count>1</Count>
+        <WeaponModifierIndex>0</WeaponModifierIndex>
+      </Mod>
+      <Mod>
+        <Key>PIERCE</Key>
+        <Count>2</Count>
+        <WeaponModifierIndex>0</WeaponModifierIndex>
+      </Mod>
+      <Mod>
+        <Key>VICIOUS</Key>
+        <Count>1</Count>
+        <WeaponModifierIndex>0</WeaponModifierIndex>
+      </Mod>
+    </AddedMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Retractable Fighting Blade</UnarmedName>
+        <SkillKey>MELEE</SkillKey>
+        <DamageAdd>1</DamageAdd>
+        <Crit>3</Crit>
+        <Range>Engaged</Range>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>JUMPBOOTS</Key>
+    <Name>Jump Boots</Name>
+    <Description>
+      [H4]Jump Boots[h4]
+      Please see page 58 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="58">Cyphers and Masks</Source>
+    <Type>Armor</Type>
+    <Price>1200</Price>
+    <Rarity>6</Rarity>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Reduces difficulty of Athletics checks made to jump or over obstacles by 1</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Further reduces difficulty of Athletics checks made to jump or over obstacles by 1 more</MiscDesc>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Allows wearer to fly (see page 214 of the [B]Age of Rebellion[b] Core Rulebook) for a total of 1 minute or 3 rounds</MiscDesc>
+      </Mod>
+    </AddedMods>
+    <MaxEnc>4</MaxEnc>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SCANWEAVE</Key>
+    <Name>Scannerweave</Name>
+    <Description>
+      [H4]Scannerweave[h4]
+      Please see page 58 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="57">Cyphers and Masks</Source>
+    <Type>Armor</Type>
+    <Price>1800</Price>
+    <Rarity>6</Rarity>
+    <Restricted>true</Restricted>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Upgrades ability of all opposed Stealth checks made against sensor and scanner operators once</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Further upgrades ability of all opposed Stealth checks made against sensor and scanner operators once more</MiscDesc>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>STEALTHFGEN</Key>
+    <Name>Stealth Field Generator</Name>
+    <Description>
+      [H4]Stealth Field Generator[h4]
+      Please see page 58 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="58">Cyphers and Masks</Source>
+    <Type>Armor</Type>
+    <Price>3800</Price>
+    <Restricted>true</Restricted>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Upgrades difficulty of all opposed Perception checks to spot wearer once</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>2</Count>
+        <MiscDesc>Add [SE] to opposed Perception checks to spot the wearer</MiscDesc>
+      </Mod>
+    </AddedMods>
+    <MaxEnc>7</MaxEnc>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>REFLADAPSKIN</Key>
+    <Name>Reflec Adaptive Skin</Name>
+    <Description>
+      [H4]Reflec Adaptive Skin[h4]
+      Please see page 58 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="58">Cyphers and Masks</Source>
+    <Type>Armor</Type>
+    <Price>3500</Price>
+    <Rarity>7</Rarity>
+    <Restricted>true</Restricted>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Upgrades ability of all Stealth checks by 1</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>STEAL</SkillKey>
+            <UpgradeAbilityCount>1</UpgradeAbilityCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>2</Count>
+        <MiscDesc>Add [BO] to all Stealth checks</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>STEAL</SkillKey>
+            <BoostCount>1</BoostCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>COMLINKBUG</Key>
+    <Name>Comlink Bug</Name>
+    <Description>
+      [H4]Comlink Bug[h4]
+      Please see page 59 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="59">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <TypeLimit>
+      <Type>Communications</Type>
+    </TypeLimit>
+    <Price>150</Price>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Broadcasts all incoming and outgoing signals from a comlink to a remote listener at medium range</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>CONCCLIMBCORD</Key>
+    <Name>Concealed Climbing Cord</Name>
+    <Description>
+      [H4]Concealed Climbing Cord[h4]
+      Please see page 59 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="59">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <Price>100</Price>
+    <Rarity>2</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Grants user a length of climbing cord with grappling hook.  This counts as the Right Tool for the Job for climbing and repelling.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>DARTGUN</Key>
+    <Name>Dart Gun</Name>
+    <Description>
+      [H4]Dart Gun[h4]
+      Please see page 59 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="59">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <Price>200</Price>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Enables the item to fire a single dart</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Dart Gun</UnarmedName>
+        <SkillKey>RANGLT</SkillKey>
+        <Damage>2</Damage>
+        <Crit>5</Crit>
+        <Qualities>
+          <Quality>
+            <Key>LIMITEDAMMO</Key>
+            <Count>1</Count>
+          </Quality>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+        <RangeValue>wrShort</RangeValue>
+        <Range>Short</Range>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>HIDCOMP</Key>
+    <Name>Hidden Compartment</Name>
+    <Description>
+      [H4]Hidden Compartment[h4]
+      Please see page 59 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="59">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <Price>50</Price>
+    <Rarity>3</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Adds a small hidden compartment to a personal item.  Finding compartment requires a [B]Hard ([DI][DI][DI]) Perception check[b].</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Upgrade difficulty of Perception check once</MiscDesc>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>HOLOCONV</Key>
+    <Name>Holo Converter</Name>
+    <Description>
+      [H4]Holo Converter[h4]
+      Please see page 60 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="60">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <CategoryLimit>
+      <Category>Holoprojector</Category>
+    </CategoryLimit>
+    <Price>600</Price>
+    <Rarity>6</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Allows user to create up to four different holographic alter egos within holographic projector</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>2</Count>
+        <MiscDesc>Add one additional alter ego to database</MiscDesc>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SUBMINHOLO</Key>
+    <Name>Subminiature Holocam</Name>
+    <Description>
+      [H4]Subminiature Holocam[h4]
+      Please see page 60 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="60">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <Price>300</Price>
+    <Rarity>5</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Allows user to take still images and record holos unobtrusively</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SELFDEST</Key>
+    <Name>Self-Destruct System</Name>
+    <Description>
+      [H4]Self-Destruct System[h4]
+      Please see page 60 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="60">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <Price>450</Price>
+    <Rarity>5</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Adds a single-use explosive self-destruct system to item dealing 5 damage to all characters within engaged range.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>3</Count>
+        <MiscDesc>Increase explosive damage by 2</MiscDesc>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Increase explosive range to short</MiscDesc>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>RETGARROTE</Key>
+    <Name>Retractable Garrote</Name>
+    <Description>
+      [H4]Retractable Garrote[h4]
+      Please see page 60 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="60">Cyphers and Masks</Source>
+    <Type>Gear</Type>
+    <Price>300</Price>
+    <Rarity>6</Rarity>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Adds retractable garrote to item</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Retractable Garrote</UnarmedName>
+        <SkillKey>BRAWL</SkillKey>
+        <Qualities>
+          <Quality>
+            <Key>STUNSETTING</Key>
+          </Quality>
+        </Qualities>
+        <Range>Engaged</Range>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>CLOAKDEV</Key>
+    <Name>Cloaking Device</Name>
+    <Description>
+      [H4]Cloaking Device[h4]
+      Please see page 62 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="62">Cyphers and Masks</Source>
+    <Type>Vehicle</Type>
+    <Price>29000</Price>
+    <Rarity>9</Rarity>
+    <HP>4</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>May activate/deactivate cloaking device with a maneuver</MiscDesc>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Must make a [B]Daunting ([DI][DI][DI][DI]) Perception[b] or [B]Vigilance check[b] to spot a cloaked ship</MiscDesc>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Cloaked ship has speed reduced by half (rounded up) and cannot use active sensors, comms, or weapons</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <MinSize>3</MinSize>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>HOLOSHELL</Key>
+    <Name>Holographic Shell</Name>
+    <Description>
+      [H4]Holographic Shell[h4]
+      Please see page 63 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="63">Cyphers and Masks</Source>
+    <Type>Vehicle</Type>
+    <Price>5500</Price>
+    <Rarity>7</Rarity>
+    <Restricted>true</Restricted>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Provides ship with holographic disguise.  A [B]Daunting ([DI][DI][DI][DI]) Perception check[b] is required to see through disguise at a distance.  Physical examination immediate detects the disguise.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Count>2</Count>
+        <MiscDesc>Add one additional disguise to database</MiscDesc>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>HUSHKIT</Key>
+    <Name>Hush Kit</Name>
+    <Description>
+      [H4]Hush Kit[h4]
+      Please see page 63 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="63">Cyphers and Masks</Source>
+    <Type>Vehicle</Type>
+    <Price>450</Price>
+    <Rarity>6</Rarity>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Adds [SE][SE] to all checks to detect this ship audibly in atmosphere</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>MOBLISTEN</Key>
+    <Name>Mobile Listening Post</Name>
+    <Description>
+      [H4]Mobile Listening Post[h4]
+      Please see page 63 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="63">Cyphers and Masks</Source>
+    <Type>Vehicle</Type>
+    <Price>5500</Price>
+    <Rarity>5</Rarity>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <Key>SRANGEADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Provides extra audio, video, and holographic capabilities</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <MinSize>3</MinSize>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>RETWEAPSYS</Key>
+    <Name>Retractable Weapon System</Name>
+    <Description>
+      [H4]Retractable Weapon System[h4]
+      Please see page 63 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="63">Cyphers and Masks</Source>
+    <Type>Vehicle</Type>
+    <Price>1000</Price>
+    <Rarity>6</Rarity>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <Key>RETRACTWEAPSYSTEM</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Discovering hidden weapon requires a [B]Hard ([DI][DI][DI]) Perception check[b] and thorough search of vehicle</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SENSSHUNT</Key>
+    <Name>Sensor Shunt</Name>
+    <Description>
+      [H4]Sensor Shunt[h4]
+      Please see page 63 of the Cyphers and Masks Sourcebook for details.
+    </Description>
+    <Source Page="63">Cyphers and Masks</Source>
+    <Type>Vehicle</Type>
+    <Price>3200</Price>
+    <Rarity>8</Rarity>
+    <Restricted>true</Restricted>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <Count>1</Count>
+        <MiscDesc>Increase difficulty of checks to detect vehicle using passive sensors by 2 and active sensors by 1 while travelling at speed 3 or lower</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </ItemAttachment>
+  
+  <!-- Rise of the Separatists -->
+  <ItemAttachment>
+    <Key>ASCENGUN</Key>
+    <Name>Ascension Gun</Name>
+    <Description>
+      [H3]Ascension Gun[h3]
+      Please see page 61 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="61">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>500</Price>
+    <Encumbrance>1</Encumbrance>
+    <HP>1</HP>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>User may fire  ascension gun at an anchor point within medium range with an [B]Easy ([DI]) Ranged Light[b] or [B]Coordination check[b], adding [SE] for precise placement.  May asend one range band every round.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <MiscDesc>Add [BO] to checks to fire ascension gun</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <MiscDesc>Increase ascension gun speed by one range band per round</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>AUGVIBROMOTOR</Key>
+    <Name>Augmented Vibro-Motor</Name>
+    <Description>
+      [H3]Augmented Vibro-Motor[h3]
+      Please see page 61 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="61">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Powered Melee</Category>
+      <Category>Powered Brawl</Category>
+    </CategoryLimit>
+    <Price>500</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>2</HP>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <Key>DAMADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>CUMBERSOME</Key>
+        <Count>3</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DAMADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>VICIOUS</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>CUMBERSOME</Key>
+        <Count>-1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>CLONEFIRE</Key>
+    <Name>Clone Firing Key</Name>
+    <Description>
+      [H3]Clone Firing Key[h3]
+      Please see page 61 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="61">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>250</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>7</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>This weapon functions only in the hands of a clone.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <MiscDesc>Authorize one non-clone genetic sequence.</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>COMBTEST</Key>
+    <Name>Combat Tested</Name>
+    <Description>
+      [H3]Combat Tested[h3]
+      Please see page 62 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="62">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+    </CategoryLimit>
+    <Price>50</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>0</HP>
+    <Rarity>3</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Add [BO] to Discipline checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>DISC</SkillKey>
+            <BoostCount>1</BoostCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <MiscDesc>Add [BO] to check to resist fear.</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>CORTFOR</Key>
+    <Name>Cortosis Forging</Name>
+    <Description>
+      [H3]Cortosis Forging[h3]
+      Please see page 62 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="62">Rise of the Separatists</Source>
+    </Sources>
+    <TypeLimit>
+      <Type>Melee</Type>
+    </TypeLimit>
+    <Price>8000</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>8</Rarity>
+    <BaseMods>
+      <Mod>
+        <Key>CORTOSIS</Key>
+        <Count>1</Count>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>PIERCE</Key>
+        <Count>2</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>INSFIRMECH</Key>
+    <Name>Insulated Firing Mechanism</Name>
+    <Description>
+      [H3]Insulated Firing Mechanism[h3]
+      Please see page 62 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="62">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>1000</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>7</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Increases [AD] or [TH] cost of any effect that damages the weapon (such as Sunder) by one.</MiscDesc>
+      </Mod>
+      <Mod>
+        <Key>PREPARE</Key>
+        <Count>1</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <MiscDesc>Repairs to the weapon cost half as much.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>PREPARE</Key>
+        <Count>-1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>IONFOCCOIL</Key>
+    <Name>Ionizing Focusing Coils</Name>
+    <Description>
+      [H3]Ionizing Focusing Coils[h3]
+      Please see page 62 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="62">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>800</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>2</HP>
+    <Rarity>5</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Increases damage by +2 versus droids.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Opponents may spend [TH][TH] or [DE] to damage weapon by one step.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <MiscDesc>Increases damage by +1 versus droids</MiscDesc>
+        <Count>2</Count>
+      </Mod>
+      <Mod>
+        <MiscDesc>Decreases critical rating by 1 versus droids</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <MiscDesc>Increases [TH] required to backfire by 1</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>FUSIONSHUNT</Key>
+    <Name>Fusion Shunt</Name>
+    <Description>
+      [H3]Fusion Shunt[h3]
+      Please see page 63 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="63">Rise of the Separatists</Source>
+    </Sources>
+    <TypeLimit>
+      <Type>Lightsaber</Type>
+    </TypeLimit>
+    <Price>2000</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>6</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Activating fusion shunt requires a maneuver.  All combat checks suffer [TH][TH][TH] when shunt is activated.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Lightsaber's Breach quality increases by 1 when shunt is active.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>IONEMIT</Key>
+    <Name>Ionizing Emitter Matrix</Name>
+    <Description>
+      [H3]Ionizing Emitter Matrix[h3]
+      Please see page 63 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="63">Rise of the Separatists</Source>
+    </Sources>
+    <TypeLimit>
+      <Type>Lightsaber</Type>
+    </TypeLimit>
+    <Price>4000</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>2</HP>
+    <Rarity>6</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Damage +2 versus droids and vehicles.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Damage -1 versus organic and other targets.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>THONTIIN</Key>
+    <Name>Thontiin Crystal</Name>
+    <Description>
+      [H3]Thontiin Crystal[h3]
+      Please see page 63 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="63">Rise of the Separatists</Source>
+    </Sources>
+    <Type>Weapon</Type>
+    <ItemLimit />
+    <SkillLimit />
+    <TypeLimit />
+    <CategoryLimit>
+      <Category>Lightsaber</Category>
+    </CategoryLimit>
+    <Price>9000</Price>
+    <Rarity>9</Rarity>
+    <HP>2</HP>
+    <IsCrystal>true</IsCrystal>
+    <BaseMods>
+      <Mod>
+        <Key>DAMSET</Key>
+        <Count>6</Count>
+      </Mod>
+      <Mod>
+        <Key>CRITSET</Key>
+        <Count>2</Count>
+      </Mod>
+      <Mod>
+        <Key>BREACH</Key>
+        <Count>1</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <Key>SUNDER</Key>
+      </Mod>
+      <Mod>
+        <MiscDesc>Once per encounter, ignore effects of an [B]Easy ([DI])[b] Critical Injury.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DAMADD</Key>
+        <Count>3</Count>
+      </Mod>
+      <Mod>
+        <Key>CRITSUB</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>ZOPHIS</Key>
+    <Name>Zophis Crystal</Name>
+    <Description>
+      [H3]Thontiin Crystal[h3]
+      Please see page 64 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="64">Rise of the Separatists</Source>
+    </Sources>
+    <Type>Weapon</Type>
+    <ItemLimit />
+    <SkillLimit />
+    <TypeLimit />
+    <CategoryLimit>
+      <Category>Lightsaber</Category>
+    </CategoryLimit>
+    <Price>11000</Price>
+    <Rarity>10</Rarity>
+    <HP>2</HP>
+    <IsCrystal>true</IsCrystal>
+    <BaseMods>
+      <Mod>
+        <Key>DAMSET</Key>
+        <Count>8</Count>
+      </Mod>
+      <Mod>
+        <Key>CRITSET</Key>
+        <Count>2</Count>
+      </Mod>
+      <Mod>
+        <Key>BREACH</Key>
+        <Count>2</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <Key>SUNDER</Key>
+      </Mod>
+      <Mod>
+        <Key>VICIOUS</Key>
+        <Count>1</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <MiscDesc>When Sunder quality is activated, damage suffered is increased by one step.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>[TH][TH][TH] or [DE] may be spent to disable the weapon until the wielder's next turn.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DAMADD</Key>
+        <Count>2</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>BIOSUPPORT</Key>
+    <Name>Bio-Support Dispenser</Name>
+    <Description>
+      [H3]Bio-Support Dispenser[h3]
+      Please see page 64 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="64">Rise of the Separatists</Source>
+    </Sources>
+    <Type>Armor</Type>
+    <CategoryLimit>
+      <Category>Full Body</Category>
+    </CategoryLimit>
+    <Price>4000</Price>
+    <Rarity>6</Rarity>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>When healing strain at end of encounter, also heal 1 wound.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>First time wounds exceed threshold in an encounter, armor automatically applies a stimpack.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <MiscDesc>Heal 1 additional wound at end of encounter</MiscDesc>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>CEREADORN</Key>
+    <Name>Cermonial Adornment</Name>
+    <Description>
+      [H3]Cermonial Adornment[h3]
+      Please see page 65 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="65">Rise of the Separatists</Source>
+    </Sources>
+    <Type>Armor</Type>
+    <Price>2500</Price>
+    <Rarity>4</Rarity>
+    <HP>0</HP>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Removes [SE][SE] from social skill checks due to wearing armor in socially inappropriate situations.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [SE] to Coordination checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>COORD</SkillKey>
+            <AddSetbackCount>1</AddSetbackCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <MiscDesc>Remove [SE] from Coordination checks</MiscDesc>
+        <Count>1</Count>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>COORD</SkillKey>
+            <AddSetbackCount>-1</AddSetbackCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>PHYSENH</Key>
+    <Name>Physiological Enhancement System</Name>
+    <Description>
+      [H3]Physiological Enhancement System[h3]
+      Please see page 65 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="65">Rise of the Separatists</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Full Body</Category>
+    </CategoryLimit>
+    <Type>Armor</Type>
+    <Price>10000</Price>
+    <Rarity>7</Rarity>
+    <HP>2</HP>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Reduce strain suffered involuntarily by 1, to minimum of 1.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [BO] to all Athletics, Coordination, and Resilience checks.</MiscDesc>
+        <DieModifiers>
+          <DieModifier>
+            <SkillKey>ATHL</SkillKey>
+            <BoostCount>1</BoostCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>COORD</SkillKey>
+            <BoostCount>1</BoostCount>
+          </DieModifier>
+          <DieModifier>
+            <SkillKey>RESIL</SkillKey>
+            <BoostCount>1</BoostCount>
+          </DieModifier>
+        </DieModifiers>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>ATHL</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>COORD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>RESIL</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>SQUADTACT</Key>
+    <Name>Squad Tactical Systems</Name>
+    <Description>
+      [H3]Squad Tactical Systems[h3]
+      Please see page 65 of the Rise of the Separatists Sourcebook for details.
+    </Description>
+    <Sources>
+      <Source Page="65">Rise of the Separatists</Source>
+    </Sources>
+    <Type>Armor</Type>
+    <Price>2000</Price>
+    <Rarity>5</Rarity>
+    <HP>1</HP>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Add [BO] to Perception and Vigilance checks while within medium range of one or more allies also using armor with this attachment.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Includes integrated comlink.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>PERC</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>VIGIL</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+
 </ItemAttachments>
