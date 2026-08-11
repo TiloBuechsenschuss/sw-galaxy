@@ -23,18 +23,23 @@ App.constant('defaultDisabledSources', []);
 /**
  * The tabs, in the order they appear in the app.
  *
- * One entry per data type: the tab label, the type key wrapping the array inside
- * the JSON (the itemList directive's source-name) and the file to load.
+ * One entry per tab: the tab label, the type key wrapping the array inside the
+ * JSON (the itemList directive's source-name) and the file to load.
  * index.html repeats over this list, so this array is the tab order: reordering
  * the tabs means moving lines here, and a new tab is one more line. Nothing
  * refers to a tab by position.
+ *
+ * Two entries may share a file and a type key: Vehicles.json feeds both the
+ * Vehicles and the Starships tab, split by the optional vehicleClass, which the
+ * vehicleClassFilter reads. Leave it off and the tab shows the whole file.
  */
 App.constant('tabs', [
     {label: 'Weapons', name: 'Weapon', url: 'data/json/Weapons.json'},
     {label: 'Armors', name: 'Armor', url: 'data/json/Armor.json'},
     {label: 'Gear', name: 'Gear', url: 'data/json/Gear.json'},
     {label: 'Attachments', name: 'ItemAttachments', url: 'data/json/ItemAttachments.json'},
-    {label: 'Vehicles', name: 'Vehicle', url: 'data/json/Vehicles.json'},
+    {label: 'Vehicles', name: 'Vehicle', url: 'data/json/Vehicles.json', vehicleClass: 'land'},
+    {label: 'Starships', name: 'Vehicle', url: 'data/json/Vehicles.json', vehicleClass: 'space'},
     {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
 ]);
 
@@ -1179,6 +1184,76 @@ App.filter('max', function () {
     };
 });
 
+/**
+ * Keeps the vehicles of one class, so Vehicles.json can feed more than one tab.
+ * 'space' is everything that travels between planets, 'land' everything that
+ * stays on one -- ground, air and water alike. An empty class keeps every row,
+ * which is what the tabs that are not vehicles pass.
+ *
+ * This runs on the raw rows, before fetchSource() reshapes <Categories> into an
+ * array of {Key}, so it reads OggDude's own shape: one <Category> comes through
+ * as a string, several as an array.
+ *
+ * The 16 rows that carry no <Categories> at all are decided by their Type --
+ * hyperdrive sleds and docking rings and the one space slug fly, field
+ * equipment, walkers and submersibles do not. Anything the two category lists
+ * do not cover logs, in the house style, rather than landing in a tab by
+ * accident.
+ */
+App.filter('vehicleClassFilter', function () {
+    var spaceCategories = ['Starship', 'Non-Fighter Starship', 'Capital Ship', 'Station'],
+        landCategories = ['Land Vehicle', 'Air Vehicle', 'Walker', 'Wheeled Vehicle',
+            'Tracked Vehicle', 'Watercraft'],
+        spaceTypes = ['Hyperdrive Sled', 'Hyperdrive Docking Ring', 'Space-dwelling Creature'];
+
+    function categoriesOf(item) {
+        var category = item.Categories && item.Categories.Category;
+        if (typeof category == 'string') {
+            return [category];
+        }
+        if (typeof category == 'object' && typeof category.length == 'number') {
+            return category;
+        }
+        return [];
+    }
+
+    function matches(categories, list) {
+        var i, l = categories.length;
+        for (i = 0; i < l; i++) {
+            if (list.indexOf(categories[i]) > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function classOf(item) {
+        var categories = categoriesOf(item);
+        if (matches(categories, spaceCategories)) {
+            return 'space';
+        }
+        if (matches(categories, landCategories)) {
+            return 'land';
+        }
+        if (spaceTypes.indexOf(item.Type) > -1) {
+            return 'space';
+        }
+        if (categories.length > 0) {
+            console.log('Please add a vehicle class mapping for: ' + categories.join(', '));
+        }
+        return 'land';
+    }
+
+    return function (items, vehicleClass) {
+        if (!vehicleClass) {
+            return items;
+        }
+        return items.filter(function (item) {
+            return classOf(item) == vehicleClass;
+        });
+    };
+});
+
 App.directive('errSrc', function () {
     return {
         link: function (scope, element, attrs) {
@@ -1199,9 +1274,13 @@ App.directive('itemList', function () {
                 isActive: '@',
                 name: '@sourceName',
                 keyDesc: '@keyDesc',
+                vehicleClass: '@',
             },
             link: function (scope, elem, attrs) {
-                scope.sideNavComponentId = 'sideNav-' + scope.name;
+                // Two tabs share the Vehicle type key, so the class has to be part
+                // of the id -- $mdSidenav looks components up by it.
+                scope.sideNavComponentId = 'sideNav-' + scope.name +
+                    (scope.vehicleClass ? '-' + scope.vehicleClass : '');
             },
             controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources) {
                 $scope.items = [];
@@ -1359,6 +1438,9 @@ App.directive('itemList', function () {
                     $http.get($scope.sourceUrl).then(function (res) {
                         var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, categories, vehicleWeapons, builtInAttachments, outputItems = [];
                         items = res.data[$scope.name];
+                        // Before anything reads the rows, so the sliders' ranges and
+                        // the filter dropdowns describe this tab's half of the file.
+                        items = $filter('vehicleClassFilter')(items, $scope.vehicleClass);
                         l = items.length;
                         $scope.min.Damage = $scope.getMinValue(items, 'Damage');
                         $scope.max.Damage = $scope.getMaxValue(items, 'Damage');

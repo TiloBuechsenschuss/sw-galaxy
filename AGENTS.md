@@ -38,7 +38,7 @@ stylesheet on Google Fonts, so the app still needs an internet connection on fir
 
 ```
 index.html                     App shell: <md-tabs> repeating over the tabs constant,
-                               one tab per data type, each instantiating item-list
+                               each entry instantiating the item-list directive
 app/module/SWApp.js            The entire application (~1750 lines): module, the tabs
                                constant, filters, and the itemList directive with its
                                controller
@@ -135,7 +135,8 @@ Species — the most recently added type — is wired end to end.
 4. **The `tabs` constant in `SWApp.js`** — one more
    `{label: …, name: <type key>, url: <the JSON>}`. `index.html` `ng-repeat`s over that
    list, so the array *is* the tab order: move a line to move a tab. Nothing refers to a
-   tab by position, and `is-active` compares against `$index`.
+   tab by position, and `is-active` compares against `$index`. One file can feed two tabs
+   — see *One file, two tabs* below.
 5. **`app/components/items.html` + `app/module/SWApp.js`** — the table is one shared
    `<table md-table>` whose every `<th>`/`<td>` carries
    `ng-if="name == 'Weapon' || name == 'Armor' || ..."`. A new type joins the shared
@@ -157,6 +158,30 @@ Do not treat those `ng-if`s as dead code to clean up.
 
 `xml_to_json/README.md` carries the inventory of what else in `oggdudes-data/` could
 become a tab, with volumes and the effort each would take.
+
+### One file, two tabs: the vehicle split
+
+`Vehicles.json` feeds two tabs. **Vehicles** shows the 171 rows that stay on a planet —
+ground, air and water — and **Starships** the 242 that leave it. The split is a UI concern
+only: one file, one type key, one set of `name == 'Vehicle'` columns, and thumbnails still
+resolve as `data/img/Vehicle<Key>.png`. Splitting the JSON instead would mean a second type
+key and renaming ~400 PNGs.
+
+The tab entry carries `vehicleClass: 'land'` or `'space'`; `vehicleClassFilter` reads it in
+`fetchSource()`, on the raw rows, *before* the min/max ranges and the dropdown values are
+collected — so each tab's sliders and filters describe only its own half. Tabs with no
+`vehicleClass` are unaffected and keep the whole file.
+
+The rule is two category lists in that filter (`Starship`, `Capital Ship`, `Station`… vs
+`Land Vehicle`, `Walker`, `Watercraft`…), then a `Type` fallback for the 16 rows that carry
+no `<Categories>` at all. Categories matching neither list log
+`Please add a vehicle class mapping for: …`, the same way the descriptor filters do, so new
+data surfaces instead of quietly landing in a tab. **The two halves must stay a partition:**
+`land + space == 413` today, with nothing in both and nothing in neither.
+
+Since two tabs share the type key, the sidenav id is `'sideNav-' + name + '-' + vehicleClass`
+— `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would toggle each
+other's panel.
 
 ### Source selection defaults
 
@@ -182,6 +207,8 @@ Most of `SWApp.js` is AngularJS filters. Two distinct groups:
 - **Search/reduce filters** — `searchFilter`, `fulltextFilter`, `arrayFulltextFilter`,
   `arrayFulltextFilterOr`, `min`, `max`. These narrow the item array. They are chained
   in `$scope.filterItems()`, which runs inside a `$timeout` and feeds `$scope.filteredItems`.
+  `vehicleClassFilter` is the odd one out: it reduces too, but runs once in `fetchSource()`
+  rather than per keystroke (see *One file, two tabs* below).
   Results are paginated in JS: 10 shown initially, `increaseLimit()` adds 100, `showAll()`
   adds the rest.
 - **Rendering filters** — `nameFilter`, `descriptionFilter`, `infoFilter`, `symbolFilter`,
