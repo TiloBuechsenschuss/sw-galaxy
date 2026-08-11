@@ -37,10 +37,11 @@ stylesheet on Google Fonts, so the app still needs an internet connection on fir
 ## Repository layout
 
 ```
-index.html                     App shell: <md-tabs>, one tab per data type, each
-                               instantiating the item-list directive
-app/module/SWApp.js            The entire application (~1750 lines): module, filters,
-                               and the itemList directive with its controller
+index.html                     App shell: <md-tabs> repeating over the tabs constant,
+                               each entry instantiating the item-list directive
+app/module/SWApp.js            The entire application (~1750 lines): module, the tabs
+                               constant, filters, and the itemList directive with its
+                               controller
 app/components/items.html      Template for the itemList directive (~1080 lines):
                                sidenav filters + result table + item detail cards
 css/style.css                  Custom styles, @font-face for the FFG symbol font
@@ -70,8 +71,9 @@ xml_to_json/xml_sources/<set>/ One folder per data source, each holding the XML 
    `$excludedBooks` are skipped before de-duplication and never reach the JSON. Rows are
    then written sorted by their first `Source` book, then `Name`, then `Key`, so a
    regenerated export diffs cleanly.
-3. `index.html` declares one `<div item-list>` per tab, passing `source-name` (the type
-   key inside the JSON) and `source-url` (the JSON file).
+3. `index.html` `ng-repeat`s over the `tabs` constant in `SWApp.js`, rendering one
+   `<div item-list>` per entry and passing it `source-name` (the type key inside the JSON)
+   and `source-url` (the JSON file). The tab order is that array's order.
 4. The `itemList` directive's controller `$http.get`s that JSON, normalizes every item,
    pre-computes min/max ranges for the numeric sliders, and collects the distinct values
    used to populate the filter dropdowns.
@@ -106,9 +108,121 @@ The short version:
   needs network, writes Markdown to `xml_to_json/wiki_diff/`. Not part of the pipeline.
 
 Recognized XML file names are fixed in `$validFileNames` in `convert.php`:
-`Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`.
-Adding a new data type means touching `convert.php`, `index.html`, and usually
-`items.html`.
+`Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`,
+`Vehicles.xml`. Adding a new data type means touching `convert.php`, the `tabs` constant
+in `SWApp.js`, and usually `items.html` — see the next section for the full list.
+
+### Adding a new data type (a new tab)
+
+Five touch points, in the order it makes sense to do them. Derived from tracing how
+Species — the most recently added type — is wired end to end.
+
+1. **Importer, only if OggDude's schema differs from the app's.** `Armor`, `Weapons`,
+   `ItemAttachments` and `Gear` are copied straight from `oggdudes-data/` into
+   `xml_to_json/xml_sources/oggdude/`. Species and Vehicles are not: OggDude ships them
+   **one file per row** in its own schema, so they need a script that merges and reshapes
+   into a single app-schema XML — `oggdude_species_to_app.py`, `oggdude_vehicles_to_app.py`.
+   The tell is a folder under `oggdudes-data/` rather than a single `.xml`.
+2. **Converter registration** — one line in `VALID_FILE_NAMES` (`convert.py`) *and*
+   `$validFileNames` (`convert.php`); the two must stay in sync. The key is the singular
+   type name used inside the JSON (`Weapon`, `Vehicle`), the value the plural file name
+   (`Weapons.xml`, `Vehicles.xml`). Sorting, `Key` de-duplication, excluded books,
+   `<Source Page>` expansion, duplicate-sibling collapsing and `Thumbnail` wiring all come
+   free once registered.
+3. **Artwork** — `data/img/<TypeKey><Key>.png`. OggDude's images are named by bare `Key`
+   under `oggdudes-data/<Type>Images/`, so they only need the type prefix added.
+   Coverage is never complete; the rest fall back to `img/no_image.png` automatically.
+4. **The `tabs` constant in `SWApp.js`** — one more
+   `{label: …, name: <type key>, url: <the JSON>}`. `index.html` `ng-repeat`s over that
+   list, so the array *is* the tab order: move a line to move a tab. Nothing refers to a
+   tab by position, and `is-active` compares against `$index`. One file can feed two tabs
+   — see *One file, two tabs* below.
+5. **`app/components/items.html` + `app/module/SWApp.js`** — the table is one shared
+   `<table md-table>` whose every `<th>`/`<td>` carries
+   `ng-if="name == 'Weapon' || name == 'Armor' || ..."`. A new type joins the shared
+   columns by adding `|| name == 'X'` to those conditions, and gets its own columns as new
+   `<th>`/`<td>` pairs. In `SWApp.js` each numeric column needs a `min`/`max` pair in
+   `filterItems()` and in the `$scope.min`/`$scope.max` block, and each dropdown filter a
+   `fulltextFilter`/`arrayFulltextFilter` line — all flat, repetitive lists. Match them.
+
+`verify_convert.py` should grow a section for the new type, the way it checks the species
+schema mapping. `wiki_diff.py` takes one line in `TARGETS` if the wiki has a matching
+category — or several categories in that one line when the wiki splits what the JSON holds
+together, as `vehicles` does across `Category:Vehicles` and `Category:Starships`.
+
+**`Adversary` is a half-built seventh type.** `items.html` references `name == 'Adversary'`
+29 times — Soak, Wound/Strain Threshold, Experience, all six characteristics and Force
+Rating columns are already wired — but there is no `Adversary.json`, no entry in the `tabs`
+constant, and OggDude ships no adversary export. It is missing its data, not its UI.
+Do not treat those `ng-if`s as dead code to clean up.
+
+`xml_to_json/README.md` carries the inventory of what else in `oggdudes-data/` could
+become a tab, with volumes and the effort each would take.
+
+### One file, two tabs: the vehicle split
+
+`Vehicles.json` feeds two tabs. **Vehicles** shows the 171 rows that stay on a planet —
+ground, air and water — and **Starships** the 242 that leave it. The split is a UI concern
+only: one file, one type key, one set of `name == 'Vehicle'` columns, and thumbnails still
+resolve as `data/img/Vehicle<Key>.png`. Splitting the JSON instead would mean a second type
+key and renaming ~400 PNGs.
+
+The tab entry carries `vehicleClass: 'land'` or `'space'`; `vehicleClassFilter` reads it in
+`fetchSource()`, on the raw rows, *before* the min/max ranges and the dropdown values are
+collected — so each tab's sliders and filters describe only its own half. Tabs with no
+`vehicleClass` are unaffected and keep the whole file.
+
+The rule is two category lists in that filter (`Starship`, `Capital Ship`, `Station`… vs
+`Land Vehicle`, `Walker`, `Watercraft`…), then a `Type` fallback for the 16 rows that carry
+no `<Categories>` at all. Categories matching neither list log
+`Please add a vehicle class mapping for: …`, the same way the descriptor filters do, so new
+data surfaces instead of quietly landing in a tab. **The two halves must stay a partition:**
+`land + space == 413` today, with nothing in both and nothing in neither.
+
+Since two tabs share the type key, the sidenav id is `'sideNav-' + name + '-' + vehicleClass`
+— `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would toggle each
+other's panel.
+
+### The source line menu
+
+A `filter_list` icon button sits at the **right end of the tab strip**, opening a checkbox
+menu that switches whole game lines — Edge of the Empire, Age of Rebellion, Force and
+Destiny, Extended Material — on and off for every tab at once. All four start on, and the
+icon turns red (`md-primary`) while any is off, since that is the only hint that items are
+being held back.
+
+It is pinned into the 48px strip with `position: absolute` and pairs with
+`.tab-frame md-tabs-wrapper { padding-right: 48px }`. That padding is not decoration: the
+pagination arrows `md-tabs` shows when the tabs overflow are positioned against the
+wrapper's *padding* box, so the reserved strip keeps the next-page arrow from landing under
+the button on a phone. The menu items carry `md-prevent-menu-close`, so several lines can be
+toggled without reopening it.
+
+This is the one piece of state that is neither per-tab nor derived from the data:
+
+- `sourceLines` (constant) lists the four lines and, under each, every Book name that
+  belongs to it. All 39 books in the data are filed; a book in no list is reported once as
+  `Please add a source line mapping for: …` and **items carrying it stay visible**, so new
+  data can never disappear because nobody filed it yet.
+- `sourceLineSelection` (factory, a singleton) holds which lines are on, persists them and
+  broadcasts `sourceLinesChanged` when one is toggled. Each `itemList` listens and
+  re-filters, including the tabs in the background — `md-tabs` keeps their scopes in the
+  tree, since `md-enable-disconnect` is not set.
+- `sourceLineFilter` runs last in `filterItems()`, after the per-tab Source multi-select.
+  The two are independent and both must pass. An item survives if *any* of its books is in
+  a line that is on — a reprint stays visible while either line is on — and rows whose only
+  "book" is the `Missing` placeholder are never hidden.
+
+The selection is stored in `localStorage` under `sw-galaxy.sourceLines` as the list of lines
+that are **off**, with a timestamp, and is ignored once it is older than
+`STORAGE_MAX_AGE_DAYS` (30). Storing the off list means a line added to the constant later
+starts on instead of being hidden by an old saved selection. Every `localStorage` call is
+wrapped in `try`/`catch`: Safari's private mode throws, and the app has to keep working
+without persistence.
+
+Turning a line off does not touch the per-tab **Source** dropdown, which still lists and
+shows every book as selected. That is intended — one is a coarse global switch, the other a
+fine per-tab filter — but it is the first thing that looks like a bug if you forget it.
 
 ### Source selection defaults
 
@@ -134,6 +248,8 @@ Most of `SWApp.js` is AngularJS filters. Two distinct groups:
 - **Search/reduce filters** — `searchFilter`, `fulltextFilter`, `arrayFulltextFilter`,
   `arrayFulltextFilterOr`, `min`, `max`. These narrow the item array. They are chained
   in `$scope.filterItems()`, which runs inside a `$timeout` and feeds `$scope.filteredItems`.
+  `vehicleClassFilter` is the odd one out: it reduces too, but runs once in `fetchSource()`
+  rather than per keystroke (see *One file, two tabs* below).
   Results are paginated in JS: 10 shown initially, `increaseLimit()` adds 100, `showAll()`
   adds the rest.
 - **Rendering filters** — `nameFilter`, `descriptionFilter`, `infoFilter`, `symbolFilter`,
@@ -192,17 +308,58 @@ map to single characters of the `eote_symbolregularmod` font, wrapped in
 
 ## Verifying changes
 
-There are no automated tests. Verification is manual:
+### Do not start a server and do not drive a browser
 
-1. Serve the repo root over HTTP (see `readme.md` — `file://` will not work, `$http.get`
-   of the JSON is blocked by the browser).
-2. Load the page and check each of the five tabs.
-3. Open the browser console. It should stay quiet — `Please add base mod mapping for: …`
-   and `debugging!` messages indicate unmapped data.
-4. Exercise the sidenav filters, the search box, sorting and "show more"/"show all" on at
-   least the Weapons tab, which has the most fields.
-5. Angular Material is responsive; check a narrow viewport too. The app is explicitly
-   optimized for phones, since players use it at the table.
+**Running the app is the repository owner's job, not an agent's.** Do not start a web
+server (`python -m http.server`, `npx http-server`, `php -S`, `live-server`, …), do not
+open or automate a browser, and do not use browser tooling or extensions to look at the
+page. The commands in `readme.md` are instructions *for the owner*, not a task list to
+execute. When a change needs to be seen running, finish the work, say what should be
+checked, and leave the serving and the clicking to the owner.
+
+Writing scripts and test files is fine — that is the encouraged alternative below. What is
+off-limits is serving the app and interacting with it.
+
+### What an agent can verify
+
+There are no automated tests, but most of what matters can be checked without a browser,
+and a throwaway script beats a guess. Everything below has caught a real bug in this repo:
+
+- **Run the pipeline.** `python xml_to_json/convert.py --check` reports without writing;
+  `python xml_to_json/verify_convert.py` rebuilds every JSON from the committed XML and
+  checks the schema mappings. Both must pass.
+- **Syntax-check the app code.** `node --check app/module/SWApp.js`. Remember it is ES5
+  only, so a passing check is necessary, not sufficient.
+- **Check the table stays aligned.** Every `<th>` and `<td>` in `items.html` carries an
+  `ng-if` naming the types it belongs to. Count them per type with the conditions
+  evaluated: the two numbers must match for *every* type, or that tab's columns shift
+  under their headers. Compare against `git show HEAD:app/components/items.html` to prove
+  the types you did not touch are unchanged. (`Adversary` is 16/15 in the committed file
+  — pre-existing, and dormant since it has no data.)
+- **Check tag balance** of `items.html` and `index.html` with an HTML parser after any
+  large insertion.
+- **Check the wiring.** Every `filters.X` bound with `ng-model` in the template should
+  appear in `filterItems()`; every `min.X`/`max.X` used in an `ng-if` should be assigned
+  in `fetchSource()`; every list an `ng-repeat` walks should be initialised on `$scope`.
+- **Simulate the normalisation in Node** against the real `data/json/*.json` to confirm a
+  new type produces the shapes the template expects — and that the other tabs are
+  untouched.
+- **Predict the console.** The page should stay quiet. Extract the keys the data actually
+  contains and check them against the `text.replace(/^KEY$/g, …)` lists in
+  `descriptorFilter`/`talentFilter`/`qualityFilter`; anything unmapped becomes a
+  `Please add base mod mapping for: …` line at runtime.
+
+### What only the owner can check
+
+Hand these back as a list of things to look at, with the app left unserved:
+
+1. Each tab renders, and its columns sit under the right headers.
+2. The browser console is quiet — `Please add base mod mapping for: …` and `debugging!`
+   indicate unmapped data.
+3. The sidenav filters, search box, sorting and "show more"/"show all" behave, on at least
+   the Weapons tab, which has the most fields.
+4. A narrow viewport. Angular Material is responsive and the app is explicitly optimized
+   for phones, since players use it at the table.
 
 ## Git
 

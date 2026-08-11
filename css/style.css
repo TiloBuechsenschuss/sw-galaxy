@@ -209,3 +209,33 @@ tr.collapse-row td.md-cell {
 .sw-description:focus {
     outline: none;
 }
+
+/* The game line menu sits inside the 48px tab strip rather than above it, so it
+   costs no vertical space on a phone. The strip is padded by the same amount:
+   md-tabs' pagination arrows are positioned against md-tabs-wrapper's padding
+   box, so they stay clear of the button when the tabs overflow. */
+.tab-frame {
+    position: relative;
+}
+
+.tab-frame > .source-lines-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    padding: 0;
+}
+
+.tab-frame md-tabs-wrapper {
+    padding-right: 48px;
+}
+
+.source-lines-menu .md-icon-button {
+    margin: 4px;
+}
+
+/* Menu content is moved to the end of the body while it is open, so this has to
+   match on the class alone. */
+.source-lines-menu-content md-menu-item md-icon {
+    margin-right: 16px;
+}

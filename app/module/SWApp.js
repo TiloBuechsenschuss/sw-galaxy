@@ -20,6 +20,210 @@ App.config(function ($mdThemingProvider) {
  */
 App.constant('defaultDisabledSources', []);
 
+/**
+ * The tabs, in the order they appear in the app.
+ *
+ * One entry per tab: the tab label, the type key wrapping the array inside the
+ * JSON (the itemList directive's source-name) and the file to load.
+ * index.html repeats over this list, so this array is the tab order: reordering
+ * the tabs means moving lines here, and a new tab is one more line. Nothing
+ * refers to a tab by position.
+ *
+ * Two entries may share a file and a type key: Vehicles.json feeds both the
+ * Vehicles and the Starships tab, split by the optional vehicleClass, which the
+ * vehicleClassFilter reads. Leave it off and the tab shows the whole file.
+ */
+App.constant('tabs', [
+    {label: 'Weapons', name: 'Weapon', url: 'data/json/Weapons.json'},
+    {label: 'Armors', name: 'Armor', url: 'data/json/Armor.json'},
+    {label: 'Gear', name: 'Gear', url: 'data/json/Gear.json'},
+    {label: 'Attachments', name: 'ItemAttachments', url: 'data/json/ItemAttachments.json'},
+    {label: 'Vehicles', name: 'Vehicle', url: 'data/json/Vehicles.json', vehicleClass: 'land'},
+    {label: 'Starships', name: 'Vehicle', url: 'data/json/Vehicles.json', vehicleClass: 'space'},
+    {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
+]);
+
+/**
+ * The four lines a source book can belong to, in the order they appear in the
+ * menu at the right of the tab strip. Every Book name in the data belongs to
+ * exactly one of them.
+ *
+ * "Extended Material" is the catch-all for everything published outside the three
+ * core lines: the Clone Wars era books, and OggDude's "User Data" placeholder for
+ * hand-entered rows.
+ *
+ * A book missing from these lists is reported once by sourceLineFilter, and items
+ * carrying it stay visible -- a new book must never disappear because nobody has
+ * filed it yet. Adding one means adding its name to the right list, in the
+ * existing style. The lists are alphabetical.
+ */
+App.constant('sourceLines', [
+    {
+        key: 'eote', label: 'Edge of the Empire', books: [
+            'Beyond the Rim',
+            'Dangerous Covenants',
+            'Edge of the Empire Core Rulebook',
+            'Enter the Unknown',
+            'Far Horizons',
+            'Fly Casual',
+            'Jewel of Yavin',
+            'Long Arm of the Hutt',
+            'Lords of Nal Hutta',
+            'Mask of the Pirate Queen',
+            'No Disintegrations',
+            'Special Modifications',
+            'Suns of Fortune',
+            'Under a Black Sun'
+        ]
+    },
+    {
+        key: 'aor', label: 'Age of Rebellion', books: [
+            'Age of Rebellion Beta Rulebook',
+            'Age of Rebellion Core Rulebook',
+            'Cyphers and Masks',
+            'Desperate Allies',
+            'Forged in Battle',
+            'Friends Like These',
+            'Fully Operational',
+            'Lead by Example',
+            'Onslaught at Arda I',
+            'Stay on Target',
+            'Strongholds of Resistance'
+        ]
+    },
+    {
+        key: 'fad', label: 'Force and Destiny', books: [
+            'Chronicles of the Gatekeeper',
+            'Disciples of Harmony',
+            'Endless Vigil',
+            'Force and Destiny Beta Rulebook',
+            'Force and Destiny Core Rulebook',
+            'Force and Destiny Game Master\'s Kit',
+            'Keeping the Peace',
+            'Knights of Fate',
+            'Nexus of Power',
+            'Savage Spirits',
+            'Unlimited Power'
+        ]
+    },
+    {
+        key: 'extended', label: 'Extended Material', books: [
+            'Collapse of the Republic',
+            'Rise of the Separatists',
+            'User Data'
+        ]
+    }
+]);
+
+/**
+ * Which source lines are switched on. One object for the whole app: the menu
+ * lives in the tab strip, every tab filters by it, and it outlives a reload.
+ *
+ * Stored as the list of lines that are *off*, so a line added to the constant
+ * later starts on rather than being silently hidden by an old saved selection.
+ * The stamp expires the selection after STORAGE_MAX_AGE_DAYS -- switching a line
+ * off is meant to last a while, not forever.
+ *
+ * Every localStorage call is guarded: Safari's private mode throws on setItem,
+ * and a browser that refuses to store simply forgets the selection on reload.
+ */
+App.factory('sourceLineSelection', function ($rootScope, $window, sourceLines) {
+    var STORAGE_KEY = 'sw-galaxy.sourceLines',
+        STORAGE_MAX_AGE_DAYS = 30,
+        enabled = {};
+
+    function store() {
+        try {
+            return $window.localStorage;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function enableAll() {
+        var i, l = sourceLines.length;
+        for (i = 0; i < l; i++) {
+            enabled[sourceLines[i].key] = true;
+        }
+    }
+
+    function read() {
+        var storage = store(), raw, payload, i, l;
+        enableAll();
+        if (!storage) {
+            return;
+        }
+        try {
+            raw = storage.getItem(STORAGE_KEY);
+            payload = raw ? angular.fromJson(raw) : null;
+        } catch (e) {
+            payload = null;
+        }
+        if (!payload || typeof payload.saved != 'number' ||
+            $window.Date.now() - payload.saved > STORAGE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000) {
+            return;
+        }
+        if (payload.off && typeof payload.off.length == 'number') {
+            for (i = 0, l = payload.off.length; i < l; i++) {
+                if (enabled.hasOwnProperty(payload.off[i])) {
+                    enabled[payload.off[i]] = false;
+                }
+            }
+        }
+    }
+
+    function write() {
+        var storage = store(), off = [], i, l = sourceLines.length;
+        if (!storage) {
+            return;
+        }
+        for (i = 0; i < l; i++) {
+            if (!enabled[sourceLines[i].key]) {
+                off.push(sourceLines[i].key);
+            }
+        }
+        try {
+            storage.setItem(STORAGE_KEY, angular.toJson({saved: $window.Date.now(), off: off}));
+        } catch (e) {
+            // Out of quota, or storage denied. The selection still works for this
+            // page view; it just will not be there after a reload.
+        }
+    }
+
+    read();
+
+    return {
+        enabled: enabled,
+        isEnabled: function (key) {
+            return enabled[key] === true;
+        },
+        toggle: function (key) {
+            enabled[key] = !enabled[key];
+            write();
+            // Every tab re-filters, including the ones the user is not looking at.
+            $rootScope.$broadcast('sourceLinesChanged');
+        }
+    };
+});
+
+App.controller('TabsController', function ($scope, tabs, sourceLines, sourceLineSelection) {
+    $scope.tabs = tabs;
+    $scope.sourceLines = sourceLines;
+    $scope.isSourceLineEnabled = sourceLineSelection.isEnabled;
+    $scope.toggleSourceLine = sourceLineSelection.toggle;
+    // Colours the menu button while a line is switched off: an icon in the tab
+    // strip is the only hint that items are being held back.
+    $scope.allSourceLinesOn = function () {
+        var i, l = sourceLines.length;
+        for (i = 0; i < l; i++) {
+            if (!sourceLineSelection.isEnabled(sourceLines[i].key)) {
+                return false;
+            }
+        }
+        return true;
+    };
+});
+
 App.filter('searchFilter', function () {
     return function (items, search, ctrl) {
         if (!search) {
@@ -135,12 +339,12 @@ App.filter('nameFilter', function ($sce, $filter) {
 App.filter('descriptionFilter', function ($sce, $filter) {
     return function (item) {
         var html = '', mods = '', count;
-    
-       
+
+
         if (typeof item.Description == 'string') {
            html += "<p>" + item.Description + "</p>";
         }
-               
+
         if (html.length > 0) {
             html = html.replace("[H3]" + item.Name + "[h3]", "");
             html = html.replace("[H4]" + item.Name + "[h4]", "");
@@ -166,7 +370,7 @@ App.filter('descriptionFilter', function ($sce, $filter) {
 App.filter('infoFilter', function ($sce, $filter) {
     return function (item) {
         var html = '', mods = '', count;
-    
+
         if (typeof item.BaseMods == 'object') {
             if (typeof item.BaseMods.Mod == 'object' && item.BaseMods.Mod.length > 0) {
                 for (var i = 0, l = item.BaseMods.Mod.length; i < l; i++) {
@@ -349,7 +553,7 @@ App.filter('rangeFilter', function () {
 App.filter('modFilter', function ($filter) {
     return function (text) {
         if (typeof text === 'string') {
-            var initText = text;            
+            var initText = text;
             text = $filter('descriptorFilter')(text);
             text = $filter('talentFilter')(text);
             text = $filter('symbolFilter')(text);
@@ -1127,9 +1331,17 @@ App.filter('tooltipFilter', function ($filter) {
     }
 });
 
+/**
+ * An empty box means "no bound"; 0 is a bound like any other. `!search` treated
+ * the two the same, so a min or max of 0 silently did nothing -- which matters
+ * most for Handling, the one stat that runs negative (-6 to +3), where 0 sits in
+ * the middle of the range rather than at the bottom of it. An empty number input
+ * gives undefined, a cleared one '', and an unparseable one NaN; all three mean
+ * unfiltered.
+ */
 App.filter('min', function () {
     return function (items, search, attribute) {
-        if (!search) {
+        if (search === undefined || search === null || search === '' || isNaN(search)) {
             return items;
         }
         return items.filter(function (item) {
@@ -1140,11 +1352,141 @@ App.filter('min', function () {
 
 App.filter('max', function () {
     return function (items, search, attribute) {
-        if (!search) {
+        if (search === undefined || search === null || search === '' || isNaN(search)) {
             return items;
         }
         return items.filter(function (item) {
             return parseInt(item[attribute]) <= search;
+        });
+    };
+});
+
+/**
+ * Keeps the items printed in a line that is switched on. Reads the normalised
+ * Sources array, so it belongs after fetchSource() has reshaped the rows.
+ *
+ * An item is kept when *any* of its books is in a line that is on -- the same
+ * rule the Source multi-select uses, so something reprinted in two books stays
+ * visible while either line is on. It is also kept when none of its books maps to
+ * a line at all: unfiled books, and the 'Missing' placeholder fetchSource() gives
+ * the handful of rows with no <Source>, must not make items vanish.
+ *
+ * Unmapped books are reported once each, in the house style, so new data shows up
+ * in the console rather than sitting in the wrong bucket.
+ */
+App.filter('sourceLineFilter', function (sourceLines) {
+    var lineOfBook = {},
+        reported = {},
+        i, l, i2, l2;
+    for (i = 0, l = sourceLines.length; i < l; i++) {
+        for (i2 = 0, l2 = sourceLines[i].books.length; i2 < l2; i2++) {
+            lineOfBook[sourceLines[i].books[i2]] = sourceLines[i].key;
+        }
+    }
+
+    function lineOf(book) {
+        if (lineOfBook.hasOwnProperty(book)) {
+            return lineOfBook[book];
+        }
+        // fetchSource()'s own placeholder for a row with no <Source> at all. Not a
+        // book, so it belongs to no line and is not a missing mapping.
+        if (book != 'Missing' && !reported[book]) {
+            reported[book] = true;
+            console.log('Please add a source line mapping for: ' + book);
+        }
+        return null;
+    }
+
+    return function (items, enabled) {
+        if (!enabled) {
+            return items;
+        }
+        return items.filter(function (item) {
+            var i3, l3, line, filed = false;
+            if (!item.Sources || typeof item.Sources.length != 'number') {
+                return true;
+            }
+            for (i3 = 0, l3 = item.Sources.length; i3 < l3; i3++) {
+                line = lineOf(item.Sources[i3].Book);
+                if (line === null) {
+                    continue;
+                }
+                filed = true;
+                if (enabled[line]) {
+                    return true;
+                }
+            }
+            return !filed;
+        });
+    };
+});
+
+/**
+ * Keeps the vehicles of one class, so Vehicles.json can feed more than one tab.
+ * 'space' is everything that travels between planets, 'land' everything that
+ * stays on one -- ground, air and water alike. An empty class keeps every row,
+ * which is what the tabs that are not vehicles pass.
+ *
+ * This runs on the raw rows, before fetchSource() reshapes <Categories> into an
+ * array of {Key}, so it reads OggDude's own shape: one <Category> comes through
+ * as a string, several as an array.
+ *
+ * The 16 rows that carry no <Categories> at all are decided by their Type --
+ * hyperdrive sleds and docking rings and the one space slug fly, field
+ * equipment, walkers and submersibles do not. Anything the two category lists
+ * do not cover logs, in the house style, rather than landing in a tab by
+ * accident.
+ */
+App.filter('vehicleClassFilter', function () {
+    var spaceCategories = ['Starship', 'Non-Fighter Starship', 'Capital Ship', 'Station'],
+        landCategories = ['Land Vehicle', 'Air Vehicle', 'Walker', 'Wheeled Vehicle',
+            'Tracked Vehicle', 'Watercraft'],
+        spaceTypes = ['Hyperdrive Sled', 'Hyperdrive Docking Ring', 'Space-dwelling Creature'];
+
+    function categoriesOf(item) {
+        var category = item.Categories && item.Categories.Category;
+        if (typeof category == 'string') {
+            return [category];
+        }
+        if (typeof category == 'object' && typeof category.length == 'number') {
+            return category;
+        }
+        return [];
+    }
+
+    function matches(categories, list) {
+        var i, l = categories.length;
+        for (i = 0; i < l; i++) {
+            if (list.indexOf(categories[i]) > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function classOf(item) {
+        var categories = categoriesOf(item);
+        if (matches(categories, spaceCategories)) {
+            return 'space';
+        }
+        if (matches(categories, landCategories)) {
+            return 'land';
+        }
+        if (spaceTypes.indexOf(item.Type) > -1) {
+            return 'space';
+        }
+        if (categories.length > 0) {
+            console.log('Please add a vehicle class mapping for: ' + categories.join(', '));
+        }
+        return 'land';
+    }
+
+    return function (items, vehicleClass) {
+        if (!vehicleClass) {
+            return items;
+        }
+        return items.filter(function (item) {
+            return classOf(item) == vehicleClass;
         });
     };
 });
@@ -1169,14 +1511,20 @@ App.directive('itemList', function () {
                 isActive: '@',
                 name: '@sourceName',
                 keyDesc: '@keyDesc',
+                vehicleClass: '@',
             },
             link: function (scope, elem, attrs) {
-                scope.sideNavComponentId = 'sideNav-' + scope.name;
+                // Two tabs share the Vehicle type key, so the class has to be part
+                // of the id -- $mdSidenav looks components up by it.
+                scope.sideNavComponentId = 'sideNav-' + scope.name +
+                    (scope.vehicleClass ? '-' + scope.vehicleClass : '');
             },
-            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources) {
+            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources, sourceLineSelection) {
                 $scope.items = [];
                 $scope.favourites = [];
                 $scope.types = [];
+                $scope.categories = [];
+                $scope.sensorRanges = [];
                 $scope.skills = [];
                 $scope.sources = [];
                 $scope.ranges = [];
@@ -1188,7 +1536,7 @@ App.directive('itemList', function () {
                 $scope.min = {};
                 $scope.max = {};
                 $scope.filters = {};
-                $scope.order = 'Name';                
+                $scope.order = 'Name';
                 $scope.filterItems = function () {
                     $scope.promise = $timeout(function () {
                         if (typeof $scope.items != 'undefined') {
@@ -1211,6 +1559,18 @@ App.directive('itemList', function () {
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxHP, 'HP');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minPrice, 'Price');
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxPrice, 'Price');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minSilhouette, 'Silhouette');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxSilhouette, 'Silhouette');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minSpeed, 'Speed');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxSpeed, 'Speed');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minHandling, 'Handling');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxHandling, 'Handling');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minArmor, 'Armor');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxArmor, 'Armor');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minHullTrauma, 'HullTrauma');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxHullTrauma, 'HullTrauma');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minSystemStrain, 'SystemStrain');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxSystemStrain, 'SystemStrain');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minWoundThreshold, 'WoundThreshold');
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxWoundThreshold, 'WoundThreshold');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minStrainThreshold, 'StrainThreshold');
@@ -1232,10 +1592,15 @@ App.directive('itemList', function () {
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.type, 'Type');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.skill, 'SkillKey');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.range, 'RangeValue');
+                            filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.sensorRange, 'SensorRange');
+                            filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.category, 'Categories', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.baseMod, 'BaseMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.addedMod, 'AddedMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.quality, 'Qualities', 'Key');
                             filteredItems = $filter('arrayFulltextFilterOr')(filteredItems, $scope.filters.source, 'Sources', 'Book');
+                            // The global line buttons, on top of this tab's own Source
+                            // selection: an item has to pass both.
+                            filteredItems = $filter('sourceLineFilter')(filteredItems, sourceLineSelection.enabled);
                             if ($scope.order.length > 0) {
                                 filteredItems = $filter('orderBy')(filteredItems, $scope.order);
                             }
@@ -1247,6 +1612,29 @@ App.directive('itemList', function () {
                             }
                         }
                     });
+                };
+                $scope.hasFilters = function () {
+                    // True when anything is narrowing the list. `source` is skipped:
+                    // it always holds the default selection, so counting it would
+                    // pin "Clear filters" open permanently.
+                    //
+                    // Tested per value rather than for truthiness, because a min or
+                    // max of 0 is a real bound -- see the min/max filters.
+                    var key, value;
+                    for (key in $scope.filters) {
+                        if (!$scope.filters.hasOwnProperty(key) || key == 'source') {
+                            continue;
+                        }
+                        value = $scope.filters[key];
+                        if (value === undefined || value === null || value === '') {
+                            continue;
+                        }
+                        if (typeof value.length == 'number' && value.length == 0) {
+                            continue;
+                        }
+                        return true;
+                    }
+                    return false;
                 };
                 $scope.getDefaultSources = function () {
                     var i, l = $scope.sources.length, defaultSources = [];
@@ -1288,8 +1676,11 @@ App.directive('itemList', function () {
                 $scope.fetchSource = function () {
                     $scope.loading = true;
                     $http.get($scope.sourceUrl).then(function (res) {
-                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, outputItems = [];
+                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, categories, vehicleWeapons, builtInAttachments, outputItems = [];
                         items = res.data[$scope.name];
+                        // Before anything reads the rows, so the sliders' ranges and
+                        // the filter dropdowns describe this tab's half of the file.
+                        items = $filter('vehicleClassFilter')(items, $scope.vehicleClass);
                         l = items.length;
                         $scope.min.Damage = $scope.getMinValue(items, 'Damage');
                         $scope.max.Damage = $scope.getMaxValue(items, 'Damage');
@@ -1305,6 +1696,18 @@ App.directive('itemList', function () {
                         $scope.max.HP = $scope.getMaxValue(items, 'HP');
                         $scope.min.Price = $scope.getMinValue(items, 'Price');
                         $scope.max.Price = $scope.getMaxValue(items, 'Price');
+                        $scope.min.Silhouette = $scope.getMinValue(items, 'Silhouette');
+                        $scope.max.Silhouette = $scope.getMaxValue(items, 'Silhouette');
+                        $scope.min.Speed = $scope.getMinValue(items, 'Speed');
+                        $scope.max.Speed = $scope.getMaxValue(items, 'Speed');
+                        $scope.min.Handling = $scope.getMinValue(items, 'Handling');
+                        $scope.max.Handling = $scope.getMaxValue(items, 'Handling');
+                        $scope.min.Armor = $scope.getMinValue(items, 'Armor');
+                        $scope.max.Armor = $scope.getMaxValue(items, 'Armor');
+                        $scope.min.HullTrauma = $scope.getMinValue(items, 'HullTrauma');
+                        $scope.max.HullTrauma = $scope.getMaxValue(items, 'HullTrauma');
+                        $scope.min.SystemStrain = $scope.getMinValue(items, 'SystemStrain');
+                        $scope.max.SystemStrain = $scope.getMaxValue(items, 'SystemStrain');
                         for (i = 0; i < l; i++) {
                             //if (items[i].Type == 'Vehicle') {
                             //    continue;
@@ -1317,11 +1720,14 @@ App.directive('itemList', function () {
                             baseMods = [];
                             addedMods = [];
                             categoryLimits = [];
+                            categories = [];
+                            vehicleWeapons = [];
+                            builtInAttachments = [];
                             itemLimits = [];
                             skillLimits = [];
                             typeLimits = [];
                             items[i].Deflection = 0;
-                            
+
                             items[i].Info = $filter('infoFilter')(items[i]);
                             if (typeof items[i].Defense == 'number') {
                                 items[i].Defensive = items[i].Defense;
@@ -1399,7 +1805,7 @@ App.directive('itemList', function () {
                                     if (typeof items[i].Sources.Source == 'object' && typeof items[i].Sources.Source[i4] == 'string') {
                                         sources.push({'Book': items[i].Sources.Source[i4]});
                                     }
-                                    
+
                                 }
                                 if (typeof items[i].Sources.Source == 'string') {
                                     sources.push({'Book': items[i].Sources.Source});
@@ -1410,7 +1816,7 @@ App.directive('itemList', function () {
                                     } else {
                                     	sources.push({'Book': items[i].Sources.Source.Book});
                                     }
-                                }                                
+                                }
                             }
                             if (typeof items[i].Source == 'object' && typeof items[i].Source.Book == 'string') {
                                 sources.push(items[i].Source);
@@ -1419,13 +1825,13 @@ App.directive('itemList', function () {
                             if (typeof items[i].Source == 'string') {
                                 sources.push({'Book': items[i].Source});
                                 delete items[i].Source;
-                            }                            
+                            }
                             if (sources.length == 0) {
                                 sources.push({'Book': 'Missing'});
                             }
                             items[i].Sources = sources;
-                            
-                            
+
+
                             if (typeof items[i].BaseMods == 'object') {
                                 if (typeof items[i].BaseMods.Mod == 'object' && items[i].BaseMods.Mod.length > 0) {
                                     for (var i3 = 0, l3 = items[i].BaseMods.Mod.length; i3 < l3; i3++) {
@@ -1667,6 +2073,61 @@ App.directive('itemList', function () {
                                 }
                             }
                             items[i].SkillLimit = skillLimits;
+                            // Weapons, Armor and Gear carry <Categories> too, but some of
+                            // their rows use the whitespace-quirk array shape this block
+                            // does not read, which would give those tabs a half-populated
+                            // Category filter. Vehicles only, until that shape is handled.
+                            if ($scope.name == 'Vehicle' && typeof items[i].Categories == 'object') {
+                                if (typeof items[i].Categories.Category == 'string') {
+                                    categories.push({'Key': items[i].Categories.Category});
+                                }
+                                if (typeof items[i].Categories.Category == 'object') {
+                                    if (typeof items[i].Categories.Category.length == 'number') {
+                                        l2 = items[i].Categories.Category.length;
+                                        for (i2 = 0; i2 < l2; i2++) {
+                                            categories.push({'Key': items[i].Categories.Category[i2]});
+                                        }
+                                    }
+                                }
+                                items[i].Categories = categories;
+                                $scope.collectValues(items[i].Categories, 'Key', $scope.categories);
+                            }
+                            // One vehicle weapon comes through as an object, several as an
+                            // array -- the same SimpleXML shape the Qualities block above
+                            // has to cope with.
+                            if (typeof items[i].VehicleWeapons == 'object') {
+                                if (typeof items[i].VehicleWeapons.VehicleWeapon == 'object') {
+                                    if (typeof items[i].VehicleWeapons.VehicleWeapon.Name == 'string') {
+                                        vehicleWeapons.push(items[i].VehicleWeapons.VehicleWeapon);
+                                    } else {
+                                        if (typeof items[i].VehicleWeapons.VehicleWeapon.length == 'number') {
+                                            l2 = items[i].VehicleWeapons.VehicleWeapon.length;
+                                            for (i2 = 0; i2 < l2; i2++) {
+                                                vehicleWeapons.push(items[i].VehicleWeapons.VehicleWeapon[i2]);
+                                            }
+                                        }
+                                    }
+                                }
+                                l2 = vehicleWeapons.length;
+                                for (i2 = 0; i2 < l2; i2++) {
+                                    vehicleWeapons[i2].Qualities = $scope.readQualities(vehicleWeapons[i2], $filter);
+                                }
+                            }
+                            items[i].VehicleWeapons = vehicleWeapons;
+                            if (typeof items[i].BuiltInAttachments == 'object') {
+                                if (typeof items[i].BuiltInAttachments.Attachment == 'string') {
+                                    builtInAttachments.push(items[i].BuiltInAttachments.Attachment);
+                                }
+                                if (typeof items[i].BuiltInAttachments.Attachment == 'object') {
+                                    if (typeof items[i].BuiltInAttachments.Attachment.length == 'number') {
+                                        l2 = items[i].BuiltInAttachments.Attachment.length;
+                                        for (i2 = 0; i2 < l2; i2++) {
+                                            builtInAttachments.push(items[i].BuiltInAttachments.Attachment[i2]);
+                                        }
+                                    }
+                                }
+                            }
+                            items[i].BuiltInAttachments = builtInAttachments;
                             $scope.collectValues(items[i].Qualities, 'Key', $scope.qualities);
                             $scope.collectValues(items[i].BaseMods, 'Key', $scope.baseMods);
                             $scope.collectValues(items[i].AddedMods, 'Key', $scope.addedMods);
@@ -1680,6 +2141,7 @@ App.directive('itemList', function () {
                         $scope.collectValues(outputItems, 'SkillKey', $scope.skills);
                         $scope.collectValues(outputItems, 'Type', $scope.types);
                         $scope.collectValues(outputItems, 'RangeValue', $scope.ranges);
+                        $scope.collectValues(outputItems, 'SensorRange', $scope.sensorRanges);
                         $scope.min.WoundThreshold = $scope.getMinValue(items, 'WoundThreshold');
                         $scope.max.WoundThreshold = $scope.getMaxValue(items, 'WoundThreshold');
                         $scope.min.StrainThreshold = $scope.getMinValue(items, 'StrainThreshold');
@@ -1703,7 +2165,37 @@ App.directive('itemList', function () {
                         $scope.filterItems();
                         $scope.loading = false;
                     });
-                   
+
+                };
+                $scope.readQualities = function (owner, $filter) {
+                    // A vehicle weapon carries the same <Qualities><Quality> block a
+                    // weapon does, so it needs the same unwrapping: one quality is an
+                    // object, several are an array, and the key has to be turned into
+                    // a display name with a tooltip.
+                    var quality, i, l, out = [];
+                    if (typeof owner.Qualities != 'object') {
+                        return out;
+                    }
+                    if (typeof owner.Qualities.Quality != 'object') {
+                        return out;
+                    }
+                    if (typeof owner.Qualities.Quality.Key == 'string') {
+                        out.push(owner.Qualities.Quality);
+                    } else {
+                        if (typeof owner.Qualities.Quality.length == 'number') {
+                            l = owner.Qualities.Quality.length;
+                            for (i = 0; i < l; i++) {
+                                out.push(owner.Qualities.Quality[i]);
+                            }
+                        }
+                    }
+                    l = out.length;
+                    for (i = 0; i < l; i++) {
+                        quality = out[i];
+                        quality.Tooltip = $filter('tooltipFilter')(quality.Key);
+                        quality.Key = $filter('qualityFilter')(quality.Key);
+                    }
+                    return out;
                 };
                 $scope.collectValues = function (items, attribute, values) {
                     var value, i, l = items.length;
@@ -1760,7 +2252,14 @@ App.directive('itemList', function () {
                     if ($scope.isActive == "true" && $scope.items.length == 0) {
                         $scope.fetchSource();
                     }
-                })
+                });
+                // md-tabs keeps a tab's scope in the tree once it has been opened, so
+                // the tabs in the background re-filter too and are right when the user
+                // gets back to them. A tab never opened has no scope yet and loads with
+                // the current selection anyway.
+                $scope.$on('sourceLinesChanged', function () {
+                    $scope.filterItems();
+                });
             }
         }
     }

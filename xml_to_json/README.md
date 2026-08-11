@@ -43,7 +43,10 @@ python xml_to_json/wiki_diff.py --all            # coverage against the fandom w
 ```
 
 `php xml_to_json/convert.php` does the same job as `convert.py`. It can also be
-triggered over HTTP if you are running Apache or nginx.
+triggered over HTTP if you are running Apache or nginx — but that is a note about
+how the script *can* be used, not an invitation to start a server. Agents run the
+converters from the command line and never serve anything; see *Verifying changes*
+in `AGENTS.md`.
 
 ---
 
@@ -58,12 +61,16 @@ here that needs network access.
 ```bash
 python xml_to_json/wiki_diff.py --list        # the configured targets
 python xml_to_json/wiki_diff.py species       # one target
-python xml_to_json/wiki_diff.py --all         # all five
+python xml_to_json/wiki_diff.py --all         # all six
 ```
 
 Targets are one line each in `TARGETS` at the top of the script — wiki category,
 JSON file, its type key. Nothing else is target-specific, so covering something
-new is a one-line change. For a throwaway comparison, skip the registry:
+new is a one-line change. A target may name **several categories** where the wiki
+splits what one JSON file holds together — `vehicles` compares `Vehicles.json`
+against the union of `Category:Vehicles` and `Category:Starships` — and a page
+filed under both is still one entry. For a throwaway comparison, skip the
+registry (`--category` takes a comma-separated list too):
 
 ```bash
 python xml_to_json/wiki_diff.py --category Talents --json data/json/Gear.json \
@@ -101,6 +108,13 @@ opening anything:
   the wiki instead of hardcoding them. Fan material is prefixed, which is the
   whole point of the annotation — `Ewok (Allies)` is worth importing,
   `Abednedo (homebrew: Sequels)` is not.
+
+That prefix also sets the order: the wiki-only list puts **official material
+first**, homebrew after it, alphabetical within each half, with the split counted
+under the heading. A page filed under both an official book and a fan supplement
+(`Quadnoculars (Beginner Sequel / homebrew: Andor)`) counts as official — the
+importable half is what decides. With `--no-sources` there is nothing to sort by
+and the list stays plain alphabetical.
 
 Two things to know when reading them. The wiki names books after the **career**
 (`Hired Gun`, `Guardian`, `Ace`), while the data uses the **title**
@@ -273,3 +287,99 @@ alphabetically earlier means higher priority.
 `$excludedBooks` / `EXCLUDED_BOOKS` sit at the top of `convert.php` and
 `convert.py`; the output order lives in `compareRows` / `sort_key` just below.
 **Change both files**, then run `verify_convert.py`.
+
+---
+
+## What else could become a tab
+
+Surveyed against `oggdudes-data/` while planning the Vehicles import. Volumes are
+row counts for single-file exports, file counts for folder exports. The app-side
+work is the same for all of them — see *Adding a new data type* in `AGENTS.md`;
+what differs is the import.
+
+| Candidate | Volume | Import effort |
+| --- | --- | --- |
+| **Vehicles** | 413 files | Done — `oggdude_vehicles_to_app.py`, see below |
+| **Adversaries** | none | **Already half-built in `items.html`** (29 `name == 'Adversary'` conditions, full characteristic columns). OggDude ships no adversary export, so the UI exists and the data does not. Blocked on a data source, not on code. |
+| Talents | 604 rows | Easy. Single `Talents.xml`, flat rows, and `talentFilter` in `SWApp.js` already maps every key to a display name. Best value per unit of work. |
+| Vehicle attachments | 126 rows | Zero import work — they are already in `ItemAttachments.json` with `Type: Vehicle`. A filtered view or a split-out tab, not an import. |
+| Specializations | 123 files | Talent *trees* — a 4×5 grid with directional links between nodes. Needs a renderer, not a table. |
+| Force powers | 20 files | Same shape as specializations: upgrade trees, not rows. |
+| Careers | 20 files | Small, but mostly cross-references into skills and specializations. |
+| Signature abilities | 38 files | Same tree problem as specializations. |
+
+The two single-file exports (Talents, and the vehicle attachments already
+imported) are table-shaped and cheap. Everything under Specializations, Force
+Powers and Signature Abilities is tree-shaped and would need UI this app does not
+have yet.
+
+---
+
+## Vehicles
+
+413 vehicles, one file each under `oggdudes-data/Vehicles/`, in OggDude's own
+schema — so, like Species, they go through a translation script before the
+converter sees them:
+
+```bash
+python xml_to_json/oggdude_vehicles_to_app.py    # rebuild the app-schema source
+python xml_to_json/convert.py --only Vehicle     # rebuild data/json/Vehicles.json
+```
+
+Most of the schema already matches what the app reads. What the script has to
+resolve, each derived from a census of all 413 files:
+
+- **Vehicle weapons are key references.** `<VehicleWeapon><Key>BLASTCANLT` has to
+  become a display name out of `Weapons.xml`, the same way species skills and
+  talents do — 860 references across 48 distinct keys. **`MINCONCLNCH` does not
+  exist in `Weapons.xml`**; the key is kept verbatim and a warning printed rather
+  than dropping the weapon. Each weapon also carries `FiringArcs`, `Turret`,
+  `Count` and `Qualities` (`LINKED` ×415, `LIMITEDAMMO` ×44, `BREACH`…), and the
+  existing `qualityFilter` already renders those keys.
+- **Sensor range comes in two shapes.** 380 vehicles carry
+  `<SensorRangeValue>srClose`, 165 also carry a plain-text `<SensorRange>Close`.
+  `rangeFilter` in `SWApp.js` only maps the `wr…` weapon-range prefixes, so the
+  `sr…` values are resolved here instead of adding a second mapping to the app.
+  The two agree everywhere except `srNone`, which the data itself spells
+  **"No Sensors"** on the 19 vehicles that write it out — so that is the wording
+  the mapping uses, and all 48 `srNone` vehicles land on one dropdown entry
+  rather than two meaning the same thing. `sensor_range()` warns on any *other*
+  disagreement, so the check stays live.
+- **Firing arcs are six booleans** and become the display-ready
+  "Fore, Aft, Port, Starboard", the way `Crew` is already free text.
+- **Booleans arrive as the strings `"true"`/`"false"`** — `Starship`,
+  `NaviComputer`, `Restricted`, `SinglePilot`, `Massive`.
+- `<Source Page="50">` needs no work: the converter's `expand_source_pages()`
+  already rewrites it, and the `<Sources>` shape 69 vehicles use is what it emits.
+
+Three export bugs the script works around, all found by checking the output
+field-by-field against the 413 source files:
+
+- **`EF76` spells the tag `<Starfighters>`** where 241 other vehicles use
+  `<StarFighters>`. It is the only case-variant tag in the whole vehicle export.
+  `field_text()` falls back to a case-insensitive match and writes the canonical
+  name, so the JSON has one key rather than two.
+- **Five vehicles cite the same book twice.** `ATTE` and `CONSLTCRUIS` repeat
+  *Forged in Battle* p57 verbatim; `T47ALLIANCE`, `T47AIRSPEEDER` and
+  `HWK1000LTFREIGHT` cite one book once with a page and once without, which would
+  render as two source lines for one citation. `dedupe_sources()` folds them,
+  keeping the entry that carries the page. Two *different* pages for one book is
+  left alone — that is a real two-page citation.
+- **Two dangling key references**, both kept verbatim with a warning rather than
+  dropped: `MC-2CMMNDSPDR` mounts weapon `MINCONCLNCH`, which is not in
+  `Weapons.xml`, and `TSMEU6` lists a built-in attachment whose key is the
+  vehicle's own and matches no `ItemAttachment`.
+
+Field coverage worth knowing before binding a template to it: `Key`, `Name`,
+`Description`, `Type`, `Rarity`, `Silhouette` and `SystemStrain` are on all 413.
+`Price` 412, `HullTrauma` 410, `Speed` 409, `HP` 401, `EncumbranceCapacity` 395,
+`Armor` 386, `Source` 385, `Handling` 375, `Passengers` 369, `VehicleWeapons` 290
+non-empty, `MaxAltitude` only 114. **`Handling` runs −6 to +3 and is the only
+signed stat in the app** — no existing field exercises a negative, so both the
+display and the min/max sliders need checking against it.
+
+`Categories` has 12 clean values (Starship, Land Vehicle, Capital Ship, Walker…)
+and makes a far better sidenav filter than `Type`, which has 91.
+
+Artwork: `oggdudes-data/VehicleImages/` covers 327 of 413 (79%), named by bare
+`Key`, so `cp VehicleImages/<KEY>.png data/img/Vehicle<KEY>.png`.

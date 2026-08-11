@@ -8,7 +8,17 @@ This web application offers a lot of possibilities to search and filter the item
 This website is optimized for mobile devices. This enables the players to search for their preferred items
 from their smartphones even when they are currently in a pen and paper session.
 
+The filter button at the right of the tab bar switches whole game lines — *Edge of the Empire*,
+*Age of Rebellion*, *Force and Destiny* and *Extended Material* — on and off. It applies to every
+tab at once, so a group playing only one line can hide the rest, and the browser remembers the
+choice for a month. The button turns red while anything is switched off.
+
 ### Run the project locally
+
+> **These commands are for you, the person reading this — not for an AI coding agent.**
+> Starting a server and checking the page in a browser is the repository owner's job.
+> Agents should verify their work with scripts and the pipeline checks instead; see
+> *Verifying changes* in [AGENTS.md](AGENTS.md).
 
 STAR WARS GALAXY is a static AngularJS app. There is no build step and no dependencies to
 install — everything needed is already in this repository. You only need to serve the
