@@ -31,3 +31,8 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/macos
+
+### Python ###
+# Byte-compiled output from the xml_to_json/ conversion scripts
+__pycache__/
+*.py[cod]

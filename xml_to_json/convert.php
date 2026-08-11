@@ -9,6 +9,72 @@ $validFileNames = array(
     'Gear' => 'Gear.xml',
     'Species' => 'Species.xml'
 );
+
+/**
+ * Fan-made books. An entry sourced only from these always loses to an entry
+ * with an official book, whatever order the source folders are read in.
+ */
+$deprioritisedBooks = array('Unofficial Species Menagerie');
+
+/** Types whose rows get sorted by Name, so the committed JSON diffs cleanly. */
+$sortByName = array('Species');
+
+/**
+ * Every book name attached to a row, across both shapes the data uses:
+ * <Sources><Source>..</Sources> and a single <Source>.
+ *
+ * @param stdClass $row
+ * @return string[]
+ */
+function sourceBooks($row)
+{
+    $books = array();
+    if (isset($row->Sources) && isset($row->Sources->Source)) {
+        $src = $row->Sources->Source;
+        if (is_array($src)) {
+            foreach ($src as $one) {
+                if (is_object($one) && isset($one->Book) && is_string($one->Book)) {
+                    $books[] = $one->Book;
+                } elseif (is_string($one)) {
+                    $books[] = $one;
+                }
+            }
+        } elseif (is_object($src) && isset($src->Book) && is_string($src->Book)) {
+            $books[] = $src->Book;
+        } elseif (is_string($src)) {
+            $books[] = $src;
+        }
+    }
+    if (isset($row->Source)) {
+        if (is_object($row->Source) && isset($row->Source->Book) && is_string($row->Source->Book)) {
+            $books[] = $row->Source->Book;
+        } elseif (is_string($row->Source)) {
+            $books[] = $row->Source;
+        }
+    }
+    return $books;
+}
+
+/**
+ * True when every source for this row is fan-made.
+ *
+ * @param stdClass $row
+ * @param string[] $deprioritisedBooks
+ * @return bool
+ */
+function isDeprioritised($row, $deprioritisedBooks)
+{
+    $books = sourceBooks($row);
+    if (count($books) === 0) {
+        return false;
+    }
+    foreach ($books as $book) {
+        if (!in_array($book, $deprioritisedBooks, true)) {
+            return false;
+        }
+    }
+    return true;
+}
 if (function_exists('apache_request_headers')) {
     print "<pre>";
 }
@@ -31,7 +97,12 @@ foreach ($validFileNames as $typeKey => $fileName) {
                     $row->Key = 'MISSING_KEY_' . strtoupper(preg_replace("/(\"|\'| |-)/", '_', $row->Name));
                 }
                 if (isset($fileData[$typeKey][$row->Key])) {
-                    continue;
+                    // First one wins, unless the entry already held is fan-made
+                    // only and this one carries an official book.
+                    $incumbentIsFanMade = isDeprioritised($fileData[$typeKey][$row->Key], $deprioritisedBooks);
+                    if (!$incumbentIsFanMade || isDeprioritised($row, $deprioritisedBooks)) {
+                        continue;
+                    }
                 }
                 if (!isset($row->Description) || !is_string($row->Description)) {
                     $row->Description = "";
@@ -59,10 +130,27 @@ foreach ($validFileNames as $typeKey => $fileName) {
         }
         print "Read {$xmlFile}\n";
     }
-    foreach ($fileData as $typeKey => $rows) {
-        $fileData[$typeKey] = array_values($rows);
+    foreach ($fileData as $dataKey => $rows) {
+        $rows = array_values($rows);
+        if (in_array($dataKey, $sortByName, true)) {
+            usort($rows, function ($a, $b) {
+                $aName = strtolower(trim(isset($a->Name) ? $a->Name : ''));
+                $bName = strtolower(trim(isset($b->Name) ? $b->Name : ''));
+                if ($aName === $bName) {
+                    return strcmp(isset($a->Key) ? $a->Key : '', isset($b->Key) ? $b->Key : '');
+                }
+                return strcmp($aName, $bName);
+            });
+        }
+        $fileData[$dataKey] = $rows;
     }
-    file_put_contents($jsonFile, json_encode($fileData));
+    // The committed JSON is pretty-printed with CRLF line endings; keep it that
+    // way so regenerating does not rewrite every line. xml_to_json/convert.py
+    // must produce byte-identical output -- see xml_to_json/README.md.
+    $json = json_encode($fileData, JSON_PRETTY_PRINT);
+    $json = str_replace("\r\n", "\n", $json);
+    $json = str_replace("\n", "\r\n", $json);
+    file_put_contents($jsonFile, $json);
     print "=> Wrote {$jsonFile}\n";
 }
 if (function_exists('apache_request_headers')) {

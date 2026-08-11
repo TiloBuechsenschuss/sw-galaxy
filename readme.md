@@ -49,11 +49,27 @@ Data/Weapons.xml
 
 If you are running a web server like apache or nginx, you can run the `convert.php` script with a http request too.
 
+No PHP? There is a Python port that produces the same output:
+
+```
+python xml_to_json/convert.py            # convert everything
+python xml_to_json/convert.py --check    # show what would change, write nothing
+python xml_to_json/verify_convert.py     # check nothing regressed
+```
+
 ### Use multiple data sources
 
 Multiple data sets can be merged too. Just create a new folder in `xml_to_json/xml_sources`. The name of the new folder is up to yours.
-Then copy your custom XML files in. Currently following file names are supported: `Armor.xml`, `Gear.xml`, `ItemAttachments.xml`, `Weapons.xml`.
+Then copy your custom XML files in. Currently following file names are supported: `Armor.xml`, `Gear.xml`, `ItemAttachments.xml`, `Weapons.xml`, `Species.xml`.
 Then run the `convert.php` like described above.
+
+Folders are read in alphabetical order and the first entry for a given `Key` wins, so an
+earlier-sorting folder takes priority. The exception is fan-made data: an entry sourced
+only from the *Unofficial Species Menagerie* always loses to one from an official book.
+
+Species XML from OggDude uses a different schema than this app reads, so it has to be
+translated first with `python xml_to_json/oggdude_species_to_app.py`.
+See [`xml_to_json/README.md`](xml_to_json/README.md) for the full details.
 
 ### Please feel free to contribute!
 

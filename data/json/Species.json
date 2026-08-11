@@ -135,60 +135,6 @@
             "Thumbnail": "data\/img\/SpeciesAQUASUB1.png"
         },
         {
-            "Key": "AQUASUB2",
-            "Name": "Aqualish - Ualaq",
-            "Source": {
-                "Book": "Dangerous Covenants",
-                "Page": 19
-            },
-            "Characteristics": {
-                "Brawn": 3,
-                "Agility": 2,
-                "Intellect": 1,
-                "Cunning": 2,
-                "Willpower": 2,
-                "Presence": 2
-            },
-            "Attributes": {
-                "WoundThreshold": 11,
-                "StrainThreshold": 8,
-                "Experience": 90
-            },
-            "Talents": {},
-            "Skills": {
-                "Skill": {
-                    "Name": "Brawl",
-                    "RankAdd": 1
-                }
-            },
-            "OptionChoices": {
-                "Option": [
-                    {
-                        "Name": "Survival",
-                        "Description": "Ualaq may begin the game with one rank in Survival."
-                    },
-                    {
-                        "Name": "Perception",
-                        "Description": "Ualaq may begin the game with one rank in Perception."
-                    }
-                ]
-            },
-            "SpecialAbilities": {
-                "SpecialAbility": [
-                    {
-                        "Name": "Underwater Breathing",
-                        "Description": "All Aqualish are capable of breathing underwater."
-                    },
-                    {
-                        "Name": "Environmental Conditions",
-                        "Description": "Ualaq may remove [SETBACK] imposed due to dark conditions, but suffer [SETBACK] to \n              Perception checks in brightly lit environments"
-                    }
-                ]
-            },
-            "Description": "",
-            "Thumbnail": "data\/img\/SpeciesAQUASUB2.png"
-        },
-        {
             "Key": "AQUASUB3",
             "Name": "Aqualish - Quara",
             "Source": {
@@ -243,6 +189,60 @@
             "Thumbnail": "data\/img\/SpeciesAQUASUB3.png"
         },
         {
+            "Key": "AQUASUB2",
+            "Name": "Aqualish - Ualaq",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 19
+            },
+            "Characteristics": {
+                "Brawn": 3,
+                "Agility": 2,
+                "Intellect": 1,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 11,
+                "StrainThreshold": 8,
+                "Experience": 90
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Brawl",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {
+                "Option": [
+                    {
+                        "Name": "Survival",
+                        "Description": "Ualaq may begin the game with one rank in Survival."
+                    },
+                    {
+                        "Name": "Perception",
+                        "Description": "Ualaq may begin the game with one rank in Perception."
+                    }
+                ]
+            },
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Underwater Breathing",
+                        "Description": "All Aqualish are capable of breathing underwater."
+                    },
+                    {
+                        "Name": "Environmental Conditions",
+                        "Description": "Ualaq may remove [SETBACK] imposed due to dark conditions, but suffer [SETBACK] to \n              Perception checks in brightly lit environments"
+                    }
+                ]
+            },
+            "Description": "",
+            "Thumbnail": "data\/img\/SpeciesAQUASUB2.png"
+        },
+        {
             "Key": "ARCONA",
             "Name": "Arcona",
             "Source": {
@@ -286,6 +286,43 @@
             "Thumbnail": "data\/img\/SpeciesARCONA.png"
         },
         {
+            "Key": "ARKAN",
+            "Name": "Arkanian",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 16
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 3,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 1
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 10,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Medicine",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Dark Vision",
+                    "Description": "Arkanians remove up to [SE][SE] due to darkness when making skill checks."
+                }
+            },
+            "Description": "[H4]Arkanian[h4]\nThe Arkanians are a near-Human species which reside primarily on the frozen planet\nof Arkania in the Perave system of the Colonies region of the galaxy.\n[P][B]Physiology:[b]\nArkanians considere themselves the pinnacle of evolution, and as such many are\ndistinctly arrogant. Arkanian scientists have been experts in genetic manipulation\nfor millennia, and by the time of the Mandalorian Wars the species had been split\ninto many sub-species, making it hard to determine exactly what a baseline Arkanian\nis. Most could pass for Human, though the most pure of blood had pure white eyes\nand four clawed digits on each hand.\n[P]Arkanians are capable of seeing into the infrared spectrum, and their eyes are\nsensitive to sources of extreme heat. This is helpful on their dark and frigid\nhomeworld, but when traveling offworld, many are forced to wear blinders on\nplanets with hotter, younger suns. It is also not unusual for an Arkanian to\nenhance themselves with internal and\/or external cybernetics. It is also standard\npractice for Arkanians to undergo genetic manipulation of their own bodies, enhancing\nthemselves so as to be better than lesser species.\n[P][B]Society:[b]\nThe most defining trait of the Arkanian species is their arrogance which stemmed\nfrom their belief that they were the pinnacle of evolution. This leads to them often\nappearing arrogant and aloof to others as they see themselves as being superior to all\nother species. Even those with a more moderate viewpoint tended to see themselves as\nbeing amongst the most intelligent beings in the galaxy. As such, they are highly\nconfident of their abilities.\n[P]Visitors to their homeworld often face unpleasant and arrogant Arkanians\u2014despite\nthis, Arkanians are deeply offended by impoliteness and when this occurrs, the offending\nindividual needs to make amends quickly or risk being ostracized. When offended, an\nArkanian typically speaks badly of the other party once they are gone and when no apology\nis given\u2014the Arkanians are known to lock up the person or detain their starship from\nleaving the planet with overt threats. Even at this point, however, it is possible to\nredeem themselves in the eyes of an Arkanian though failure means that they became even\nmore offended and storm away. But, if successful, the individual needs to also offer a\ngift to the offended Arkanian as a sign of their sincerity.\n[P]Knowledge and research are highly prized within Arkanian society which means that\nmany of the species are highly skilled scientists as well as academics. Their near\nboundless arrogance and great wealth as well as dedication is unmatched by others within\ntheir scientific community creating research projects that easily match those of the\nGalactic Empire. Imperial researchers often struggle to\nmatch the dedication of the Arkanians as their projects often took generations to\nunfold. In addition, they are not above using their intelligence and research to\ngain profit with their corporations massing great wealth due to medical treatments\nentering the market at opportune moments. Arkanian scientists are well known explorers\nand they are also famous for their skills in genetic manipulation which results from\ntheir fascination in the genetic make-up of other races. This has led to frequent\nexperimentation on alien species, much to the subjects' detriment as a result of\nArkanian involvement.\n[P]The Arkanians themselves are not above genetic experimentation with this avenue of\nresearch leading to the creation of the Arkanian Offshoots that are engineered to perform\nspecific tasks. Occasionally, a number of racist pure blood Arkanians were known to conduct\npurges of the Offshoot population. Reactions to the Offshoots varied as some Arkanians\nviewed them as little more than tools or even as slaves but many believed that they are\nan example of the cruel consequences of Arkanian corporate greed.\n[P]Results of their scientific work has led to great advances in medical techniques\nthroughout the galaxy whilst others are considered some of the greatest atrocities\nknown. They are known to have made significant contributions in the fields of cybernetic\nmedical technology and micro-circuitry. Their actions have, however, led to many races\nholding a negative view of their kind which resulted from the actions of their scientists.\nHowever, many Arkanians are either embarrassed or even horrified at the acts their kind\nhas gone to in the name of science. The more conscientious of their kind tended to be\nfavored as allies of the Jedi Order and the Republic through their darkest hours.\n[P][B]Homeworld:[b]\nArkania is the adopted homeworld of the Arkanian species. It is covered with tundra\nand rich in diamonds and other precious minerals, which the Arkanians mine to further\ntheir offworld connections and master their technology. Arkanian cities are designed to\nkeep the cold out, and are mostly completely enclosed. Off-world visitors rarely have\nto deal with the frigid conditions of the planet.\n[P][B]Language:[b]\nThe language of the Arkanian people was developed on their homeworld, Arkania before\nthey made contact with the civilized galaxy and the Galactic Republic. When contact\nwith the greater galaxy was established, young Arkanians were taught Arkanian and Basic,\nso the majority of the population is bilingual. Among the Arkanian Offshoots, a\nslightly different dialect gradually emerged, emphasizing words of submission and\nforgetting those of victory or the desire to challenge.",
+            "Thumbnail": "data\/img\/SpeciesARKAN.png"
+        },
+        {
             "Key": "ARKANOFF",
             "Name": "Arkanian Offshoot",
             "Source": {
@@ -323,18 +360,19 @@
             "Thumbnail": "data\/img\/SpeciesARKANOFF.png"
         },
         {
-            "Key": "ARKAN",
-            "Name": "Arkanian",
+            "Key": "BALOSAR",
+            "Name": "Balosar",
             "Source": {
-                "Book": "Unofficial Species Menagerie"
+                "Book": "Cyphers and Masks",
+                "Page": 19
             },
             "Characteristics": {
                 "Brawn": 2,
                 "Agility": 2,
-                "Intellect": 3,
-                "Cunning": 2,
-                "Willpower": 2,
-                "Presence": 1
+                "Intellect": 2,
+                "Cunning": 3,
+                "Willpower": 1,
+                "Presence": 2
             },
             "Attributes": {
                 "WoundThreshold": 10,
@@ -344,19 +382,19 @@
             "Talents": {},
             "Skills": {
                 "Skill": {
-                    "Name": "Coercion",
+                    "Name": "Streetwise",
                     "RankAdd": 1
                 }
             },
             "OptionChoices": {},
             "SpecialAbilities": {
                 "SpecialAbility": {
-                    "Name": "Intellectual",
-                    "Description": "Arkanians receive a [BOOST]\n          when making all knowledge skill checks."
+                    "Name": "Antennapalps",
+                    "Description": "Balosars add automatic [AD][AD] to all Vigilance checks."
                 }
             },
-            "Description": "",
-            "Thumbnail": "data\/img\/SpeciesARKAN.png"
+            "Description": "[H4]Balosar[h4]\nSee page 19 of the Cyphers and Masks Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesBALOSAR.png"
         },
         {
             "Key": "BARAB",
@@ -477,27 +515,23 @@
             "Key": "BITH",
             "Name": "Bith",
             "Source": {
-                "Book": "Unofficial Species Menagerie"
+                "Book": "Fully Operational",
+                "Page": 18
             },
             "Characteristics": {
                 "Brawn": 1,
                 "Agility": 2,
-                "Intellect": 3,
+                "Intellect": 2,
                 "Cunning": 2,
                 "Willpower": 2,
-                "Presence": 2
+                "Presence": 3
             },
             "Attributes": {
-                "WoundThreshold": 9,
-                "StrainThreshold": 11,
+                "WoundThreshold": 10,
+                "StrainThreshold": 10,
                 "Experience": 100
             },
-            "Talents": {
-                "Talent": {
-                    "Name": "Researcher",
-                    "RankAdd": 1
-                }
-            },
+            "Talents": {},
             "Skills": {
                 "Skill": {
                     "Name": "Perception",
@@ -505,8 +539,19 @@
                 }
             },
             "OptionChoices": {},
-            "SpecialAbilities": {},
-            "Description": "",
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Sensitive Hearing",
+                        "Description": "Bith add [BO] whenever they make a hearing-based Perception check."
+                    },
+                    {
+                        "Name": "Sensitive Hearing",
+                        "Description": "When Bith suffer strain due to loud noises, they suffer twice the normal amount of strain."
+                    }
+                ]
+            },
+            "Description": "[H4]Bith[h4]\nBith are a peaceful, highly-evolved craniopod species native to the planet Clak'dor VII.\nFully adapted to a civilized, high-technology lifestyle, Bith are found galaxy-wide\nat all levels of society, most notably as engineers, scientists, intellectuals,\nconsultants, and musicians.\n[P][B]Physiology:[b]\nBith are craniopods with pale pink, yellow, or (rarely) green skin, large\nheads, large lidless eyes, toeless feet, and long fingers. Their thumb and\nsmall finger are both fully opposable. The Bith's internal systems are\ndifferent from most humanoids, as the Bith have only one lung, and exhale\nthrough their skin. Bith also lack a proper nose, instead having\nhighly sensitive olfactory organs hidden in the skin-flaps of their cheeks.\n[P]The other Bith senses are also acute. Bith can sense the tonal\nqualities of sound as well as other races sense colors. Their eyes,\nas big as a Menahuun's, are able to focus to 0.07 on the Gandok Scale\nand they can see microscopic details of nearby objects, but are extremely\nnearsighted as a result. An interesting side effect of their incredible sensors\nis the effect of sonic grenades, or screamers, on them. It is described as\ncausing their heads to explode. Similarly, Bith have high manual dexterity\nwhich helped them manipulate fine tools, though their physical prowess with\ngross motor skills is only average.\n[P]Bith have even evolved past the need for sleep. Instead, they will slip into\na light meditative trance, which allows them to get as much rest in four\nhours as other species can get in eight. During this trance, Bith are\nstill almost fully aware of their surroundings. A Bith's reproductive organs\natrophied over time, as did the portions of their brain governing such impulses.\nAs such, Bith are unable to reproduce naturally, instead relying on artificial\nconception and gestation. Mates bring genetic material to a Computer Mating\nService for analysis against prospective mates. Bith children are created from\ngenetic material from two parents, which is combined, fertilized, and incubated\nfor a year.\n[P][B]Society:[b]\nA species of pacifists following the devastation of their homeworld during the\nNozho-Weogar War many Bith work as engineers, data analysts, or in other\nintellectual professions. Others use their intelligence, natural technical skills,\nand dexterity to work in the criminal underworld. Many Bith work as cantina\nstaff, since bartenders in Bith society held a position equivalent in many ways to\npriests in other cultures.\n[P][B]Homeworld:[b]\nClak'dor VII is a small planet orbiting the large white star Colu in the Colu\nsystem of the Outer Rim Territories on the Rimma Trade Route. It was a long-time\nmember of the Galactic Republic and was also the homeworld of the Bith species.\n[P]The Bith evolved over the millennia, and making use of their powerful senses\nof sight and hearing became a race of artists, scientists and musicians. They\nbuilt great cities in the mountains and the jungles of Clak'dor VII. However\naround 320 BBY, a conflict erupted on the planet between the capital city of\nWeogar and its domed counterpart Nozho over a stardrive patent. When subterfuge\nwas detected by Weogar, war soon broke out and a chemical attack was launched\nby Nozho on the capital. The retaliatory biological strike on Nozho wiped the\ncity out and destroyed Clak'dor VII's ecosystem, destroying the planet's ability\nto produce either the basic needs for its citizens or goods for export. The surviving Bith on the\nplanet were forced to relocate into domed cities, now proclaiming themselves\npacifists and seldom venturing into the irradiated swamps, where the wildlife\nmutated into such lifeforms as the Ghhhk.\n[P][B]Language:[b]\nBith or Bithian is the native language of the Bith from Clak'dor VII. It is\none of the official languages of the planet, the other one being Galactic Basic.\nBiths learn to speak and write Basic at a young age, being bilingual.",
             "Thumbnail": "data\/img\/SpeciesBITH.png"
         },
         {
@@ -883,6 +928,49 @@
             "Thumbnail": "data\/img\/SpeciesCLAWDITE.png"
         },
         {
+            "Key": "CLONE",
+            "Name": "Clone",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 11
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 11,
+                "StrainThreshold": 11,
+                "Experience": 100
+            },
+            "Talents": {
+                "Talent": {
+                    "Name": "Physical Training",
+                    "RankAdd": 1
+                }
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Warfare",
+                        "RankAdd": 1
+                    },
+                    {
+                        "Name": "Resilience",
+                        "RankAdd": 1
+                    }
+                ]
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {},
+            "Description": "[H4]Clone[h4]\nPlease see page 11 of the Rise of the Separatists Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesCLONE.png"
+        },
+        {
             "Key": "HUMANCOR",
             "Name": "Corellian Human",
             "Source": {
@@ -919,6 +1007,43 @@
             "SpecialAbilities": {},
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesHUMANCOR.png"
+        },
+        {
+            "Key": "COSIAN",
+            "Name": "Cosian",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 18
+            },
+            "Characteristics": {
+                "Brawn": 1,
+                "Agility": 2,
+                "Intellect": 3,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 11,
+                "Experience": 95
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Lore",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Strong Backed",
+                    "Description": "Cosians gain +5 to their encumbrance threshold."
+                }
+            },
+            "Description": "[H4]Cosian[h4]\nPlease see page 18 of the Disciples of Harmony Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesCOSIAN.png"
         },
         {
             "Key": "DASHADE",
@@ -1068,6 +1193,43 @@
             },
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesDEVAR.png"
+        },
+        {
+            "Key": "DOWUTIN",
+            "Name": "Dowutin",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 18
+            },
+            "Characteristics": {
+                "Brawn": 3,
+                "Agility": 1,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 15,
+                "StrainThreshold": 8,
+                "Experience": 85
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Resilience",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Immovable",
+                    "Description": "Dowutins who are immobilized, knocked prone, or otherwise moved against their will, may suffer 3 strain to avoid the affect.  Dowutins who are silhouette 2 only suffer 1 strain to use this ability."
+                }
+            },
+            "Description": "[H4]Dowutin[h4]\nPlease see page 18 of the Knights of Fate Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesDOWUTIN.png"
         },
         {
             "Key": "DRALL",
@@ -1468,69 +1630,6 @@
             "Thumbnail": "data\/img\/SpeciesDROIDSUB5.png"
         },
         {
-            "Key": "DROIDSUB6",
-            "Name": "Droid - R-Series Astromech",
-            "Sources": {
-                "Source": [
-                    {
-                        "Book": "Edge of the Empire Core Rulebook",
-                        "Page": 45
-                    },
-                    {
-                        "Book": "Age of Rebellion Core Rulebook",
-                        "Page": 53
-                    }
-                ]
-            },
-            "Characteristics": {
-                "Brawn": 1,
-                "Agility": 1,
-                "Intellect": 1,
-                "Cunning": 1,
-                "Willpower": 1,
-                "Presence": 1
-            },
-            "Attributes": {
-                "WoundThreshold": 10,
-                "StrainThreshold": 10,
-                "Experience": 175
-            },
-            "Talents": {
-                "Talent": {
-                    "Name": "Enduring",
-                    "RankAdd": 1
-                }
-            },
-            "Skills": {},
-            "OptionChoices": {},
-            "SpecialAbilities": {
-                "SpecialAbility": [
-                    {
-                        "Name": "Additional Career Skills",
-                        "Description": "May train in two additional career skills and one additional specialization skills"
-                    },
-                    {
-                        "Name": "Feature",
-                        "Description": "Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons."
-                    },
-                    {
-                        "Name": "Inorganic",
-                        "Description": "Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks."
-                    },
-                    {
-                        "Name": "Mechanical Being",
-                        "Description": "Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers."
-                    },
-                    {
-                        "Name": "Cybernetics",
-                        "Description": "Droids have a cybernetics implant cap of 6."
-                    }
-                ]
-            },
-            "Description": "",
-            "Thumbnail": "data\/img\/SpeciesDROIDSUB6.png"
-        },
-        {
             "Key": "DROIDSUB7",
             "Name": "Droid - Other Model",
             "Sources": {
@@ -1592,6 +1691,69 @@
             },
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesDROIDSUB7.png"
+        },
+        {
+            "Key": "DROIDSUB6",
+            "Name": "Droid - R-Series Astromech",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 45
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 53
+                    }
+                ]
+            },
+            "Characteristics": {
+                "Brawn": 1,
+                "Agility": 1,
+                "Intellect": 1,
+                "Cunning": 1,
+                "Willpower": 1,
+                "Presence": 1
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 10,
+                "Experience": 175
+            },
+            "Talents": {
+                "Talent": {
+                    "Name": "Enduring",
+                    "RankAdd": 1
+                }
+            },
+            "Skills": {},
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Additional Career Skills",
+                        "Description": "May train in two additional career skills and one additional specialization skills"
+                    },
+                    {
+                        "Name": "Feature",
+                        "Description": "Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons."
+                    },
+                    {
+                        "Name": "Inorganic",
+                        "Description": "Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks."
+                    },
+                    {
+                        "Name": "Mechanical Being",
+                        "Description": "Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers."
+                    },
+                    {
+                        "Name": "Cybernetics",
+                        "Description": "Droids have a cybernetics implant cap of 6."
+                    }
+                ]
+            },
+            "Description": "",
+            "Thumbnail": "data\/img\/SpeciesDROIDSUB6.png"
         },
         {
             "Key": "DUG",
@@ -2009,6 +2171,48 @@
             },
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesGANK.png"
+        },
+        {
+            "Key": "GEONOSIAN",
+            "Name": "Geonosian",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 12
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 1,
+                "Willpower": 1,
+                "Presence": 1
+            },
+            "Attributes": {
+                "WoundThreshold": 9,
+                "StrainThreshold": 9,
+                "Experience": 140
+            },
+            "Talents": {},
+            "Skills": {},
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Skill Choice",
+                        "Description": "Geonisians start the game with one rank in any skill of their choice."
+                    },
+                    {
+                        "Name": "Industrious",
+                        "Description": "A Geonosian who provides assistance adds [BO] to the check, in addition to the normal benefits of assistance, and the Geonosian heals 1 strain."
+                    },
+                    {
+                        "Name": "Winged",
+                        "Description": "Geonosians can fly."
+                    }
+                ]
+            },
+            "Description": "[H4]Geonosian[h4]\nPlease see page 12 of the Rise of the Separatists Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesGEONOSIAN.png"
         },
         {
             "Key": "GIVIN",
@@ -2552,6 +2756,62 @@
             "Thumbnail": "data\/img\/SpeciesKALLERAN.png"
         },
         {
+            "Key": "KAMINOAN",
+            "Name": "Kaminoan",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Fully Operational",
+                        "Page": 20
+                    },
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 14
+                    }
+                ]
+            },
+            "Characteristics": {
+                "Brawn": 1,
+                "Agility": 2,
+                "Intellect": 3,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 9,
+                "StrainThreshold": 10,
+                "Experience": 100
+            },
+            "Talents": {
+                "Talent": {
+                    "Name": "Researcher",
+                    "RankAdd": 1
+                }
+            },
+            "Skills": {
+                "Skill": {
+                    "Name": "Medicine",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Expressionless",
+                        "Description": "Kaminoans add [SE] to all Charm checks they make."
+                    },
+                    {
+                        "Name": "Expressionless",
+                        "Description": "Other characters add [SE] to all social skill checks made against Kaminoans."
+                    }
+                ]
+            },
+            "Description": "[H4]Kaminoan[h4]\nPlease see page 20 of the Fully Operational Sourcebook, or page 14 of the Rise of the Separatists Sourcebook, for details.",
+            "Thumbnail": "data\/img\/SpeciesKAMINOAN.png"
+        },
+        {
             "Key": "KELDOR",
             "Name": "Kel Dor",
             "Source": {
@@ -2645,36 +2905,32 @@
             "Key": "KUBAZ",
             "Name": "Kubaz",
             "Source": {
-                "Book": "Unofficial Species Menagerie"
+                "Book": "Cyphers and Masks",
+                "Page": 20
             },
             "Characteristics": {
-                "Brawn": 1,
+                "Brawn": 2,
                 "Agility": 2,
                 "Intellect": 2,
-                "Cunning": 3,
-                "Willpower": 2,
-                "Presence": 2
+                "Cunning": 2,
+                "Willpower": 3,
+                "Presence": 1
             },
             "Attributes": {
                 "WoundThreshold": 9,
-                "StrainThreshold": 11,
+                "StrainThreshold": 10,
                 "Experience": 100
             },
-            "Talents": {
-                "Talent": {
-                    "Name": "Street Smarts",
-                    "RankAdd": 1
-                }
-            },
-            "Skills": {
-                "Skill": {
-                    "Name": "Perception",
-                    "RankAdd": 1
-                }
-            },
+            "Talents": {},
+            "Skills": {},
             "OptionChoices": {},
-            "SpecialAbilities": {},
-            "Description": "",
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Enhanced Vision",
+                    "Description": "When making Ranged combat or Perception checks, Kubaz may remove up to [SE][SE] due to concealment or environmental factors (but not defense)."
+                }
+            },
+            "Description": "[H4]Kubaz[h4]\nThe Kubaz or Kubazian are an insectivorous species native to the planet Kubindi in the Outer Rim Territories. Although relatively new to the Galactic community at the time of the institution of the Galactic Empire, the species was already ubiquitous throughout the Republic during the Great Galactic War and the Clone Wars.\n[P][B]Physiology:[b]\nA bipedal humanoid species of mammalian sentients, the Kubaz are distinctive for their short, prehensile facial snouts which are used for reaching insects within their hives. Having adapted to their sun-scorched, vegetation-deprived world, the Kubaz learned to survive off their world's native insect population. Filled with two rows of teeth for gnashing their food, the Kubaz trunk also functions as a highly sensitive nose. Green-black skinned, Kubaz have short bristly hair growing from their heads and they stand upon two-toed feet. Having evolved on their homeworld of Kubindi, a planet which orbited a blue star, the Kubaz are highly sensitive to red wavelengths. When traveling to planets with a red or yellow star, the Kubaz are forced to don protective eye wear to avoid damaging their sensitive eyes.\n[P][B]Society:[b]\nThe Kubazi society is based on a clan structure which dwells in underground nests. Ruled by a queen, each clan takes the name of the queen they are descended from. Developing a non-verbal language of hand gestures which indicated their intentions, Kubaz are able to speak Galactic Basic Standard, though with a strong nasally accent. When interacting with other species, some Kubaz will share certain hand signals with non-Kubaz in order to ease communications. Touching the nose, head, or shoulders can indicate intent, direction, and number. Obsessed with tact and decorum, the Kubaz place a high emphasis on the family unit and proper courtesies, displaying truthfulness to a fault. Valuing art and literature with such vigor as to sometimes practice smuggling of great works, the Kubaz do not find such pursuits to be wrong or unlawful.\n[P]Due to their habitual diet on Kubindi, the Kubaz have poor relations with other sentient insectile species such as the Geonosians.\n[P][B]Homeworld:[b]\nKubindi is a terrestrial world and home to the Kubaz. A planet that orbits a blue giant star that emits powerful solar flares, Kubindi is regularly hit with this radiation, causing erratic weather patterns and making the world dry and arid.\n[P][B]Language:[b]\nKubazian, or Kubazi, is the native language of the Kubaz species from Kubindi. Most Kubaz are fluent in both Kubazi and Basic, although only literate in their own language.\n[P]Kubazi language is very nasal, and Kubaz usually have a high-pitched accent when speaking other languages, such as Basic. The Kubaz, however, learn new languages quickly.",
             "Thumbnail": "data\/img\/SpeciesKUBAZ.png"
         },
         {
@@ -2835,6 +3091,86 @@
             "SpecialAbilities": {},
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesMANDOHUMAN.png"
+        },
+        {
+            "Key": "MELITTO",
+            "Name": "Melitto",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 21
+            },
+            "Characteristics": {
+                "Brawn": 3,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 1,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 9,
+                "StrainThreshold": 11,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Perception",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Sightless Vision",
+                        "Description": "Melittos can perceive their surroundings without needing light and never suffer penalties on combat or Perception checks due to darkness or other factors that affect vision."
+                    },
+                    {
+                        "Name": "Reliant on Toxins",
+                        "Description": "Melittos require toxins of their native atmosphere to live.  Offworld, they gain a free respirator that emulates this environment.  They treat standard air as corrosive with a rating of 6."
+                    }
+                ]
+            },
+            "Description": "[H4]Melitto[h4]\nPlease see page 21 of the Cyphers and Masks Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesMELITTO.png"
+        },
+        {
+            "Key": "MIKKIAN",
+            "Name": "Mikkian",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 20
+            },
+            "Characteristics": {
+                "Brawn": 1,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 3,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 11,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Discipline",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Sensory Tendrils",
+                    "Description": "Mikkians add [BO] to all Perception checks."
+                }
+            },
+            "Description": "[H4]Mikkian[h4]\nPlease see page 20 of the Knights of Fate Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesMIKKIAN.png"
         },
         {
             "Key": "MIRIALAN",
@@ -3156,86 +3492,6 @@
             "Thumbnail": "data\/img\/SpeciesNEIM.png"
         },
         {
-            "Key": "NIKTOCH1OP1",
-            "Name": "Nikto - Kajain'sa'Nikto (Red Nikto)",
-            "Source": {
-                "Book": "Lords of Nal Hutta",
-                "Page": 96
-            },
-            "Characteristics": {
-                "Brawn": 3,
-                "Agility": 2,
-                "Intellect": 2,
-                "Cunning": 2,
-                "Willpower": 2,
-                "Presence": 1
-            },
-            "Attributes": {
-                "WoundThreshold": 11,
-                "StrainThreshold": 10,
-                "Experience": 100
-            },
-            "Talents": {},
-            "Skills": {
-                "Skill": {
-                    "Name": "Resilience",
-                    "RankAdd": 1
-                }
-            },
-            "OptionChoices": {},
-            "SpecialAbilities": {
-                "SpecialAbility": {
-                    "Name": "Arid\/Hot Environments",
-                    "Description": "Red Niktos may remove [SETBACK] imposed due to arid or hot enviromental conditions."
-                }
-            },
-            "Description": "",
-            "Thumbnail": "data\/img\/SpeciesNIKTOCH1OP1.png"
-        },
-        {
-            "Key": "NIKTOCH1OP2",
-            "Name": "Nikto - Kadas'sa'Nikto (Green Nikto)",
-            "Source": {
-                "Book": "Lords of Nal Hutta",
-                "Page": 96
-            },
-            "Characteristics": {
-                "Brawn": 3,
-                "Agility": 2,
-                "Intellect": 2,
-                "Cunning": 2,
-                "Willpower": 2,
-                "Presence": 1
-            },
-            "Attributes": {
-                "WoundThreshold": 11,
-                "StrainThreshold": 10,
-                "Experience": 100
-            },
-            "Talents": {},
-            "Skills": {
-                "Skill": {
-                    "Name": "Coordination",
-                    "RankAdd": 1
-                }
-            },
-            "OptionChoices": {},
-            "SpecialAbilities": {
-                "SpecialAbility": [
-                    {
-                        "Name": "May use claws when brawling",
-                        "Description": "When a Green Nikto makes Brawl checks to deal damage to an opponent, he deals +1 damage and has a Critical Rating of 3."
-                    },
-                    {
-                        "Name": "Climbing",
-                        "Description": "Green Nikto gain [BOOST] to Athletics checks made to climb trees and other surfaces their claws can pierce."
-                    }
-                ]
-            },
-            "Description": "",
-            "Thumbnail": "data\/img\/SpeciesNIKTOCH1OP2.png"
-        },
-        {
             "Key": "NIKTOCH1OP3",
             "Name": "Nikto - Esral'sa'Nikto (Mountain Nikto)",
             "Source": {
@@ -3308,6 +3564,86 @@
             },
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesNIKTOCH1OP4.png"
+        },
+        {
+            "Key": "NIKTOCH1OP2",
+            "Name": "Nikto - Kadas'sa'Nikto (Green Nikto)",
+            "Source": {
+                "Book": "Lords of Nal Hutta",
+                "Page": 96
+            },
+            "Characteristics": {
+                "Brawn": 3,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 1
+            },
+            "Attributes": {
+                "WoundThreshold": 11,
+                "StrainThreshold": 10,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Coordination",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "May use claws when brawling",
+                        "Description": "When a Green Nikto makes Brawl checks to deal damage to an opponent, he deals +1 damage and has a Critical Rating of 3."
+                    },
+                    {
+                        "Name": "Climbing",
+                        "Description": "Green Nikto gain [BOOST] to Athletics checks made to climb trees and other surfaces their claws can pierce."
+                    }
+                ]
+            },
+            "Description": "",
+            "Thumbnail": "data\/img\/SpeciesNIKTOCH1OP2.png"
+        },
+        {
+            "Key": "NIKTOCH1OP1",
+            "Name": "Nikto - Kajain'sa'Nikto (Red Nikto)",
+            "Source": {
+                "Book": "Lords of Nal Hutta",
+                "Page": 96
+            },
+            "Characteristics": {
+                "Brawn": 3,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 1
+            },
+            "Attributes": {
+                "WoundThreshold": 11,
+                "StrainThreshold": 10,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Resilience",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Arid\/Hot Environments",
+                    "Description": "Red Niktos may remove [SETBACK] imposed due to arid or hot enviromental conditions."
+                }
+            },
+            "Description": "",
+            "Thumbnail": "data\/img\/SpeciesNIKTOCH1OP1.png"
         },
         {
             "Key": "NIKTOCH1OP5",
@@ -3488,38 +3824,71 @@
             "Key": "PAUAN",
             "Name": "Pau'an",
             "Source": {
-                "Book": "Unofficial Species Menagerie"
+                "Book": "Disciples of Harmony",
+                "Page": 19
             },
             "Characteristics": {
                 "Brawn": 1,
                 "Agility": 2,
                 "Intellect": 2,
                 "Cunning": 2,
-                "Willpower": 2,
-                "Presence": 3
+                "Willpower": 3,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 12,
+                "StrainThreshold": 8,
+                "Experience": 95
+            },
+            "Talents": {},
+            "Skills": {},
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": {
+                    "Name": "Sensitive Hearing",
+                    "Description": "Pau'an's add [BO] to all Perception and Vigilance checks while wearing ear protection.  Without ear protection, they add [TH] to Perception and Vigilance checks instead."
+                }
+            },
+            "Description": "[H4]Pau'an[h4]\nPau'ans are gaunt near-Humans native to the planet Utapau. Also known as Utapauns and Ancients due to their long lifespans, they co-exist on Utapau with the Utai. The two species get along well, with the lanky Pau'ans assuming leadership roles on the planet. Though some view the Pau'ans as frightening, they are friendly, and are more than happy to welcome visitors to their little-known world. Due to Utapau's remoteness in the Outer Rim Territories, the Pau'ans were isolated for most of their history. However, they played a part in galactic events in 19 BBY, when the Confederacy of Independent Systems conquered Utapau. The Pau'ans opposed the Confederacy with the aid of the Republic, and later opposed the Empire, after Imperials took control of their planet following the Declaration of a New Order.\n[P][B]Physiology:[b]\nThe average member of the sentient near-Human Pau'an, or Utapaun, as they are sometime called, species stand taller than a Human, at approximately 1.9 meters. They are bald and their head is striped with furrowed gray skin. Pau'ans weigh seventy kilograms on average. Pau'ans have large, sunken black eyes in red eye sockets and jagged, fang-like teeth used for tearing into raw meat, as they are carnivores. The species has pale, wrinkled skin, due to the fact that they live in the sinkholes of Utapau, giving them limited access to light. These traits cause some to view them as frightening. However, Pau'ans as a society are generally friendly, and are happy to welcome guests to their often overlooked world. Pau'ans have long lifespans, living up to 700 years, much longer than the Utai, the other species native to Utapau. This earned them the nickname of \"Ancients\". Members of the species are able to see well in darkness. Pau'ans have four fingers and toes, but are more mobile than they appeared. They often wear elaborate clothes intended to heighten their impressive stature.\n[P][B]Society:[b]\nThe Pau'ans fulfill most of the governmental and administrative duties on Utapau, as the Utai do not desire such work, serving as laborers instead. Most Pau'ans serve as leaders early in their lives, often managing teams of Utai laborers. This gives them experience that would be used later in their life. Pau'ans are kind leaders, and sympathetic to their subordinates. Each city on Utapau is controlled by a Master of Port Administration, a hereditary title reserved for Pau'ans. These administrators are assisted by advisory councils for making important decisions about their city, turning to the Utapauan Security Force when necessary. Each Administrator serves on the Utapauan Committee and oversees planetary governance. However the committee rarely makes crucial decisions, as the cities are able to function on their own most of the time.\n[P]Despite the many differences between the Pau'ans and the Utai, the two species are able to co-exist peacefully, although inhabitants of the different Utapaun cities often have conflicts due to philosophical differences. Still, these conflicts rarely develop into bloodshed, and it is more common for the cities to ignore each other. Each city has its own culture, and competition is fierce between the groups. However, they are able to cooperate when the situation necessitated it, such as during the Confederate invasion of the planet in 19 BBY.\n[P]Pau'an society is a blend of a variety of styles and cultures, borne from the ancient merger with the Utai. Built into the sinkhole walls, Pau'an settlements such as the Pau City spaceport are divided into different areas, each a mix of architectural styles and other-worldly design. They like art, and enjoy studying sculptures and finding ways to incorporate different artistic styles into their architecture. Pau'ans developed an industrial society, despite their seemingly primitive and natural image, though the Utai were the ones who actually did the hard work. The Utai did not mind, however, and collectively much preferred labor to positions of leadership. They are able to power their city by wind, harnessing it through massive windmills. Over ninety-nine percent of the planet's power comes from these windmills. Most Pau'ans ride living beasts like varactyls and dactillions instead of speeders. Pau'ans, as well as Utai, are known for their love for podracing.\n[P]Pau'ans represented 30%\u2014or approximately 28.5 million\u2014of Utapau's total population of 90 million inhabitants.\n[P][B]Homeworld:[b]\nUtapau is an arid sinkhole world in the Utapau system of the Tarabba sector in the Outer Rim Territories. Utapau is the homeworld of the Pau'ans and the Utai, more commonly referred to collectively as Utapauns. These species live in the many giant sinkholes that dotted the planet's scrub-covered surface.\n[P][B]Language:[b]\nUtapese is the language of the Pau'ans on the planet Utapau. Most Pau'ans speak and are literate in both Utapese and Basic. The language once had several different dialects.",
+            "Thumbnail": "data\/img\/SpeciesPAUAN.png"
+        },
+        {
+            "Key": "PHYDOLON",
+            "Name": "Phydolon",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 21
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 3,
+                "Presence": 1
             },
             "Attributes": {
                 "WoundThreshold": 10,
-                "StrainThreshold": 11,
+                "StrainThreshold": 10,
                 "Experience": 100
             },
             "Talents": {},
             "Skills": {},
-            "OptionChoices": {
-                "Option": [
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
                     {
-                        "Name": "Coercion",
-                        "Description": "Pau'ans may begin the game with one free rank in Coercion."
+                        "Name": "Symbiotic Resilience",
+                        "Description": "When recovering wounds naturally, Phydolons heal 1 extra wound per full night's rest. When critially injured, Phydolons may attempt to recover from one Critical Injury after a full night's rest, instead of a full week's."
                     },
                     {
-                        "Name": "Negotiation",
-                        "Description": "Pau'an may begin the game with one free rank in Negotiation."
+                        "Name": "Symbiont Isolation",
+                        "Description": "When recovering from strain at the end of an encounter, Phydolons recover 1 less strain if no other Phydolons are present (to a minimum of 1)."
                     }
                 ]
             },
-            "SpecialAbilities": {},
-            "Description": "",
-            "Thumbnail": "data\/img\/SpeciesPAUAN.png"
+            "Description": "[H4]Phydolon[h4]\nPlease see page 21 of the Knights of Fate Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesPHYDOLON.png"
         },
         {
             "Key": "POLISMASSAN",
@@ -3952,6 +4321,55 @@
             "Thumbnail": "data\/img\/SpeciesSHIST.png"
         },
         {
+            "Key": "SKAKOAN",
+            "Name": "Skakoan",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 21
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 3,
+                "Cunning": 1,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 8,
+                "Experience": 80
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Education",
+                        "RankAdd": 1
+                    },
+                    {
+                        "Name": "Mechanics",
+                        "RankAdd": 1
+                    }
+                ]
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Methane Breather",
+                        "Description": "Skakoans start the game with a Skakoan Pressure Suit."
+                    },
+                    {
+                        "Name": "Methane Breather",
+                        "Description": "Skakoans treat standard planetary air and pressure as a corrosive atmosphere with rating 6."
+                    }
+                ]
+            },
+            "Description": "[H4]Skakoan[h4]\nPlease see page 21 of the Fully Operational Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesSKAKOAN.png"
+        },
+        {
             "Key": "SLUISSI",
             "Name": "Sluissi",
             "Source": {
@@ -4191,6 +4609,92 @@
             },
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesTHAKWAASH.png"
+        },
+        {
+            "Key": "THISSPIASIAN",
+            "Name": "Thisspiasian",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 18
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 3,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 1
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 8,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Discipline",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Rest",
+                        "Description": "Thisspiasians only need two hours sleep to heal all strain."
+                    },
+                    {
+                        "Name": "Meditation",
+                        "Description": "Once per session, Thisspiasians may spend ten minutes meditating to heal strain equal to twice their ranks in Discipline."
+                    }
+                ]
+            },
+            "Description": "[H4]Thisspiasian[h4]\nPlease see page 18 of the Unlimited Power Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesTHISSPIASIAN.png"
+        },
+        {
+            "Key": "THOLOTHIAN",
+            "Name": "Tholothian",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 20
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 10,
+                "Experience": 95
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Xenology",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Cultural Adopters",
+                        "Description": "Tholothians add an automatic [AD] when making social skill checks to interact with non-Tholothians."
+                    },
+                    {
+                        "Name": "Natural Roots",
+                        "Description": "When making a check to heal strain in a natural or wild setting, Tholothians heal one additional strain."
+                    }
+                ]
+            },
+            "Description": "[H4]Tholothian[h4]\nPlease see page 20 of the Unlimited Power Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesTHOLOTHIAN.png"
         },
         {
             "Key": "TOGORIAN",
@@ -4483,6 +4987,49 @@
             "Thumbnail": "data\/img\/SpeciesUGNAUGHTS.png"
         },
         {
+            "Key": "UMBARAN",
+            "Name": "Umbaran",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 15
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 10,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Deception",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Entrancing Gaze",
+                        "Description": "Umbarans add [BO] to all Charm, Deception, and Negotiation checks."
+                    },
+                    {
+                        "Name": "Shadow Dweller",
+                        "Description": "When making skill checks, Umbarans remove up to [SE][SE] due to darkness, and add [SE] to checks made in bright natural light."
+                    }
+                ]
+            },
+            "Description": "[H4]Umbaran[h4]\nPlease see page 15 of the Rise of the Separatists Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesUMBARAN.png"
+        },
+        {
             "Key": "VERPINE",
             "Name": "Verpine",
             "Source": {
@@ -4524,6 +5071,49 @@
             },
             "Description": "",
             "Thumbnail": "data\/img\/SpeciesVERPINE.png"
+        },
+        {
+            "Key": "VURK",
+            "Name": "Vurk",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 22
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 1,
+                "Willpower": 2,
+                "Presence": 3
+            },
+            "Attributes": {
+                "WoundThreshold": 11,
+                "StrainThreshold": 11,
+                "Experience": 100
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Negotiation",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Amphibious",
+                        "Description": "Vurk can breathe and move underwater without penalty."
+                    },
+                    {
+                        "Name": "Cold Blooded",
+                        "Description": "Vurk take an additional [SE] in cold environments."
+                    }
+                ]
+            },
+            "Description": "[H4]Vurk[h4]\nPlease see page 22 of the Unlimited Power Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesVURK.png"
         },
         {
             "Key": "WEEQUAY",
