@@ -5,14 +5,14 @@ Generated 2026-08-11 by `xml_to_json/wiki_diff.py`.
 | | count |
 | --- | ---: |
 | `Category:Attachments` on the wiki | 371 |
-| rows in `data/json/ItemAttachments.json` | 345 |
-| matched exactly | 253 |
-| matched after normalisation | 8 |
-| **on the wiki only** | **112** |
-| **in the data only** | **91** |
+| rows in `data/json/ItemAttachments.json` | 357 |
+| matched exactly | 264 |
+| matched after normalisation | 9 |
+| **on the wiki only** | **100** |
+| **in the data only** | **92** |
 | of those, likely the same thing named differently | 18 |
 
-## On the wiki, not in the data (112)
+## On the wiki, not in the data (100)
 
 The source in brackets is where the wiki files the page. Anything marked
 `homebrew` is fan material, not an official FFG book.
@@ -22,21 +22,16 @@ The source in brackets is where the wiki files the page. Anything marked
 - Additional Holds (homebrew: Podracing Expansion)
 - Advanced Hunting System (homebrew: The Mandalorian)
 - Air-Fuel Mixture Control (homebrew: Podracing Expansion)
-- Amplifying Chamber (Clone Wars End)
 - Appendage Collection System (homebrew: Scavenging)
 - Arakyd Missile Pack & Mini-pack (Hired Gun)
 - Athiss Cave Crystal (Beta Knowledge)
-- Bayonet (Clone Wars End)
 - Beskar Vamblade (homebrew: The Mandalorian)
 - Beskar Weave (homebrew: The Mandalorian)
 - Bowcaster Automatic Re-cocker (Extra Stuff, On the Fringe)
 - CZ-88 Heavy Loader Arm (Technician)
 - Cargo Crane (homebrew: Wear and Tear)
-- Catastrophic Failure Modification (Clone Wars End)
 - Ceremonial Adornment (Clone Wars Begin)
 - Chedak Communications Multi-Band Comlink (Hired Gun)
-- Christophsis Crystal (Clone Wars End)
-- Clone Polarized Electrobinoculars (Clone Wars End)
 - Coaxium Cell Injector (homebrew: Podracing Expansion)
 - Cold Boost Igniters (homebrew: Podracing Expansion)
 - Devaronian Edge (homebrew: Old Republic)
@@ -59,7 +54,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Gimmellian Cloaking Device (homebrew: Signals Intel)
 - Grav-scoop (homebrew: Scavenging)
 - Gunner Droid Brain (Technician)
-- Hair Trigger (Clone Wars End)
 - Handling Upgrades, Advanced (homebrew: Podracing Expansion)
 - Handling Upgrades, Improved (homebrew: Podracing Expansion)
 - Heat Resistant Coatings (homebrew: Podracing Expansion)
@@ -77,13 +71,9 @@ The source in brackets is where the wiki files the page. Anything marked
 - Lightweight Materials (homebrew: Podracing Expansion)
 - Low Output Ion Turbine (homebrew: Ship Operating)
 - Mag-Pulse Warhead Launchers (homebrew: Sequels)
-- Mandalorian Chamber (Clone Wars End)
 - Miniature Flame Projector (homebrew: The Mandalorian)
 - Pair of Podracer Engines (Sentinel)
-- Personal Vibrosaw (Clone Wars End)
 - Pistol Grip (Extra Stuff, Hired Gun)
-- Portable Plasma Shield (Clone Wars End)
-- Portable Plasma Shield (weapon) (homebrew: Republic Commandos)
 - R-Series Repulsorgrips (homebrew: Podracing Expansion)
 - Reconnaissance Suite (homebrew: Signals Intel)
 - Reinforced Mechanical Joints (homebrew: Podracing Expansion)
@@ -91,7 +81,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Repeating Ion Cannon (Engineer)
 - Repulsor Jammers (homebrew: Sequels)
 - Repulsor-Assisted Lifting (Bounty Hunter, Extra Stuff)
-- Retractable Wrist Blades (Clone Wars End)
 - Retro-thrusters (homebrew: Podracing Expansion)
 - Rod Coolant Pumps (homebrew: Podracing Expansion)
 - Salvage Grade Tractor Beam (homebrew: Scavenging)
@@ -124,20 +113,20 @@ The source in brackets is where the wiki files the page. Anything marked
 - Versatile Overclock Module (homebrew: Podracing Expansion)
 - Wakeproof Rear Holocamera (homebrew: Podracing Expansion)
 - Water Reclamation System (Seeker)
-- Whipcord Thrower (Clone Wars End)
 - Whistling Birds (homebrew: The Mandalorian)
 - Wrist Mount (Clone Wars End, Extra Stuff)
 - Z-7 Jetpack (homebrew: The Mandalorian)
 - Z-series Auxiliary Boosters (homebrew: Podracing Expansion)
 
-## In the data, not on the wiki (91)
+## In the data, not on the wiki (92)
 
 The source in brackets is the book on the row in the JSON.
 
+- Mk I Sidecar for BARC Speeder (Collapse of the Republic)
 - "Final Word" Secondary Missile System (Dangerous Covenants)
 - Fogger Smoke Generator (Dangerous Covenants)
 - H9 Pistol Grip (Dangerous Covenants)
-- Model 2 Wrist Mount (Dangerous Covenants)
+- Model 2 Wrist Mount (Dangerous Covenants, Collapse of the Republic)
 - Multi-Band Comlink (Dangerous Covenants)
 - Paramilitary Airspeeder (Dangerous Covenants)
 - Paramilitary Bulk Transport (Dangerous Covenants)
@@ -226,7 +215,7 @@ The source in brackets is the book on the row in the JSON.
 - Dai Bendu Lessons (Unlimited Power)
 - Lasan Chronicles Lessons (Unlimited Power)
 
-## Matched only after normalisation (8)
+## Matched only after normalisation (9)
 
 Listed so a relaxation cannot quietly hide a real difference.
 
@@ -238,6 +227,7 @@ Listed so a relaxation cannot quietly hide a real difference.
 | Foreign Debris Ejector (Adjusted) | Foreign Debris Ejector | parenthetical |
 | High-Output Repulsor Coils (Adjusted) | High-Output Repulsor Coils | parenthetical |
 | Insulated Firing Mechanisms | Insulated Firing Mechanism | plural |
+| Portable Plasma Shield (weapon) | Portable Plasma Shield | parenthetical |
 | Reinforced Engine Cowlings (Adjusted) | Reinforced Engine Cowlings | parenthetical |
 | Vacuum Sealed (vehicle) | Vacuum Sealed | parenthetical |
 

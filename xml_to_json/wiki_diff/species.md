@@ -5,14 +5,14 @@ Generated 2026-08-11 by `xml_to_json/wiki_diff.py`.
 | | count |
 | --- | ---: |
 | `Category:Species` on the wiki | 124 |
-| rows in `data/json/Species.json` | 99 |
-| matched exactly | 81 |
+| rows in `data/json/Species.json` | 102 |
+| matched exactly | 84 |
 | matched after normalisation | 19 |
-| **on the wiki only** | **37** |
+| **on the wiki only** | **34** |
 | **in the data only** | **0** |
 | of those, likely the same thing named differently | 0 |
 
-## On the wiki, not in the data (37)
+## On the wiki, not in the data (34)
 
 The source in brackets is where the wiki files the page. Anything marked
 `homebrew` is fan material, not an official FFG book.
@@ -21,7 +21,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Aki-Aki (homebrew: Sequels)
 - Caarite (homebrew: Cularin System)
 - Dashade (homebrew: Old Republic)
-- Dathomirian (Clone Wars End)
 - Drabatan (Early Rebellion)
 - Echani (homebrew: Old Republic)
 - Evereni (homebrew: High Republic)
@@ -29,12 +28,10 @@ The source in brackets is where the wiki files the page. Anything marked
 - Filordi (homebrew: Cularin System)
 - Gigoran (Early Rebellion)
 - Gozzo (homebrew: Sequels)
-- Harch (Clone Wars End)
 - Iakaru (Early Rebellion)
 - Jawa (Allies)
 - Kage (homebrew: Clone Wars Heroes & Villains)
 - Kaleesh (homebrew: Clone Wars Heroes & Villains)
-- Karkarodon (Clone Wars End)
 - Lasat (Allies)
 - Miraluka (homebrew: Old Republic)
 - Mythrol (homebrew: The Mandalorian)

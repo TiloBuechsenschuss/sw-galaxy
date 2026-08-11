@@ -5,14 +5,14 @@ Generated 2026-08-11 by `xml_to_json/wiki_diff.py`.
 | | count |
 | --- | ---: |
 | `Category:Gear` on the wiki | 464 |
-| rows in `data/json/Gear.json` | 580 |
-| matched exactly | 245 |
+| rows in `data/json/Gear.json` | 584 |
+| matched exactly | 249 |
 | matched after normalisation | 91 |
-| **on the wiki only** | **183** |
+| **on the wiki only** | **179** |
 | **in the data only** | **245** |
 | of those, likely the same thing named differently | 68 |
 
-## On the wiki, not in the data (183)
+## On the wiki, not in the data (179)
 
 The source in brackets is where the wiki files the page. Anything marked
 `homebrew` is fan material, not an official FFG book.
@@ -28,7 +28,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Anti–Grav Chute (Corellian Sector, Extra Stuff)
 - Anx (tool) (homebrew: Andor, High Republic)
 - Applied Imaging B310 Micro-Imager (Consular)
-- Aquasuit (Clone Wars End)
 - Arakyd Industries Recon Remote (Hired Gun)
 - Arterial Chemical Shunt (homebrew: Sequels)
 - Artillery Remote (Extra Stuff, Soldier)
@@ -108,7 +107,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Imperial Army Military Pack (Hired Gun)
 - Industrial Space Salvage Suit (homebrew: Scavenging)
 - Ion Thruster Gun (Technician)
-- JT-12C Jetpack (Clone Wars End)
 - Lando Calrissian's Cape Armoire (Extra Stuff)
 - Leia Organa's Diplomatic Wardrobe (Extra Stuff)
 - Lightsaber Maintenance Kit (Clone Wars Begin, Extra Stuff, Guardian)
@@ -129,7 +127,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Multi-Goo Gun (Technician)
 - N-S9 Starpath Unit (homebrew: Andor)
 - Naga Sadow's Poison Blade (homebrew: Old Republic)
-- Nano-droids (Clone Wars End)
 - Neuro-Saav Cyborg/Droid Interface (Resistance Stronghold)
 - Nullicaine (Extra Stuff, Soldier)
 - Ocular (homebrew: High Republic)
@@ -199,7 +196,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Wayfinder (homebrew: Sequels)
 - Welding Rod (Technician)
 - XV–38 Portable Large Veterinary Kit (Ace, Extra Stuff)
-- Z-6 Jetpack (Clone Wars End)
 
 ## In the data, not on the wiki (245)
 

@@ -5,14 +5,14 @@ Generated 2026-08-11 by `xml_to_json/wiki_diff.py`.
 | | count |
 | --- | ---: |
 | `Category:Weapon` on the wiki | 512 |
-| rows in `data/json/Weapons.json` | 458 |
-| matched exactly | 289 |
+| rows in `data/json/Weapons.json` | 469 |
+| matched exactly | 299 |
 | matched after normalisation | 21 |
-| **on the wiki only** | **213** |
-| **in the data only** | **148** |
-| of those, likely the same thing named differently | 71 |
+| **on the wiki only** | **203** |
+| **in the data only** | **149** |
+| of those, likely the same thing named differently | 69 |
 
-## On the wiki, not in the data (213)
+## On the wiki, not in the data (203)
 
 The source in brackets is where the wiki files the page. Anything marked
 `homebrew` is fan material, not an official FFG book.
@@ -37,7 +37,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - BRG-96 Blaster Pistol (homebrew: The Mandalorian)
 - Bayonet (Clone Wars End)
 - Beastmaster's Vibro-glaive (Extra Stuff, Hutt Space)
-- Beskad (Clone Wars End)
 - Beskar Spear (homebrew: The Mandalorian)
 - BlasTech DH-17c Short Carbine (Engineer)
 - BlasTech DL-7H Heavy Blaster Pistol (Hired Gun)
@@ -60,7 +59,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Corellian Arms CR-8 Takedown Rifle (Seeker)
 - Coronet Arms HL-27 Light Blaster Pistol (Corellian Sector)
 - Cortosis Staff (Refined) (Extra Stuff, Way of the Force)
-- Crushgaunts (Clone Wars End)
 - Cybernetic Weapon Implant (Extra Stuff, On the Fringe, Rebel Ranks)
 - Czerka "Peacekeeper" Stun Baton (Bounty Hunter)
 - Czerka Arms 411 Holdout Blaster (Smuggler)
@@ -68,13 +66,11 @@ The source in brackets is where the wiki files the page. Anything marked
 - Czerka Arms Model 57 "Homesteader" Hunting Rifle (Seeker)
 - Czerka CZ-28 Flamestrike (Hired Gun)
 - D-5 Detonation Pack (homebrew: Republic Commandos)
-- DC-12U Beam Rifle (Clone Wars End)
 - DC-15LE Heavy Blaster Rifle (homebrew: Republic Commandos)
 - DC-15s Side Arm Blaster (homebrew: Republic Commandos)
 - DC-15x Sniper Rifle (homebrew: Republic Commandos)
 - DC-17m InterChangeable Weapon System (homebrew: Republic Commandos)
 - DC-19 "Stealth" Carbine (homebrew: Republic Commandos)
-- DE-10 Blaster Pistol (Clone Wars End)
 - DLT-18 Blaster Rifle (homebrew: Rebels)
 - DLT-19D Heavy Blaster Rifle (Early Rebellion)
 - DN Bolt Caster (homebrew: Republic Commandos)
@@ -83,14 +79,11 @@ The source in brackets is where the wiki files the page. Anything marked
 - Dart Launcher (homebrew: Old Republic)
 - Darth Vader's Lightsaber (Extra Stuff)
 - Duraknuckles (Beginner Sequel)
-- Duskblade (Clone Wars End)
 - E-11D Blaster Carbine (Early Rebellion)
 - E-22 Blaster Rifle (Early Rebellion)
-- E-5 Blaster Rifle (Clone Wars End)
 - E-5C Heavy Blaster Rifle (homebrew: Republic Commandos)
 - E-5s Sniper Rifle (homebrew: Republic Commandos)
 - E-60R Missile Launcher (homebrew: Republic Commandos)
-- EE-3 Blaster Carbine (Clone Wars End)
 - Ebonwood Swaggerstick (homebrew: Sequels)
 - Echani Foil (homebrew: Old Republic)
 - Electro Dart (homebrew: Old Republic)
@@ -184,8 +177,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - SSG Mk II "Paladin" Blaster Rifle (Extra Stuff, Sentinel)
 - ST-W48 Blaster (homebrew: Sequels)
 - SX-21 Pump-Action Scatter Blaster (Extra Stuff)
-- Sabercane (Clone Wars End)
-- Sabercane Hilt (Clone Wars End)
 - Scattergun (homebrew: Old Republic)
 - Secondary Ion Blaster (Extra Stuff, Technician)
 - Shard Shooter (Corellian Sector, Extra Stuff)
@@ -217,7 +208,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - WESTAR-20 Blaster Pistol (homebrew: Republic Commandos)
 - WESTAR-33 Blaster Pistol (homebrew: Republic Commandos)
 - WESTAR-34 Blaster Pistol (homebrew: Republic Commandos)
-- WESTAR-35 Blaster Pistol (Clone Wars End)
 - WESTAR-M5 Blaster Rifle (homebrew: Republic Commandos)
 - Warde's Lightsaber (Story: Gatekeeper)
 - Whipcord Thrower (Clone Wars End)
@@ -231,7 +221,7 @@ The source in brackets is where the wiki files the page. Anything marked
 - Zap Rod (homebrew: Andor)
 - Zygerrian Energy Bow (homebrew: Republic Commandos)
 
-## In the data, not on the wiki (148)
+## In the data, not on the wiki (149)
 
 The source in brackets is the book on the row in the JSON.
 
@@ -240,6 +230,7 @@ The source in brackets is the book on the row in the JSON.
 - Battleship Ion Cannon (Age of Rebellion Core Rulebook)
 - Proton Bomb Release Chute (Age of Rebellion Core Rulebook)
 - TT24 Holdout Blaster (Beyond the Rim)
+- Kal Dagger (Collapse of the Republic)
 - ACP Array Gun (Dangerous Covenants)
 - C-88 Fragmentation Missile (Dangerous Covenants, Knights of Fate)
 - C-908 Incendiary Missile (Dangerous Covenants, Knights of Fate)
@@ -412,7 +403,7 @@ Listed so a relaxation cannot quietly hide a real difference.
 | Vac Attack Mk-127 Concealable Disc Launcher | Vac Attack Mk-127 Concealable Disc Launcher (Arc Mode) | parenthetical |
 | Vac Attack Mk-127 Concealable Disc Launcher | Vac Attack Mk-127 Concealable Disc Launcher (Single-Line Mode) | parenthetical |
 
-## Possibly the same, named differently (71)
+## Possibly the same, named differently (69)
 
 Suggestions only, for checking by hand. Both names are still counted
 as unmatched in the two lists above.
@@ -446,7 +437,6 @@ as unmatched in the two lists above.
 | Merr-Sonn Model 44 Blaster Pistol | Model 44 Blaster Pistol | 0.83 | one name contains the other |
 | E-5C Heavy Blaster Rifle | A280 Heavy Blaster Rifle | 0.83 | one name contains the other |
 | Plasma Grenade | NOVA40 Plasma Grenade | 0.81 | one name contains the other |
-| DE-10 Blaster Pistol | Model 44 Blaster Pistol | 0.81 | one name contains the other |
 | BlasTech DH-17c Short Carbine | DH-17c Short Carbine | 0.81 | one name contains the other |
 | Coronet Arms HL-27 Light Blaster Pistol | HL-27 Light Blaster Pistol | 0.80 | one name contains the other |
 | Flashstick | Drall Flashstick | 0.80 | similar spelling |
@@ -463,7 +453,6 @@ as unmatched in the two lists above.
 | Z6 Riot Control Baton | Z6 Riot Baton | 0.76 | one name contains the other |
 | Atgar SpaceDefense 1.8 FD Anti-Infantry Autoturret | 1.8 FD Anti-Infantry Autoturret | 0.75 | one name contains the other |
 | Shard Shooter | Selonian Shard Shooter | 0.75 | one name contains the other |
-| E-5 Blaster Rifle | A280 Heavy Blaster Rifle | 0.74 | one name contains the other |
 | Felebreck Droid Disabler | Droid Disabler | 0.74 | one name contains the other |
 | Activv1 Riot Shield | Riot Shield | 0.74 | one name contains the other |
 | Loronar Spray Rifle | Spray Rifle | 0.74 | one name contains the other |

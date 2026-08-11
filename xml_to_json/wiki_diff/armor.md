@@ -5,14 +5,14 @@ Generated 2026-08-11 by `xml_to_json/wiki_diff.py`.
 | | count |
 | --- | ---: |
 | `Category:Armor` on the wiki | 121 |
-| rows in `data/json/Armor.json` | 105 |
-| matched exactly | 83 |
+| rows in `data/json/Armor.json` | 111 |
+| matched exactly | 89 |
 | matched after normalisation | 0 |
-| **on the wiki only** | **38** |
+| **on the wiki only** | **32** |
 | **in the data only** | **22** |
-| of those, likely the same thing named differently | 17 |
+| of those, likely the same thing named differently | 16 |
 
-## On the wiki, not in the data (38)
+## On the wiki, not in the data (32)
 
 The source in brackets is where the wiki files the page. Anything marked
 `homebrew` is fan material, not an official FFG book.
@@ -27,8 +27,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Boba Fett's Armor (Extra Stuff)
 - CF-9 Republic Naval Flight Suit (Clone Wars Begin)
 - Cargo Clothes (Diplomat, Extra Stuff)
-- Clone Dive Armor (Clone Wars End)
-- Clone Reconnaissance Armor (Clone Wars End)
 - Creshaldyne EOD-Mk II Explosives Disposal Armor (Engineer)
 - Custom Tailored Armored Jacket (Colonist, Extra Stuff)
 - Darth Vader's Armor (Extra Stuff)
@@ -37,8 +35,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Gammaplast Armor (homebrew: Sequels)
 - Gorraslug Leather Coat (homebrew: Sequels)
 - Industrial Space Salvage Suit (homebrew: Scavenging)
-- Jedi Reconnaissance Armor (Clone Wars End)
-- Katarn-class Commando Armor (Clone Wars End, Warrior)
 - Laminate Armor (Extra Stuff, On the Fringe, Rebel Ranks)
 - Luxury Attire (homebrew: Sequels)
 - Merr-Sonn N-57 Armor (Technician)
@@ -47,8 +43,6 @@ The source in brackets is where the wiki files the page. Anything marked
 - Mk II Katarn-class Commando Armour (homebrew: Republic Commandos)
 - Mk III Katarn-class Commando Armour (homebrew: Republic Commandos)
 - Mountaineer Armor (Explorer, Extra Stuff)
-- Phase II ARC Trooper Armor (Clone Wars End)
-- Phase II Clone Trooper Armor (Clone Wars End)
 - Polis Massan Bodysuit (Extra Stuff, Resistance Stronghold)
 - TaggeCo. Protector 1 Combat Armor (Hired Gun)
 - Thinsuit (Extra Stuff, Soldier)
@@ -89,7 +83,7 @@ Listed so a relaxation cannot quietly hide a real difference.
 
 _None._
 
-## Possibly the same, named differently (17)
+## Possibly the same, named differently (16)
 
 Suggestions only, for checking by hand. Both names are still counted
 as unmatched in the two lists above.
@@ -102,7 +96,6 @@ as unmatched in the two lists above.
 | Wing Commander Armored Flight Suit | A/KT Wing Commander Armored Flight Suit | 0.95 | one name contains the other |
 | Mk III Katarn-class Commando Armour | Mk I Katarn-Class Commando Armor | 0.95 | similar spelling |
 | Polis Massan Bodysuit | Polis Masson Bodysuit | 0.95 | similar spelling |
-| Katarn-class Commando Armor | Mk I Katarn-Class Commando Armor | 0.94 | one name contains the other |
 | Tracker Utility Vest | A/KT Tracker Utility Vest | 0.92 | one name contains the other |
 | Mountaineer Armor | A/KT Mountaineer Armor | 0.91 | one name contains the other |
 | Custom Tailored Armored Jacket | Tailored Armored Jacket | 0.88 | one name contains the other |
