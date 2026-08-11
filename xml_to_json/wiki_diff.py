@@ -75,6 +75,8 @@ TARGETS = OrderedDict([
     ('attachments', Target('Attachments', 'ItemAttachments.json', 'ItemAttachments', 'Name')),
     ('vehicles',    Target(('Vehicles', 'Starships'),
                                           'Vehicles.json',        'Vehicle',         'Name')),
+    ('careers',     Target('Careers',     'Careers.json',         'Career',          'Name')),
+    ('talents',     Target('Talents',     'Talents.json',         'Talent',          'Name')),
 ])
 
 

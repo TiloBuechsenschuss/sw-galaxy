@@ -8,7 +8,9 @@ $validFileNames = array(
     'ItemAttachments' => 'ItemAttachments.xml',
     'Gear' => 'Gear.xml',
     'Species' => 'Species.xml',
-    'Vehicle' => 'Vehicles.xml'
+    'Vehicle' => 'Vehicles.xml',
+    'Career' => 'Careers.xml',
+    'Talent' => 'Talents.xml'
 );
 
 /**

@@ -6,8 +6,9 @@ Guidance for AI coding agents working in this repository.
 
 **SW Galaxy** is a static, client-side single-page web app that lets Star Wars FFG
 (*Edge of the Empire* / *Age of Rebellion* / *Force and Destiny*) role players search and
-filter weapons, armor, gear, species and item attachments. It is deployed as a plain
-static site on GitHub Pages: <https://applifaction.github.io/sw-galaxy>
+filter weapons, armor, gear, attachments, vehicles, species, careers and talents. It is
+deployed as a plain static site on GitHub Pages:
+<https://applifaction.github.io/sw-galaxy>
 
 There is **no build step, no package manager, no test suite and no CI**. What is in the
 repo is what gets served. Committed files are the deployment artifact.
@@ -39,10 +40,10 @@ stylesheet on Google Fonts, so the app still needs an internet connection on fir
 ```
 index.html                     App shell: <md-tabs> repeating over the tabs constant,
                                each entry instantiating the item-list directive
-app/module/SWApp.js            The entire application (~1750 lines): module, the tabs
+app/module/SWApp.js            The entire application (~2350 lines): module, the tabs
                                constant, filters, and the itemList directive with its
                                controller
-app/components/items.html      Template for the itemList directive (~1080 lines):
+app/components/items.html      Template for the itemList directive (~1245 lines):
                                sidenav filters + result table + item detail cards
 css/style.css                  Custom styles, @font-face for the FFG symbol font
 css/angular-material.min.css   Vendored Angular Material stylesheet
@@ -101,7 +102,8 @@ The short version:
 - `xml_to_json/convert.py` is a Python port for machines without PHP. **The two must
   produce identical output** — change one, change the other.
 - `xml_to_json/oggdude_species_to_app.py` translates OggDude's per-species XML into the
-  app schema, resolving skill/talent keys to display names.
+  app schema, resolving skill/talent keys to display names. `oggdude_vehicles_to_app.py`,
+  `oggdude_careers_to_app.py` and `oggdude_talents_to_app.py` do the same for their types.
 - `xml_to_json/verify_convert.py` rebuilds every JSON from the committed XML and checks
   the schema mapping against the shipped data. Run it after touching any of the three.
 - `xml_to_json/wiki_diff.py` reports coverage against the FFG fandom wiki — read-only,
@@ -109,8 +111,9 @@ The short version:
 
 Recognized XML file names are fixed in `$validFileNames` in `convert.php`:
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`,
-`Vehicles.xml`. Adding a new data type means touching `convert.php`, the `tabs` constant
-in `SWApp.js`, and usually `items.html` — see the next section for the full list.
+`Vehicles.xml`, `Careers.xml`, `Talents.xml`. Adding a new data type means touching
+`convert.php`, the `tabs` constant in `SWApp.js`, and usually `items.html` — see the next
+section for the full list.
 
 ### Adding a new data type (a new tab)
 
@@ -119,10 +122,17 @@ Species — the most recently added type — is wired end to end.
 
 1. **Importer, only if OggDude's schema differs from the app's.** `Armor`, `Weapons`,
    `ItemAttachments` and `Gear` are copied straight from `oggdudes-data/` into
-   `xml_to_json/xml_sources/oggdude/`. Species and Vehicles are not: OggDude ships them
-   **one file per row** in its own schema, so they need a script that merges and reshapes
-   into a single app-schema XML — `oggdude_species_to_app.py`, `oggdude_vehicles_to_app.py`.
-   The tell is a folder under `oggdudes-data/` rather than a single `.xml`.
+   `xml_to_json/xml_sources/oggdude/`. Species, Vehicles and Careers are not: OggDude
+   ships them **one file per row** in its own schema, so they need a script that merges
+   and reshapes into a single app-schema XML — `oggdude_species_to_app.py`,
+   `oggdude_vehicles_to_app.py`, `oggdude_careers_to_app.py`. A folder under
+   `oggdudes-data/` rather than a single `.xml` is the usual tell, but it is not the only
+   reason to write one: **Talents ships as a single flat file and still has an importer**,
+   because `<ActivationValue>taPassive` would have reached the Type column as a code, and
+   because eight talents use `<Attributes>` for what the talent *grants* while
+   `fetchSource()` reads that tag as a species' *starting stats* — copying the file across
+   would have put a talent's `<WoundThreshold>2` in the Wound Thr. column. Read the
+   importer's docstring before assuming a type can be copied.
 2. **Converter registration** — one line in `VALID_FILE_NAMES` (`convert.py`) *and*
    `$validFileNames` (`convert.php`); the two must stay in sync. The key is the singular
    type name used inside the JSON (`Weapon`, `Vehicle`), the value the plural file name
@@ -146,7 +156,8 @@ Species — the most recently added type — is wired end to end.
    `fulltextFilter`/`arrayFulltextFilter` line — all flat, repetitive lists. Match them.
 
 `verify_convert.py` should grow a section for the new type, the way it checks the species
-schema mapping. `wiki_diff.py` takes one line in `TARGETS` if the wiki has a matching
+schema mapping — there is one check per importer, and each states its invariants in the
+module docstring. `wiki_diff.py` takes one line in `TARGETS` if the wiki has a matching
 category — or several categories in that one line when the wiki splits what the JSON holds
 together, as `vehicles` does across `Category:Vehicles` and `Category:Starships`.
 
@@ -159,29 +170,86 @@ Do not treat those `ng-if`s as dead code to clean up.
 `xml_to_json/README.md` carries the inventory of what else in `oggdudes-data/` could
 become a tab, with volumes and the effort each would take.
 
-### One file, two tabs: the vehicle split
+### One file, two tabs: the vehicle and attachment splits
 
-`Vehicles.json` feeds two tabs. **Vehicles** shows the 171 rows that stay on a planet —
-ground, air and water — and **Starships** the 242 that leave it. The split is a UI concern
-only: one file, one type key, one set of `name == 'Vehicle'` columns, and thumbnails still
-resolve as `data/img/Vehicle<Key>.png`. Splitting the JSON instead would mean a second type
-key and renaming ~400 PNGs.
+Two JSON files each feed two tabs:
 
-The tab entry carries `vehicleClass: 'land'` or `'space'`; `vehicleClassFilter` reads it in
+- `Vehicles.json` → **Vehicles**, the 171 rows that stay on a planet (ground, air and
+  water), and **Starships**, the 242 that leave it.
+- `ItemAttachments.json` → **Attachments**, the 232 that bolt onto a weapon, a suit of
+  armor or a piece of gear, and **Vehicle Attachments**, the 125 that bolt onto a vehicle.
+
+A split is a UI concern only: one file, one type key, one set of `name == 'Vehicle'` /
+`name == 'ItemAttachments'` columns, and thumbnails still resolve as
+`data/img/Vehicle<Key>.png`. Splitting the JSON instead would mean a second type key and,
+for vehicles, renaming ~400 PNGs.
+
+The tab entry carries `vehicleClass: 'land'`/`'space'` or `attachmentClass:
+'item'`/`'vehicle'`; `vehicleClassFilter` and `attachmentClassFilter` read them in
 `fetchSource()`, on the raw rows, *before* the min/max ranges and the dropdown values are
-collected — so each tab's sliders and filters describe only its own half. Tabs with no
-`vehicleClass` are unaffected and keep the whole file.
+collected — so each tab's sliders and filters describe only its own half. Tabs carrying
+neither property are unaffected and keep the whole file.
 
-The rule is two category lists in that filter (`Starship`, `Capital Ship`, `Station`… vs
-`Land Vehicle`, `Walker`, `Watercraft`…), then a `Type` fallback for the 16 rows that carry
-no `<Categories>` at all. Categories matching neither list log
-`Please add a vehicle class mapping for: …`, the same way the descriptor filters do, so new
-data surfaces instead of quietly landing in a tab. **The two halves must stay a partition:**
-`land + space == 413` today, with nothing in both and nothing in neither.
+The vehicle rule is two category lists in that filter (`Starship`, `Capital Ship`,
+`Station`… vs `Land Vehicle`, `Walker`, `Watercraft`…), then a `Type` fallback for the 16
+rows that carry no `<Categories>` at all. The attachment rule is simply `Type == 'Vehicle'`
+against everything else; the four `Mount` rows — saddlebags, riding tack — stay with the
+item attachments on purpose, since a riding animal is a creature and no mount appears in
+`Vehicles.json`. Anything either filter does not recognise logs
+`Please add a … class mapping for: …`, the same way the descriptor filters do, so new data
+surfaces instead of quietly landing in a tab. **Each pair must stay a partition:**
+`land + space == 413` and `item + vehicle == 357` today, with nothing in both and nothing
+in neither.
 
-Since two tabs share the type key, the sidenav id is `'sideNav-' + name + '-' + vehicleClass`
-— `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would toggle each
-other's panel.
+Since two tabs share a type key, the sidenav id is `'sideNav-' + name` with the class
+appended — `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would
+toggle each other's panel.
+
+### Careers and Talents
+
+Both are reference tabs with no artwork and no numeric sliders, so they have no image
+column and take their filter button in the Name header the way Attachments does.
+
+**Careers** is 20 rows: career skills and specializations, each resolved from a key to a
+display name by `oggdude_careers_to_app.py`. The specializations are names only —
+the specialization itself is a 4×5 talent *tree* with directional links between its nodes,
+which is a renderer this app does not have, so listing which ones a career opens is as far
+as it goes. `<Skills><Skill><Name>` is deliberately the species shape, so `fetchSource()`
+unwraps it with no new code, and a non-zero `<Attributes><ForceRating>` reuses the
+`Adversary` Force column. `FreeRanks` is present on eight rows and absent on twelve because
+OggDude only writes it when it differs from the usual four — it is **not** defaulted, and
+the template shows the line only where the source states one.
+
+The tab's two filters are both reuse rather than new machinery:
+
+- **Force** is a `<Categories><Category>Force`, written by the importer for the seven
+  careers with a rating — the same tag talents carry, so the existing Category
+  multi-select picks it up. The rating stays in its own field, where the sortable Force
+  column reads it. `verify_convert.py` asserts the tag and the rating never disagree,
+  since the filter would otherwise select the wrong set.
+- **Career skill** is `arrayFulltextFilter` over the normalised `Skills` array on `Name`,
+  populated into `$scope.careerSkills` — all 35 skills in the game appear. Selecting
+  several is an AND, so `Cool` + `Piloting - Space` gives the three careers with both.
+  Species carry a `Skills` array too, but theirs are starting ranks and the dropdown is
+  labelled for careers, so `collectValues` is gated to `Career`; dropping that gate is
+  all it would take to offer the same filter on Species.
+
+**Talents** is 601 rows out of 604 listings: `FORCEWILL`, `WORKLIKECHARM` and
+`ANALYZEDATA` are each listed twice, and the importer merges them, unioning their
+citations. Left to the converter's first-Key-wins merge, "Force of Will" would have kept
+only its Age of Rebellion citation and vanished whenever that line was switched off.
+`ActivationValue` becomes `Type` ("Passive", "Action", "Maneuver", "Incidental",
+"Incidental (out of turn)"), which reuses the Type column *and* the Type dropdown; the
+`Ranked`, `ForceTalent` and `Conflict` flags become `<Categories>`, which reuses the
+Category multi-select. That is why the `Categories` normalisation block in `fetchSource()`
+is gated on `Vehicle`, `Talent` **or** `Career`: the other types' rows include the
+whitespace-quirk array shape it does not read. All three of those files are written by an
+importer that emits nothing but plain `<Category>` strings, so they are safe.
+
+`items[i].Categories` is assigned even when a row carries none, so it is an array on every
+row of those tabs. `arrayFulltextFilter` reads `.length` on each row, and leaving the field
+`undefined` made picking a category throw — which it did for the 16 vehicles without
+categories before Talents ever existed.
 
 ### The source line menu
 

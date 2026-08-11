@@ -680,6 +680,21 @@
                         </md-select>
                     </div>
                 </md-list-item>
+                <md-list-item ng-if="careerSkills.length">
+                    <h4 layout="row">Career skill</h4>
+
+                    <div layout="column" layout-margin flex>
+                        <md-select ng-model="filters.careerSkill"
+                                   ng-change="filterItems()"
+                                   multiple=""
+                                   aria-label="Career skill">
+                            <md-option ng-repeat="careerSkill in careerSkills"
+                                       ng-value="careerSkill">
+                                {{careerSkill}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </md-list-item>
                 <md-list-item ng-if="ranges.length">
                     <h4 layout="row">Range</h4>
 
@@ -740,7 +755,7 @@
                                 <md-button class="md-primary md-raised"
                                            ng-click="toggleSideNav()" hide-md hide-sm hide-xs hide-gt-lg
                                            style="padding: 0 12px"
-                                           ng-if="name == 'ItemAttachments'"
+                                           ng-if="name == 'ItemAttachments' || name == 'Career' || name == 'Talent'"
                                            aria-label="Show filters">
                                     <md-icon md-font-set="material-icons">search</md-icon>
                                     Filter
@@ -830,7 +845,7 @@
                             </th>
                             <th md-column
                                 md-order-by="Type"
-                                ng-if="name == 'Weapon' || name == 'Gear' || name == 'Adversary' || name == 'ItemAttachments' || name == 'Vehicle'">
+                                ng-if="name == 'Weapon' || name == 'Gear' || name == 'Adversary' || name == 'ItemAttachments' || name == 'Vehicle' || name == 'Talent'">
                                 Type
                             </th>
                             <th md-column
@@ -883,7 +898,7 @@
                             </th>
                             <th md-column
                                 md-order-by="ForceRating"
-                                ng-if="name == 'Adversary'">Force
+                                ng-if="name == 'Adversary' || name == 'Career'">Force
                             </th>
                             <th md-column
                                 ng-if="name == 'Adversary'">Talents
@@ -897,6 +912,12 @@
                             <th md-column
                                 ng-if="name == 'ItemAttachments'">
                                 Limits
+                            </th>
+                            <th md-column
+                                ng-if="name == 'Career'">Career skills
+                            </th>
+                            <th md-column
+                                ng-if="name == 'Career'">Specializations
                             </th>
                         </tr>
                         </thead>
@@ -982,6 +1003,22 @@
                                         <ul>
                                             <li ng-repeat="attachment in item.BuiltInAttachments">{{attachment}}</li>
                                         </ul>
+                                    </div>
+                                </div>
+                                <div class="sw-description" ng-if="name == 'Career'">
+                                    <div ng-if="item.Categories.length">
+                                        <span ng-repeat="category in item.Categories">{{category.Key}}{{$last ? '' : ', '}}</span>
+                                    </div>
+                                    <div ng-if="item.FreeRanks">
+                                        <!-- Only the eight careers that differ from the
+                                             usual four state this, so the line is absent
+                                             rather than defaulted. -->
+                                        <strong>Free career skill ranks:</strong> {{item.FreeRanks}}
+                                    </div>
+                                </div>
+                                <div class="sw-description" ng-if="name == 'Talent'">
+                                    <div ng-if="item.Categories.length">
+                                        <span ng-repeat="category in item.Categories">{{category.Key}}{{$last ? '' : ', '}}</span>
                                     </div>
                                 </div>
                                 <div class="sw-description" ng-if="item.Sources">
@@ -1070,7 +1107,7 @@
                                 <span ng-hide="item.HP > 0">-</span>
                             </td>
                             <td md-cell
-                                ng-if="name == 'Weapon' || name == 'Gear' || name == 'Adversary' || name == 'ItemAttachments' || name == 'Vehicle'">
+                                ng-if="name == 'Weapon' || name == 'Gear' || name == 'Adversary' || name == 'ItemAttachments' || name == 'Vehicle' || name == 'Talent'">
                                 {{item.Type}}
                             </td>
                             <td md-cell ng-if="name == 'Weapon'">{{item.SkillKey}}
@@ -1110,7 +1147,7 @@
                             <td md-cell ng-if="name == 'Adversary' || name == 'Species'">
                                 {{item.Presence}}
                             </td>
-                            <td md-cell ng-if="name == 'Adversary'">
+                            <td md-cell ng-if="name == 'Adversary' || name == 'Career'">
                                 <span ng-show="item.ForceRating > 0">{{item.ForceRating}}</span>
                                 <span ng-hide="item.ForceRating > 0">-</span>
                             </td>
@@ -1163,6 +1200,20 @@
                                     <div ng-if="item.IsCrystal">
                                         <div><strong>Category:</strong> Lightsaber</div>
                                         <div><strong>Category:</strong> Lightsaber Hilt</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td md-cell ng-if="name == 'Career'">
+                                <div class="sw-qualities">
+                                    <div class="no-break" ng-repeat="skill in item.Skills">
+                                        {{skill.Name}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td md-cell ng-if="name == 'Career'">
+                                <div class="sw-qualities">
+                                    <div class="no-break" ng-repeat="specialization in item.Specializations">
+                                        {{specialization}}
                                     </div>
                                 </div>
                             </td>
