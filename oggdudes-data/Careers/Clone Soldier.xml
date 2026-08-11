@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Career>
+  <Key>CLONE</Key>
+  <Name>Clone Soldier</Name>
+  <Description>
+    [H4]Clone Soldier[h4]
+    Please see page 18 of the Rise of the Separatists Sourcebook for details.
+  </Description>
+  <Source Page="18">Rise of the Separatists</Source>
+  <CareerSkills>
+    <Key>ATHL</Key>
+    <Key>BRAWL</Key>
+    <Key>COOL</Key>
+    <Key>DISC</Key>
+    <Key>MED</Key>
+    <Key>RANGLT</Key>
+    <Key>RANGHVY</Key>
+    <Key>VIGIL</Key>
+  </CareerSkills>
+  <Specializations>
+    <Key>CLONEOFF</Key>
+    <Key>CLONEPIL</Key>
+    <Key>CLONETRO</Key>
+  </Specializations>
+</Career>
