@@ -84,6 +84,149 @@ Please see page 98 of the Nexus of Power Sourcebook for details.</Description>
 Please see page 18 of the Savage Spirits Sourcebook for details.</Description>
   </Species>
   <Species>
+    <Key>AQUASUB1</Key>
+    <Name>Aqualish - Aquala</Name>
+    <Source>
+      <Book>Dangerous Covenants</Book>
+      <Page>19</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>2</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>8</StrainThreshold>
+      <Experience>90</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Brawl</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+      <Skill>
+        <Name>Resilience</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Underwater Breathing</Name>
+        <Description>All Aqualish are capable of breathing underwater.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Environmental Conditions</Name>
+        <Description>Aquala may remove [SETBACK] imposed due to any cold or wet conditions.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 20 of the Dangerous Covenants Sourcebook for details.</Description>
+  </Species>
+  <Species>
+    <Key>AQUASUB3</Key>
+    <Name>Aqualish - Quara</Name>
+    <Source>
+      <Book>Dangerous Covenants</Book>
+      <Page>19</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>2</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>8</StrainThreshold>
+      <Experience>90</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Brawl</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices>
+      <Option>
+        <Name>Athletics</Name>
+        <Description>Quara may begin the game with one rank in Athletics.</Description>
+      </Option>
+      <Option>
+        <Name>Coercion</Name>
+        <Description>Quara may begin the game with one rank in Coercion.</Description>
+      </Option>
+    </OptionChoices>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Underwater Breathing</Name>
+        <Description>All Aqualish are capable of breathing underwater.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Environmental Conditions</Name>
+        <Description>Quara may remove [SETBACK] when attempting to track anything through a natural environment.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 20 of the Dangerous Covenants Sourcebook for details.</Description>
+  </Species>
+  <Species>
+    <Key>AQUASUB2</Key>
+    <Name>Aqualish - Ualaq</Name>
+    <Source>
+      <Book>Dangerous Covenants</Book>
+      <Page>19</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>2</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>8</StrainThreshold>
+      <Experience>90</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Brawl</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices>
+      <Option>
+        <Name>Survival</Name>
+        <Description>Ualaq may begin the game with one rank in Survival.</Description>
+      </Option>
+      <Option>
+        <Name>Perception</Name>
+        <Description>Ualaq may begin the game with one rank in Perception.</Description>
+      </Option>
+    </OptionChoices>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Underwater Breathing</Name>
+        <Description>All Aqualish are capable of breathing underwater.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Environmental Conditions</Name>
+        <Description>Ualaq may remove [SETBACK] imposed due to dark conditions, but suffer [SETBACK] to
+Perception checks in brightly lit environments</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 20 of the Dangerous Covenants Sourcebook for details.</Description>
+  </Species>
+  <Species>
     <Key>ARCONA</Key>
     <Name>Arcona</Name>
     <Source>
@@ -701,7 +844,16 @@ Please see page 43 of the Edge of the Empire Core Rulebook, or page 51 of the Ag
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Charm</Name>
+        <Description>Caamasi may begin the game with one rank in Charm.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Discipline</Name>
+        <Description>Caamasi may begin the game with one rank in Discipline.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Memnii</Name>
@@ -781,7 +933,16 @@ use and sharing of memnis from generation to generation.</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Athletics</Name>
+        <Description>Cathar may begin the game with one rank in Athletics.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Stealth</Name>
+        <Description>Cathar may begin the game with one rank in Stealth.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>May use claws when brawling</Name>
@@ -1510,7 +1671,16 @@ Please see page 11 of the Rise of the Separatists Sourcebook for details.</Descr
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Piloting - Planetary</Name>
+        <Description>May begin game with one rank in Piloting - Planetary.</Description>
+      </Option>
+      <Option>
+        <Name>Piloting - Space</Name>
+        <Description>May begin game with one rank in Piloting - Space.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Corellian Human[h4]
 Please see page 93 of the Suns of Fortune Sourcebook for details.</Description>
@@ -1578,7 +1748,16 @@ Please see page 18 of the Disciples of Harmony Sourcebook for details.</Descript
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Coercion</Name>
+        <Description>Dashade may begin the game with one rank in Coercion.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Vigilance</Name>
+        <Description>Dashade may begin the game with one rank in Vigilance.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Force Resistance</Name>
@@ -1739,7 +1918,16 @@ the difficult task of finding a Defel at all).</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Deception</Name>
+        <Description>Devaronian may begin the game with one rank in Deception.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Survival</Name>
+        <Description>Devaronian may begin the game with one rank in Survival.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Resillient Metabolism</Name>
@@ -1832,7 +2020,16 @@ usually do not read Basic, while female Devaronians can read and write Basic.</D
         <RankAdd>1</RankAdd>
       </Skill>
     </Skills>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Average-Sized</Name>
+        <Description>Silhouette 1</Description>
+      </Option>
+      <Option>
+        <Name>Large-Sized</Name>
+        <Description>Silhouette 2</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Immovable</Name>
@@ -1906,7 +2103,16 @@ Please see page 90 of the Suns of Fortune Sourcebook for details.</Description>
         <RankAdd>1</RankAdd>
       </Skill>
     </Skills>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Primitive</Name>
+        <Description>Dressellians must upgrade the difficulty of any checks involving non-Dressellian technology.</Description>
+      </Option>
+      <Option>
+        <Name>Non-Primitive</Name>
+        <Description>Tech-saavy Dressellians do not need to upgrade the difficulty of checks involving non-Dressellian technology.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Dressellian[h4]
 For most of their history, they lived a peaceful and isolated lifestyle on their homeworld, Dressel, until the Galactic Civil War forced them into closer contact with the rest of the galaxy as supporters of the Alliance to Restore the Republic, and later, the New Republic.
@@ -1919,6 +2125,412 @@ The only planet in the Dressel system, Dressel is one of the more idyllic planet
 [P]The planet was originally discovered by the Bothan Askarr clan around two hundred years ago, who decided to leave the Dresselians alone. With many small settlements, the Dresselians were never taken seriously by the rest of the galaxy as they were believed to be a primitive, undeveloped race. Only the Jedi scouts who came to the planet centuries ago saw the great potential in the Dresselians and the Dresselians bestowed great honour upon them. They followed the Jedi into larger galactic affairs and the Dresselians that were later trained to be Jedi were known for their proficiency with the Force.
 [P][B]Language:[b]
 The Dresselian language, Dresselese, has been described by galactic linguists as being somewhat primitive. Due to the fact that they have had a considerable amount of interaction with the Bothans, who initially discovered the Dresselians around 200 years before the Galactic Civil War began, Dresselians speak using many borrowed words from Bothese. Most of the borrowed words are for items which are considered more technologically advanced than those the Dresselians had created themselves.</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB1</Key>
+    <Name>Droid - 2-1B Surgical</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 45 of the Edge of the Empire Core Rulebook, or page 53 of the Age of Rebellion Core Rulebook, for details.</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB2</Key>
+    <Name>Droid - 3P0 Protocol</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 45 of the Edge of the Empire Core Rulebook, or page 53 of the Age of Rebellion Core Rulebook, for details.</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB3</Key>
+    <Name>Droid - IG Assassin</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 45 of the Edge of the Empire Core Rulebook, or page 53 of the Age of Rebellion Core Rulebook, for details.</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB4</Key>
+    <Name>Droid - LE-V0 Law Enforcement</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 45 of the Edge of the Empire Core Rulebook, or page 53 of the Age of Rebellion Core Rulebook, for details.</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB5</Key>
+    <Name>Droid - LOM Protocol</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 45 of the Edge of the Empire Core Rulebook, or page 53 of the Age of Rebellion Core Rulebook, for details.</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB7</Key>
+    <Name>Droid - Other Model</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see "Notable Features" for a description of this type of droid</Description>
+  </Species>
+  <Species>
+    <Key>DROIDSUB6</Key>
+    <Name>Droid - R-Series Astromech</Name>
+    <Sources>
+      <Source>
+        <Book>Edge of the Empire Core Rulebook</Book>
+        <Page>45</Page>
+      </Source>
+      <Source>
+        <Book>Age of Rebellion Core Rulebook</Book>
+        <Page>53</Page>
+      </Source>
+    </Sources>
+    <Characteristics>
+      <Brawn>1</Brawn>
+      <Agility>1</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>1</Cunning>
+      <Willpower>1</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>175</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills/>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Career Skills</Name>
+        <Description>May train in two additional career skills and one additional specialization skills</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Feature</Name>
+        <Description>Droids do not need to eat, sleep, or breath, and are unaffected by vacuum, toxins, and poisons.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Inorganic</Name>
+        <Description>Droids do not gain benefits from bacta, stimpacks, or Medicine checks.  They must be repaired with repair patches and Mechanics checks.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Mechanical Being</Name>
+        <Description>Droids cannot become Force sensitive, cannot acquire a Force Rating or Force powers, and are not affected by mind-altering Force powers.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Cybernetics</Name>
+        <Description>Droids have a cybernetics implant cap of 6.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 45 of the Edge of the Empire Core Rulebook, or page 53 of the Age of Rebellion Core Rulebook, for details.</Description>
   </Species>
   <Species>
     <Key>DUG</Key>
@@ -2167,7 +2779,16 @@ Please see page 18 of the Forged in Battle Sourcebook for details.</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Stealth</Name>
+        <Description>Ewoks may begin the game with one rank in Stealth.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Survival</Name>
+        <Description>Ewoks may begin the game with one rank in Survival.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Heightened Smell</Name>
@@ -2331,7 +2952,16 @@ Falleen is the native language of the Falleen species from the planet Falleen.
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Deception</Name>
+        <Description>Farghul may begin the game with one rank in Deception.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Skulduggery</Name>
+        <Description>Farghul may begin the game with one rank in Skulduggery.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Farghul[h4]
 The Farghul were felinoid sapients indigenous to Farrfin. They had claws, incredible strength and speed, and were covered with tawny fur and possessed prehensile tails.
@@ -2545,7 +3175,16 @@ mostly males it is generally considered that the Gamorreans have no written lang
         <RankAdd>1</RankAdd>
       </Skill>
     </Skills>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Has Lungs</Name>
+        <Description>Requires ammonia respirator</Description>
+      </Option>
+      <Option>
+        <Name>Lungless</Name>
+        <Description>Immune to suffocation</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Gands[h4]
 Please see page 47 of the Edge of the Empire Core Rulebook for details.</Description>
@@ -2572,7 +3211,16 @@ Please see page 47 of the Edge of the Empire Core Rulebook for details.</Descrip
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Coercion</Name>
+        <Description>Ganks may begin the game with one rank in Coercion.</Description>
+      </Option>
+      <Option>
+        <Name>Vigilance</Name>
+        <Description>Ganks may begin the game with one rank in Vigilance.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Cyborg</Name>
@@ -2905,7 +3553,16 @@ cues sensed with head cones.</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One rank in Charm</Name>
+        <Description>Gran may take one rank in Charm</Description>
+      </Option>
+      <Option>
+        <Name>One rank in Negotiation</Name>
+        <Description>Gran may take one rank in Negotiation</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Enhanced Vision</Name>
@@ -3236,7 +3893,16 @@ Please see page 48 of the Edge of the Empire Core Rulebook, page 57 of the Age o
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Coercion</Name>
+        <Description>Hutts may begin the game with one rank in Coercion.</Description>
+      </Option>
+      <Option>
+        <Name>Discipline</Name>
+        <Description>Hutts may begin the game with one rank in Discipline.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Ponderous</Name>
@@ -3591,7 +4257,20 @@ Please see page 57 of the Force and Destiny Core Rulebook for details.</Descript
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Brawl</Name>
+        <Description>Klatooninians may begin the game with one rank in Brawl.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Ranged-Heavy</Name>
+        <Description>Klatooninians may begin the game with one rank in Ranged-Heavy.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Ranged-Light</Name>
+        <Description>Klatooninians may begin the game with one rank in Ranged-Light.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Additional Non-Career Skill</Name>
@@ -3636,7 +4315,16 @@ The Klatooinian language was once the native language of the Klatooinians, the n
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Stealth</Name>
+        <Description>Kubaz may begin the game with one rank in Stealth.</Description>
+      </Option>
+      <Option>
+        <Name>Survival</Name>
+        <Description>Kubaz may begin the game with one rank in Survival.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Enhanced Vision</Name>
@@ -3757,7 +4445,16 @@ Please see page 20 of the Keeping the Peace sourcebook, or page 23 of the Lead b
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Athletics</Name>
+        <Description>Lepi may begin the game with one free rank in Athletics.</Description>
+      </Option>
+      <Option>
+        <Name>Perception</Name>
+        <Description>Lepi may begin the game with one free rank in Perception.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Lepi[h4]
 The Lepus carnivorus, more commonly known as Lepi, are a species of sentient rabbit, ranging in color from green to dark blue. Their most distinctive features are long ears and feet and buck teeth. Native to the planet Coachelle Prime, their high reproductive rate forced them to colonize the entire star system to avoid overcrowding. The Lepus carnivorus are typically gregarious individuals, although prone to bursts of anger if their family or species are insulted. Lepi are constantly in motion and are known for their speed.
@@ -3798,7 +4495,16 @@ The native language, both written and oral, of the Lepi is Lepese, or Lepp. Howe
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Combat Skill</Name>
+        <Description>Mandalorian Humans start the game with one rank in a combat skill of their choice.</Description>
+      </Option>
+      <Option>
+        <Name>Knowledge Skills</Name>
+        <Description>Mandalorian Humans start the game with one rank in two knowledge skills of their choice.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Mandalorian Human[h4]
 Please see page 7 of the Friends Like These Adventure Module for details.</Description>
@@ -3971,6 +4677,88 @@ Dac, as it is called in Mon Calamarian, Quarrenese, and Basic, also known as Mon
 The Mon Calamari language is shared with the Quarren though many members of the species adopted Basic as their common tongue. In fact, they are able to speak both of these languages with ease though in the case of Basic, their vocal cords often produce a gurgling sound when they speak in that tongue.</Description>
   </Species>
   <Species>
+    <Key>MUSTAFARIANSUB1</Key>
+    <Name>Mustafarian - Northern Mustafarian</Name>
+    <Source>
+      <Book>Special Modifications</Book>
+      <Page>24</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>2</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Eye for Detail</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills>
+      <Skill>
+        <Name>Brawl</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Arid/Hot Environments</Name>
+        <Description>Northern Mustafarians may remove [SETBACK][SETBACK] to resist arid or hot environmental conditions.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 26 of the Special Modifications Sourcebook for details.</Description>
+  </Species>
+  <Species>
+    <Key>MUSTAFARIANSUB2</Key>
+    <Name>Mustafarian - Southern Mustafarian</Name>
+    <Source>
+      <Book>Special Modifications</Book>
+      <Page>24</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>2</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Enduring</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills>
+      <Skill>
+        <Name>Brawl</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Arid/Hot Environments</Name>
+        <Description>Southern Mustafarians may remove [SETBACK][SETBACK] to resist arid or hot environmental conditions.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Please see page 26 of the Special Modifications Sourcebook for details.</Description>
+  </Species>
+  <Species>
     <Key>MUUN</Key>
     <Name>Muun</Name>
     <Source>
@@ -4037,7 +4825,16 @@ Please see page 20 of the Endless Vigil Sourcebook for details.</Description>
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Charm</Name>
+        <Description>Nagai may begin the game with one free rank in Charm.</Description>
+      </Option>
+      <Option>
+        <Name>Coordination</Name>
+        <Description>Nagai may begin the game with one free rank in Coordination</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Nagai[h4]
 The Nagai, (pronounced /nɑ'gɑ.i/) also called the N'Gai and the Knives, are a species from the satellite galaxy Firefist who invaded the wider galaxy in 4 ABY.
@@ -4123,7 +4920,16 @@ Like their sense of smell, Nautolan language is also maximized for use underwate
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Negotiation</Name>
+        <Description>Neimoidians may begin the game with one free rank in Negotiation.</Description>
+      </Option>
+      <Option>
+        <Name>Deception</Name>
+        <Description>Neimoidians may begin the game with one free rank in Deception.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Neimoidian[h4]
 Neimoidians are a species of humanoids that are distant genetic relatives of Duros. They are native to the planet of Neimoidia and also live on colony worlds in the same sector like Cato Neimoidia, Deko Neimoidia, and Koru Neimoidia. They have a reputation for greed and cowardice. Neimoidians place tremendous value on wealth and material possessions, and will go to great lengths to gain money and power; however, they are very easily intimidated, and hated combat. They are famous for running the Trade Federation, a massive corporate entity.
@@ -4143,6 +4949,190 @@ Neimoidians spend their formative years as puny grubs in the communal hives of N
 Neimoidia, also called Pure Neimoidia to avoid confusion with the Neimoidian purse worlds, is a planet in the Colonies region that the Duros from Duro colonized sometime around 25,000 BBY, bringing it into the Galactic Republic.
 [P][B]Language:[b]
 Pak Pak, also known as Neimoidian, is the main language spoken/conveyed by the Neimoidians. Pak Pak is both a verbal and nonverbal way of Neimoidian communication.</Description>
+  </Species>
+  <Species>
+    <Key>NIKTOCH1OP3</Key>
+    <Name>Nikto - Esral'sa'Nikto (Mountain Nikto)</Name>
+    <Source>
+      <Book>Lords of Nal Hutta</Book>
+      <Page>96</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Natural Outdoorsman</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills>
+      <Skill>
+        <Name>Survival</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities/>
+    <Description>Esral'sa'Nikto, or "Mountain Nikto", adapted to the variable climate of the mountains of Kintan. They have large facial fins which are used for heat regulation. These fins also improve the Esral'sa'Nikto's hearing. Their skin is blue-gray, and they have neither horns nor breathing tubes.</Description>
+  </Species>
+  <Species>
+    <Key>NIKTOCH1OP4</Key>
+    <Name>Nikto - Gluss'sa'Nikto (Pale Nikto)</Name>
+    <Source>
+      <Book>Lords of Nal Hutta</Book>
+      <Page>96</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Swimmer</Name>
+        <Description>A Pale Nikto never suffers movement penalties for traveling through water and can hold his breath for a number of rounds equal to twice his Brawn rating before beginning to drown.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Gluss'sa'Nikto, or "Pale Nikto", came from the Gluss'elta Islands of Kintan, causing them to be natural sailors. They have white-gray skin, eye-horns like the Kadas'sa'Nikto, and fins similar to those of the Esral'sa'Nikto, but smaller.</Description>
+  </Species>
+  <Species>
+    <Key>NIKTOCH1OP2</Key>
+    <Name>Nikto - Kadas'sa'Nikto (Green Nikto)</Name>
+    <Source>
+      <Book>Lords of Nal Hutta</Book>
+      <Page>96</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Coordination</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>May use claws when brawling</Name>
+        <Description>When a Green Nikto makes Brawl checks to deal damage to an opponent, he deals +1 damage and has a Critical Rating of 3.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Climbing</Name>
+        <Description>Green Nikto gain [BOOST] to Athletics checks made to climb trees and other surfaces their claws can pierce.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>Kadas'sa'Nikto, or "Green Nikto," originated in the milder climatic regions of Kintan, such as the forests and the seacoasts. Their scaly faces have small facial horns surrounding the eyes and on the chin. Their main distinguishing features are the long climbing claws on their hands, which can also be used in combat.</Description>
+  </Species>
+  <Species>
+    <Key>NIKTOCH1OP1</Key>
+    <Name>Nikto - Kajain'sa'Nikto (Red Nikto)</Name>
+    <Source>
+      <Book>Lords of Nal Hutta</Book>
+      <Page>96</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Resilience</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Arid/Hot Environments</Name>
+        <Description>Red Niktos may remove [SETBACK] imposed due to arid or hot enviromental conditions.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>The most common subspecies, the Kajain'sa'Nikto or "Red Nikto", adapted to survive in the Wannschok, or "Endless Wastes", a desert region on Kintan. They have a series of forehead ridges and small facial horns surrounding their eyes and on the chin.</Description>
+  </Species>
+  <Species>
+    <Key>NIKTOCH1OP5</Key>
+    <Name>Nikto - M'shento'su'Nikto (Southern Nikto)</Name>
+    <Source>
+      <Book>Lords of Nal Hutta</Book>
+      <Page>96</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>1</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Perception</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Sounds</Name>
+        <Description>Southern Nikto may add [BOOST] to Perception and Vigilance checks to detect sounds.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>M'shento'su'Nikto, or "Southern Nikto", have no horns, a covered nose, and several pairs of breathing tubes. These tubes are larger than those of the Kajain'sa'Nikto, and also act as primitive ultrasonic sensory organs. Their skin color varies from white to yellow or orange.</Description>
   </Species>
   <Species>
     <Key>NOGHRI</Key>
@@ -4291,7 +5281,16 @@ Ortolan is the native language of the Ortolan species from planet Orto. Most Ort
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Cool</Name>
+        <Description>Pantorans may begin the game with one rank in Cool.</Description>
+      </Option>
+      <Option>
+        <Name>Negotiation</Name>
+        <Description>Pantorans may begin the game with one rank in Negotiation.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Tundra Dweller</Name>
@@ -4323,7 +5322,16 @@ Please see page 22 of the Endless Vigil Sourcebook for details.</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Coercion</Name>
+        <Description>Pau'ans may begin the game with one free rank in Coercion.</Description>
+      </Option>
+      <Option>
+        <Name>Negotiation</Name>
+        <Description>Pau'an may begin the game with one free rank in Negotiation.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Sensitive Hearing</Name>
@@ -4366,7 +5374,16 @@ Utapese is the language of the Pau'ans on the planet Utapau. Most Pau'ans speak 
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Cool</Name>
+        <Description>Phydolons may begin the game with one rank in Cool.</Description>
+      </Option>
+      <Option>
+        <Name>Discipline</Name>
+        <Description>Phydolons may begin the game with one rank in Discipline.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Symbiotic Resilience</Name>
@@ -4407,7 +5424,16 @@ Please see page 21 of the Knights of Fate Sourcebook for details.</Description>
         <RankAdd>0</RankAdd>
       </Skill>
     </Skills>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>No Vocal Chords</Name>
+        <Description>A vast majority of Polis Massans are born without vocal chords.</Description>
+      </Option>
+      <Option>
+        <Name>Posesses Vocal Chords</Name>
+        <Description>A small minority of Polis Massans do possess vocal chords.  Referred to as "speakers" by their people, these rare individuals can physically speak languages, though their voices are soft and strangely resonant.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Telepathy</Name>
@@ -4579,7 +5605,18 @@ Please see page 49 of the Edge of the Empire Core Rulebook for details.</Descrip
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Deception</Name>
+        <Description>Ryn may begin the game with one
+free rank in Deception.</Description>
+      </Option>
+      <Option>
+        <Name>Streetwise</Name>
+        <Description>Ryn may begin the game with one
+free rank in Streetwise.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Prehensile Tail</Name>
@@ -4628,7 +5665,16 @@ Since childhood, Ryns are taught both the Ryn language and Basic, to get more ea
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Perception</Name>
+        <Description>Sakiyans may begin the game with one rank in Perception.</Description>
+      </Option>
+      <Option>
+        <Name>Vigilance</Name>
+        <Description>Sakiyans may begin the game with one rank in Vigilance.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Sakiyan[h4]
 Please see page 98 of the Lords of Nal Hutta Sourcebook for details.</Description>
@@ -4696,7 +5742,18 @@ Please see page 15 of the Chronicles of the Gatekeeper adventure module for deta
       </Talent>
     </Talents>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Medicine</Name>
+        <Description>Selkaths may begin the game with
+one free rank in Medicine.</Description>
+      </Option>
+      <Option>
+        <Name>Negotiation</Name>
+        <Description>Selkaths begin the game with
+one free rank in Negotiation.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Amphibious:</Name>
@@ -4777,7 +5834,16 @@ Please see page 91 of the Suns of Fortune Sourcebook for details.</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Brawl</Name>
+        <Description>Shistavanens may begin the game with one rank in Brawl.</Description>
+      </Option>
+      <Option>
+        <Name>Survival</Name>
+        <Description>Shistavanens may begin the game with one rank in Survival.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Hunter's Instincts</Name>
@@ -4868,7 +5934,16 @@ Please see page 21 of the Fully Operational Sourcebook for details.</Description
         <RankAdd>0</RankAdd>
       </Skill>
     </Skills>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Gearhead</Name>
+        <Description>Sluissi may begin play with one rank in Gearhead.</Description>
+      </Option>
+      <Option>
+        <Name>Solid Repairs</Name>
+        <Description>Sluissi may begin play with one rank in Solid Repairs.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Practiced Mechanic</Name>
@@ -4908,7 +5983,16 @@ Sluissese is the native language of the Sluissi species from Sluis Van. Most Slu
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Charm</Name>
+        <Description>Snivvian may begin the game with one free rank in Charm.</Description>
+      </Option>
+      <Option>
+        <Name>Perception</Name>
+        <Description>Snivvian may begin the game with one free rank in Perception.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Cold Resistance</Name>
@@ -5423,7 +6507,16 @@ Please see page 50 of the Edge of the Empire Core Rulebook for details.</Descrip
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Charm</Name>
+        <Description>Twi'leks may begin the game with one rank in Charm.</Description>
+      </Option>
+      <Option>
+        <Name>Deception</Name>
+        <Description>Twi'leks may begin the game with one rank in Deception.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Arid/Hot Environments</Name>
@@ -5454,7 +6547,16 @@ Please see page 51 of the Edge of the Empire Core Rulebook, or page 61 of the Fo
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Perception</Name>
+        <Description>Ubese may begin the game with one free rank in Perception.</Description>
+      </Option>
+      <Option>
+        <Name>Survival</Name>
+        <Description>Ubese may begin the game with one free rank in Survival</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities/>
     <Description>[H4]Ubese[h4]
 To most inhabitants of the galaxy, members of the enigmatic Ubese, or Ubesian, species are generally known as mysterious wanderers and nomadic savages. Their xenophobic nature makes them ideally suited for professions such as mercenaries or bounty hunters. Normally, they are a very aggressive people, though loyal to one another. The Ubese homeworld is little known to the rest of the galaxy, as they tended to be very secretive, associating only within their own circles.
@@ -5492,7 +6594,16 @@ Ubese is the native language of the Ubese, a species of Near-Humans that hail fr
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>Mechanics</Name>
+        <Description>Ugnaughts may begin the game with one free rank in Mechanics.</Description>
+      </Option>
+      <Option>
+        <Name>Negotiation</Name>
+        <Description>Ugnaughts may begin the game with one free rank in Negotiation.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Exceptionally Hardy</Name>
@@ -5677,7 +6788,16 @@ Please see page 22 of the Unlimited Power Sourcebook for details.</Description>
     </Attributes>
     <Talents/>
     <Skills/>
-    <OptionChoices/>
+    <OptionChoices>
+      <Option>
+        <Name>One Rank in Resilience</Name>
+        <Description>Weequay may begin the game with one rank in Resilience.</Description>
+      </Option>
+      <Option>
+        <Name>One Rank in Athletics</Name>
+        <Description>Weequay may begin the game with one rank in Athletics.</Description>
+      </Option>
+    </OptionChoices>
     <SpecialAbilities>
       <SpecialAbility>
         <Name>Communicative Pheromones</Name>

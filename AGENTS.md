@@ -59,18 +59,17 @@ xml_to_json/xml_sources/<set>/ One folder per data source, each holding the XML 
 ### Data flow
 
 1. OggDude Character Generator XML files are dropped into a folder under
-   `xml_to_json/xml_sources/` (one folder per data set — `oggdude`,
-   `parsed_by_dutzen`, `species_from_oggdude`, or any custom name).
+   `xml_to_json/xml_sources/` (one folder per data set — currently just
+   `oggdude`; any folder name works).
 2. `xml_to_json/convert.php` globs `xml_sources/*/<FileName>.xml`, merges all sources,
    de-duplicates by the item's `Key`, attaches a `Thumbnail` path (falling back to
    `img/no_image.png` when no matching PNG exists) and writes `data/json/<Name>.json`.
    The JSON is shaped `{ "<TypeKey>": [ ...items ] }`.
    **Precedence follows the alphabetical glob order and the first `Key` wins**, so a
-   folder that sorts earlier overrides later ones. That is why `species_from_oggdude`
-   is named to sort after `parsed_by_dutzen`: it can only ever fill gaps.
-   Two exceptions: an entry sourced *only* from a book in `$deprioritisedBooks`
-   (the Unofficial Species Menagerie) always loses to one with an official book,
-   and Species are sorted by `Name` before writing.
+   folder that sorts earlier overrides later ones. Two exceptions: an entry sourced
+   *only* from a book in `$deprioritisedBooks` (the Unofficial Species Menagerie)
+   always loses to one with an official book, and Species are sorted by `Name`
+   before writing.
 3. `index.html` declares one `<div item-list>` per tab, passing `source-name` (the type
    key inside the JSON) and `source-url` (the JSON file).
 4. The `itemList` directive's controller `$http.get`s that JSON, normalizes every item,

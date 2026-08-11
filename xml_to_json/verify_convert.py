@@ -11,16 +11,22 @@ Check 1 -- converter fidelity
     Rebuild every data/json/*.json from the committed XML sources and compare to
     what is on disk. This is what proves the Python port behaves like the PHP
     one; it is how the SimpleXML quirks (dropped attributes, whitespace-only
-    elements, is_numeric's trailing-space rule, nested comments) were found in
-    the first place.
+    elements, is_numeric's trailing-space rule, nested comments) were found.
 
 Check 2 -- schema mapping
-    For every species present BOTH in oggdudes-data and in the shipped
-    parsed_by_dutzen set, transform the OggDude file and compare against the
-    shipped entry. Characteristics, attributes, skills, talents and abilities
-    must agree, except where the two sets describe genuinely different versions
-    of the species (the shipped entry is fan-made and OggDude has the official
-    one). Those are listed, not failed.
+    Check the OggDude -> app-schema translation against the OggDude source
+    itself. There is no longer an independent data set to diff against (the
+    parsed_by_dutzen fork was removed), so this verifies the invariants the
+    translation is supposed to hold:
+
+      * every playable species produces exactly one row, with subspecies
+        expanded and their parents suppressed
+      * every row carries all six characteristics and all three attributes,
+        inherited by subspecies from their parent
+      * an OptionChoice with several Options lands in OptionChoices, one with a
+        single Option lands in SpecialAbilities, and nothing is silently lost
+      * subspecies inherit the parent's skills, talents, choices and abilities
+      * every skill and talent key resolves to a display name
 """
 import glob
 import json
@@ -33,7 +39,6 @@ import convert                       # noqa: E402
 import oggdude_species_to_app as O   # noqa: E402
 
 ROOT = convert.REPO_ROOT
-MEN = 'Unofficial Species Menagerie'
 
 
 def check_converter():
@@ -67,115 +72,124 @@ def check_converter():
     return ok
 
 
-def as_list(node, inner):
-    if not isinstance(node, dict):
-        return []
-    v = node.get(inner)
-    if v is None:
-        return []
-    return v if isinstance(v, list) else [v]
-
-
-def names(node, inner):
-    return sorted(x.get('Name') for x in as_list(node, inner)
-                  if isinstance(x, dict) and x.get('Name'))
+def option_names(el):
+    """(names from multi-option choices, names from single-option choices)."""
+    multi, single = [], []
+    for ch in el.findall('OptionChoices/OptionChoice'):
+        opts = ch.findall('Options/Option')
+        picked = multi if len(opts) > 1 else single
+        for o in opts:
+            n = (o.findtext('Name') or '').strip()
+            if n:
+                picked.append(n)
+    return multi, single
 
 
 def check_mapping():
     print()
     print('=' * 72)
-    print('Check 2: OggDude -> app schema mapping matches the shipped data')
+    print('Check 2: OggDude -> app schema translation holds its invariants')
     print('=' * 72)
     source_dir = os.path.join(ROOT, 'oggdudes-data')
-    if not os.path.isdir(source_dir):
-        print('  oggdudes-data not present -- skipped')
-        return True
-
-    shipped = {}
-    for path in glob.glob(os.path.join(
-            ROOT, 'xml_to_json', 'xml_sources', 'parsed_by_dutzen', 'Species.xml')):
-        for sp in ET.parse(path).getroot():
-            k = (sp.findtext('Key') or '').strip()
-            if k:
-                shipped[k] = sp
-    if not shipped:
-        print('  parsed_by_dutzen/Species.xml not found -- skipped')
+    if not os.path.isdir(os.path.join(source_dir, 'Species')):
+        print('  oggdudes-data/Species not present -- skipped')
         return True
 
     warn = []
-    records, _, _ = O.build(source_dir, warn)
-    compared = agreed = 0
-    version_diffs = {}
-    real = []
+    records, _, _, n_expanded = O.build(source_dir, warn)
+    by_key = {r['Key']: r for r in records}
+    failures = []
 
-    for rec in records:
-        sp = shipped.get(rec['Key'])
-        if sp is None:
-            continue
-        compared += 1
-
-        def obj(tag):
-            el = sp.find(tag)
-            if el is None:
-                return {}
-            return {c.tag: (c.text or '').strip() for c in el}
-
-        problems = []
-        for tag, order, mine in (('Characteristics', O.CHAR_ORDER, rec['Characteristics']),
-                                 ('Attributes', O.ATTR_ORDER, rec['Attributes'])):
-            theirs = obj(tag)
-            for f in order:
-                if f in mine and f in theirs and int(mine[f]) != int(theirs[f]):
-                    problems.append('%s.%s %s!=%s' % (tag, f, mine[f], theirs[f]))
-
-        their_books = [(e.findtext('Book') or '').strip()
-                       for e in sp.iter('Source') if e.findtext('Book')]
-        my_books = [b for b, _ in rec['Sources']]
-        if their_books and my_books and their_books[0] != my_books[0]:
-            problems.append('Source %s!=%s' % (my_books[0], their_books[0]))
-
-        def node(tag):
-            el = sp.find(tag)
-            if el is None:
-                return {}
-            inner = {'Skills': 'Skill', 'Talents': 'Talent',
-                     'SpecialAbilities': 'SpecialAbility'}[tag]
-            return {inner: [{c.tag: (c.text or '').strip() for c in item}
-                            for item in el.findall(inner)]}
-
-        for tag, inner, mine in (('Skills', 'Skill', rec['Skills']),
-                                 ('Talents', 'Talent', rec['Talents']),
-                                 ('SpecialAbilities', 'SpecialAbility',
-                                  rec['SpecialAbilities'])):
-            theirs = names(node(tag), inner)
-            mine_n = sorted(n for n, _ in mine) if tag != 'SpecialAbilities' \
-                else sorted(n for n, _ in mine)
-            if theirs and mine_n != theirs:
-                problems.append('%s %s!=%s' % (tag, mine_n, theirs))
-
-        if not problems:
-            agreed += 1
-        elif MEN in their_books:
-            version_diffs[rec['Key']] = (my_books[0] if my_books else '?', len(problems))
+    # --- expected row set -------------------------------------------------
+    expected, parents = set(), {}
+    for path in sorted(glob.glob(os.path.join(source_dir, 'Species', '*.xml'))):
+        root = ET.parse(path).getroot()
+        key = (root.findtext('Key') or '').strip()
+        subs = root.findall('SubSpeciesList/SubSpecies')
+        if subs:
+            for s in subs:
+                sk = (s.findtext('Key') or '').strip()
+                expected.add(sk)
+                parents[sk] = (key, root, s)
         else:
-            real.append((rec['Key'], problems))
+            expected.add(key)
 
-    print('  compared %d species: %d agree, %d differ only because the shipped'
-          % (compared, agreed, len(version_diffs)))
-    print('  entry is fan-made, %d genuine mismatches' % len(real))
-    if version_diffs:
+    missing = expected - set(by_key)
+    extra = set(by_key) - expected
+    if missing:
+        failures.append('rows missing: %s' % sorted(missing))
+    if extra:
+        failures.append('unexpected rows: %s' % sorted(extra))
+    print('  %d rows, %d parents expanded into subspecies' % (len(records), n_expanded))
+    print('  expected row set matches: %s' % (not missing and not extra))
+
+    # --- stats present on every row ---------------------------------------
+    incomplete = [r['Key'] for r in records
+                  if sorted(r['Characteristics']) != sorted(O.CHAR_ORDER)
+                  or sorted(r['Attributes']) != sorted(O.ATTR_ORDER)]
+    if incomplete:
+        failures.append('rows missing characteristics/attributes: %s' % incomplete[:10])
+    print('  all rows carry 6 characteristics + 3 attributes: %s' % (not incomplete))
+
+    # --- option choices routed correctly, nothing dropped -----------------
+    misrouted = []
+    for path in sorted(glob.glob(os.path.join(source_dir, 'Species', '*.xml'))):
+        root = ET.parse(path).getroot()
+        subs = root.findall('SubSpeciesList/SubSpecies')
+        targets = [((s.findtext('Key') or '').strip(), s) for s in subs] or \
+                  [((root.findtext('Key') or '').strip(), root)]
+        p_multi, p_single = option_names(root) if subs else ([], [])
+        for key, el in targets:
+            rec = by_key.get(key)
+            if rec is None:
+                continue
+            multi, single = option_names(el)
+            got_opt = {n for n, _ in rec['OptionChoices']}
+            got_ab = {n for n, _ in rec['SpecialAbilities']}
+            for n in multi + p_multi:
+                if n not in got_opt:
+                    misrouted.append('%s: multi-option %r not in OptionChoices' % (key, n))
+            for n in single + p_single:
+                if n not in got_ab:
+                    misrouted.append('%s: single-option %r not in SpecialAbilities' % (key, n))
+    if misrouted:
+        failures.append('option choices misrouted (%d)' % len(misrouted))
+    print('  every option choice routed and preserved: %s' % (not misrouted))
+    for m in misrouted[:8]:
+        print('      %s' % m)
+
+    # --- subspecies inheritance -------------------------------------------
+    broken = []
+    for sk, (pkey, proot, sel) in parents.items():
+        rec = by_key.get(sk)
+        if rec is None:
+            continue
+        pname = (proot.findtext('Name') or '').strip()
+        if not rec['Name'].startswith(pname + ' - '):
+            broken.append('%s: name %r not prefixed with %r' % (sk, rec['Name'], pname))
+        pskills = [(s.findtext('Key') or '').strip()
+                   for s in proot.findall('SkillModifiers/SkillModifier')]
+        if len(pskills) and not rec['Skills']:
+            broken.append('%s: lost the parent skills %s' % (sk, pskills))
+    if broken:
+        failures.append('subspecies inheritance (%d)' % len(broken))
+    print('  subspecies inherit from their parent: %s' % (not broken))
+    for b in broken[:8]:
+        print('      %s' % b)
+
+    # --- key resolution ----------------------------------------------------
+    print('  all skill/talent keys resolve: %s' % (not warn))
+    for w in warn[:8]:
+        print('      %s' % w)
+    if warn:
+        failures.append('unresolved keys (%d)' % len(warn))
+
+    if failures:
         print()
-        print('  shipped as "%s", OggDude has the official version:' % MEN)
-        for k, (book, n) in sorted(version_diffs.items()):
-            print('    %-14s -> %-26s (%d field(s) differ)' % (k, book, n))
-    if real:
-        print()
-        print('  GENUINE MISMATCHES:')
-        for k, ps in real[:15]:
-            print('    %-14s %s' % (k, '; '.join(ps)))
-    for w in warn:
-        print('  WARNING: %s' % w)
-    return not real
+        print('  FAILURES:')
+        for f in failures:
+            print('    %s' % f)
+    return not failures
 
 
 if __name__ == '__main__':

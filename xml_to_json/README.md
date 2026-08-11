@@ -14,6 +14,11 @@ xml_to_json/xml_sources/<set>/*.xml       <- app-schema XML, one folder per set
 data/json/*.json                          <- what index.html actually loads
 ```
 
+`Armor.xml`, `Weapons.xml`, `ItemAttachments.xml` and `Gear.xml` are already in
+the app's schema and are copied straight into `xml_sources/oggdude/`. **Species
+are the exception** — OggDude ships them one file per species in a different
+schema, so they have to go through `oggdude_species_to_app.py` first.
+
 Both the XML sources and the generated JSON are committed. A data change is
 expected to include the regenerated JSON in the same commit.
 
@@ -46,14 +51,14 @@ triggered over HTTP if you are running Apache or nginx.
 in alphabetical order**, and:
 
 1. **First occurrence of a `Key` wins.** A folder sorting earlier overrides later
-   ones. `parsed_by_dutzen` beats `species_from_oggdude` — which is exactly why
-   the latter is named the way it is: it can only fill gaps.
+   ones. There is currently only one folder, `oggdude`, so nothing collides —
+   but this is what to reason about when adding a second.
 2. **…except that fan-made data always loses.** An entry whose every source book
    is in `$deprioritisedBooks` / `DEPRIORITISED_BOOKS` (currently just
    *Unofficial Species Menagerie*) is replaced by any entry carrying an official
-   book, whatever the folder order. This is how Arkanian, Bith, Kubaz and Pau'an
-   ended up on their official stats while the other 27 Menagerie-only species
-   stayed.
+   book, whatever the folder order. 27 species are Menagerie-only and have no
+   official version, so they stay; the app hides them by default via
+   `defaultDisabledSources` in `SWApp.js`.
 3. **Species are sorted by `Name`** before writing (`$sortByName` / `SORT_BY_NAME`),
    so the committed JSON has a stable diff. Other types keep source order.
 4. Recognised file names are fixed in `$validFileNames`: `Armor.xml`,
@@ -75,9 +80,10 @@ cp oggdudes-data/SpeciesImages/VURK.png data/img/SpeciesVURK.png
 
 `convert.php` is a *mechanical* XML→JSON conversion. It never reshapes anything.
 So a source file must already be in the schema the app reads — the one
-`parsed_by_dutzen/Species.xml` uses. That is **not** the schema OggDude ships:
+`xml_sources/oggdude/Species.xml` uses, and which `items.html` binds against.
+That is **not** the schema OggDude ships:
 
-| app schema (`parsed_by_dutzen`) | raw OggDude (`oggdudes-data/Species/*.xml`) |
+| app schema (`xml_sources/oggdude/Species.xml`) | raw OggDude (`oggdudes-data/Species/*.xml`) |
 | --- | --- |
 | `<Source><Book/><Page/></Source>` | `<Source Page="98">Nexus of Power</Source>` |
 | `<Characteristics>` | `<StartingChars>` |
@@ -94,17 +100,24 @@ derived by diffing against the already-shipped data:
   `{{skill.Name}}`, so an unresolved key shows up as literal `COORD`.
 - `RankStart` → `RankAdd`. `RankLimit` is the career cap; the app schema has no
   place for it.
-- **An `<OptionChoice>` with several `<Option>`s is dropped.** It is a
-  character-creation pick ("one rank in Athletics *or* Stealth", "Gearhead *or*
-  Solid Repairs"), not an innate trait. Only single-option choices become
-  `SpecialAbilities`. Treating them all as abilities pollutes 20 species with
-  entries like "One Rank in Stealth".
-- Aqualish, Droid, Mustafarian and Nikto are **skipped**: they ship as
-  individual subspecies rows (`AQUASUB1`, `DROIDSUB1`…), so the parent would
-  duplicate them.
+- **Option choices are routed by how many options they offer.** An
+  `<OptionChoice>` with *several* `<Option>`s is a character-creation pick ("one
+  rank in Athletics *or* Stealth") and becomes `<OptionChoices><Option>`, which
+  `items.html` renders under *"Choose one option:"*. An `<OptionChoice>` with a
+  *single* `<Option>` is an innate trait and becomes a `<SpecialAbility>`.
+  35 species have option choices and 71 options depend on this; routing them all
+  into `SpecialAbilities` invents traits like "One Rank in Stealth", and dropping
+  them loses real data.
+- **`<SubSpeciesList>` is expanded into one row per subspecies**, keeping
+  OggDude's keys (`AQUASUB1`, `DROIDSUB1`, `NIKTOCH1OP1`…) so existing artwork
+  still matches. A subspecies **inherits** the parent's source, characteristics,
+  attributes, skills, talents, option choices and special abilities, then adds
+  its own; its name is prefixed with the parent's ("Aqualish - Aquala"). The
+  parent is *not* emitted when it has subspecies — you cannot play a generic
+  Aqualish. This affects Aqualish (3), Droid (7), Mustafarian (2) and Nikto (5).
 - Dropped for want of anywhere to put it: `DieModifiers`,
   `StartingSkillTraining`, per-option `SkillModifiers`/`TalentModifiers`,
-  `EncumbranceBonus`.
+  `WeaponModifiers`, `EncumbranceBonus`.
 
 ---
 

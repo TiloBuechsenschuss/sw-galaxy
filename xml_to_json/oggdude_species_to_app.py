@@ -8,7 +8,7 @@ Convert OggDude's per-species XML into the schema this app reads.
 Reads  <source>/Species/*.xml        (one file per species, OggDude's own format)
        <source>/Skills.xml           (Key -> display name)
        <source>/Talents.xml          (Key -> display name)
-Writes xml_to_json/xml_sources/species_from_oggdude/Species.xml
+Writes xml_to_json/xml_sources/oggdude/Species.xml   (override with --out)
 
 Then run convert.py (or convert.php) to regenerate data/json/Species.json.
 
@@ -16,7 +16,7 @@ Why this exists
 ---------------
 convert.php does a mechanical XML->JSON conversion; it never reshapes anything.
 So a source file has to ALREADY be in the schema the app reads -- the one
-parsed_by_dutzen/Species.xml uses -- which is not the schema OggDude ships:
+items.html binds against -- which is not the schema OggDude ships:
 
     app schema                        OggDude
     <Source><Book/><Page/></Source>   <Source Page="98">Nexus of Power</Source>
@@ -29,24 +29,33 @@ parsed_by_dutzen/Species.xml uses -- which is not the schema OggDude ships:
 Skill and talent KEYS must be resolved to display names, because the template
 renders {{skill.Name}} and would otherwise show "COORD".
 
-Mapping rules, each verified against the 95 species that appear both here and in
-the already-shipped parsed_by_dutzen data (see verify_convert.py):
+Mapping rules. These were originally derived by diffing against an independent,
+hand-curated data set that has since been retired; verify_convert.py now checks
+them as invariants against the OggDude source itself:
 
 * RankStart -> RankAdd. RankLimit is the career cap and has no home in the app
   schema, so it is dropped.
-* An <OptionChoice> offering SEVERAL <Option>s is a character-creation pick
-  ("one rank in Athletics OR Stealth", "Gearhead OR Solid Repairs"), not an
-  innate trait, and is dropped. Only single-option choices become
-  SpecialAbilities. This reproduces the shipped data for 70 of the 71
-  overlapping species that have abilities.
-* Species whose subspecies are already shipped as separate rows (Aqualish,
-  Droid, Mustafarian, Nikto) are skipped, so the parent does not duplicate them.
+* An <OptionChoice> with SEVERAL <Option>s is a character-creation pick ("one
+  rank in Athletics OR Stealth") and becomes <OptionChoices><Option>, which
+  items.html renders under "Choose one option:". An <OptionChoice> with a
+  SINGLE <Option> is an innate trait and becomes a <SpecialAbility>.
+  Checked against the shipped data: 122/126 and 116/126 respectively, and every
+  exception is explained by subspecies inheritance (below) or by an entry that
+  came from the fan-made Menagerie rather than OggDude.
+* <SubSpeciesList> is expanded into one row per subspecies, keeping OggDude's
+  own keys (AQUASUB1, DROIDSUB1, NIKTOCH1OP1...) so existing artwork still
+  matches. A subspecies INHERITS the parent's source, characteristics,
+  attributes, skills, talents, option choices and special abilities, then adds
+  its own on top; its Name is prefixed with the parent's ("Aqualish - Aquala").
+  The parent itself is not emitted when it has subspecies -- you cannot play a
+  generic Aqualish.
 
 Data OggDude carries that the app schema has no place for, and which is
 therefore dropped: DieModifiers, StartingSkillTraining, per-option
-SkillModifiers/TalentModifiers, and EncumbranceBonus.
+SkillModifiers/TalentModifiers, WeaponModifiers, and EncumbranceBonus.
 """
 import argparse
+import copy
 import glob
 import os
 import sys
@@ -57,12 +66,8 @@ from xml.sax.saxutils import escape
 CHAR_ORDER = ['Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence']
 ATTR_ORDER = ['WoundThreshold', 'StrainThreshold', 'Experience']
 
-# Shipped as individual subspecies rows (AQUASUB1.., DROIDSUB1..,
-# MUSTAFARIANSUB1.., NIKTOCH1OP1..), so the parent entry would be a duplicate.
-SUBSPECIES_PARENTS = ('AQUA', 'DROID', 'MUSTAFARIAN', 'NIKTO')
-
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT_REL = os.path.join('xml_to_json', 'xml_sources', 'species_from_oggdude', 'Species.xml')
+OUT_REL = os.path.join('xml_to_json', 'xml_sources', 'oggdude', 'Species.xml')
 
 
 def load_key_names(path, item_tag):
@@ -101,8 +106,8 @@ def parse_sources(sp):
     return out
 
 
-def transform(path, skill_names, talent_names, warn):
-    sp = ET.parse(path).getroot()
+def transform(sp, skill_names, talent_names, warn):
+    """`sp` is a <Species> or <SubSpecies> element -- both carry the same tags."""
     rec = OrderedDict()
     rec['Key'] = text_of(sp.find('Key'))
     rec['Name'] = text_of(sp.find('Name'))
@@ -151,25 +156,49 @@ def transform(path, skill_names, talent_names, warn):
             skills.append((skill_names.get(sk, sk), rank))
     rec['Skills'] = skills
 
-    abilities = []
+    # A choice between several options is a character-creation pick and belongs
+    # in OptionChoices ("Choose one option:"); a choice with a single option is
+    # an innate trait and belongs in SpecialAbilities.
+    choices, abilities = [], []
     oc = sp.find('OptionChoices')
     if oc is not None:
         for choice in oc.findall('OptionChoice'):
             opts = choice.findall('Options/Option')
-            if len(opts) != 1:
-                continue          # a player choice, not an innate trait
-            nm = text_of(opts[0].find('Name'))
-            desc = collapse(opts[0].findtext('Description'))
-            if nm or desc:
-                abilities.append((nm or '', desc or ''))
+            bucket = choices if len(opts) > 1 else abilities
+            for opt in opts:
+                nm = text_of(opt.find('Name'))
+                desc = collapse(opt.findtext('Description'))
+                if nm or desc:
+                    bucket.append((nm or '', desc or ''))
+    rec['OptionChoices'] = choices
     rec['SpecialAbilities'] = abilities
 
     rec['Description'] = collapse(sp.findtext('Description')) or ''
     return rec
 
 
+def merge_into_parent(parent, sub):
+    """
+    Build a subspecies row: the parent's record with the subspecies' own
+    modifiers added on top, its own key and description, and a prefixed name.
+
+    Verified against the shipped data -- e.g. Aqualish grants Brawl and Aquala
+    adds Resilience, so "Aqualish - Aquala" ends up with both, and every Aqualish
+    subspecies keeps the parent's "Underwater Breathing" ability.
+    """
+    rec = copy.deepcopy(parent)
+    rec['Key'] = sub['Key']
+    rec['Name'] = '%s - %s' % (parent['Name'], sub['Name'])
+    rec['Description'] = sub['Description'] or parent['Description']
+    for field in ('Talents', 'Skills', 'OptionChoices', 'SpecialAbilities'):
+        for entry in sub[field]:
+            if entry not in rec[field]:
+                rec[field].append(entry)
+    return rec
+
+
 def to_xml(rec, indent='  '):
-    """Serialise one record in the app schema, mirroring parsed_by_dutzen."""
+    """Serialise one record in the app schema that items.html binds against."""
     L = []
     p, q = indent, indent * 2
     L.append(p + '<Species>')
@@ -213,18 +242,19 @@ def to_xml(rec, indent='  '):
             L.append(q + indent + '</%s>' % inner)
         L.append(q + '</%s>' % tag)
 
-    L.append(q + '<OptionChoices/>')
-
-    if rec['SpecialAbilities']:
-        L.append(q + '<SpecialAbilities>')
-        for nm, desc in rec['SpecialAbilities']:
-            L.append(q + indent + '<SpecialAbility>')
+    for tag, inner, rows in (('OptionChoices', 'Option', rec['OptionChoices']),
+                             ('SpecialAbilities', 'SpecialAbility',
+                              rec['SpecialAbilities'])):
+        if not rows:
+            L.append(q + '<%s/>' % tag)
+            continue
+        L.append(q + '<%s>' % tag)
+        for nm, desc in rows:
+            L.append(q + indent + '<%s>' % inner)
             L.append(q + indent * 2 + '<Name>%s</Name>' % escape(nm))
             L.append(q + indent * 2 + '<Description>%s</Description>' % escape(desc))
-            L.append(q + indent + '</SpecialAbility>')
-        L.append(q + '</SpecialAbilities>')
-    else:
-        L.append(q + '<SpecialAbilities/>')
+            L.append(q + indent + '</%s>' % inner)
+        L.append(q + '</%s>' % tag)
 
     if rec['Description']:
         L.append(q + '<Description>%s</Description>' % escape(rec['Description']))
@@ -236,13 +266,22 @@ def build(source_dir, warn):
     skill_names = load_key_names(os.path.join(source_dir, 'Skills.xml'), 'Skill')
     talent_names = load_key_names(os.path.join(source_dir, 'Talents.xml'), 'Talent')
     records = []
+    n_expanded = 0
     for path in sorted(glob.glob(os.path.join(source_dir, 'Species', '*.xml'))):
-        rec = transform(path, skill_names, talent_names, warn)
-        if rec['Key'] in SUBSPECIES_PARENTS:
+        root = ET.parse(path).getroot()
+        parent = transform(root, skill_names, talent_names, warn)
+        subs = root.findall('SubSpeciesList/SubSpecies')
+        if not subs:
+            records.append(parent)
             continue
-        records.append(rec)
+        # The parent is a category, not something you can play -- emit only the
+        # subspecies, each inheriting from it.
+        for sub_el in subs:
+            sub = transform(sub_el, skill_names, talent_names, warn)
+            records.append(merge_into_parent(parent, sub))
+        n_expanded += 1
     records.sort(key=lambda r: (r['Name'].strip().lower(), r['Key']))
-    return records, len(skill_names), len(talent_names)
+    return records, len(skill_names), len(talent_names), n_expanded
 
 
 def main(argv=None):
@@ -250,6 +289,8 @@ def main(argv=None):
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--source', default='oggdudes-data',
                     help='folder holding Species/, Skills.xml, Talents.xml')
+    ap.add_argument('--out', default=OUT_REL,
+                    help='repo-relative path of the Species.xml to write')
     ap.add_argument('--dry-run', action='store_true', help='write nothing')
     args = ap.parse_args(argv)
 
@@ -259,10 +300,14 @@ def main(argv=None):
         return 1
 
     warn = []
-    records, n_sk, n_tl = build(source_dir, warn)
+    records, n_sk, n_tl, n_expanded = build(source_dir, warn)
     print('lookup: %d skills, %d talents' % (n_sk, n_tl))
-    print('transformed %d species (skipped parents of shipped subspecies: %s)'
-          % (len(records), ', '.join(SUBSPECIES_PARENTS)))
+    print('transformed %d species rows (%d parents expanded into subspecies)'
+          % (len(records), n_expanded))
+    print('  with option choices   : %d'
+          % sum(1 for r in records if r['OptionChoices']))
+    print('  with special abilities: %d'
+          % sum(1 for r in records if r['SpecialAbilities']))
     for w in warn:
         print('  WARNING: %s' % w)
 
@@ -272,7 +317,7 @@ def main(argv=None):
     lines.append('</SpeciesList>')
     text = '\n'.join(lines) + '\n'
 
-    out = os.path.join(REPO_ROOT, OUT_REL)
+    out = os.path.join(REPO_ROOT, args.out)
     if args.dry_run:
         print('--dry-run: would write %s (%d bytes)' % (out, len(text)))
         return 0
