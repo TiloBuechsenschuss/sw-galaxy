@@ -36,11 +36,12 @@
   <Talent>
     <Key>ARM</Key>
     <Name>Armor Master</Name>
-    <Description>Please see page 132 of the Edge of the Empire Core Rulebook, page 142 of the Age of Rebellion Core Rulebook, or page 37 of the Rise of the Separatists Sourcebook, for details.</Description>
+    <Description>Please see page 132 of the Edge of the Empire Core Rulebook, page 142 of the Age of Rebellion Core Rulebook, page 37 of the Rise of the Separatists Sourcebook, or page 37 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="132">Edge of the Empire Core Rulebook</Source>
       <Source Page="142">Age of Rebellion Core Rulebook</Source>
       <Source Page="37">Rise of the Separatists</Source>
+      <Source Page="37">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -54,11 +55,12 @@
   <Talent>
     <Key>ARMIMP</Key>
     <Name>Armor Master (Improved)</Name>
-    <Description>Please see page 132 of the Edge of the Empire Core Rulebook, page 143 of the Age of Rebellion Core Rulebook, or page 37 of the Rise of the Separatists Sourcebook, for details.</Description>
+    <Description>Please see page 132 of the Edge of the Empire Core Rulebook, page 143 of the Age of Rebellion Core Rulebook, page 37 of the Rise of the Separatists Sourcebook, or page 37 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="132">Edge of the Empire Core Rulebook</Source>
       <Source Page="143">Age of Rebellion Core Rulebook</Source>
       <Source Page="37">Rise of the Separatists</Source>
+      <Source Page="37">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -96,10 +98,11 @@
   <Talent>
     <Key>BAL</Key>
     <Name>Balance</Name>
-    <Description>Please see page 132 of the Edge of the Empire Core Rulebook, or page 143 of the Age of Rebellion Core Rulebook, for details.</Description>
+    <Description>Please see page 132 of the Edge of the Empire Core Rulebook, page 143 of the Age of Rebellion Core Rulebook, or page 37 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="132">Edge of the Empire Core Rulebook</Source>
       <Source Page="143">Age of Rebellion Core Rulebook</Source>
+      <Source Page="37">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taManeuver</ActivationValue>
@@ -295,11 +298,12 @@
   <Talent>
     <Key>COMMPRES</Key>
     <Name>Commanding Presence</Name>
-    <Description>Please see page 144 of the Age of Rebellion Core Rulebook, page 140 of the Force and Destiny Core Rulebook, or page 38 of the Rise of the Separatists Sourcebook, for details.</Description>
+    <Description>Please see page 144 of the Age of Rebellion Core Rulebook, page 140 of the Force and Destiny Core Rulebook, page 38 of the Rise of the Separatists Sourcebook, or page 38 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="144">Age of Rebellion Core Rulebook</Source>
       <Source Page="140">Force and Destiny Core Rulebook</Source>
       <Source Page="38">Rise of the Separatists</Source>
+      <Source Page="38">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -946,11 +950,12 @@
   <Talent>
     <Key>INSPRHET</Key>
     <Name>Inspiring Rhetoric</Name>
-    <Description>Please see page 137 of the Edge of the Empire Core Rulebook, page 149 of the Age of Rebellion Core Rulebook, or page 32 of the Unlimited Power Sourcebook, for details.</Description>
+    <Description>Please see page 137 of the Edge of the Empire Core Rulebook, page 149 of the Age of Rebellion Core Rulebook, page 32 of the Unlimited Power Sourcebook, or page 40 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="137">Edge of the Empire Core Rulebook</Source>
       <Source Page="149">Age of Rebellion Core Rulebook</Source>
       <Source Page="32">Unlimited Power</Source>
+      <Source Page="40">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taAction</ActivationValue>
@@ -958,11 +963,12 @@
   <Talent>
     <Key>INSPRHETIMP</Key>
     <Name>Inspiring Rhetoric (Improved)</Name>
-    <Description>Please see page 137 of the Edge of the Empire Core Rulebook, page 149 of the Age of Rebellion Core Rulebook, or page 32 of the Unlimited Power Sourcebook, for details.</Description>
+    <Description>Please see page 137 of the Edge of the Empire Core Rulebook, page 149 of the Age of Rebellion Core Rulebook, page 32 of the Unlimited Power Sourcebook, or page 40 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="137">Edge of the Empire Core Rulebook</Source>
       <Source Page="149">Age of Rebellion Core Rulebook</Source>
       <Source Page="32">Unlimited Power</Source>
+      <Source Page="40">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1093,10 +1099,11 @@
   <Talent>
     <Key>KNOCK</Key>
     <Name>Knockdown</Name>
-    <Description>Please see page 138 of the Edge of the Empire Core Rulebook, or page 150 of the Age of Rebellion Core Rulebook, for details.</Description>
+    <Description>Please see page 138 of the Edge of the Empire Core Rulebook, page 150 of the Age of Rebellion Core Rulebook, or page 41 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="138">Edge of the Empire Core Rulebook</Source>
       <Source Page="150">Age of Rebellion Core Rulebook</Source>
+      <Source Page="41">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1156,12 +1163,13 @@
   <Talent>
     <Key>LETHALBL</Key>
     <Name>Lethal Blows</Name>
-    <Description>Please see page 138 of the Edge of the Empire Core Rulebook, page 151 of the Age of Rebellion Core Rulebook, page 30 of the Savage Spirits Sourcebook, or page 31 of the Knights of Fate Sourcebook for details.</Description>
+    <Description>Please see page 138 of the Edge of the Empire Core Rulebook, page 151 of the Age of Rebellion Core Rulebook, page 30 of the Savage Spirits Sourcebook, page 31 of the Knights of Fate Sourcebook, or page 41 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="138">Edge of the Empire Core Rulebook</Source>
       <Source Page="151">Age of Rebellion Core Rulebook</Source>
       <Source Page="30">Savage Spirits</Source>
       <Source Page="31">Knights of Fate</Source>
+      <Source Page="41">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1504,11 +1512,12 @@
   <Talent>
     <Key>PHYSTRAIN</Key>
     <Name>Physical Training</Name>
-    <Description>Please see page 154 of the Age of Rebellion Core Rulebook, page 30 of the Disciples of Harmony Sourcebook, or page 41 of the Rise of the Separatists Sourcebook, for details.</Description>
+    <Description>Please see page 154 of the Age of Rebellion Core Rulebook, page 30 of the Disciples of Harmony Sourcebook, page 41 of the Rise of the Separatists Sourcebook, or page 42 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="154">Age of Rebellion Core Rulebook</Source>
       <Source Page="30">Disciples of Harmony</Source>
       <Source Page="41">Rise of the Separatists</Source>
+      <Source Page="42">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1548,10 +1557,11 @@
   <Talent>
     <Key>POINTBL</Key>
     <Name>Point Blank</Name>
-    <Description>Please see page 141 of the Edge of the Empire Core Rulebook, or page 154 of the Age of Rebellion Core Rulebook, for details.</Description>
+    <Description>Please see page 141 of the Edge of the Empire Core Rulebook, page 154 of the Age of Rebellion Core Rulebook, or page 42 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="141">Edge of the Empire Core Rulebook</Source>
       <Source Page="154">Age of Rebellion Core Rulebook</Source>
+      <Source Page="42">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1692,11 +1702,12 @@
   <Talent>
     <Key>RESOLVE</Key>
     <Name>Resolve</Name>
-    <Description>Please see page 142 of the Edge of the Empire Core Rulebook, page 155 of the Age of Rebellion Core Rulebook, or page 33 of the Unlimited Power Sourcebook for details.</Description>
+    <Description>Please see page 142 of the Edge of the Empire Core Rulebook, page 155 of the Age of Rebellion Core Rulebook, page 33 of the Unlimited Power Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="142">Edge of the Empire Core Rulebook</Source>
       <Source Page="155">Age of Rebellion Core Rulebook</Source>
       <Source Page="33">Unlimited Power</Source>
+      <Source Page="43">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1716,11 +1727,12 @@
   <Talent>
     <Key>SCATH</Key>
     <Name>Scathing Tirade</Name>
-    <Description>Please see page 142 of the Edge of the Empire Core Rulebook, page 155 of the Age of Rebellion Core Rulebook, or page 33 of the Unlimited Power Sourcebook for details.</Description>
+    <Description>Please see page 142 of the Edge of the Empire Core Rulebook, page 155 of the Age of Rebellion Core Rulebook, page 33 of the Unlimited Power Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="142">Edge of the Empire Core Rulebook</Source>
       <Source Page="155">Age of Rebellion Core Rulebook</Source>
       <Source Page="33">Unlimited Power</Source>
+      <Source Page="43">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taAction</ActivationValue>
@@ -1728,10 +1740,11 @@
   <Talent>
     <Key>SCATHIMP</Key>
     <Name>Scathing Tirade (Improved)</Name>
-    <Description>Please see page 142 of the Edge of the Empire Core Rulebook, or page 155 of the Age of Rebellion Core Rulebook, for details.</Description>
+    <Description>Please see page 142 of the Edge of the Empire Core Rulebook, page 155 of the Age of Rebellion Core Rulebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="142">Edge of the Empire Core Rulebook</Source>
       <Source Page="155">Age of Rebellion Core Rulebook</Source>
+      <Source Page="43">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -1984,11 +1997,12 @@
   <Talent>
     <Key>SPKBIN</Key>
     <Name>Speaks Binary</Name>
-    <Description>Please see page 143 of the Edge of the Empire Core Rulebook, page 157 of the Age of Rebellion Core Rulebook, or page 35 of the Special Modificaitons Sourcebook, for details.</Description>
+    <Description>Please see page 143 of the Edge of the Empire Core Rulebook, page 157 of the Age of Rebellion Core Rulebook, page 35 of the Special Modificaitons Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="143">Edge of the Empire Core Rulebook</Source>
       <Source Page="157">Age of Rebellion Core Rulebook</Source>
       <Source Page="35">Special Modifications</Source>
+      <Source Page="43">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -2398,10 +2412,11 @@
   <Talent>
     <Key>WELLTRAV</Key>
     <Name>Well Traveled</Name>
-    <Description>Please see page 159 of the Age of Rebellion Core Rulebook, or page 30 of the Disciples of Harmony Sourcebook, for details.</Description>
+    <Description>Please see page 159 of the Age of Rebellion Core Rulebook, page 30 of the Disciples of Harmony Sourcebook, or page 44 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="159">Age of Rebellion Core Rulebook</Source>
       <Source Page="30">Disciples of Harmony</Source>
+      <Source Page="44">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -2762,9 +2777,12 @@
     <Key>CENTBEING</Key>
     <Name>Center of Being</Name>
     <Description>
-      Please see page 140 of the Force and Destiny Core Rulebook for details.
+      Please see page 140 of the Force and Destiny Core Rulebook, or page 37 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="140">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="140">Force and Destiny Core Rulebook</Source>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taManeuver</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -2773,9 +2791,12 @@
     <Key>CENTBEINGIMP</Key>
     <Name>Center of Being (Improved)</Name>
     <Description>
-      Please see page 140 of the Force and Destiny Core Rulebook for details.
+      Please see page 140 of the Force and Destiny Core Rulebook, or page 37 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="140">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="140">Force and Destiny Core Rulebook</Source>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -2809,11 +2830,12 @@
     <Key>CONDITIONED</Key>
     <Name>Conditioned</Name>
     <Description>
-      Please see page 141 of the Force and Destiny Core Rulebook, or page 34 of the Forged in Battle Sourcebook, for details.
+      Please see page 141 of the Force and Destiny Core Rulebook, page 34 of the Forged in Battle Sourcebook, or page 38 of the Collapse of the Republic Sourcebook, for details.
     </Description>
     <Sources>
       <Source Page="141">Force and Destiny Core Rulebook</Source>
       <Source Page="34">Forged in Battle</Source>
+      <Source Page="38">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -2939,9 +2961,12 @@
     <Key>ENHLEAD</Key>
     <Name>Enhanced Leader</Name>
     <Description>
-      Please see page 142 of the Force and Destiny Core Rulebook for details.
+      Please see page 142 of the Force and Destiny Core Rulebook, or page 39 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="142">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="142">Force and Destiny Core Rulebook</Source>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -3000,9 +3025,12 @@
     <Key>FOREWARN</Key>
     <Name>Forewarning</Name>
     <Description>
-      Please see page 143 of the Force and Destiny Core Rulebook for details.
+      Please see page 143 of the Force and Destiny Core Rulebook, or page 39 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="143">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="143">Force and Destiny Core Rulebook</Source>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taAction</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -3228,9 +3256,12 @@
     <Key>MULTOPP</Key>
     <Name>Multiple Opponents</Name>
     <Description>
-      Please see page 147 of the Force and Destiny Core Rulebook for details.
+      Please see page 147 of the Force and Destiny Core Rulebook, or page 41 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="147">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="147">Force and Destiny Core Rulebook</Source>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
     <ForceTalent>false</ForceTalent>
@@ -3300,12 +3331,13 @@
     <Key>PARRY</Key>
     <Name>Parry</Name>
     <Description>
-      Please see page 149 of the Force and Destiny Core Rulebook, page 35 of the No Disintegrations Sourcebook, or page 41 of the Rise of the Separatists Sourcebook, for details.
+      Please see page 149 of the Force and Destiny Core Rulebook, page 35 of the No Disintegrations Sourcebook, page 41 of the Rise of the Separatists Sourcebook, or page 42 of the Collapse of the Republic Sourcebook, for details.
     </Description>
     <Sources>
       <Source Page="149">Force and Destiny Core Rulebook</Source>
       <Source Page="35">No Disintegrations</Source>
       <Source Page="41">Rise of the Separatists</Source>
+      <Source Page="42">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taIncidentalOOT</ActivationValue>
@@ -3388,11 +3420,12 @@
     <Key>REFLECT</Key>
     <Name>Reflect</Name>
     <Description>
-      Please see page 150 of the Force and Destiny Core Rulebook, or page 42 of the Rise of the Separatists Sourcebook, for details.
+      Please see page 150 of the Force and Destiny Core Rulebook, page 42 of the Rise of the Separatists Sourcebook, or page 42 of the Collapse of the Republic Sourcebook, for details.
     </Description>
     <Sources>
       <Source Page="150">Force and Destiny Core Rulebook</Source>
       <Source Page="42">Rise of the Separatists</Source>
+      <Source Page="42">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taIncidentalOOT</ActivationValue>
@@ -3474,9 +3507,12 @@
     <Key>SENSEADV</Key>
     <Name>Sense Advantage</Name>
     <Description>
-      Please see page 151 of the Force and Destiny Core Rulebook for details.
+      Please see page 151 of the Force and Destiny Core Rulebook, or page 43 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="151">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="151">Force and Destiny Core Rulebook</Source>
+      <Source Page="43">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taIncidentalOOT</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -3563,9 +3599,12 @@
     <Key>SUMDJEM</Key>
     <Name>Sum Djem</Name>
     <Description>
-      Please see page 152 of the Force and Destiny Core Rulebook for details.
+      Please see page 152 of the Force and Destiny Core Rulebook, or page 44 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="152">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="152">Force and Destiny Core Rulebook</Source>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -3597,9 +3636,12 @@
     <Key>FORCEALLY</Key>
     <Name>The Force Is My Ally</Name>
     <Description>
-      Please see page 153 of the Force and Destiny Core Rulebook for details.
+      Please see page 153 of the Force and Destiny Core Rulebook, or page 44 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="153">Force and Destiny Core Rulebook</Source>
+    <Sources>
+      <Source Page="153">Force and Destiny Core Rulebook</Source>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taIncidental</ActivationValue>
     <ForceTalent>true</ForceTalent>
@@ -3656,13 +3698,14 @@
   <Talent>
     <Key>CONGENIAL</Key>
     <Name>Congenial</Name>
-    <Description>Please see page 32 of the Far Horizons Sourcebook, page 32 of the Fly Casual Sourcebook, page 28 of the Disciples of Harmony Sourcebook, or page 32 of the Unlimited Power Sourcebook, for details.
+    <Description>Please see page 32 of the Far Horizons Sourcebook, page 32 of the Fly Casual Sourcebook, page 28 of the Disciples of Harmony Sourcebook, page 32 of the Unlimited Power Sourcebook, or page 38 of the Collapse of the Republic Sourcebook, for details.
     </Description>
     <Sources>
       <Source Page="32">Far Horizons</Source>
       <Source Page="32">Fly Casual</Source>
       <Source Page="28">Disciples of Harmony</Source>
       <Source Page="32">Unlimited Power</Source>
+      <Source Page="38">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taIncidental</ActivationValue>
@@ -4138,8 +4181,11 @@
   <Talent>
     <Key>GUNSBLAZING</Key>
     <Name>Guns Blazing</Name>
-    <Description>Please see page 33 of the Fly Casual Sourcebook for details.</Description>
-    <Source Page="33">Fly Casual</Source>
+    <Description>Please see page 33 of the Fly Casual Sourcebook, or page 40 of the Collapse of the Republic Sourcebook, for details.</Description>
+    <Sources>
+      <Source Page="33">Fly Casual</Source>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taIncidental</ActivationValue>
   </Talent>
@@ -4326,8 +4372,11 @@
   <Talent>
     <Key>RESEARCHIMP</Key>
     <Name>Researcher (Improved)</Name>
-    <Description>Please see page 34 of the Desperate Allies Sourcebook for details.</Description>
-    <Source Page="34">Desperate Allies</Source>
+    <Description>Please see page 34 of the Desperate Allies Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
+    <Sources>
+      <Source Page="34">Desperate Allies</Source>
+      <Source Page="43">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
   </Talent>
@@ -4500,8 +4549,11 @@
   <Talent>
     <Key>CLEVCOMM</Key>
     <Name>Clever Commander</Name>
-    <Description>See page 33 of the Lead by Example Sourcebook for details.</Description>
-    <Source Page="33">Lead by Example</Source>
+    <Description>See page 33 of the Lead by Example Sourcebook, or page 38 of the Collapse of the Republic Sourcebook, for details.</Description>
+    <Sources>
+      <Source Page="33">Lead by Example</Source>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
   </Talent>
@@ -4516,8 +4568,11 @@
   <Talent>
     <Key>CONFIMP</Key>
     <Name>Confidence (Improved)</Name>
-    <Description>See page 33 of the Lead by Example Sourcebook for details.</Description>
-    <Source Page="33">Lead by Example</Source>
+    <Description>See page 33 of the Lead by Example Sourcebook, or page 38 of the Collapse of the Republic Sourcebook, for details.</Description>
+    <Sources>
+      <Source Page="33">Lead by Example</Source>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
   </Talent>
@@ -4683,7 +4738,7 @@
   </Talent>
   <Talent>
     <Key>OVERCHARGESUP</Key>
-    <Name>Supreme Overcharge</Name>
+    <Name>Overcharge (Supreme)</Name>
     <Description>See page 35 of the Special Modifications Sourcebook for details.</Description>
     <Source Page="35">Special Modifications</Source>
     <Ranked>false</Ranked>
@@ -4711,16 +4766,22 @@
   <Talent>
     <Key>SPKBINIMP</Key>
     <Name>Speaks Binary (Improved)</Name>
-    <Description>See page 35 of the Special Modifications Sourcebook for details.</Description>
-    <Source Page="35">Special Modifications</Source>
+    <Description>See page 35 of the Special Modifications Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
+    <Sources>
+      <Source Page="35">Special Modifications</Source>
+      <Source Page="43">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
   </Talent>
   <Talent>
     <Key>SPKBINSUP</Key>
     <Name>Speaks Binary (Supreme)</Name>
-    <Description>See page 35 of the Special Modifications Sourcebook for details.</Description>
-    <Source Page="35">Special Modifications</Source>
+    <Description>See page 35 of the Special Modifications Sourcebook, or page 44 of the Collapse of the Republic Sourcebook, for details.</Description>
+    <Sources>
+      <Source Page="35">Special Modifications</Source>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taManeuver</ActivationValue>
   </Talent>
@@ -4728,7 +4789,9 @@
     <Key>DEATHBLOW</Key>
     <Name>Deathblow</Name>
     <Description>See page 30 of the Savage Spirits Sourcebook for details.</Description>
-    <Source Page="30">Savage Spirits</Source>
+    <Sources>
+      <Source Page="30">Savage Spirits</Source>
+    </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taPassive</ActivationValue>
   </Talent>
@@ -5921,9 +5984,10 @@
   <Talent>
     <Key>RESISTQUEST</Key>
     <Name>Resist Questioning</Name>
-    <Description>Please see page 31 of the Cyhers and Masks Sourcebook for details.</Description>
+    <Description>Please see page 31 of the Cyhers and Masks Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="31">Cyphers and Masks</Source>
+      <Source Page="43">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taIncidentalOOT</ActivationValue>
@@ -6024,9 +6088,10 @@
   <Talent>
     <Key>CLANKILL</Key>
     <Name>Clanker Killer</Name>
-    <Description>Please see page 38 of the Rise of the Separatists Sourcebook for details.</Description>
+    <Description>Please see page 38 of the Rise of the Separatists Sourcebook, or page 37 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="38">Rise of the Separatists</Source>
+      <Source Page="37">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taIncidental</ActivationValue>
@@ -6104,9 +6169,10 @@
   <Talent>
     <Key>FIRSTBRO</Key>
     <Name>First Among Brothers</Name>
-    <Description>Please see page 39 of the Rise of the Separatists Sourcebook for details.</Description>
+    <Description>Please see page 39 of the Rise of the Separatists Sourcebook, or page 39 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="39">Rise of the Separatists</Source>
+      <Source Page="39">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -6245,9 +6311,10 @@
   <Talent>
     <Key>OUTMAN</Key>
     <Name>Outmaneuver</Name>
-    <Description>Please see page 41 of the Rise of the Separatists Sourcebook for details.</Description>
+    <Description>Please see page 41 of the Rise of the Separatists Sourcebook, or page 42 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="41">Rise of the Separatists</Source>
+      <Source Page="42">Collapse of the Republic</Source>
     </Sources>
     <Ranked>false</Ranked>
     <ActivationValue>taAction</ActivationValue>
@@ -6286,9 +6353,10 @@
   <Talent>
     <Key>RESPDEL</Key>
     <Name>Respected Delegate</Name>
-    <Description>Please see page 42 of the Rise of the Separatists Sourcebook for details.</Description>
+    <Description>Please see page 42 of the Rise of the Separatists Sourcebook, or page 43 of the Collapse of the Republic Sourcebook, for details.</Description>
     <Sources>
       <Source Page="42">Rise of the Separatists</Source>
+      <Source Page="43">Collapse of the Republic</Source>
     </Sources>
     <Ranked>true</Ranked>
     <ActivationValue>taPassive</ActivationValue>
@@ -6421,6 +6489,657 @@
     <Ranked>false</Ranked>
     <ActivationValue>taIncidental</ActivationValue>
     <ForceTalent>true</ForceTalent>
+  </Talent>
+
+  <!-- Collapse of the Republic -->
+
+  <Talent>
+    <Key>ATANYCOST</Key>
+    <Name>At Any Cost</Name>
+    <Description>Please see page 37 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>BLATHER</Key>
+    <Name>Blather</Name>
+    <Description>Please see page 37 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>BOUNDTO</Key>
+    <Name>Bound Together</Name>
+    <Description>Please see page 37 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>CENTBEINGSUP</Key>
+    <Name>Center of Being (Supreme)</Name>
+    <Description>Please see page 37 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>CLANKKILLIMP</Key>
+    <Name>Clanker Killer (Improved)</Name>
+    <Description>Please see page 37 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="37">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>COMBATVET</Key>
+    <Name>Combat Veteran</Name>
+    <Description>Please see page 38 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>true</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+    <DieModifiers>
+      <DieModifier>
+        <SkillKey>BRAWL</SkillKey>
+        <BoostCount>1</BoostCount>
+      </DieModifier>
+      <DieModifier>
+        <SkillKey>DISC</SkillKey>
+        <BoostCount>1</BoostCount>
+      </DieModifier>
+    </DieModifiers>
+  </Talent>
+  <Talent>
+    <Key>COVEN</Key>
+    <Name>Coven</Name>
+    <Description>Please see page 38 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>CRUELCOM</Key>
+    <Name>Cruel Commander</Name>
+    <Description>Please see page 38 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>DEATHABOVE</Key>
+    <Name>Death from Above</Name>
+    <Description>Please see page 38 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>true</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>DIPIMMUN</Key>
+    <Name>Diplomatic Immunity</Name>
+    <Description>Please see page 38 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>DROIDCOMM</Key>
+    <Name>Droid Commander</Name>
+    <Description>Please see page 38 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="38">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>DROIDCOMMIMP</Key>
+    <Name>Droid Commander (Improved)</Name>
+    <Description>Please see page 144 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="144">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>ENDURPRES</Key>
+    <Name>Enduring Presence</Name>
+    <Description>Please see page 39 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>EXEMPREP</Key>
+    <Name>Exemplar of the Republic</Name>
+    <Description>Please see page 39 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>FALLBACK</Key>
+    <Name>Fall Back!</Name>
+    <Description>Please see page 39 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>FLOWALL</Key>
+    <Name>Flows Through All Things</Name>
+    <Description>Please see page 39 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>FORCEWILL</Key>
+    <Name>Force of Will</Name>
+    <Description>Please see page 39 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>FORMTACT</Key>
+    <Name>Formation Tactics</Name>
+    <Description>Please see page 39 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="39">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>FORMTACTIMP</Key>
+    <Name>Formation Tactics (Improved)</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>GETDROP</Key>
+    <Name>Get the Drop</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>HITANDRUN</Key>
+    <Name>Hit and Run</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>ICHORBLADE</Key>
+    <Name>Ichor Blade</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+    <SelectedItem>
+      <SelectedItemID>ICHORBLADE</SelectedItemID>
+      <ItemType>Weapon</ItemType>
+      <SkillKeys>
+        <Key>MELEE</Key>
+        <Key>BRAWL</Key>
+      </SkillKeys>
+      <ExcludeCategories>
+        <Category>Powered Brawl</Category>
+        <Category>Powered Melee</Category>
+      </ExcludeCategories>
+      <ChangeModdable>
+        <AddWeaponModifiers>
+          <WeaponModifier>
+            <Unarmed>false</Unarmed>
+            <UnarmedName>Retractable Light Blaster Pistol with ICHOR!!!</UnarmedName>
+            <SkillKey>RANGLT</SkillKey>
+            <AllSkillKey />
+            <Damage>5</Damage>
+            <DamageAdd>0</DamageAdd>
+            <Crit>4</Crit>
+            <CritSub>0</CritSub>
+            <RangeValue>wrMedium</RangeValue>
+            <Qualities>
+              <Quality>
+                <Key>STUNSETTING</Key>
+                <Count>1</Count>
+              </Quality>
+            </Qualities>
+          </WeaponModifier>
+        </AddWeaponModifiers>
+        <AddBaseMods>
+          <Mod>
+            <MiscDesc>Any character, other than owner, adds [SE] to checks made using this weapon.</MiscDesc>
+          </Mod>
+        </AddBaseMods>
+      </ChangeModdable>
+      <ChangeWeapon>
+        <SubCrit>1</SubCrit>
+        <AddQualities>
+          <Quality>
+            <Key>CORTOSIS</Key>
+          </Quality>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>2</Count>
+          </Quality>
+        </AddQualities>
+      </ChangeWeapon>
+    </SelectedItem>
+  </Talent>
+  <Talent>
+    <Key>ICHORBLADEIMP</Key>
+    <Name>Ichor Blade (Improved)</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+    <SelectedItem>
+      <ItemFromSelectedID>ICHORBLADE</ItemFromSelectedID>
+      <ChangeWeapon>
+        <AddDamage>2</AddDamage>
+        <AddQualities>
+          <Quality>
+            <Key>SUNDER</Key>
+          </Quality>
+          <Quality>
+            <Key>DEFENSIVE</Key>
+            <Count>1</Count>
+          </Quality>
+        </AddQualities>
+      </ChangeWeapon>
+    </SelectedItem>  
+  </Talent>
+  <Talent>
+    <Key>ICHORRES</Key>
+    <Name>Ichor Reserve</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>ICHORTRANS</Key>
+    <Name>Ichor Transfusion</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>INGRAINLOY</Key>
+    <Name>Ingrained Loyalty</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>INSPIRKILL</Key>
+    <Name>Inspiring Kill</Name>
+    <Description>Please see page 40 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="40">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+    <Conflict>1</Conflict>
+  </Talent>
+  <Talent>
+    <Key>JETPEXP</Key>
+    <Name>Jetpack Expertise</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>KNOWNPROG</Key>
+    <Name>Known Programming</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>KNOWNPROGIMP</Key>
+    <Name>Known Programming (Improved)</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>KNOWSTR</Key>
+    <Name>Knowledge is Strength</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>LEADBACK</Key>
+    <Name>Lead from the Back</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>true</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>LEADFRONT</Key>
+    <Name>Lead from the Front</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>true</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>MASTORDER</Key>
+    <Name>Master of the Order</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>MOMENTUM</Key>
+    <Name>Momentum</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>true</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>NATCHAMP</Key>
+    <Name>Natural Champion</Name>
+    <Description>Please see page 41 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="41">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>NATCOMM</Key>
+    <Name>Natural Commando</Name>
+    <Description>Please see page 42 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="42">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>NOBFOOLIMP</Key>
+    <Name>Nobody's Fool (Improved)</Name>
+    <Description>Please see page 42 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="42">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>POWALLY</Key>
+    <Name>Powerful Ally</Name>
+    <Description>Please see page 42 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="42">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>PRACSTRAT</Key>
+    <Name>Practiced Strategist</Name>
+    <Description>Please see page 42 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="42">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>PREEMPTINTER</Key>
+    <Name>Preemptive Intervention</Name>
+    <Description>Please see page 42 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="42">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>RAPIDFIRE</Key>
+    <Name>Rapid Fire</Name>
+    <Description>Please see page 42 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="42">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>RESALLOC</Key>
+    <Name>Resource Allocation</Name>
+    <Description>Please see page 43 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="43">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>SAVVY</Key>
+    <Name>Savvy</Name>
+    <Description>Please see page 43 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="43">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>true</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+    <DieModifiers>
+      <DieModifier>
+        <SkillKey>CHARM</SkillKey>
+        <BoostCount>1</BoostCount>
+      </DieModifier>
+      <DieModifier>
+        <SkillKey>NEG</SkillKey>
+        <BoostCount>1</BoostCount>
+      </DieModifier>
+    </DieModifiers>
+  </Talent>
+  <Talent>
+    <Key>SIDESTEPIMP</Key>
+    <Name>Side Step (Improved)</Name>
+    <Description>Please see page 43 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="43">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>STANDFIRM</Key>
+    <Name>Stand Firm!</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>STANDFIRMIMP</Key>
+    <Name>Stand Firm! (Improved)</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taAction</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>SURVINST</Key>
+    <Name>Survivor's Instincts</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>SUMMONITEM</Key>
+    <Name>Summon Item</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+    <SelectedItem>
+      <SelectedItemID>SUMMONITEM</SelectedItemID>
+      <ChangeModdable>
+        <AddBaseMods>
+          <Mod>
+            <MiscDesc>As a maneuver, may summon this item from, or dismiss this item to, the depths of Dathomir, regardless of location.</MiscDesc>
+          </Mod>
+        </AddBaseMods>
+      </ChangeModdable>
+    </SelectedItem>
+  </Talent>
+  <Talent>
+    <Key>TACTEVA</Key>
+    <Name>Tactical Evasion</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>TACTPLAN</Key>
+    <Name>Tactical Planning</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidental</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>NOTRY</Key>
+    <Name>There Is No Try</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taIncidentalOOT</ActivationValue>
+    <ForceTalent>true</ForceTalent>
+  </Talent>
+  <Talent>
+    <Key>TOTHEDEATH</Key>
+    <Name>To the Death!</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taManeuver</ActivationValue>
+  </Talent>
+  <Talent>
+    <Key>WITCHCRAFT</Key>
+    <Name>Witchcraft</Name>
+    <Description>Please see page 44 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Sources>
+      <Source Page="44">Collapse of the Republic</Source>
+    </Sources>
+    <Ranked>false</Ranked>
+    <ActivationValue>taPassive</ActivationValue>
+    <SetForceRating>1</SetForceRating>
   </Talent>
 
 </Talents>

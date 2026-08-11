@@ -755,4 +755,33 @@
       </OptionChoice>
     </OptionChoices>
   </Reward>
+  <Reward>
+    <Key>JEDI</Key>
+    <Name>Jedi</Name>
+    <Description>
+      [H4]Jedi[h4]
+      Please see page 17 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Source Page="17">Collapse of the Republic</Source>
+    <OptionChoices>
+      <OptionChoice>
+        <Name>Jedi</Name>
+        <Options>
+          <Option>
+            <Name>Short Path to Power</Name>
+            <Description>May start with a rank in the Force Rating talent.  You must already have a Force rating for this to take effect.</Description>
+            <StartingAttributes>
+              <Experience>30</Experience>
+            </StartingAttributes>
+            <TalentModifiers>
+              <TalentModifier>
+                <Key>FORCERAT</Key>
+                <RankAdd>1</RankAdd>
+              </TalentModifier>
+            </TalentModifiers>
+          </Option>
+        </Options>
+      </OptionChoice>
+    </OptionChoices>
+  </Reward>
 </Rewards>

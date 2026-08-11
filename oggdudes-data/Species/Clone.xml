@@ -4,9 +4,12 @@
   <Name>Clone</Name>
   <Description>
     [H4]Clone[h4]
-    Please see page 11 of the Rise of the Separatists Sourcebook for details.
+    Please see page 11 of the Rise of the Separatists Sourcebook, or page 11 of the Collapse of the Republic Sourcebook, for details.
   </Description>
-  <Source Page="11">Rise of the Separatists</Source>
+  <Sources>
+    <Source Page="11">Rise of the Separatists</Source>
+    <Source Page="11">Collapse of the Republic</Source>
+  </Sources>
   <StartingChars>
     <Brawn>2</Brawn>
     <Agility>2</Agility>

@@ -2,10 +2,14 @@
 <Vehicle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Key>ROCKETBOOTS</Key>
   <Name>Rocket Boots</Name>
-  <Description>[H3]Rocket Boots[h3]
-Please see page 53 of the No Disintegrations Sourcebook for details.
-[P][I]Note:  This is the vehicle profile of the rocket boots gear item.[i]</Description>
-  <Source Page="53">No Disintegrations</Source>
+  <Description>
+    [H3]Rocket Boots[h3]
+    Please see page 53 of the No Disintegrations Sourcebook, or page 59 of the Collapse of the Republic Sourcebook, for details.
+    [P][I]Note:  This is the vehicle profile of the rocket boots gear item.[i]</Description>
+  <Sources>
+    <Source Page="53">No Disintegrations</Source>
+    <Source Page="59">Collapse of the Republic</Source>
+  </Sources>
   <Type>Rocket Boots</Type>
   <Categories>
     <Category>Air Vehicle</Category>

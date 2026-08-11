@@ -1081,9 +1081,12 @@
     <Name>Model 2 Wrist Mount</Name>
     <Description>
       [H3]Model 2 Wrist Mount[h3]
-      Please see page 52 of the Dangerous Covenants Sourcebook for details.
+      Please see page 52 of the Dangerous Covenants Sourcebook, or page 61 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="52">Dangerous Covenants</Source>
+    <Sources>
+      <Source Page="52">Dangerous Covenants</Source>
+      <Source Page="61">Collapse of the Republic</Source>
+    </Sources>
     <Type>Weapon</Type>
     <ItemLimit />
     <SkillLimit>
@@ -2433,11 +2436,12 @@ Please see page 196 of the Force and Destiny Core Rulebook for details.
     <Name>Ilum Crystal</Name>
     <Description>
       [H3]Ilum Crystal[h3]
-      Please see page 197 of the Force and Destiny Core Rulebook, or page 63 of the Rise of the Separatists Sourcebook, for details.
+      Please see page 197 of the Force and Destiny Core Rulebook, page 63 of the Rise of the Separatists Sourcebook, or page 62 of the Collapse of the Republic Sourcebook, for details.
     </Description>
     <Sources>
       <Source Page="197">Force and Destiny Core Rulebook</Source>
       <Source Page="63">Rise of the Separatists</Source>
+      <Source Page="62">Collapse of the Republic</Source>
     </Sources>
     <Type>Weapon</Type>
     <ItemLimit />
@@ -2446,6 +2450,14 @@ Please see page 196 of the Force and Destiny Core Rulebook for details.
     <CategoryLimit>
       <Category>Lightsaber</Category>
     </CategoryLimit>
+    <EraPricing>
+      <Era>
+        <Name>Clone Wars</Name>
+        <Rarity>9</Rarity>
+        <Price>9000</Price>
+        <Restricted>false</Restricted>
+      </Era>
+    </EraPricing>
     <Price>9000</Price>
     <Rarity>10</Rarity>
     <Restricted>true</Restricted>
@@ -4805,7 +4817,7 @@ Please see page 105 of the Lords of Nal Hutta Sourcebook for details.
             <Count>2</Count>
           </Quality>
         </Qualities>
-        <VehicleProperties>
+        <VehicleWeaponProperties>
           <FiringArcs>
             <Fore>true</Fore>
             <Aft>true</Aft>
@@ -4817,7 +4829,7 @@ Please see page 105 of the Lords of Nal Hutta Sourcebook for details.
           <Turret>false</Turret>
           <Location>Ventral</Location>
           <Retractable>true</Retractable>
-        </VehicleProperties>
+        </VehicleWeaponProperties>
       </WeaponModifier>
     </WeaponModifiers>
     <MustBeStarship>true</MustBeStarship>
@@ -8719,9 +8731,12 @@ Please see page 67 of the Special Modifications Sourcebook for details.</Descrip
     <Name>Micro-Rocket Armor Mounting</Name>
     <Description>
       [H3]Micro-Rocket Armor Mounting[h3]
-      Please see page 52 of the No Disintegrations Sourcebook for details.
+      Please see page 52 of the No Disintegrations Sourcebook, or page 62 of the Collapse of the Republic Sourcebook,  for details.
     </Description>
-    <Source Page="52">No Disintegrations</Source>
+    <Sources>
+      <Source Page="52">No Disintegrations</Source>
+      <Source Page="62">Collapse of the Republic</Source>
+    </Sources>
     <Type>Armor</Type>
     <Price>800</Price>
     <Rarity>6</Rarity>
@@ -9439,9 +9454,12 @@ Please see page 67 of the Special Modifications Sourcebook for details.</Descrip
     <Name>Proximity Detonator</Name>
     <Description>
       [H3]Proximity Detonator[h3]
-      See page 52 of the Fully Operational Sourcebook for details.
+      See page 52 of the Fully Operational Sourcebook, or page 60 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="52">Fully Operational</Source>
+    <Sources>
+      <Source Page="52">Fully Operational</Source>
+      <Source Page="60">Collapse of the Republic</Source>
+    </Sources>
     <Type>Weapon</Type>
     <CategoryLimit>
       <Category>Grenade</Category>
@@ -12442,6 +12460,560 @@ Please see page 67 of the Special Modifications Sourcebook for details.</Descrip
         <Count>1</Count>
       </Mod>
     </AddedMods>
+  </ItemAttachment>
+
+<!-- Collapse of the Republic -->
+
+  <ItemAttachment>
+    <Key>AMPCHAMBER</Key>
+    <Name>Amplifying Chamber</Name>
+    <Description>
+      [H3]Amplifying Chamber[h3]
+      Please see page 60 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="60">Collapse of the Republic</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>350</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <Key>BLAST</Key>
+        <Count>4</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds [SE] to all Mechanics checks to maintain or repair this weapon.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DAMADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>BLAST</Key>
+        <Count>5</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>BAYONET</Key>
+    <Name>Bayonet</Name>
+    <Description>
+      [H3]Bayonet[h3]
+      Please see page 60 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="60">Collapse of the Republic</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Rifle</Category>
+      <Category>Carbine</Category>
+      <Category>Heavy Rifle</Category>
+    </CategoryLimit>
+    <Price>50</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>1</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds a bayonet profile to the weapon.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DEFENSIVE</Key>
+        <Count>1</Count>
+        <WeaponModifierIndex>0</WeaponModifierIndex>
+      </Mod>
+      <Mod>
+        <Key>PIERCE</Key>
+        <Count>1</Count>
+        <WeaponModifierIndex>0</WeaponModifierIndex>
+      </Mod>
+    </AddedMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <Unarmed>false</Unarmed>
+        <UnarmedName>Bayonet</UnarmedName>
+        <SkillKey>MELEE</SkillKey>
+        <AllSkillKey />
+        <Damage>0</Damage>
+        <DamageAdd>1</DamageAdd>
+        <Crit>3</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+        </Qualities>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>HAIRTRIG</Key>
+    <Name>Hair Trigger</Name>
+    <Description>
+      [H3]Hair Trigger[h3]
+      Please see page 60 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="60">Collapse of the Republic</Source>
+    </Sources>
+    <SkillLimit>
+      <Key>RANGLT</Key>
+    </SkillLimit>
+    <ExcludedMods>
+      <Key>AUTOFIRE</Key>
+    </ExcludedMods>
+    <Price>250</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>2</Rarity>
+    <BaseMods>
+      <Mod>
+        <Key>LINKED</Key>
+        <Count>1</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <Key>INACCURATE</Key>
+        <Count>2</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>INACCURATE</Key>
+        <Count>-1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>MANDOCHAMBER</Key>
+    <Name>Mandalorian Chamber</Name>
+    <Description>
+      [H3]Mandalorian Chamber[h3]
+      Please see page 60 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Weapon</Type>
+    <Sources>
+      <Source Page="60">Collapse of the Republic</Source>
+    </Sources>
+    <CategoryLimit>
+      <Category>Blaster</Category>
+    </CategoryLimit>
+    <Price>250</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>5</Rarity>
+    <BaseMods>
+      <Mod>
+        <Key>STUN</Key>
+        <Count>3</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <Key>RANGESUB</Key>
+        <Count>1</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DISORIENT</Key>
+        <Count>3</Count>
+      </Mod>
+      <Mod>
+        <Key>STUN</Key>
+        <Count>2</Count>
+      </Mod>
+      <Mod>
+        <Key>RANGEADD</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+
+  <ItemAttachment>
+    <Key>CATFAILMOD</Key>
+    <Name>Catastrophic Failure Modification</Name>
+    <Description>
+      [H3]Catastrophic Failure Modification[h3]
+      Please see page 61 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Source Page="61">Collapse of the Republic</Source>
+    <Type>Weapon</Type>
+    <CategoryLimit>
+      <Category>Lightsaber</Category>
+    </CategoryLimit>
+    <Price>0</Price>
+    <Rarity>0</Rarity>
+    <Restricted>false</Restricted>
+    <HP>0</HP>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>When lightsaber is activated, it overloads, causing it to detonate at the end of the following round, dealing 20 damage with Breach 1 and Vicious 4, to all characters and objects within short range.  The lightsaber, but not the crystal, is destroyed in the processes.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>CHRISTOPHCRYS</Key>
+    <Name>Christophsis Crystal</Name>
+    <Description>
+      [H3]Christophsis Crystal[h3]
+      Please see page 62 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Source Page="62">Collapse of the Republic</Source>
+    <CategoryLimit>
+      <Category>Lightsaber</Category>
+    </CategoryLimit>
+    <Price>11000</Price>
+    <Rarity>8</Rarity>
+    <Restricted>false</Restricted>
+    <HP>2</HP>
+    <IsCrystal>true</IsCrystal>
+    <BaseMods>
+      <Mod>
+        <Key>DAMSET</Key>
+        <Count>7</Count>
+      </Mod>
+      <Mod>
+        <Key>CRITSET</Key>
+        <Count>3</Count>
+      </Mod>
+      <Mod>
+        <Key>BREACH</Key>
+        <Count>1</Count>
+        <QualSet>true</QualSet>
+      </Mod>
+      <Mod>
+        <Key>SUNDER</Key>
+        <QualSet>true</QualSet>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>BREACH</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>KNOCKDOWN</Key>
+      </Mod>
+      <Mod>
+        <Key>DAMADD</Key>
+        <Count>3</Count>
+      </Mod>
+      <Mod>
+        <Key>CRITSUB</Key>
+        <Count>2</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>CLONEBIN</Key>
+    <Name>Clone Polarized Electrobinoculars</Name>
+    <Description>
+      [H3]Clone Polarized Electrobinoculars[h3]
+      Please see page 62 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Armor</Type>
+    <Sources>
+      <Source Page="62">Collapse of the Republic</Source>
+    </Sources>
+    <Price>500</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds [BO] to all sight-based Perception checks.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Removes [SE] from Perception checks due to distance or low-light conditions.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>PERC</Key>
+        <Count>1</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>PERVIBROSAW</Key>
+    <Name>Personal Vibrosaw</Name>
+    <Description>
+      [H3]Personal Vibrosaw[h3]
+      Please see page 62 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Armor</Type>
+    <Sources>
+      <Source Page="62">Collapse of the Republic</Source>
+    </Sources>
+    <CategoryLimit>
+    </CategoryLimit>
+    <Price>900</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>1</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Adds a vibrosaw that can quickly cut through most materials in two or three rounds.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Adds a vibrosaw weapon profile.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+    </AddedMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <Unarmed>false</Unarmed>
+        <UnarmedName>Vibrosaw</UnarmedName>
+        <SkillKey>MELEE</SkillKey>
+        <AllSkillKey />
+        <Damage>0</Damage>
+        <DamageAdd>4</DamageAdd>
+        <Crit>2</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>CUMBERSOME</Key>
+            <Count>4</Count>
+          </Quality>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>2</Count>
+          </Quality>
+          <Quality>
+            <Key>SUNDER</Key>
+          </Quality>
+          <Quality>
+            <Key>UNWIELDY</Key>
+            <Count>4</Count>
+          </Quality>
+          <Quality>
+            <Key>VICIOUS</Key>
+            <Count>2</Count>
+          </Quality>
+        </Qualities>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>PLASMASHIELD</Key>
+    <Name>Portable Plasma Shield</Name>
+    <Description>
+      [H3]Portable Plasma Shield[h3]
+      Please see page 63 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Armor</Type>
+    <Sources>
+      <Source Page="63">Collapse of the Republic</Source>
+    </Sources>
+    <Price>2500</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>2</HP>
+    <Rarity>4</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>May be activated or deactivated as an incidental.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>When active, cannot wield two-handed weapons.</MiscDesc>
+      </Mod>
+      <Mod>
+        <Key>DEFENSIVE</Key>
+        <Count>1</Count>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DEFENSIVE</Key>
+        <Count>2</Count>
+      </Mod>
+      <Mod>
+        <Key>DEFLECTION</Key>
+        <Count>3</Count>
+      </Mod>
+    </AddedMods>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>RETWRIST</Key>
+    <Name>Retractable Wrist Blades</Name>
+    <Description>
+      [H3]Retractable Wrist Blades[h3]
+      Please see page 63 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Armor</Type>
+    <Sources>
+      <Source Page="63">Collapse of the Republic</Source>
+    </Sources>
+    <CategoryLimit>
+    </CategoryLimit>
+    <Price>150</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>1</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Armor incorporates a wrist blade that can be readied as an incidental.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+      <Mod>
+        <Key>DEFENSIVE</Key>
+        <Count>2</Count>
+        <WeaponModifierIndex>0</WeaponModifierIndex>
+      </Mod>
+    </AddedMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <Unarmed>false</Unarmed>
+        <UnarmedName>Wrist Blade</UnarmedName>
+        <SkillKey>MELEE</SkillKey>
+        <AllSkillKey />
+        <Damage>0</Damage>
+        <DamageAdd>1</DamageAdd>
+        <Crit>3</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrEngaged</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>WHIPTHROW</Key>
+    <Name>Whipcord Thrower</Name>
+    <Description>
+      [H3]Whipcord Thrower[h3]
+      Please see page 63 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Armor</Type>
+    <Sources>
+      <Source Page="63">Collapse of the Republic</Source>
+    </Sources>
+    <CategoryLimit>
+    </CategoryLimit>
+    <Price>600</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>1</HP>
+    <Rarity>1</Rarity>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Reduces the difficulty of climbing by one.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>May support up to 200 kg.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>May be used as a weapon.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+    </AddedMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <Unarmed>false</Unarmed>
+        <UnarmedName>Whipcord Thrower</UnarmedName>
+        <SkillKey>MELEE</SkillKey>
+        <AllSkillKey />
+        <Damage>0</Damage>
+        <DamageAdd>1</DamageAdd>
+        <Crit>5</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrShort</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>ENSNARE</Key>
+            <Count>2</Count>
+          </Quality>
+        </Qualities>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </ItemAttachment>
+  <ItemAttachment>
+    <Key>BARCSIDECAR</Key>
+    <Name>Mk I Sidecar for BARC Speeder</Name>
+    <Description>
+      [H3]Mk I Sidecar for BARC Speeder[h3]
+      Please see page 65 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Type>Vehicle</Type>
+    <Sources>
+      <Source Page="65">Collapse of the Republic</Source>
+    </Sources>
+    <ItemLimit>
+      <Key>BARCSPEEDER</Key>
+    </ItemLimit>
+    <Price>0</Price>
+    <Encumbrance>0</Encumbrance>
+    <HP>0</HP>
+    <Rarity>0</Rarity>
+    <BaseMods>
+      <Mod>
+        <Key>PASSADD</Key>
+        <Count>1</Count>
+      </Mod>
+      <Mod>
+        <Key>ENCCADD</Key>
+        <Count>5</Count>
+      </Mod>
+    </BaseMods>
+    <AddedMods>
+    </AddedMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <Unarmed>false</Unarmed>
+        <UnarmedName>Light Repeating Blaster</UnarmedName>
+        <SkillKey>GUNN</SkillKey>
+        <AllSkillKey />
+        <Damage>11</Damage>
+        <DamageAdd>0</DamageAdd>
+        <Crit>3</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrLong</RangeValue>
+        <Scale>wsPersonal</Scale>
+        <Qualities>
+          <Quality>
+            <Key>AUTOFIRE</Key>
+          </Quality>
+          <Quality>
+            <Key>PIERCE</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+        <VehicleWeaponProperties>
+          <FiringArcs>
+            <Fore>true</Fore>
+            <Aft>false</Aft>
+            <Port>false</Port>
+            <Starboard>false</Starboard>
+            <Dorsal>false</Dorsal>
+            <Ventral>false</Ventral>
+          </FiringArcs>
+          <Turret>false</Turret>
+          <Location>Forward</Location>
+          <Retractable>false</Retractable>
+        </VehicleWeaponProperties>
+      </WeaponModifier>
+    </WeaponModifiers>
   </ItemAttachment>
 
 

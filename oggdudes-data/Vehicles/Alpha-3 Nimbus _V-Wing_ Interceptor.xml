@@ -2,13 +2,25 @@
 <Vehicle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Key>ALPHA3VWING</Key>
   <Name>Alpha-3 Nimbus "V-Wing" Interceptor</Name>
-  <Description>[H3]Alpha-3 Nimbus "V-Wing" Interceptor[h3]
-Please see page 57 of the Stay on Target Sourcebook for details.</Description>
-  <Source Page="57">Stay on Target</Source>
+  <Description>
+    [H3]Alpha-3 Nimbus "V-Wing" Interceptor[h3]
+    Please see page 57 of the Stay on Target Sourcebook, or page 69 of the Collapse of the Republic Sourcebook, for details.</Description>
+  <Sources>
+    <Source Page="57">Stay on Target</Source>
+    <Source Page="69">Collapse of the Republic</Source>
+  </Sources>
   <Type>Starfighter</Type>
   <Categories>
     <Category>Starship</Category>
   </Categories>
+  <EraPricing>
+    <Era>
+      <Name>Clone Wars</Name>
+      <Rarity>7</Rarity>
+      <Price>120000</Price>
+      <Restricted>true</Restricted>
+    </Era>
+  </EraPricing>
   <Encumbrance>0</Encumbrance>
   <HP>2</HP>
   <Price>70000</Price>

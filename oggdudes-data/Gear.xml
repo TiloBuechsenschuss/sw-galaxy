@@ -3987,9 +3987,12 @@
     <Name>Concealed Recorder</Name>
     <Description>
       [H3]Concealed Recorder[h3]
-      Please see page 50 of the Desperate Allies Sourcebook for details.
+      Please see page 50 of the Desperate Allies Sourcebook, or page 58 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="50">Desperate Allies</Source>
+    <Sources>
+      <Source Page="50">Desperate Allies</Source>
+      <Source Page="58">Collapse of the Republic</Source>
+    </Sources>
     <Encumbrance>0</Encumbrance>
     <Price>175</Price>
     <Rarity>5</Rarity>
@@ -4027,9 +4030,12 @@
     <Name>Diplomatic Authorization</Name>
     <Description>
       [H3]Diplomatic Authorizationp[h3]
-      Please see page 51 of the Desperate Allies Sourcebook for details.
+      Please see page 51 of the Desperate Allies Sourcebook, or page 58 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="51">Desperate Allies</Source>
+    <Sources>
+      <Source Page="51">Desperate Allies</Source>
+      <Source Page="58">Collapse of the Republic</Source>
+    </Sources>
     <Price>10000</Price>
     <Encumbrance>0</Encumbrance>
     <Rarity>8</Rarity>
@@ -4211,9 +4217,12 @@
     <Name>Stun Cuffs</Name>
     <Description>
       [H3]Stun Cuffs[h3]
-      Please see page 52 of the Keeping the Peace sourcebook for details.
+      Please see page 52 of the Keeping the Peace Sourcebook, or page 59 of the Collapse of the Republic Sourcebook, for details.
     </Description>
-    <Source Page="52">Keeping the Peace</Source>
+    <Sources>
+      <Source Page="52">Keeping the Peace</Source>
+      <Source Page="59">Collapse of the Republic</Source>
+    </Sources>
     <Type>Security/Espionage</Type>
     <Categories />
     <Encumbrance>0</Encumbrance>
@@ -4795,6 +4804,14 @@
     <Price>1000</Price>
     <Rarity>8</Rarity>
     <Restricted>true</Restricted>
+    <EraPricing>
+      <Era>
+        <Name>Clone Wars</Name>
+        <Rarity>7</Rarity>
+        <Price>800</Price>
+        <Restricted>false</Restricted>
+      </Era>
+    </EraPricing>
     <BaseMods>
       <Mod>
         <Count>1</Count>
@@ -5450,6 +5467,14 @@
     <Price>700</Price>
     <Rarity>9</Rarity>
     <Restricted>true</Restricted>
+    <EraPricing>
+      <Era>
+        <Name>Clone Wars</Name>
+        <Rarity>7</Rarity>
+        <Price>400</Price>
+        <Restricted>false</Restricted>
+      </Era>
+    </EraPricing>
     <BaseMods>
       <Mod>
         <MiscDesc>Counts as having the right tool for the job for most Mechanics checks.</MiscDesc>
@@ -8970,9 +8995,12 @@ Please see page 53 of the No Disintegrations Sourcebook for details.</Descriptio
     <Key>ROCKETBOOTS</Key>
     <Name>Rocket Boots</Name>
     <Description>[H3]Rocket Boots[h3]
-Please see page 53 of the No Disintegrations Sourcebook for details.
+Please see page 53 of the No Disintegrations Sourcebook, or page 59 of the Collapse of the Republic Sourcebook, for details.
 [P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]</Description>
-    <Source Page="53">No Disintegrations</Source>
+    <Sources>
+      <Source Page="53">No Disintegrations</Source>
+      <Source Page="59">Collapse of the Republic</Source>
+    </Sources>
     <Type>Tools/Electronics</Type>
     <Categories />
     <Encumbrance>2</Encumbrance>
@@ -11621,5 +11649,125 @@ Please see page 50 of the Knights of Fate Sourcebook for details.</Description>
     </BaseMods>
   </Gear>
 
+  <!-- Collapse of the Republic -->
+
+  <Gear>
+    <Key>AQUASUIT</Key>
+    <Name>Aquasuit</Name>
+    <Description>
+      [H3]Aquasuit[h3]
+      Please see page 58 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Source Page="58">Collapse of the Republic</Source>
+    <Price>250</Price>
+    <Encumbrance>3</Encumbrance>
+    <Rarity>2</Rarity>
+    <Type>Survival</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Provides six hours of atmosphere.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Wearer does not suffer movement penalties for traveling through water.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>JT12CJETPACK</Key>
+    <Name>JT-12C Jetpack</Name>
+    <Description>
+      [H3]Aquasuit[h3]
+      Please see page 58 of the Collapse of the Republic Sourcebook for details.
+      [P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]
+    </Description>
+    <Source Page="58">Collapse of the Republic</Source>
+    <Price>4750</Price>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Tools/Electronics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Provides six hours of atmosphere.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Wearer does not suffer movement penalties for traveling through water.</MiscDesc>
+      </Mod>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>NANODROIDS</Key>
+    <Name>Nano-Droids</Name>
+    <Description>
+      [H3]Nano-Droids[h3]
+      Please see page 58 of the Collapse of the Republic Sourcebook for details.
+    </Description>
+    <Source Page="58">Collapse of the Republic</Source>
+    <Price>50000</Price>
+    <Encumbrance>0</Encumbrance>
+    <Rarity>9</Rarity>
+    <Type>Tools/Electronics</Type>
+    <BaseMods>
+      <Mod>
+        <MiscDesc>Add [SE][SE][SE] to Perception checks to notice nano-droids.</MiscDesc>
+      </Mod>
+      <Mod>
+        <MiscDesc>Can be reprogrammed to explode.</MiscDesc>
+      </Mod>
+    </BaseMods>
+    <WeaponModifiers>
+      <WeaponModifier>
+        <UnarmedName>Nano-Droid Bomb</UnarmedName>
+        <SkillKey>COMP</SkillKey>
+        <Damage>20</Damage>
+        <DamageAdd>0</DamageAdd>
+        <Crit>0</Crit>
+        <CritSub>0</CritSub>
+        <RangeValue>wrShort</RangeValue>
+        <Qualities>
+          <Quality>
+            <Key>BREACH</Key>
+            <Count>1</Count>
+          </Quality>
+        </Qualities>
+        <BaseMods>
+          <Mod>
+            <MiscDesc>Damage is dealt to containing object or person, plus anything else within short range.</MiscDesc>
+          </Mod>
+        </BaseMods>
+      </WeaponModifier>
+    </WeaponModifiers>
+  </Gear>
+  <Gear>
+    <Key>JT12CJETPACK</Key>
+    <Name>JT-12C Jetpack</Name>
+    <Description>
+      [H3]JT-12C Jetpack[h3]
+      Please see page 58 of the Collapse of the Republic Sourcebook for details.
+      [P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]
+    </Description>
+    <Source Page="58">Collapse of the Republic</Source>
+    <Price>4750</Price>
+    <Encumbrance>2</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Tools/Electronics</Type>
+    <BaseMods>
+    </BaseMods>
+  </Gear>
+  <Gear>
+    <Key>Z6JETPACK</Key>
+    <Name>Z-6 Jetpack</Name>
+    <Description>
+      [H3]Z-6 Jetpack[h3]
+      Please see page 59 of the Collapse of the Republic Sourcebook for details.
+      [P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]
+    </Description>
+    <Source Page="59">Collapse of the Republic</Source>
+    <Price>5250</Price>
+    <Encumbrance>3</Encumbrance>
+    <Rarity>7</Rarity>
+    <Type>Tools/Electronics</Type>
+    <BaseMods>
+    </BaseMods>
+  </Gear>
 
 </Gears>

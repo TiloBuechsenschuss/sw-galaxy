@@ -91,7 +91,7 @@ Please see page 26 of the Cyphers and Masks Sourcebook for details.</Description
     <TalentRow>
       <Cost>20</Cost>
       <Talents>
-        <Key>RESISTQUEST</Key>
+        <Key>RESISTQUESTIMP</Key>
         <Key>INTIM</Key>
         <Key>KNOWWEAK</Key>
         <Key>KNOWWEAKIMP</Key>

@@ -16,6 +16,8 @@ Please see page 24 of the Rise of the Separatists Sourcebook for details.</Descr
   <Specializations>
     <Key>JEDIKNIGHT</Key>
     <Key>PADAWAN</Key>
+    <Key>GENERAL</Key>
+    <Key>MASTER</Key>
   </Specializations>
   <Attributes>
     <ForceRating>1</ForceRating>

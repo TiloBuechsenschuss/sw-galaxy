@@ -2028,4 +2028,121 @@
     <Source Page="35">Cyphers and Masks</Source>
     <SigAbility>Unmatched Tradecraft</SigAbility>
   </SigAbilityNode>
+
+
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMBASE</Key>
+    <Name>Unmatched Teamwork Base Ability</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMINCREASESUC</Key>
+    <Name>Increase Effect:  Success</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMINCREASESUCADV</Key>
+    <Name>Increase Effect:  Success and Advantage</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMINCREASETRI</Key>
+    <Name>Increase Effect:  Triumph</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMREMSETBACK</Key>
+    <Name>Remove Setback</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMINCREASERANGE</Key>
+    <Name>Increase Range</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMCAMARADERIE</Key>
+    <Name>Camaraderie</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>UNMATCHEDTEAMDESTINY</Key>
+    <Name>Destiny</Name>
+    <Description>Please see page 46 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="46">Collapse of the Republic</Source>
+    <SigAbility>Unmatched Teamwork</SigAbility>
+  </SigAbilityNode>
+
+
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPBASE</Key>
+    <Name>Peerless Interception Base Ability</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPDESTINY</Key>
+    <Name>Destiny</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPINCREASEDUR</Key>
+    <Name>Increase Duration</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPCRITCOUNT</Key>
+    <Name>Critical Counter</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPREDUCESTR</Key>
+    <Name>Reduce Strain</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPACTIVATEQUAL</Key>
+    <Name>Activate Quality</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPEFFORTCOUNT</Key>
+    <Name>Effortless Counter</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+  <SigAbilityNode>
+    <Key>PEERLESSINTERCEPINCFREQU</Key>
+    <Name>Increase Frequency</Name>
+    <Description>Please see page 47 of the Collapse of the Republic Sourcebook for details.</Description>
+    <Source Page="47">Collapse of the Republic</Source>
+    <SigAbility>Peerless Interception</SigAbility>
+  </SigAbilityNode>
+
 </SigAbilityNodes>

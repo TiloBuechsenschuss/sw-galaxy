@@ -1497,7 +1497,6 @@
     <Key>DEFENSIVE</Key>
     <Name>Defensive Quality</Name>
     <Description></Description>
-    <Type>Weapon</Type>
     <ModDesc>Defensive {0}</ModDesc>
     <QualDesc>Defensive {0}</QualDesc>
     <IsQuality>true</IsQuality>

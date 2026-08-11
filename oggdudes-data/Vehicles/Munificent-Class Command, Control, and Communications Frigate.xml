@@ -11,6 +11,14 @@ Please see page 52 of the Lead by Example Sourcebook for details.</Description>
     <Category>Non-Fighter Starship</Category>
     <Category>Starship</Category>
   </Categories>
+  <EraPricing>
+    <Era>
+      <Name>Clone Wars</Name>
+      <Rarity>7</Rarity>
+      <Price>12000000</Price>
+      <Restricted>false</Restricted>
+    </Era>
+  </EraPricing>
   <Encumbrance>0</Encumbrance>
   <HP>1</HP>
   <Price>12300000</Price>
