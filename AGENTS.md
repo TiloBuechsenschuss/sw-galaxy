@@ -90,8 +90,10 @@ reads** (and what translates between them), and the four `simplexml_load_string(
 
 The short version:
 
-- `convert.php` is a *mechanical* XML→JSON conversion. It never reshapes anything, so a
-  source file must already be in the app's schema.
+- `convert.php` is a *mechanical* XML→JSON conversion. It reshapes only one thing —
+  `<Source Page="44">Book</Source>` becomes `<Source><Book/><Page/></Source>`, because
+  SimpleXML drops attributes and the page numbers would otherwise be lost — so a source
+  file must otherwise already be in the app's schema.
 - `xml_to_json/convert.py` is a Python port for machines without PHP. **The two must
   produce identical output** — change one, change the other.
 - `xml_to_json/oggdude_species_to_app.py` translates OggDude's per-species XML into the

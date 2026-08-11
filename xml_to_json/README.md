@@ -66,7 +66,16 @@ in alphabetical order**, and:
    committed JSON diffing cleanly across refreshes. Comparison is
    case-insensitive over ASCII only, matching PHP's byte-wise `strtolower()`.
    A row with no source book at all sorts first.
-4. Recognised file names are fixed in `$validFileNames`: `Armor.xml`,
+4. **Source pages are un-attributed first.** OggDude writes the page as an XML
+   attribute — `<Source Page="44">Forged in Battle</Source>` — and SimpleXML
+   drops attributes (quirk 1 below), so every page number was being thrown away
+   for Armor, Weapons, Gear and ItemAttachments. `expandSourcePages()` /
+   `expand_source_pages()` rewrite those into
+   `<Source><Book>…</Book><Page>44</Page></Source>` before the conversion runs,
+   which is the shape Species already use and the one `items.html` renders as
+   *"Source: <book> page N"*. Sources that already have `<Book>`/`<Page>`
+   children are left alone.
+5. Recognised file names are fixed in `$validFileNames`: `Armor.xml`,
    `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`. Adding a new
    data type means touching the converter, `index.html` and usually `items.html`.
 
@@ -134,9 +143,12 @@ the committed JSON and diffing until it matched — `verify_convert.py` still
 checks all of them.
 
 1. **Attributes are dropped.** `<Source Page="169">Edge…</Source>` becomes the
-   plain string `"Edge…"`, not `{"@attributes":…}`. The XML carries 1677
+   plain string `"Edge…"`, not `{"@attributes":…}`. The XML carries 1783
    `Page="…"` attributes and the JSON contains no `@attributes` key at all.
-   *This is why page numbers only survive when `<Page>` is a child element.*
+   Page numbers therefore only survive when `<Page>` is a child element — which
+   is why the converters rewrite `<Source Page="…">` into that shape up front
+   (merge rule 4). Any *other* attribute added to the sources in future will
+   still vanish silently.
 2. **Whitespace-only elements keep their text** under a `"0"` key:
    `<BaseMods>\n    </BaseMods>` → `{"0":"\n    "}`, while a truly empty element
    gives `{}`.

@@ -6,8 +6,14 @@
             "Description": "\n      [H3]Upgraded Comms Array[h3]\n      Please see page 287 of the Age of Rebellion Core Rulebook, or page 271 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 287
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 271
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -35,7 +41,10 @@
             "Key": "ARMINS",
             "Name": "Armor Insert",
             "Description": "\n      [H4]Armor Insert[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 57
+            },
             "Type": "Armor",
             "Price": 450,
             "Rarity": 3,
@@ -83,7 +92,10 @@
             "Key": "BOOTBLADE",
             "Name": "Boot Blade",
             "Description": "\n      [H4]Boot Blade[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 57
+            },
             "Type": "Armor",
             "CategoryLimit": {
                 "Category": [
@@ -133,7 +145,10 @@
             "Key": "CLOAKDEV",
             "Name": "Cloaking Device",
             "Description": "\n      [H4]Cloaking Device[h4]\n      Please see page 62 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 62
+            },
             "Type": "Vehicle",
             "Price": 29000,
             "Rarity": 9,
@@ -161,7 +176,10 @@
             "Key": "COMLINKBUG",
             "Name": "Comlink Bug",
             "Description": "\n      [H4]Comlink Bug[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 59
+            },
             "Type": "Gear",
             "TypeLimit": {
                 "Type": "Communications"
@@ -180,7 +198,10 @@
             "Key": "COMPONENT",
             "Name": "Componentization",
             "Description": "\n      [H4]Componentization[h4]\n      Please see page 56 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 56
+            },
             "Type": "Weapon",
             "Price": 1150,
             "Rarity": 5,
@@ -198,7 +219,10 @@
             "Key": "CONCCLIMBCORD",
             "Name": "Concealed Climbing Cord",
             "Description": "\n      [H4]Concealed Climbing Cord[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 59
+            },
             "Type": "Gear",
             "Price": 100,
             "Rarity": 2,
@@ -214,7 +238,10 @@
             "Key": "DARTGUN",
             "Name": "Dart Gun",
             "Description": "\n      [H4]Dart Gun[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 59
+            },
             "Type": "Gear",
             "Price": 200,
             "Rarity": 4,
@@ -252,7 +279,10 @@
             "Key": "HIDCOMP",
             "Name": "Hidden Compartment",
             "Description": "\n      [H4]Hidden Compartment[h4]\n      Please see page 59 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 59
+            },
             "Type": "Gear",
             "Price": 50,
             "Rarity": 3,
@@ -274,7 +304,10 @@
             "Key": "HOLOCONV",
             "Name": "Holo Converter",
             "Description": "\n      [H4]Holo Converter[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 60
+            },
             "Type": "Gear",
             "CategoryLimit": {
                 "Category": "Holoprojector"
@@ -299,7 +332,10 @@
             "Key": "HOLOSHELL",
             "Name": "Holographic Shell",
             "Description": "\n      [H4]Holographic Shell[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "Price": 5500,
             "Rarity": 7,
@@ -323,7 +359,10 @@
             "Key": "HUSHKIT",
             "Name": "Hush Kit",
             "Description": "\n      [H4]Hush Kit[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "Price": 450,
             "Rarity": 6,
@@ -340,7 +379,10 @@
             "Key": "JUMPBOOTS",
             "Name": "Jump Boots",
             "Description": "\n      [H4]Jump Boots[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 1200,
             "Rarity": 6,
@@ -370,7 +412,10 @@
             "Key": "LIGHTFR",
             "Name": "Lightweight Frame",
             "Description": "\n      [H4]Lightweight Frame[h4]\n      Please see page 56 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 56
+            },
             "Type": "Weapon",
             "Price": 650,
             "Rarity": 3,
@@ -393,7 +438,10 @@
             "Key": "MOBLISTEN",
             "Name": "Mobile Listening Post",
             "Description": "\n      [H4]Mobile Listening Post[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "Price": 5500,
             "Rarity": 5,
@@ -417,7 +465,10 @@
             "Key": "REFLADAPSKIN",
             "Name": "Reflec Adaptive Skin",
             "Description": "\n      [H4]Reflec Adaptive Skin[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 3500,
             "Rarity": 7,
@@ -453,7 +504,10 @@
             "Key": "RETGARROTE",
             "Name": "Retractable Garrote",
             "Description": "\n      [H4]Retractable Garrote[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 60
+            },
             "Type": "Gear",
             "Price": 300,
             "Rarity": 6,
@@ -481,7 +535,10 @@
             "Key": "RETWEAPSYS",
             "Name": "Retractable Weapon System",
             "Description": "\n      [H4]Retractable Weapon System[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "Price": 1000,
             "Rarity": 6,
@@ -504,7 +561,10 @@
             "Key": "SCANPROOF",
             "Name": "Scanner-Proof Hardware",
             "Description": "\n      [H4]Scanner-Proof Hardware[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 57
+            },
             "Type": "Weapon",
             "Price": 1000,
             "Rarity": 6,
@@ -534,7 +594,10 @@
             "Key": "SCANWEAVE",
             "Name": "Scannerweave",
             "Description": "\n      [H4]Scannerweave[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 57
+            },
             "Type": "Armor",
             "Price": 1800,
             "Rarity": 6,
@@ -558,7 +621,10 @@
             "Key": "SELFDEST",
             "Name": "Self-Destruct System",
             "Description": "\n      [H4]Self-Destruct System[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 60
+            },
             "Type": "Gear",
             "Price": 450,
             "Rarity": 5,
@@ -586,7 +652,10 @@
             "Key": "SENSSHUNT",
             "Name": "Sensor Shunt",
             "Description": "\n      [H4]Sensor Shunt[h4]\n      Please see page 63 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "Price": 3200,
             "Rarity": 8,
@@ -604,7 +673,10 @@
             "Key": "STEALTHFGEN",
             "Name": "Stealth Field Generator",
             "Description": "\n      [H4]Stealth Field Generator[h4]\n      Please see page 58 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 3800,
             "Restricted": "true",
@@ -628,7 +700,10 @@
             "Key": "SUBMINHOLO",
             "Name": "Subminiature Holocam",
             "Description": "\n      [H4]Subminiature Holocam[h4]\n      Please see page 60 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 60
+            },
             "Type": "Gear",
             "Price": 300,
             "Rarity": 5,
@@ -644,7 +719,10 @@
             "Key": "XCITEOVER",
             "Name": "XCiter Overcharge",
             "Description": "\n      [H4]XCiter Overcharge[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 57
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -671,7 +749,10 @@
             "Key": "TARGCOMP",
             "Name": "\"Accu-Strike\" Integrated Targeting Computer",
             "Description": "\n      [H3]\"Accu-Strike\" Integrated Targeting Computer[h3]\n      Please see page 54 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 54
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -698,7 +779,10 @@
             "Key": "LASERSIGHT",
             "Name": "\"Bantha's Eye\" Laser Sight",
             "Description": "\n      [H3]\"Bantha's Eye\" Laser Sight[h3]\n      Please see page 52 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 52
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {
@@ -727,7 +811,10 @@
             "Key": "MISSILESYS",
             "Name": "\"Final Word\" Secondary Missile System",
             "Description": "\n      [H3]\"Final Word\" Secondary Missile System[h3]\n      Please see page 52 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 52
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -766,7 +853,10 @@
             "Key": "FOGGEN",
             "Name": "Fogger Smoke Generator",
             "Description": "\n      [H3]Fogger Smoke Generator[h3]\n      Please see page 61 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 61
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -801,7 +891,10 @@
             "Key": "GENELOCK",
             "Name": "Gene Lock",
             "Description": "\n      [H3]Gene Lock[h3]\n      Please see page 51 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 51
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -831,7 +924,10 @@
             "Key": "PISTOLGRIP",
             "Name": "H9 Pistol Grip",
             "Description": "\n      [H3]H9 Pistol Grip[h3]\n      Please see page 52 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 52
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -870,7 +966,10 @@
             "Key": "RANGEFIND",
             "Name": "MB-7 \"Ranger\" Range Finder",
             "Description": "\n      [H3]MB-7 \"Ranger\" Range Finder[h3]\n      Please see page 54 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 54
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -899,7 +998,10 @@
             "Key": "WRISTMOUNT",
             "Name": "Model 2 Wrist Mount",
             "Description": "\n      [H3]Model 2 Wrist Mount[h3]\n      Please see page 52 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 52
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {
@@ -927,7 +1029,10 @@
             "Key": "MULTICOMLINK",
             "Name": "Multi-Band Comlink",
             "Description": "\n      [H3]Multi-Band Comlink[h3]\n      Please see page 53 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 53
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -951,7 +1056,10 @@
             "Key": "INTSCAN",
             "Name": "OmniScan 3 Integrated Scanner",
             "Description": "\n      [H3]OmniScan 3 Integrated Scanner[h3]\n      Please see page 54 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 54
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -986,7 +1094,10 @@
             "Key": "OEWM",
             "Name": "Oversized External Weapons Mount",
             "Description": "\n      [H3]Oversized External Weapons Mount[h3]\n      Please see page 60 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 60
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -1034,7 +1145,10 @@
             "Key": "PARAAIR",
             "Name": "Paramilitary Airspeeder",
             "Description": "\n      [H3]Paramilitary Airspeeder[h3]\n      Converts an airspeeder to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Airspeeder"
@@ -1086,7 +1200,10 @@
             "Key": "PARABULK",
             "Name": "Paramilitary Bulk Transport",
             "Description": "\n      [H3]Paramilitary Bulk Transport[h3]\n      Converts a bulk transport to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "CategoryLimit": {
                 "Category": "Bulk Transport"
@@ -1145,7 +1262,10 @@
             "Key": "PARACLOUD",
             "Name": "Paramilitary Cloud Car",
             "Description": "\n      [H3]Paramilitary Cloud Car[h3]\n      Converts a cloud car to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Cloud Car"
@@ -1198,7 +1318,10 @@
             "Key": "PARALAND",
             "Name": "Paramilitary Landspeeder",
             "Description": "\n      [H3]Paramilitary Landspeeder[h3]\n      Converts a landspeeder to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": [
@@ -1256,7 +1379,10 @@
             "Key": "PARALTFREIGHT",
             "Name": "Paramilitary Light Freighter",
             "Description": "\n      [H3]Paramilitary Light Freighter[h3]\n      Converts a light freighter to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Light Freighter"
@@ -1327,7 +1453,10 @@
             "Key": "PARAMEDTRANS",
             "Name": "Paramilitary Medium Transport",
             "Description": "\n      [H3]Paramilitary Medium Transport[h3]\n      Converts a medium transport to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "CategoryLimit": {
                 "Category": "Medium Transport"
@@ -1382,7 +1511,10 @@
             "Key": "PARASHUTTLE",
             "Name": "Paramilitary Shuttle",
             "Description": "\n      [H3]Paramilitary Shuttle[h3]\n      Converts a shuttle to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Shuttle"
@@ -1440,7 +1572,10 @@
             "Key": "PARABIKE",
             "Name": "Paramilitary Speeder Bike\/Swoop",
             "Description": "\n      [H3]Paramilitary Speeder Bike\/Swoop[h3]\n      Converts a speeder bike or swoop to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": [
@@ -1506,7 +1641,10 @@
             "Key": "PARAWALK",
             "Name": "Paramilitary Walker",
             "Description": "\n      [H3]Paramilitary Walker[h3]\n      Converts a walker to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Walker"
@@ -1554,7 +1692,10 @@
             "Key": "PARAWHEEL",
             "Name": "Paramilitary Wheeled\/Tracked",
             "Description": "\n      [H3]Paramilitary Wheeled\/Tracked[h3]\n      Converts a wheeled or tracked vehicle to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "CategoryLimit": {
                 "Category": [
@@ -1612,7 +1753,10 @@
             "Key": "PARAYACHT",
             "Name": "Paramilitary Yacht",
             "Description": "\n      [H3]Paramilitary Yacht[h3]\n      Converts a yacht to a paramilitary vehicle.  Please see page 71 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 71
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Yacht"
@@ -1677,7 +1821,10 @@
             "Key": "INTMEDSYS",
             "Name": "SmartMed 2000 Integrated Med-Systems",
             "Description": "\n      [H3]SmartMed 2000 Integrated Med-Systems[h3]\n      Please see page 53 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 53
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -1721,7 +1868,10 @@
             "Key": "BOARDTUBE",
             "Name": "T9 Stinger Assault Boarding Tube",
             "Description": "\n      [H3]T9 Stinger Assault Boarding Tube[h3]\n      Please see page 61 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 61
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -1761,7 +1911,10 @@
             "Key": "HANDSFREEWEAP",
             "Name": "VX Hands-Free Weapon",
             "Description": "\n      [H3]VX Hands-Free Weapon[h3]\n      Please see page 53 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 53
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -1791,7 +1944,10 @@
             "Key": "ASEA",
             "Name": "Advanced Subspace Encryption Array",
             "Description": "\n      [H3]Advanced Subspace Encryption Array[h3]\n      Please see page 65 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 65
+            },
             "Sources": {},
             "Type": "Vehicle",
             "ItemLimit": {},
@@ -1837,7 +1993,10 @@
             "Key": "ENVSIM",
             "Name": "Environmental Simulators",
             "Description": "\n      [H3]Environmental Simulators[h3]\n      Please see page 64 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 64
+            },
             "Sources": {},
             "Type": "Vehicle",
             "ItemLimit": {},
@@ -1869,7 +2028,10 @@
             "Key": "HNPA",
             "Name": "Holonet Pirate Array",
             "Description": "\n      [H3]Holonet Pirate Array[h3]\n      Please see page 65 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 65
+            },
             "Sources": {},
             "Type": "Vehicle",
             "ItemLimit": {},
@@ -1908,7 +2070,10 @@
             "Key": "LUXPASSCOMP",
             "Name": "Luxury Passenger Compartments",
             "Description": "\n      [H3]Luxury Passenger Compartments[h3]\n      Please see page 65 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 65
+            },
             "Sources": {},
             "Type": "Vehicle",
             "ItemLimit": {},
@@ -1935,7 +2100,10 @@
             "Key": "BLADEDRAIN",
             "Name": "Blade Drain",
             "Description": "\n      [H3]Blade Drain[h3]\n      Please see page 50 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 50
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -1971,7 +2139,10 @@
             "Key": "CORRUPTCRYS",
             "Name": "Corrupted Crystal",
             "Description": "\n      [H3]Corrupted Crystal[h3]\n      Please see page 52 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 52
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2042,7 +2213,10 @@
             "Key": "CRACKEDCRYS",
             "Name": "Cracked Crystal",
             "Description": "\n      [H3]Cracked Crystal[h3]\n      Please see page 52 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 52
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2101,7 +2275,10 @@
             "Key": "HILTMASK",
             "Name": "Hilt Masking Kit",
             "Description": "\n      [H3]Hilt Masking Kit[h3]\n      Please see page 50 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 50
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2128,7 +2305,10 @@
             "Key": "POMMELCAP",
             "Name": "Pommel Cap",
             "Description": "\n      [H3]Pommel Cap[h3]\n      Please see page 51 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 51
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2159,7 +2339,10 @@
             "Key": "SEEKERCRYS",
             "Name": "Seeker Crystal",
             "Description": "\n      [H3]Seeker Crystal[h3]\n      Please see page 53 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 53
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2213,7 +2396,10 @@
             "Key": "SOLARICRYS",
             "Name": "Solari Crystal",
             "Description": "\n      [H3]Solari Crystal[h3]\n      Please see page 53 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 53
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2281,7 +2467,10 @@
             "Key": "STUNBLAST",
             "Name": "Stun Blaster Attachment",
             "Description": "\n      [H3]Stun Blaster Attachment[h3]\n      Please see page 51 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 51
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -2339,9 +2528,18 @@
             "Description": "\n      [H3]Advanced Targeting Array[h3]\n      Please see page 269 of the Edge of the Empire Core Rulebook, page 286 of the Age of Rebellion Core Rulebook, or page 269 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 269
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 269
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -2382,8 +2580,14 @@
             "Type": "Weapon",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 188
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 200
+                    }
                 ]
             },
             "CategoryLimit": {
@@ -2431,8 +2635,14 @@
             "Description": "\n      [H3]Balanced Hilt[h3]\n      Please see page 188 of the Edge of the Empire Core Rulebook, or page 200 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 188
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 200
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -2468,9 +2678,18 @@
             "Description": "\n      [H3]Bipod Mount[h3]\n      Please see page 188 of the Edge of the Empire Core Rulebook, page 200 of the Age of Rebellion Core Rulebook, or page 192 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 188
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 200
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 192
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -2501,8 +2720,14 @@
             "Description": "\n      [H3]Blaster Actuating Module[h3]\n      Please see page 188 of the Edge of the Empire Core Rulebook, or page 200 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 188
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 200
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -2545,7 +2770,10 @@
             "Key": "BOWACC",
             "Name": "Bowcaster Accelerator Enhancement",
             "Description": "\n      [H3]Bowcaster Accellerator Enhancement[h3]\n      Please see page 189 of the Edge of the Empire Core Rulebook for details.\n    ",
-            "Source": "Edge of the Empire Core Rulebook",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 189
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Bowcaster"
@@ -2577,7 +2805,10 @@
             "Key": "BOWREC",
             "Name": "Bowcaster Re-Cocker",
             "Description": "\n      [H3]Bowcaster Re-Cocker[h3]\n      Please see page 189 of the Edge of the Empire Core Rulebook for details.\n    ",
-            "Source": "Edge of the Empire Core Rulebook",
+            "Source": {
+                "Book": "Edge of the Empire Core Rulebook",
+                "Page": 189
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Bowcaster"
@@ -2605,8 +2836,14 @@
             "Description": "\n      [H3]Cortosis Weave[h3]\n      Please see page 194 of the Edge of the Empire Core Rulebook, or page 205 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 194
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 205
+                    }
                 ]
             },
             "Type": "Armor",
@@ -2629,9 +2866,18 @@
             "Description": "\n      [H3]Electronic Countermeasures Suite[h3]\n      Please see page 269 of the Edge of the Empire Core Rulebook, page 286 of the Age of Rebellion Core Rulebook, or page 269 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 269
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 269
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -2665,9 +2911,18 @@
             "Description": "\n      [H3]Enhanced Carbon-Durasteel Armor[h3]\n      Please see page 269 of the Edge of the Empire Core Rulebook, or page 286 of the Age of Rebellion Core Rulebook, or page 269 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 269
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 269
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -2701,8 +2956,14 @@
             "Description": "\n      [H3]Enhanced Optics Suite[h3]\n      Please see page 194 of the Edge of the Empire Core Rulebook, or page 206 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 194
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 206
+                    }
                 ]
             },
             "Type": "Armor",
@@ -2729,8 +2990,14 @@
             "Description": "\n      [H3]Filed Front Sight[h3]\n      Please see page 190 of the Edge of the Empire Core Rulebook, or page 201 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 190
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 201
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -2764,8 +3031,14 @@
             "Description": "\n      [H3]Forearm Grip[h3]\n      Please see page 190 of the Edge of the Empire Core Rulebook, or page 201 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 190
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 201
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -2804,9 +3077,18 @@
             "Description": "\n      [H3]Heating System[h3]\n      Please see page 194 of the Edge of the Empire Core Rulebook, page 206 of the Age of Rebellion Core Rulebook, or page 201 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 194
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 206
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 201
+                    }
                 ]
             },
             "Type": "Armor",
@@ -2830,9 +3112,18 @@
             "Description": "\n      [H3]High-Output Ion Turbine[h3]\n      Please see page 271 of the Edge of the Empire Core Rulebook, page 286 of the Age of Rebellion Core Rulebook, or page 269 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 271
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 269
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -2871,9 +3162,18 @@
             "Description": "\n      [H3]Hydraulic Control Circuits[h3]\n      Please see page 270 of the Edge of the Empire Core Rulebook, page 286 of the Age of Rebellion Core Rulebook, or page 270 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 270
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 270
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -2921,9 +3221,18 @@
             "Description": "\n      [H3]Hyperdrive Generator[h3]\n      Please see page 271 of the Edge of the Empire Core Rulebook, page 286 of the Age of Rebellion Core Rulebook, or page 270 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 271
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 270
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -2954,8 +3263,14 @@
             "Description": "\n      [H3]Jury Rigged (Armor)[h3]\n      Please see page 138 of the Edge of the Empire Core Rulebook, or page 150 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 138
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 150
+                    }
                 ]
             },
             "Type": "Armor",
@@ -2989,8 +3304,14 @@
             "Description": "\n      [H3]Jury Rigged (Weapon)[h3]\n      Please see page 138 of the Edge of the Empire Core Rulebook, or page 150 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 138
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 150
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3028,8 +3349,14 @@
             "Description": "\n      [H3]Marksman Barrel[h3]\n      Please see page 190 of the Edge of the Empire Core Rulebook, or page 202 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 190
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 202
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3071,9 +3398,18 @@
             "Description": "\n      [H3]Mono-Molecular Edge[h3]\n      Please see page 190 of the Edge of the Empire Core Rulebook, page 202 of the Age of Rebellion Core Rulebook, or page 194 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 190
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 202
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 194
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3103,9 +3439,18 @@
             "Description": "\n      [H3]Multi-Optic Sight[h3]\n      Please see page 191 of the Edge of the Empire Core Rulebook, page 202 of the Age of Rebellion Core Rulebook, or page 51 of the Savage Spirits Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Savage Spirits"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 191
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 202
+                    },
+                    {
+                        "Book": "Savage Spirits",
+                        "Page": 51
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3135,9 +3480,18 @@
             "Description": "\n      [H3]Optical Camouflage System[h3]\n      Please see page 195 of the Edge of the Empire Core Rulebook, page 206 of the Age of Rebellion Core Rulebook, or page 51 of the Savage Spirits Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Savage Spirits"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 195
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 206
+                    },
+                    {
+                        "Book": "Savage Spirits",
+                        "Page": 51
+                    }
                 ]
             },
             "Type": "Armor",
@@ -3179,9 +3533,18 @@
             "Description": "\n      [H3]Reinforced Shield Generator[h3]\n      Please see page 270 of the Edge of the Empire Core Rulebook, page 287 of the Age of Rebellion Core Rulebook, or page 270 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 270
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 287
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 270
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -3211,9 +3574,18 @@
             "Description": "\n      [H3]Retrofitted Hangar Bay[h3]\n      Please see page 271 of the Edge of the Empire Core Rulebook, page 287 of the Age of Rebellion Core Rulebook, or page 270 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 271
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 287
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 270
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -3245,9 +3617,18 @@
             "Description": "\n      [H3]Serrated Edge[h3]\n      Please see page 191 of the Edge of the Empire Core Rulebook, page 203 of the Age of Rebellion Core Rulebook, or page 194 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 191
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 203
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 194
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3274,8 +3655,14 @@
             "Description": "\n      [H3]Shortened Barrel[h3]\n      Please see page 191 of the Edge of the Empire Core Rulebook, or page 203 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 191
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 203
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3313,8 +3700,14 @@
             "Description": "\n      [H3]Smuggling Compartments[h3]\n      Please see page 270 of the Edge of the Empire Core Rulebook, or page 271 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 270
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 271
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -3346,8 +3739,14 @@
             "Description": "\n      [H3]Spread Barrel[h3]\n      Please see page 191 of the Edge of the Empire Core Rulebook, or page 203 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 191
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 203
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3387,8 +3786,14 @@
             "Description": "\n      [H3]Strength Enhancing System[h3]\n      Please see page 194 of the Edge of the Empire Core Rulebook, or page 206 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 194
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 206
+                    }
                 ]
             },
             "Type": "Armor",
@@ -3427,9 +3832,18 @@
             "Description": "\n      [H3]Stun-Only Blaster Modification[h3]\n      Add this attachment to any blaster pistol or carbine to make it stun-only.  A blaster with this modification costs half the normal price.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 160
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 174
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 167
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3463,9 +3877,18 @@
             "Description": "\n      [H3]Superior Armor Customization[h3]\n      Please see page 195 of the Edge of the Empire Core Rulebook, page 206 of the Age of Rebellion Core Rulebook, or page 201 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 195
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 206
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 201
+                    }
                 ]
             },
             "Type": "Armor",
@@ -3492,9 +3915,18 @@
             "Description": "\n      [H3]Superior Weapon Customization[h3]\n      Please see page 191 of the Edge of the Empire Core Rulebook, page 203 of the Age of Rebellion Core Rulebook, or page 194 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 191
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 203
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 194
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3520,9 +3952,18 @@
             "Description": "\n      [H3]Telescopic Optical Sight[h3]\n      Please see page 192 of the Edge of the Empire Core Rulebook, page 203 of the Age of Rebellion Core Rulebook, or page 195 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 192
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 203
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 195
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3552,9 +3993,18 @@
             "Description": "\n      [H3]Thermal Shielding System[h3]\n      Please see page 194 of the Edge of the Empire Core Rulebook, page 207 of the Age of Rebellion Core Rulebook, or page 201 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 194
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 207
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 201
+                    }
                 ]
             },
             "Type": "Armor",
@@ -3578,9 +4028,18 @@
             "Description": "\n      [H3]Tripod Mount[h3]\n      Please see page 193 of the Edge of the Empire Core Rulebook, page 204 of the Age of Rebellion Core Rulebook, or page 195 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 193
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 204
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 195
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3616,8 +4075,14 @@
             "Description": "\n      [H3]Under-Barrel Flame Projector[h3]\n      Please see page 192 of the Edge of the Empire Core Rulebook, or page 204 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 192
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 204
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3683,8 +4148,14 @@
             "Description": "\n      [H3]Under-Barrel Grenade Launcher[h3]\n      Please see page 191 of the Edge of the Empire Core Rulebook, or page 205 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 191
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 205
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3736,9 +4207,18 @@
             "Description": "\n      [H3]Vacuum Sealed[h3]\n      Please see page 195 of the Edge of the Empire Core Rulebook, page 207 of the Age of Rebellion Core Rulebook, or page 57 of the Keeping the Peace sourcebook for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Keeping the Peace"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 195
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 207
+                    },
+                    {
+                        "Book": "Keeping the Peace",
+                        "Page": 57
+                    }
                 ]
             },
             "Type": "Armor",
@@ -3773,8 +4253,14 @@
             "Description": "\n      [H3]Weapon Harness[h3]\n      Please see page 193 of the Edge of the Empire Core Rulebook, or page 205 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 193
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 205
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3810,9 +4296,18 @@
             "Description": "\n      [H3]Weapon Sling[h3]\n      Please see page 193 of the Edge of the Empire Core Rulebook, page 205 of the Age of Rebellion Core Rulebook, or page 195 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 193
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 205
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 195
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3843,9 +4338,18 @@
             "Description": "\n      [H3]Weighted Head[h3]\n      Please see page 193 of the Edge of the Empire Core Rulebook, page 205 of the Age of Rebellion Core Rulebook, or page 195 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 193
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 205
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 195
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -3885,7 +4389,10 @@
             "Key": "COLLAVOID",
             "Name": "Collision Avoidance System",
             "Description": "\n      [H3]Collision Avoidance System[h3]\n      Please see page 58 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 58
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -3905,7 +4412,10 @@
             "Key": "DAMPEMIT",
             "Name": "Damping Emitter",
             "Description": "\n      [H3]Damping Emitter[h3]\n      Please see page 51 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 51
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -3931,7 +4441,10 @@
             "Key": "PODENGINEBOOST",
             "Name": "Engine Boost System",
             "Description": "\n      [H3]Engine Boost System[h3]\n      Please see page 58 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 58
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -3957,7 +4470,10 @@
             "Key": "ETAAN",
             "Name": "Etaan Crystal",
             "Description": "\n      [H3]Etaan Crystal[h3]\n      Please see page 52 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 52
+            },
             "Type": "Weapon",
             "Price": 12000,
             "Rarity": 9,
@@ -4018,7 +4534,10 @@
             "Key": "POSFORDEB",
             "Name": "Foreign Debris Ejector",
             "Description": "\n      [H3]Foreign Debris Ejector[h3]\n      Please see page 58 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 58
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -4044,7 +4563,10 @@
             "Key": "GHOSTFIRE",
             "Name": "Ghostfire Crystal",
             "Description": "\n      [H3]Ghostfire Crystal[h3]\n      Please see page 53 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 53
+            },
             "Type": "Weapon",
             "Price": 14000,
             "Rarity": 9,
@@ -4093,7 +4615,10 @@
             "Key": "PODHAND",
             "Name": "Handling Upgrades",
             "Description": "\n      [H3]Handling Upgrades[h3]\n      Please see page 59 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -4119,7 +4644,10 @@
             "Key": "PODCOILS",
             "Name": "High-Output Repulsor Coils",
             "Description": "\n      [H3]High-Output Repulsor Coils[h3]\n      Please see page 59 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -4145,7 +4673,10 @@
             "Key": "OVERPOWERCELL",
             "Name": "Overcharged Power Cell",
             "Description": "\n      [H3]Overcharged Power Cell[h3]\n      Please see page 51 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 51
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -4165,7 +4696,10 @@
             "Key": "PISTOLHILT",
             "Name": "Pistol Hilt",
             "Description": "\n      [H3]Pistol Hilt[h3]\n      Please see page 52 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 52
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -4200,7 +4734,10 @@
             "Key": "PODCONTCAB",
             "Name": "Podracer Control Cables",
             "Description": "\n      [H3]Podracer Control Cables[h3]\n      Please see page 60 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 60
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "PODCOCK"
@@ -4220,7 +4757,10 @@
             "Key": "PODEJECT",
             "Name": "Podracer Ejection System",
             "Description": "\n      [H3]Podracer Ejection System[h3]\n      Please see page 58 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 58
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -4240,7 +4780,10 @@
             "Key": "PODENGINE",
             "Name": "Podracer Engines (pair)",
             "Description": "\n      [H3]Podracer Engine (pair)[h3]\n      Please see page 60 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 60
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "PODCOCK"
@@ -4260,7 +4803,10 @@
             "Key": "PODSHIELD",
             "Name": "Podracer Shield Generator",
             "Description": "\n      [H3]Podracer Shield Generator[h3]\n      Please see page 59 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": "Podracer"
@@ -4286,7 +4832,10 @@
             "Key": "REFLEXGRIP",
             "Name": "Reflex Grip",
             "Description": "\n      [H3]Reflex Grip[h3]\n      Please see page 52 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 52
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -4318,7 +4867,10 @@
             "Key": "PODREICOWL",
             "Name": "Reinforced Engine Cowlings",
             "Description": "\n      [H3]Reinforced Engine Cowlings[h3]\n      Please see page 59 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "Price": 2500,
             "Rarity": 3,
@@ -4343,7 +4895,10 @@
             "Key": "SHIENREVGRIP",
             "Name": "Shien Reverse Grip Customization",
             "Description": "\n      [H3]Shien Reverse Grip Customization[h3]\n      Please see page 52 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 52
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -4396,7 +4951,10 @@
             "Key": "ANQ36",
             "Name": "ANQ 3.6 Tracking Computer",
             "Description": "\n      [H3]ANQ 3.6 Tracking Computer[h3]\n      Please see page 60 of the Enter the Unknown Sourcebook for details.\n    ",
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 60
+            },
             "Sources": {},
             "Type": "Vehicle",
             "ItemLimit": {
@@ -4426,7 +4984,10 @@
             "Key": "ENGACCESS",
             "Name": "Engineering Access",
             "Description": "\n      [H3]Engineering Access[h3]\n      Please see page 61 of the Enter the Unknown Sourcebook for details.\n    ",
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 61
+            },
             "Sources": {},
             "Type": "Vehicle",
             "ItemLimit": {
@@ -4456,7 +5017,10 @@
             "Key": "MODBKACCPOUCH",
             "Name": "Mk. IV Modular Backpack Accessory Pouch",
             "Description": "\n      [H3]Mk. IV Modular Backpack Accessory Pouch[h3]\n      Please see page 51 of the Enter the Unknown Sourcebook for details.\n    ",
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 51
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MODPACK"
@@ -4484,7 +5048,10 @@
             "Key": "M77TRANQ",
             "Name": "SmartTranq",
             "Description": "\n      [H3]SmartTranq[h3]\n      Please see page 40 of the Enter the Unknown Sourcebook for details.\n    ",
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 40
+            },
             "Type": "Weapon",
             "ItemLimit": {
                 "Key": "MODEL77"
@@ -4509,7 +5076,10 @@
             "Key": "ASTROBRAIN",
             "Name": "Astrogation Droid Brain",
             "Description": "\n      [H3]Astrogation Droid Brain[h3]\n      Please see page 62 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 62
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4556,8 +5126,14 @@
             "Description": "\n      [H3]Autopilot Droid Brain[h3]\n      Please see page 62 of the Fly Casual Sourcebook, or page 61 of the Fully Operational Sourceboook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Fly Casual",
-                    "Fully Operational"
+                    {
+                        "Book": "Fly Casual",
+                        "Page": 62
+                    },
+                    {
+                        "Book": "Fully Operational",
+                        "Page": 61
+                    }
                 ]
             },
             "Type": "Vehicle",
@@ -4624,7 +5200,10 @@
             "Key": "AX108BUZZER",
             "Name": "AX-108 \"Ground Buzzer\" Surface-Defense Blaster Cannon",
             "Description": "[H3]AX-108 \"Ground Buzzer\" Surface-Defense Blaster Cannon[h3]\n      Please see page 62 of the Fly Casual Sourcebook for details.\n",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 62
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4715,7 +5294,10 @@
             "Name": "Cloaked Smuggling Compartments",
             "Description": "\n      [H3]Cloaked Smuggling Compartments[h3]\n      Please see page 63 of the Fly Casual Sourcebook, for details.\n    ",
             "Sources": {
-                "Source": "Fly Casual"
+                "Source": {
+                    "Book": "Fly Casual",
+                    "Page": 63
+                }
             },
             "Type": "Vehicle",
             "ItemLimit": {},
@@ -4754,7 +5336,10 @@
             "Key": "INTBROAD",
             "Name": "Interior Broadcast Suite",
             "Description": "\n      [H3]Interior Broadcast Suite[h3]\n      Please see page 63 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4778,7 +5363,10 @@
             "Key": "NIGHTCOAT",
             "Name": "Nightshadow Coating",
             "Description": "\n      [H3]Nightshadow Coating[h3]\n      Please see page 63 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4807,7 +5395,10 @@
             "Key": "ONBOARDAMENUNIT",
             "Name": "Onboard Amenities Unit",
             "Description": "\n      [H3]Onboard Amenities Unit[h3]\n      Please see page 63 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4831,7 +5422,10 @@
             "Key": "OVRCHARGEV",
             "Name": "Overcharge Valve",
             "Description": "\n      [H3]Overcharge Valve[h3]\n      Please see page 51 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 51
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4857,7 +5451,10 @@
             "Key": "PAIREDW",
             "Name": "Paired Weapons",
             "Description": "\n      [H3]Paired Weapons[h3]\n      Please see page 51 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 51
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {
@@ -4888,7 +5485,10 @@
             "Key": "RAPIDCARGOEVAC",
             "Name": "Rapid Cargo Evacuation Chute",
             "Description": "\n      [H3]Rapid Cargo Evacuation Chute[h3]\n      Please see page 63 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -4917,7 +5517,10 @@
             "Key": "SETTRIGGER",
             "Name": "Set Trigger",
             "Description": "\n      [H3]Set Trigger[h3]\n      Please see page 51 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 51
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {
@@ -4951,7 +5554,10 @@
             "Key": "STARHWKSIDECAR",
             "Name": "Starhawk Sidecar",
             "Description": "\n      [H3]Starhawk Sidecar[h3]\n      Please see page 53 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 53
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "STARHAWKSPEED"
@@ -4983,7 +5589,10 @@
             "Key": "UNDERSCATTER",
             "Name": "Underslung Scattergun",
             "Description": "\n      [H3]Underslung Scattergun[h3]\n      Please see page 51 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 51
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5046,7 +5655,10 @@
             "Key": "WHISPERTHRUST",
             "Name": "Whisperthrust Engine",
             "Description": "\n      [H3]Whisperthrust Engine[h3]\n      Please see page 63 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5070,7 +5682,10 @@
             "Key": "HELMETCOM",
             "Name": "Helmet Comlink",
             "Description": "\n      [H3]Helmet Comlink[h3]\n      Please see page 140 of the Force and Destiny Beta Rulebook for details.\n    ",
-            "Source": "Force and Destiny Beta Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Beta Rulebook",
+                "Page": 140
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5096,7 +5711,10 @@
             "Key": "BARABLS",
             "Name": "Barab Ingot",
             "Description": "\n      [H3]Barab Ingot[h3]\n      Please see page 196 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 196
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5153,7 +5771,10 @@
             "Key": "BIOFEED",
             "Name": "Biofeedback System",
             "Description": "\n      [H3]Biofeedback System[h3]\n      Please see page 200 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 200
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5184,7 +5805,10 @@
             "Key": "BLASTDAMP",
             "Name": "Blaster Energy Dampener",
             "Description": "\n      [H3]Blaster Energy Dampener[h3]\n      Please see page 194 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 194
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5221,7 +5845,10 @@
             "Key": "CURVEDHILT",
             "Name": "Curved Hilt",
             "Description": "\n      [H3]Curved Hilt[h3]\n      Please see page 196 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 196
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5254,7 +5881,10 @@
             "Key": "DANTARI",
             "Name": "Dantari Crystal",
             "Description": "[H3]Dantari Crystal[h3]\nPlease see page 196 of the Force and Destiny Core Rulebook for details.\n",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 196
+            },
             "Sources": {},
             "Type": "Weapon",
             "ItemLimit": {},
@@ -5312,7 +5942,10 @@
             "Key": "DRAGITE",
             "Name": "Dragite Gem",
             "Description": "\n      [H3]Dragite Gem[h3]\n      Please see page 196 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 196
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5373,7 +6006,10 @@
             "Key": "DUALPHASE",
             "Name": "Dual-Phase Modification",
             "Description": "\n      [H3]Dual-Phase Modification[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 197
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5400,7 +6036,10 @@
             "Key": "ENERDISP",
             "Name": "Energy Dispersion System",
             "Description": "\n      [H3]Energy Dispersion System[h3]\n      Please see page 201 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 201
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5423,7 +6062,10 @@
             "Key": "EXTHILT",
             "Name": "Extended Hilt",
             "Description": "\n      [H3]Extended Hilt[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 197
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5456,8 +6098,14 @@
             "Description": "\n      [H3]Ilum Crystal[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook, or page 63 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Force and Destiny Core Rulebook",
-                    "Rise of the Separatists"
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 197
+                    },
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 63
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -5515,7 +6163,10 @@
             "Key": "HELMETSCAN",
             "Name": "In-Helmet Scanner",
             "Description": "\n      [H3]In-Helmet Scanner[h3]\n      Please see page 201 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 201
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5541,7 +6192,10 @@
             "Key": "KRAYT",
             "Name": "Krayt Dragon Pearl",
             "Description": "\n      [H3]Krayt Dragon Pearl[h3]\n      Please see page 199 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 199
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Lightsaber"
@@ -5595,7 +6249,10 @@
             "Key": "LORRDIAN",
             "Name": "Lorrdian Gemstone",
             "Description": "\n      [H3]Lorrdian Gemstone[h3]\n      Please see page 199 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 199
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5652,7 +6309,10 @@
             "Key": "MEPHITE",
             "Name": "Mephite Crystal",
             "Description": "\n      [H3]Mephite Crystal[h3]\n      Please see page 200 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 200
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5713,7 +6373,10 @@
             "Key": "NIGHTSCOPE",
             "Name": "Night Vision Scope",
             "Description": "\n      [H3]Night Vision Scope[h3]\n      Please see page 194 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 194
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5741,7 +6404,10 @@
             "Key": "SAPITH",
             "Name": "Sapith Gem",
             "Description": "\n      [H3]Sapith Gem[h3]\n      Please see page 200 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 200
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5797,7 +6463,10 @@
             "Key": "SHADOWSHEATH",
             "Name": "Shadowsheath",
             "Description": "\n      [H3]Shadowsheath[h3]\n      Please see page 194 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 194
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5828,7 +6497,10 @@
             "Key": "STUNPULSE",
             "Name": "Stun Pulse",
             "Description": "\n      [H3]Stun Pulse[h3]\n      Please see page 194 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 194
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5865,7 +6537,10 @@
             "Key": "SUPHILT",
             "Name": "Superior Hilt Personalization",
             "Description": "\n      [H3]Superior Hilt Personalization[h3]\n      Please see page 200 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 200
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5890,7 +6565,10 @@
             "Key": "TRAINEMIT",
             "Name": "Training Lightsaber Emitter",
             "Description": "\n      [H3]Training Lightsaber Emitter[h3]\n      Please see page 200 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 200
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5931,7 +6609,10 @@
             "Key": "LTSABERCONST",
             "Name": "Lightsaber Hilt Construction Modifications",
             "Description": "\n      [H3]Lightsaber Hilt Construction Modifications[h3]\n      Use this attachment to reflect the results of a lightsaber hilt construction check, as required.[P]\n      Please see page 23 of the Force and Destiny Game Master's Kit Adventure Module for details.\n    ",
-            "Source": "Force and Destiny Game Master's Kit",
+            "Source": {
+                "Book": "Force and Destiny Game Master's Kit",
+                "Page": 23
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -5973,7 +6654,10 @@
             "Key": "BEAMSPLIT",
             "Name": "Beam Splitter",
             "Description": "\n      [H3]Beam Splitter[h3]\n      Please see page 51 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 51
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Energy Weapon"
@@ -6008,7 +6692,10 @@
             "Key": "BLASTSIGHT",
             "Name": "Built-In Blaster Sight",
             "Description": "\n      [H3]Built-In Blaster Sight[h3]\n      Please see page 51 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 51
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Energy Weapon"
@@ -6030,7 +6717,10 @@
             "Key": "MILMODBACKCOM",
             "Name": "Comms Unit",
             "Description": "\n      [H3]Comms Unit[h3]\n      Please see page 55 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 55
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MILMODBACK"
@@ -6055,7 +6745,10 @@
             "Key": "GALPATRES",
             "Name": "Galven Pattern Resequencing",
             "Description": "\n      [H3]Galven Pattern Resequencing[h3]\n      Please see page 51 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 51
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -6097,7 +6790,10 @@
             "Key": "MILMODBACKOXY",
             "Name": "Oxygen Unit",
             "Description": "\n      [H3]Oxygen Unit[h3]\n      Please see page 55 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 55
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MILMODBACK"
@@ -6117,7 +6813,10 @@
             "Key": "MILMODBACKPOW",
             "Name": "Power Unit",
             "Description": "\n      [H3]Power Unit[h3]\n      Please see page 55 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 55
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MILMODBACK"
@@ -6142,7 +6841,10 @@
             "Key": "MILMODBACKSEN",
             "Name": "Sensor Unit",
             "Description": "\n      [H3]Sensor Unit[h3]\n      Please see page 55 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 55
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MILMODBACK"
@@ -6168,7 +6870,10 @@
             "Key": "MILMODBACKSTO",
             "Name": "Storage Unit",
             "Description": "\n      [H3]Storage Unit[h3]\n      Please see page 55 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 55
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MILMODBACK"
@@ -6189,7 +6894,10 @@
             "Key": "MILMODBACKTEMP",
             "Name": "Temperature Control Unit",
             "Description": "\n      [H3]Temperature Control Unit[h3]\n      Please see page 55 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 55
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MILMODBACK"
@@ -6209,7 +6917,10 @@
             "Key": "ARMCOMCORE",
             "Name": "Armored Computer Core",
             "Description": "\n      [H3]Armored Computer Core[h3]\n      Please see page 60 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 60
+            },
             "Type": "Vehicle",
             "Price": 1100,
             "Rarity": 4,
@@ -6231,7 +6942,10 @@
             "Key": "AUTOWEAPMOUNT",
             "Name": "Automated Weapon Mounting",
             "Description": "\n      [H3]Automated Weapon Mounting[h3]\n      See page 53 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 53
+            },
             "Type": "Armor",
             "Price": 3000,
             "Rarity": 5,
@@ -6267,7 +6981,10 @@
             "Name": "Civilian Vehicle Retrofit",
             "Description": "\n      [H3]Civilian Vehicle Retrofit[h3]\n      Please see page 74 of the Fully Operational Sourcebook for details.\n      [P][I]Note:  This attachment contains several custom effects that degrade the vehicle's performance.  These are included as optional \n      mods.  Talk with your GM about which degradation to choose for your vehicle.[i]\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 74
+                }
             },
             "Type": "Vehicle",
             "Price": 500,
@@ -6309,7 +7026,10 @@
             "Name": "Combat Plating",
             "Description": "\n      [H3]Combat Plating[h3]\n      Please see page 83 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 83
+                }
             },
             "Type": "Vehicle",
             "Price": 1500,
@@ -6358,7 +7078,10 @@
             "Name": "Data Link",
             "Description": "\n      [H3]Data Link[h3]\n      Please see page 43 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 43
+                }
             },
             "Type": "Armor",
             "Price": 300,
@@ -6383,7 +7106,10 @@
             "Name": "Deflective Plating",
             "Description": "\n      [H3]Deflective Plating[h3]\n      Please see page 83 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 83
+                }
             },
             "Type": "Vehicle",
             "Price": 700,
@@ -6431,7 +7157,10 @@
             "Key": "DROIDBRAINDEF",
             "Name": "Droid Brain Defense System",
             "Description": "\n      [H3]Droid Brain Defense System[h3]\n      See page 53 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 53
+            },
             "Type": "Armor",
             "Price": 5000,
             "Rarity": 6,
@@ -6454,7 +7183,10 @@
             "Key": "DROIDBRAINDETON",
             "Name": "Droid Brain Detonator",
             "Description": "\n      [H3]Droid Brain Detonator[h3]\n      See page 51 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 51
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -6476,7 +7208,10 @@
             "Key": "DROIDTARGET",
             "Name": "Droid Targeting System",
             "Description": "\n      [H3]Droid Targeting System[h3]\n      See page 51 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 51
+            },
             "Type": "Weapon",
             "Price": 3200,
             "Rarity": 5,
@@ -6518,7 +7253,10 @@
             "Name": "Electron Baffled Engine",
             "Description": "\n      [H3]Electron Baffled Engine[h3]\n      Please see page 81 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 81
+                }
             },
             "Type": "Vehicle",
             "Price": 1000,
@@ -6583,7 +7321,10 @@
             "Name": "Expanded-Capacity Holds",
             "Description": "\n      [H3]Expanded-Capacity Holds[h3]\n      Please see page 83 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 83
+                }
             },
             "Type": "Vehicle",
             "Price": 500,
@@ -6640,7 +7381,10 @@
             "Name": "Fusial Thrust Engine",
             "Description": "\n      [H3]Fusial Thrust Engine[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 2500,
@@ -6700,7 +7444,10 @@
             "Key": "GRENCLING",
             "Name": "Grenade Cling",
             "Description": "\n      [H3]Grenade Cling[h3]\n      See page 52 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 52
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -6735,7 +7482,10 @@
             "Name": "High-Performance Repulsor Cluster",
             "Description": "\n      [H3]High-Performance Repulsor Cluster[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 3000,
@@ -6790,7 +7540,10 @@
             "Name": "Hyperdrive Module Class 4",
             "Description": "\n      [H3]Hyperdrive Module Class 4[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 6000,
@@ -6828,7 +7581,10 @@
             "Name": "Hyperdrive Module Class 8",
             "Description": "\n      [H3]Hyperdrive Module Class 8[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 3000,
@@ -6866,7 +7622,10 @@
             "Name": "Integrated Load-Bearing Gear",
             "Description": "\n      [H3]Integrated Load-Bearing Gear[h3]\n      Please see page 43 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 43
+                }
             },
             "Type": "Armor",
             "Price": 700,
@@ -6891,7 +7650,10 @@
             "Name": "Ion Drive Array",
             "Description": "\n      [H3]Ion Drive Array[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 5250,
@@ -6960,7 +7722,10 @@
             "Name": "Ion Turbine Engine",
             "Description": "\n      [H3]Ion Turbine Engine[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 2000,
@@ -7025,7 +7790,10 @@
             "Name": "Lightly Armored Hull",
             "Description": "\n      [H3]Lightly Armored Hull[h3]\n      Please see page 83 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 83
+                }
             },
             "Type": "Vehicle",
             "Price": 500,
@@ -7077,7 +7845,10 @@
             "Key": "ORDIMPELL",
             "Name": "Ordnance Impeller",
             "Description": "\n      [H3]Ordnance Impeller[h3]\n      See page 52 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 52
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -7116,7 +7887,10 @@
             "Key": "OVERCHSHIELD",
             "Name": "Overcharged Shields",
             "Description": "\n      [H3]Overcharged Shields[h3]\n      Please see page 61 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 61
+            },
             "Type": "Vehicle",
             "Price": 4000,
             "Rarity": 4,
@@ -7133,7 +7907,10 @@
             "Key": "PLASMADRILL",
             "Name": "Plasma Drill",
             "Description": "\n      [H3]Plasma Drill[h3]\n      Please see page 61 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 61
+            },
             "Type": "Vehicle",
             "Price": 4000,
             "Rarity": 4,
@@ -7202,7 +7979,10 @@
             "Key": "PROXDET",
             "Name": "Proximity Detonator",
             "Description": "\n      [H3]Proximity Detonator[h3]\n      See page 52 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 52
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -7224,7 +8004,10 @@
             "Key": "REINARMPLATE",
             "Name": "Reinforced Armor Plating",
             "Description": "\n      [H3]Reinforced Armor Plating[h3]\n      Please see page 61 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 61
+            },
             "Type": "Vehicle",
             "Price": 4000,
             "Rarity": 2,
@@ -7254,7 +8037,10 @@
             "Key": "REPULSPACK",
             "Name": "Repulsor Pack",
             "Description": "\n      [H3]Repulsor Pack[h3]\n      See page 53 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 53
+            },
             "Type": "Armor",
             "Price": 2500,
             "Rarity": 4,
@@ -7287,7 +8073,10 @@
             "Key": "REPULSBOOST",
             "Name": "Repulsorlift Boost",
             "Description": "\n      [H3]Repulsorlift Boost[h3]\n      Please see page 62 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 61
+            },
             "Type": "Vehicle",
             "Price": 1000,
             "Rarity": 4,
@@ -7313,7 +8102,10 @@
             "Name": "Reverse Engineering",
             "Description": "\n      [H3]Reverse Engineering[h3]\n      Please see page 71 of the Fully Operational Sourcebook for details.\n      [P][I]Note:  Use this attachment on armor when you select the \"Reverse Engineering\" result from the chart on page 71.[i]\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 71
+                }
             },
             "Type": "Armor",
             "Price": 0,
@@ -7335,7 +8127,10 @@
             "Name": "Reverse Engineering",
             "Description": "\n      [H3]Reverse Engineering[h3]\n      Please see page 71 of the Fully Operational Sourcebook for details.\n      [P][I]Note:  Use this attachment on gear when you select the \"Reverse Engineering\" result from the chart on page 71.[i]\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 71
+                }
             },
             "Type": "Gear",
             "Price": 0,
@@ -7357,7 +8152,10 @@
             "Name": "Reverse Engineering",
             "Description": "\n      [H3]Reverse Engineering[h3]\n      Please see page 71 of the Fully Operational Sourcebook for details.\n      [P][I]Note:  Use this attachment on vehicles when you select the \"Reverse Engineering\" result from the chart on page 71.[i]\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 71
+                }
             },
             "Type": "Vehicle",
             "Price": 0,
@@ -7379,7 +8177,10 @@
             "Name": "Reverse Engineering",
             "Description": "\n      [H3]Reverse Engineering[h3]\n      Please see page 71 of the Fully Operational Sourcebook for details.\n      [P][I]Note:  Use this attachment on weapons when you select the \"Reverse Engineering\" result from the chart on page 71.[i]\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 71
+                }
             },
             "Type": "Weapon",
             "Price": 0,
@@ -7400,7 +8201,10 @@
             "Key": "SENSBAFF",
             "Name": "Sensor Baffler",
             "Description": "\n      [H3]Sensor Baffler[h3]\n      Please see page 62 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 62
+            },
             "Type": "Vehicle",
             "Price": 8000,
             "Rarity": 6,
@@ -7425,7 +8229,10 @@
             "Name": "Single Ion Coil",
             "Description": "\n      [H3]Single Ion Coil[h3]\n      Please see page 81 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 81
+                }
             },
             "Type": "Vehicle",
             "Price": 500,
@@ -7486,7 +8293,10 @@
             "Name": "Sleek Carapace",
             "Description": "\n      [H3]Sleek Carapace[h3]\n      Please see page 82 of the Fully Operational Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Fully Operational"
+                "Source": {
+                    "Book": "Fully Operational",
+                    "Page": 82
+                }
             },
             "Type": "Vehicle",
             "Price": 450,
@@ -7534,7 +8344,10 @@
             "Key": "UTILARM",
             "Name": "Utility Arm",
             "Description": "\n      [H3]Utility Arm[h3]\n      See page 53 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 53
+            },
             "Type": "Armor",
             "Price": 2000,
             "Rarity": 3,
@@ -7581,7 +8394,10 @@
             "Key": "AUGBUFF",
             "Name": "Augmented Buffer",
             "Description": "\n      [H3]Augmented Buffer[h3]\n      Please see page 47 of The Jewel of Yavin Adventure Module for details.\n    ",
-            "Source": "Jewel of Yavin",
+            "Source": {
+                "Book": "Jewel of Yavin",
+                "Page": 47
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7614,7 +8430,10 @@
             "Key": "MANTHRUST",
             "Name": "Maneuvering Thrusters",
             "Description": "\n      [H3]Maneuvering Thrusters[h3]\n      Please see page 47 of The Jewel of Yavin Adventure Module for details.\n    ",
-            "Source": "Jewel of Yavin",
+            "Source": {
+                "Book": "Jewel of Yavin",
+                "Page": 47
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7639,7 +8458,10 @@
             "Key": "REPENH",
             "Name": "Repulsorlift Enhancement",
             "Description": "\n      [H3]Repulsorlift Enhancement[h3]\n      Please see page 47 of The Jewel of Yavin Adventure Module for details.\n    ",
-            "Source": "Jewel of Yavin",
+            "Source": {
+                "Book": "Jewel of Yavin",
+                "Page": 47
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7664,7 +8486,10 @@
             "Key": "UPGFIRE",
             "Name": "Upgraded Firepower",
             "Description": "\n      [H3]Upgraded Firepower[h3]\n      Please see page 48 of The Jewel of Yavin Adventure Module for details.\n    ",
-            "Source": "Jewel of Yavin",
+            "Source": {
+                "Book": "Jewel of Yavin",
+                "Page": 48
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7689,7 +8514,10 @@
             "Key": "ARMSPIKE",
             "Name": "Armor Spikes",
             "Description": "\n      [H3]Armor Spikes[h3]\n      Please see page 56 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 56
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7736,7 +8564,10 @@
             "Key": "CCARRAY",
             "Name": "Cyclic Crystal Array",
             "Description": "\n      [H3]Cyclic Crystal Array[h3]\n      Please see page 53 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 53
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7773,7 +8604,10 @@
             "Key": "EOVERSET",
             "Name": "Energy Overclock Setting",
             "Description": "\n      [H3]Energy Overclock Setting[h3]\n      Please see page 53 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 53
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7813,7 +8647,10 @@
             "Key": "FORRESON",
             "Name": "Force-Attuned Resonator",
             "Description": "\n      [H3]Force-Attuned Resonator[h3]\n      Please see page 54 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 54
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7850,7 +8687,10 @@
             "Key": "HARDENED",
             "Name": "Hardened",
             "Description": "\n      [H3]Hardened[h3]\n      Please see page 56 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 56
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7879,7 +8719,10 @@
             "Key": "INTILL",
             "Name": "Integrated Illuminator",
             "Description": "\n      [H3]Integrated Illuminator[h3]\n      Please see page 54 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 54
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7917,7 +8760,10 @@
             "Key": "KIIRCOAT",
             "Name": "Kiirium Coating",
             "Description": "\n      [H3]Kiirium Coating[h3]\n      Please see page 56 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 56
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -7952,7 +8798,10 @@
             "Key": "KIMBER",
             "Name": "Kimber Stone",
             "Description": "\n      [H3]Kimber Stone[h3]\n      Please see page 55 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 55
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8003,7 +8852,10 @@
             "Key": "LOWFRIC",
             "Name": "Low-Friction Coating",
             "Description": "\n      [H3]Low-Friction Coating[h3]\n      Please see page 56 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 56
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8044,7 +8896,10 @@
             "Key": "MAGTETH",
             "Name": "Magnetic Weapon Tether",
             "Description": "\n      [H3]Magnetic Weapon Tether[h3]\n      Please see page 54 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 54
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8076,7 +8931,10 @@
             "Key": "QUICKSHED",
             "Name": "Quick Shed",
             "Description": "\n      [H3]Quick Shed[h3]\n      Please see page 57 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 57
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8106,7 +8964,10 @@
             "Key": "REACPLAT",
             "Name": "Reactive Plating",
             "Description": "\n      [H3]Reactive Plating[h3]\n      Please see page 57 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 57
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8140,7 +9001,10 @@
             "Key": "REFSHAD",
             "Name": "Reflec Shadowskin",
             "Description": "\n      [H3]Reflec Shadowskin[h3]\n      Please see page 57 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 57
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8185,7 +9049,10 @@
             "Key": "SHDISCH",
             "Name": "Shield Discharge Pack",
             "Description": "\n      [H3]Shield Discharge Pack[h3]\n      Please see page 54 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 54
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8223,7 +9090,10 @@
             "Key": "SORIAN",
             "Name": "Sorian Crystal",
             "Description": "\n      [H3]Sorian Crystal[h3]\n      Please see page 55 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 55
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8283,7 +9153,10 @@
             "Key": "STUNMAT",
             "Name": "Stun Matrix",
             "Description": "\n      [H3]Stun Matrix[h3]\n      Please see page 57 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 57
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8327,7 +9200,10 @@
             "Key": "JEDHACR",
             "Name": "Cracked Jedha Crystal",
             "Description": "\n      [H4]Cracked Jedha Crystal[h4]\n      Please see page 48 of the Knights of Fate Sourcebook for details.\n    ",
-            "Source": "Knights of Fate",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 48
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -8396,7 +9272,10 @@
             "Key": "FLICKERPHASE",
             "Name": "Flickerphase Blade",
             "Description": "\n      [H4]Flickerphase Blade[h4]\n      Please see page 48 of the Knights of Fate Sourcebook for details.\n    ",
-            "Source": "Knights of Fate",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 48
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -8441,7 +9320,10 @@
             "Key": "REMAGSH",
             "Name": "Reinforced Magnetic Shielding",
             "Description": "\n      [H4]Reinforced Magnetic Shielding[h4]\n      Please see page 48 of the Knights of Fate Sourcebook for details.\n    ",
-            "Source": "Knights of Fate",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 48
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -8492,7 +9374,10 @@
             "Key": "BRAUD",
             "Name": "Briefing Auditorium",
             "Description": "\n      [H3]Briefing Auditorium[h3]\n      Please see page 58 of the Lead by Example Sourcebook for details.\n    ",
-            "Source": "Lead by Example",
+            "Source": {
+                "Book": "Lead by Example",
+                "Page": 58
+            },
             "Type": "Vehicle",
             "Price": 2500,
             "Rarity": 0,
@@ -8518,7 +9403,10 @@
             "Key": "ELCOUNTCOUNT",
             "Name": "Electronic Counter-Countermeasures Suite",
             "Description": "\n      [H3]Electronic Counter-Countermeasures Suite[h3]\n      Please see page 59 of the Lead by Example Sourcebook for details.\n    ",
-            "Source": "Lead by Example",
+            "Source": {
+                "Book": "Lead by Example",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "Price": 3500,
             "Rarity": 6,
@@ -8542,7 +9430,10 @@
             "Key": "HOLOTANK",
             "Name": "Holo-Tank",
             "Description": "\n      [H3]Holo-Tank[h3]\n      Please see page 59 of the Lead by Example Sourcebook for details.\n    ",
-            "Source": "Lead by Example",
+            "Source": {
+                "Book": "Lead by Example",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "Price": 5000,
             "Rarity": 4,
@@ -8571,7 +9462,10 @@
             "Key": "TACCOMM",
             "Name": "Tactical Command, Control, and Communications Suite",
             "Description": "\n      [H3]Tactical Command, Control, and Communications Suite[h3]\n      Please see page 59 of the Lead by Example Sourcebook for details.\n    ",
-            "Source": "Lead by Example",
+            "Source": {
+                "Book": "Lead by Example",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "Price": 4200,
             "Rarity": 6,
@@ -8600,7 +9494,10 @@
             "Key": "THEATCOMM",
             "Name": "Theater Command and Control System",
             "Description": "\n      [H3]Theater Command and Control System[h3]\n      Please see page 59 of the Lead by Example Sourcebook for details.\n    ",
-            "Source": "Lead by Example",
+            "Source": {
+                "Book": "Lead by Example",
+                "Page": 59
+            },
             "Type": "Vehicle",
             "Price": 8500,
             "Rarity": 6,
@@ -8631,8 +9528,14 @@
             "Description": "\n      [H3]Blaster Suppressor[h3]\n      Please see page 106 of the Lords of Nal Hutta Sourcebook, and page 110 of the Strongholds of Resistance Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Lords of Nal Hutta",
-                    "Strongholds of Resistance"
+                    {
+                        "Book": "Lords of Nal Hutta",
+                        "Page": 106
+                    },
+                    {
+                        "Book": "Strongholds of Resistance",
+                        "Page": 110
+                    }
                 ]
             },
             "Type": "Weapon",
@@ -8656,7 +9559,10 @@
             "Key": "POISONRES",
             "Name": "Poison Reservoir",
             "Description": "[H3]Poison Reservoir[h3]\nPlease see page 105 of the Lords of Nal Hutta Sourcebook for details.\n",
-            "Source": "Lords of Nal Hutta",
+            "Source": {
+                "Book": "Lords of Nal Hutta",
+                "Page": 105
+            },
             "Sources": {},
             "Type": "Weapon",
             "ItemLimit": {},
@@ -8692,7 +9598,10 @@
             "Key": "THREATMON",
             "Name": "Threat Monitor",
             "Description": "\n      [H3]Threat Monitor[h3]\n      Please see page 106 of the Lords of Nal Hutta Sourcebook for details.\n    ",
-            "Source": "Lords of Nal Hutta",
+            "Source": {
+                "Book": "Lords of Nal Hutta",
+                "Page": 106
+            },
             "Type": "Armor",
             "Price": 750,
             "Rarity": 4,
@@ -8722,7 +9631,10 @@
             "Key": "ENGINERING",
             "Name": "Engine Ring Stabilizer",
             "Description": "\n      [H3]Engine Ring Stabilizer[h3]\n      Please see page 82 of the [B]Mask of the Pirate Queen[b] adventure module for details.\n    ",
-            "Source": "Mask of the Pirate Queen",
+            "Source": {
+                "Book": "Mask of the Pirate Queen",
+                "Page": 82
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -8750,7 +9662,10 @@
             "Key": "CONTFIELD",
             "Name": "Containment Field",
             "Description": "\n      [H3]Containment Field[h3]\n      Please see page 64 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "Price": 7500,
             "Rarity": 9,
@@ -8775,7 +9690,10 @@
             "Key": "ENPRISONLOCK",
             "Name": "Enhanced Prison Lockup",
             "Description": "\n      [H3]Enhanced Prison Lockup[h3]\n      Please see page 64 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "Price": 3500,
             "Rarity": 7,
@@ -8798,7 +9716,10 @@
             "Key": "INTHOLST",
             "Name": "Integrated Holsters",
             "Description": "\n      [H3]Integrated Holsters[h3]\n      Please see page 52 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 52
+            },
             "Type": "Armor",
             "Price": 300,
             "Rarity": 4,
@@ -8831,7 +9752,10 @@
             "Key": "MKTARGLOCK",
             "Name": "Marked-Target Firing Lock",
             "Description": "\n      [H3]Marked-Target Firing Lock[h3]\n      Please see page 51 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 51
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Ranged"
@@ -8863,7 +9787,10 @@
             "Key": "MICROROCKARMMOUNT",
             "Name": "Micro-Rocket Armor Mounting",
             "Description": "\n      [H3]Micro-Rocket Armor Mounting[h3]\n      Please see page 52 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 52
+            },
             "Type": "Armor",
             "Price": 800,
             "Rarity": 6,
@@ -8911,7 +9838,10 @@
             "Key": "MINELAYER",
             "Name": "Minelayer",
             "Description": "\n      [H3]Minelayer[h3]\n      Please see page 64 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "Price": 4000,
             "Rarity": 6,
@@ -8948,7 +9878,10 @@
             "Key": "REPASSLIFT",
             "Name": "Replusor-Assisted Lifting",
             "Description": "\n      [H3]Replusor-Assisted Lifting[h3]\n      Please see page 52 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 52
+            },
             "Type": "Armor",
             "Price": 1000,
             "Rarity": 3,
@@ -8982,7 +9915,10 @@
             "Key": "MICROROCKGUIDE",
             "Name": "Rocket Guidance System",
             "Description": "\n      [H3]Rocket Guidance System[h3]\n      Please see page 47 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 47
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Micro-Rocket"
@@ -9015,7 +9951,10 @@
             "Key": "SHOCKPULSEMIT",
             "Name": "Shock Pulse Emitter",
             "Description": "\n      [H3]Shock Pulse Emitter[h3]\n      Please see page 51 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 51
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": [
@@ -9050,7 +9989,10 @@
             "Key": "MICROROCKBOOST",
             "Name": "Staged Rocket Booster",
             "Description": "\n      [H3]Staged Rocket Booster[h3]\n      Please see page 47 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 47
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Micro-Rocket"
@@ -9088,7 +10030,10 @@
             "Key": "TRACKSYS",
             "Name": "Tracking System",
             "Description": "\n      [H3]Tracking System[h3]\n      Please see page 52 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 52
+            },
             "Type": "Armor",
             "Price": 1000,
             "Rarity": 7,
@@ -9124,7 +10069,10 @@
             "Key": "MICROROCKRACK",
             "Name": "Under-Barrel Micro-Rocket Rack",
             "Description": "\n      [H3]Under-Barrel Micro-Rocket Rack[h3]\n      Please see page 51 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 51
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Ranged"
@@ -9181,7 +10129,10 @@
             "Key": "VAKSAI",
             "Name": "Vaksai Modification Package",
             "Description": "\n      [H3]Vaksai Modification Package[h3]\n      Please see page 60 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 60
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "KIHRAXZLTSTAR"
@@ -9228,7 +10179,10 @@
             "Description": "\n      [H3]Ascension Gun[h3]\n      Please see page 61 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 61
+                }
             },
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -9262,7 +10216,10 @@
             "Description": "\n      [H3]Augmented Vibro-Motor[h3]\n      Please see page 61 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 61
+                }
             },
             "CategoryLimit": {
                 "Category": [
@@ -9310,7 +10267,10 @@
             "Name": "Bio-Support Dispenser",
             "Description": "\n      [H3]Bio-Support Dispenser[h3]\n      Please see page 64 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 64
+                }
             },
             "Type": "Armor",
             "CategoryLimit": {
@@ -9342,7 +10302,10 @@
             "Name": "Cermonial Adornment",
             "Description": "\n      [H3]Cermonial Adornment[h3]\n      Please see page 65 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 65
+                }
             },
             "Type": "Armor",
             "Price": 2500,
@@ -9384,7 +10347,10 @@
             "Description": "\n      [H3]Clone Firing Key[h3]\n      Please see page 61 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 61
+                }
             },
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -9412,7 +10378,10 @@
             "Description": "\n      [H3]Combat Tested[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 62
+                }
             },
             "CategoryLimit": {
                 "0": "\n    "
@@ -9446,7 +10415,10 @@
             "Description": "\n      [H3]Cortosis Forging[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 62
+                }
             },
             "TypeLimit": {
                 "Type": "Melee"
@@ -9475,7 +10447,10 @@
             "Description": "\n      [H3]Fusion Shunt[h3]\n      Please see page 63 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 63
+                }
             },
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -9505,7 +10480,10 @@
             "Description": "\n      [H3]Insulated Firing Mechanism[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 62
+                }
             },
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -9543,7 +10521,10 @@
             "Description": "\n      [H3]Ionizing Emitter Matrix[h3]\n      Please see page 63 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 63
+                }
             },
             "TypeLimit": {
                 "Type": "Lightsaber"
@@ -9573,7 +10554,10 @@
             "Description": "\n      [H3]Ionizing Focusing Coils[h3]\n      Please see page 62 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Type": "Weapon",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 62
+                }
             },
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -9615,7 +10599,10 @@
             "Name": "Physiological Enhancement System",
             "Description": "\n      [H3]Physiological Enhancement System[h3]\n      Please see page 65 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 65
+                }
             },
             "CategoryLimit": {
                 "Category": "Full Body"
@@ -9673,7 +10660,10 @@
             "Name": "Spy Droid Brain",
             "Description": "\n      [H3]Spy Droid Brain[h3]\n      Please see page 74 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 74
+                }
             },
             "Type": "Vehicle",
             "ItemLimit": {
@@ -9723,7 +10713,10 @@
             "Name": "Squad Tactical Systems",
             "Description": "\n      [H3]Squad Tactical Systems[h3]\n      Please see page 65 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 65
+                }
             },
             "Type": "Armor",
             "Price": 2000,
@@ -9762,7 +10755,10 @@
                 "Weapon"
             ],
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 63
+                }
             },
             "ItemLimit": {},
             "SkillLimit": {},
@@ -9820,7 +10816,10 @@
                 "Weapon"
             ],
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 64
+                }
             },
             "ItemLimit": {},
             "SkillLimit": {},
@@ -9875,7 +10874,10 @@
             "Key": "ENVADAPTKIT",
             "Name": "Environmental Adaption Kit",
             "Description": "\n      [H3]Environmental Adaption Kit[h3]\n      Please see page 50 of the Savage Spirits Sourcebook for details.[P]\n      [I]Note: If this kit is for a specific environment, rename the kit to specify the environment.[i]\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 50
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -9905,7 +10907,10 @@
             "Key": "HUNTBARREL",
             "Name": "Hunting Barrel",
             "Description": "\n      [H3]Hunting Barrel[h3]\n      Please see page 50 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 50
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -9954,7 +10959,10 @@
             "Key": "MODBKACCPOUCH3",
             "Name": "Mk. III Modular Backpack Accessory Pouch",
             "Description": "\n      [H3]Mk. III Modular Backpack Accessory Pouch[h3]\n      Please see page 46 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 46
+            },
             "Type": "Gear",
             "ItemLimit": {
                 "Key": "MODPACK3"
@@ -9982,7 +10990,10 @@
             "Key": "MOTTRACK",
             "Name": "Motion Tracker",
             "Description": "\n      [H3]Motion Tracker[h3]\n      Please see page 50 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 50
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {
@@ -10017,7 +11028,10 @@
             "Key": "NISHSTONE",
             "Name": "Nishalorite Stone",
             "Description": "\n      [H3]Nishalorite Stone[h3]\n      Please see page 52 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 52
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -10077,7 +11091,10 @@
             "Key": "MODCARGOCONT",
             "Name": "Pannier Modular Cargo Handling System",
             "Description": "\n      [H3]Pannier Modular Cargo Handling System[h3]\n      Please see page 46 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 46
+            },
             "Type": "Mount",
             "TypeLimit": {
                 "Type": "Riding Mount"
@@ -10106,7 +11123,10 @@
             "Key": "PASSFOLSUIT",
             "Name": "Passive Foliage Suit",
             "Description": "\n      [H3]Passive Foliage Suit[h3]\n      Please see page 51 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 51
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -10131,7 +11151,10 @@
             "Key": "RIDINGTACK",
             "Name": "Riding Tack",
             "Description": "\n      [H3]Riding Tack[h3]\n      Please see page 47 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 47
+            },
             "Type": "Mount",
             "TypeLimit": {
                 "Type": "Riding Mount"
@@ -10155,7 +11178,10 @@
             "Key": "SADDLEBAGS",
             "Name": "Saddlebags",
             "Description": "\n      [H3]Saddlebags[h3]\n      Please see page 47 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 47
+            },
             "Type": "Mount",
             "TypeLimit": {
                 "Type": "Riding Mount"
@@ -10175,7 +11201,10 @@
             "Key": "SLUGSUPP",
             "Name": "Slugthrower Suppressor",
             "Description": "\n      [H3]Slugthrower Suppressor[h3]\n      Please see page 51 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 51
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {
@@ -10207,7 +11236,10 @@
             "Key": "VARPCRYST",
             "Name": "Varpeline Crystal",
             "Description": "\n      [H3]Varpeline Crystal[h3]\n      Please see page 52 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 52
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -10268,7 +11300,10 @@
             "Key": "WATERRECLSUIT",
             "Name": "Water Reclamation Suit",
             "Description": "\n      [H3]Water Reclamation Suit[h3]\n      Please see page 52 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 52
+            },
             "Type": "Armor",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -10293,7 +11328,10 @@
             "Key": "AD1SCARGOPOD",
             "Name": "(AD-1S) Cargo Pod",
             "Description": "[H3]Cargo Pod for AD-1S[h3]\nPlease see page 62 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 62
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "AD1SMOD"
@@ -10319,7 +11357,10 @@
             "Key": "AD1SMICROTHRUST",
             "Name": "(AD-1S) Fine-Tuned Microthrusters",
             "Description": "[H3]Fine-Tuned Microthrusters for AD-1S[h3]\nPlease see page 63 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "AD1SMOD"
@@ -10345,7 +11386,10 @@
             "Key": "AD1SHYPER4",
             "Name": "(AD-1S) Hyperdrive Class 4 Module",
             "Description": "[H3]Hyperdrive Class 4 Module for AD-1S[h3]\nPlease see page 63 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "AD1SMOD"
@@ -10376,7 +11420,10 @@
             "Key": "AD1SHYPER8",
             "Name": "(AD-1S) Hyperdrive Class 8 Module",
             "Description": "[H3]Hyperdrive Class 8 Module for AD-1S[h3]\nPlease see page 63 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "AD1SMOD"
@@ -10407,7 +11454,10 @@
             "Key": "AD1SSHIELD",
             "Name": "(AD-1S) Shield Generator Module",
             "Description": "[H3]Shield Generator Module  forAD-1S[h3]\nPlease see page 63 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "AD1SMOD"
@@ -10433,7 +11483,10 @@
             "Key": "AD1SBOOSTTHRUST",
             "Name": "(AD-1S) Sublight Boost Thrusters",
             "Description": "[H3]Sublight Boost Thrusters for AD-1S[h3]\nPlease see page 63 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "AD1SMOD"
@@ -10465,7 +11518,10 @@
             "Key": "ALLTERLEGS",
             "Name": "All-Terrain Legs",
             "Description": "[H3]All-Terrain Legs[h3]\nPlease see page 65 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "CategoryLimit": {
                 "Category": [
@@ -10502,7 +11558,10 @@
             "Key": "AMPHIBMOD",
             "Name": "Amphibious Modification",
             "Description": "[H3]Amphibious Modification[h3]\nPlease see page 65 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "CategoryLimit": {
                 "Category": [
@@ -10527,7 +11586,10 @@
             "Key": "AMPHMOD",
             "Name": "Amphibious Modification",
             "Description": "[H3]Amphibious Modification[h3]\nPlease see page 57 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 57
+            },
             "Type": "Armor",
             "CategoryLimit": {
                 "Category": [
@@ -10562,7 +11624,10 @@
             "Key": "RIVETGUNBALBAR",
             "Name": "Balanced Barrel",
             "Description": "[H3]Balanced Barrel[h3]\nPlease see page 46 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 46
+            },
             "Type": "Weapon",
             "ItemLimit": {
                 "Key": "RIVETGUN"
@@ -10589,7 +11654,10 @@
             "Key": "CUSTOMFIT",
             "Name": "Custom Fit",
             "Description": "[H3]Custom Fit[h3]\nPlease see page 57 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 57
+            },
             "Type": "Armor",
             "Price": 400,
             "Rarity": 3,
@@ -10636,7 +11704,10 @@
             "Key": "CUSTGRIP",
             "Name": "Custom Grip",
             "Description": "[H3]Custom Grip[h3]\nPlease see page 54 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 54
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -10681,7 +11752,10 @@
             "Key": "DECOYBUOY",
             "Name": "Decoy Buoy",
             "Description": "[H3]Decoy Buoy[h3]\nPlease see page 65 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "Price": 5000,
             "Rarity": 5,
@@ -10722,7 +11796,10 @@
             "Key": "ENCRYCOMP",
             "Name": "Encrypted Computer",
             "Description": "[H3]Encrypted Computer[h3]\nPlease see page 65 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "Price": 1000,
             "Rarity": 6,
@@ -10744,7 +11821,10 @@
             "Key": "ENHHYPSH",
             "Name": "Enhanced Hyperspace Shields",
             "Description": "\n      [H3]Enhanced Hyperspace Shields[h3]\n      Please see page 66 of the Special Modifications Sourcebook for details.\n    ",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 66
+            },
             "Type": "Vehicle",
             "Price": 4000,
             "Rarity": 5,
@@ -10767,7 +11847,10 @@
             "Key": "ENHREPULS",
             "Name": "Enhanced Repulsorlift",
             "Description": "[H3]Enhanced Repulsorlift[h3]\nPlease see page 65 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "TypeLimit": {
                 "Type": [
@@ -10803,7 +11886,10 @@
             "Key": "ENXCITER",
             "Name": "Enhanced XCiter",
             "Description": "[H3]Enhanced XCiter[h3]\nPlease see page 54 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 54
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -10836,7 +11922,10 @@
             "Key": "GUNNBRAIN",
             "Name": "Gunnery Droid Brain",
             "Description": "[H3]Gunnery Droid Brain[h3]\nPlease see page 66 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 66
+            },
             "Type": "Vehicle",
             "Price": 7000,
             "Rarity": 6,
@@ -10870,7 +11959,10 @@
             "Key": "GYROSTAB",
             "Name": "Gyrostabilizer",
             "Description": "[H3]Gyrostabilizer[h3]\nPlease see page 54 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 54
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": [
@@ -10905,7 +11997,10 @@
             "Key": "INTASCGEAR",
             "Name": "Integrated Ascension Gear",
             "Description": "[H3]Integrated Ascension Gear[h3]\nPlease see page 57 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 57
+            },
             "Type": "Armor",
             "Price": 350,
             "Rarity": 3,
@@ -10928,7 +12023,10 @@
             "Key": "INTSCAN2",
             "Name": "Integrated Scanner",
             "Description": "[H3]Integrated Scanner[h3]\nPlease see page 54 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 54
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": "RANGHVY"
@@ -10960,7 +12058,10 @@
             "Key": "INTSLICGEAR",
             "Name": "Integrated Slicer Gear",
             "Description": "[H3]Integrated Slicer Gear[h3]\nPlease see page 58 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 750,
             "Rarity": 6,
@@ -10983,7 +12084,10 @@
             "Key": "IONSHIELD",
             "Name": "Ion Shielding",
             "Description": "[H3]Ion Shielding[h3]\nPlease see page 58 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 2000,
             "Rarity": 7,
@@ -11007,7 +12111,10 @@
             "Key": "LASFOCUS",
             "Name": "Laser Focusing Array",
             "Description": "[H3]Laser Focusing Array[h3]\nPlease see page 66 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 66
+            },
             "Type": "Vehicle",
             "Price": 3000,
             "Rarity": 6,
@@ -11026,7 +12133,10 @@
             "Key": "OPTENERGCELL",
             "Name": "Optimized Energy Cell",
             "Description": "[H3]Optimized Energy Cell[h3]\nPlease see page 54 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 54
+            },
             "Type": "Weapon",
             "TypeLimit": {
                 "Type": "Energy Weapon"
@@ -11046,7 +12156,10 @@
             "Key": "OVERACTMOD",
             "Name": "Overcharged Actuating Module",
             "Description": "[H3]Overcharged Actuating Module[h3]\nPlease see page 55 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 55
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": [
@@ -11081,7 +12194,10 @@
             "Key": "OVERCHIONENG",
             "Name": "Overcharged Ion Engines",
             "Description": "[H3]Overcharged Ion Engines[h3]\nPlease see page 66 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 66
+            },
             "Type": "Vehicle",
             "Price": 9500,
             "Rarity": 4,
@@ -11117,7 +12233,10 @@
             "Key": "MULTIGOOGASCART",
             "Name": "Pressurized Gas Cartridge",
             "Description": "[H3]Pressurized Gas Cartridge[h3]\nPlease see page 45 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 45
+            },
             "Type": "Weapon",
             "ItemLimit": {
                 "Key": "MULTIGOO"
@@ -11149,7 +12268,10 @@
             "Key": "PSEUDCLOAK",
             "Name": "Pseudo-Cloaking Device",
             "Description": "[H3]Pseudo-Cloaking Device[h3]\nPlease see page 66 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 66
+            },
             "Type": "Vehicle",
             "Price": 12000,
             "Rarity": 8,
@@ -11179,7 +12301,10 @@
             "Key": "RADSHIELD",
             "Name": "Radiation Shielding",
             "Description": "[H3]Radiation Shielding[h3]\nPlease see page 58 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 58
+            },
             "Type": "Armor",
             "CategoryLimit": {
                 "Category": [
@@ -11208,7 +12333,10 @@
             "Key": "RAPRECXC",
             "Name": "Rapid-Recharge XCiter",
             "Description": "[H3]Rapid-Recharge XCiter[h3]\nPlease see page 55 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 55
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Blaster"
@@ -11242,7 +12370,10 @@
             "Key": "REINFGAUNT",
             "Name": "Reinforced Gauntlets",
             "Description": "[H3]Reinforced Gauntlets[h3]\nPlease see page 58 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 250,
             "Rarity": 2,
@@ -11281,7 +12412,10 @@
             "Key": "REMSAFFEAT",
             "Name": "Removed Safety Features",
             "Description": "[H3]Removed Safety Features[h3]\nPlease see page 55 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 55
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": [
@@ -11310,7 +12444,10 @@
             "Key": "IONBLAST",
             "Name": "Secondary Ion Blaster",
             "Description": "[H3]Secondary Ion Blaster[h3]\nPlease see page 56 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 56
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": "RANGHVY"
@@ -11365,7 +12502,10 @@
             "Key": "SECTRANSP",
             "Name": "Secondary Transponder",
             "Description": "[H3]Secondary Transponder[h3]\nPlease see page 67 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 67
+            },
             "Type": "Vehicle",
             "Price": 20000,
             "Rarity": 7,
@@ -11402,7 +12542,10 @@
             "Key": "SECMEAS",
             "Name": "Security Measures",
             "Description": "[H3]Security Measures[h3]\nPlease see page 67 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 67
+            },
             "Type": "Vehicle",
             "Price": 500,
             "Rarity": 4,
@@ -11425,7 +12568,10 @@
             "Key": "SELFREPSYS",
             "Name": "Self-Repair Systems",
             "Description": "[H3]Self-Repair Systems[h3]\nPlease see page 58 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 58
+            },
             "Type": "Armor",
             "Price": 3000,
             "Rarity": 6,
@@ -11449,7 +12595,10 @@
             "Key": "IONTHRUSTSHAPEDNOZ",
             "Name": "Shaped Nozzle",
             "Description": "[H3]Shaped Nozzle[h3]\nPlease see page 45 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 45
+            },
             "Type": "Weapon",
             "Price": 75,
             "Rarity": 1,
@@ -11474,7 +12623,10 @@
             "Key": "SLICCOMP",
             "Name": "Slicing Computer",
             "Description": "[H3]Slicing Computer[h3]\nPlease see page 67 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 67
+            },
             "Type": "Vehicle",
             "Price": 5000,
             "Rarity": 6,
@@ -11510,7 +12662,10 @@
             "Key": "SONICSCOPE",
             "Name": "Sonic Scope",
             "Description": "[H3]Sonic Scope[h3]\nPlease see page 56 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 56
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": "RANGHVY"
@@ -11546,7 +12701,10 @@
             "Key": "STRIPDOWN",
             "Name": "Stripped Down",
             "Description": "[H3]Stripped Down[h3]\nPlease see page 56 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 56
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": [
@@ -11581,7 +12739,10 @@
             "Key": "RIVETGUNTOPLOAD",
             "Name": "Top-Loading Magazine",
             "Description": "[H3]Top-Loading Magazine[h3]\nPlease see page 46 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 46
+            },
             "Type": "Weapon",
             "ItemLimit": {
                 "Key": "RIVETGUN"
@@ -11601,7 +12762,10 @@
             "Key": "GRAPNEL",
             "Name": "Under-Barrel Grapnel Launcher",
             "Description": "[H3]Under-Barrel Grapnel Launcher[h3]\nPlease see page 56 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 56
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": [
@@ -11631,7 +12795,10 @@
             "Key": "VIBBAY",
             "Name": "Vibro-Bayonet",
             "Description": "[H3]Vibro-Bayonet[h3]\nPlease see page 56 of the Special Modifications Sourcebook for details.",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 56
+            },
             "Type": "Weapon",
             "SkillLimit": {
                 "Key": "RANGHVY"
@@ -11684,7 +12851,10 @@
             "Key": "ASTROMECH",
             "Name": "Astromech Droid Socket",
             "Description": "\n      [H3]Astromech Droid Socket[h3]\n      Please see page 63 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 63
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11714,7 +12884,10 @@
             "Key": "GRAVMINE",
             "Name": "Gravity Mine Launcher",
             "Description": "\n      [H3]Gravity Mine Launcher[h3]\n      Please see page 64 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11744,7 +12917,10 @@
             "Key": "HARDCIRC",
             "Name": "Hardened Circuits",
             "Description": "\n      [H3]Hardened Circuits[h3]\n      Please see page 64 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11774,7 +12950,10 @@
             "Key": "HULLREINF",
             "Name": "Hull\/Keel Reinforcement",
             "Description": "\n      [H3]Hull\/Keel Reinforcement[h3]\n      Please see page 64 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11804,7 +12983,10 @@
             "Key": "PHYSCOUNT",
             "Name": "Physical Countermeasures",
             "Description": "\n      [H3]Physical Countermeasures[h3]\n      Please see page 64 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 64
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11840,7 +13022,10 @@
             "Key": "RAM",
             "Name": "Ram Attachment",
             "Description": "\n      [H3]Ram Attachment[h3]\n      Please see page 65 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11870,7 +13055,10 @@
             "Key": "SLAVECIRC",
             "Name": "Slave Circuit",
             "Description": "\n      [H3]Slave Circuit[h3]\n      Please see page 65 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 65
+            },
             "Type": "Vehicle",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11906,7 +13094,10 @@
             "Key": "XV09",
             "Name": "XV-09 Chemical Restraint Harness",
             "Description": "\n      [H3]XV-09 Chemical Restraint Harness[h3]\n      Please see page 44 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 44
+            },
             "Type": "Mount",
             "TypeLimit": {
                 "Type": "Riding Mount"
@@ -11930,7 +13121,10 @@
             "Key": "ECMSUITETALLANX",
             "Name": "Electronic Countermeasures Suite (Custom)",
             "Description": "\n      [H3]Electronic Countermeasures Suite (Custom)[h3]\n      Please see page 118 of the Strongholds of Resistance Sourcebook for details.\n      [P][I]This is an optional no-cost attachment for the Tallanx-Class Stealth Fighter and the Darvro-Class Light Freighter.[i]\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 118
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": [
@@ -11962,7 +13156,10 @@
             "Key": "ELECSIGHTSYS",
             "Name": "Electronic Sighting System",
             "Description": "\n      [H3]Electronic Sighting System[h3]\n      Please see page 110 of the Strongholds of Resistance Sourcebook for details.\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 110
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -11995,7 +13192,10 @@
             "Key": "GIMMELSTEALTH",
             "Name": "Gimmellian Stealth Device",
             "Description": "\n      [H3]Gimmellian Stealth Device[h3]\n      Please see page 118 of the Strongholds of Resistance Sourcebook for details.\n      [P][I]This is an optional no-cost attachment for the Tallanx-Class Stealth Fighter and the Darvro-Class Light Freighter.[i]\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 118
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": [
@@ -12097,7 +13297,10 @@
             "Key": "SIGRED",
             "Name": "Weapon Signature Reduction",
             "Description": "\n      [H3]Weapon Signature Reduction[h3]\n      Please see page 110 of the Strongholds of Resistance Sourcebook for details.\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 110
+            },
             "Type": "Weapon",
             "ItemLimit": {},
             "SkillLimit": {},
@@ -12129,7 +13332,10 @@
             "Key": "PTA",
             "Name": "Predictive Targeting Array",
             "Description": "\n      [H3]Predictive Targeting Array[h3]\n      Please see page 143 of the Suns of Fortune Sourcebook for details.\n    ",
-            "Source": "Suns of Fortune",
+            "Source": {
+                "Book": "Suns of Fortune",
+                "Page": 143
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "0": "\n    "
@@ -12183,7 +13389,10 @@
             "Key": "DUSTCRAWLER",
             "Name": "Additional Cars",
             "Description": "\n      [H3]Additional Cars[h3]\n      Please see page 60 of the Unlimited Power Sourcebook for details.\n      [P][I]Note:  For each additional car, select one of each type of optional mod.  Up to 10 additional cars can be added in this way.[i]\n    ",
-            "Source": "Unlimited Power",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 60
+            },
             "Type": "Vehicle",
             "ItemLimit": {
                 "Key": "DUSTCRAWLER"
@@ -12227,7 +13436,10 @@
             "Name": "Dai Bendu Lessons",
             "Description": "\n      [H3]Dai Bendu Lessons[h3]\n      Please see page 52 of the Unlimited Power Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Unlimited Power"
+                "Source": {
+                    "Book": "Unlimited Power",
+                    "Page": 52
+                }
             },
             "Type": "Gear",
             "Price": 0,
@@ -12266,7 +13478,10 @@
             "Name": "Lasan Chronicles Lessons",
             "Description": "\n      [H3]Lasan Chronicles Bonuses[h3]\n      Please see page 52 of the Unlimited Power Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Unlimited Power"
+                "Source": {
+                    "Book": "Unlimited Power",
+                    "Page": 52
+                }
             },
             "Type": "Gear",
             "Price": 0,
@@ -12295,7 +13510,10 @@
             "Key": "TAINTNIGHT",
             "Name": "Tainted Nightsister Crystal",
             "Description": "\n      [H3]Tainted Nightsister Crystal[h3]\n      Please see page 55 of the Unlimited Power Sourcebook for details.\n    ",
-            "Source": "Unlimited Power",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 55
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Lightsaber"
@@ -12354,7 +13572,10 @@
             "Name": "Thisspiasian Stabilizing Coils",
             "Description": "\n      [H3]Thisspiasian Stabilizing Coils[h3]\n      Please see page 54 of the Unlimited Power Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Unlimited Power"
+                "Source": {
+                    "Book": "Unlimited Power",
+                    "Page": 54
+                }
             },
             "Type": "Weapon",
             "CategoryLimit": {
@@ -12379,7 +13600,10 @@
             "Name": "Tholothian Heartwood Hilt",
             "Description": "\n      [H3]Tholothian Heartwood Hilt[h3]\n      Please see page 54 of the Unlimited Power Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Unlimited Power"
+                "Source": {
+                    "Book": "Unlimited Power",
+                    "Page": 54
+                }
             },
             "Type": "Weapon",
             "CategoryLimit": {
@@ -12412,7 +13636,10 @@
             "Key": "UNSTKYBER",
             "Name": "Unstable Kyber Crystal",
             "Description": "\n      [H3]Unstable Kyber Crystal[h3]\n      Please see page 55 of the Unlimited Power Sourcebook for details.\n    ",
-            "Source": "Unlimited Power",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 55
+            },
             "Type": "Weapon",
             "CategoryLimit": {
                 "Category": "Lightsaber"
@@ -12458,7 +13685,10 @@
             "Name": "Walking Stick Hilt Disguise",
             "Description": "\n      [H3]Walking Stick Hilt Disguise[h3]\n      Please see page 55 of the Unlimited Power Sourcebook for details.\n    ",
             "Sources": {
-                "Source": "Unlimited Power"
+                "Source": {
+                    "Book": "Unlimited Power",
+                    "Page": 55
+                }
             },
             "Type": "Weapon",
             "CategoryLimit": {

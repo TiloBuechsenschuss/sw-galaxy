@@ -4,7 +4,9 @@
       "Bash(git -C /c/Projekte/sw-galaxy remote -v)",
       "Bash(python *)",
       "Bash(node --check app/module/SWApp.js)",
-      "Bash(command -v php)"
+      "Bash(command -v php)",
+      "Bash(npx --version)",
+      "Bash(php --version)"
     ]
   }
 }

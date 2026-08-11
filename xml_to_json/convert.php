@@ -18,6 +18,46 @@ $deprioritisedBooks = array('Unofficial Species Menagerie');
 
 
 /**
+ * OggDude stores the page as an attribute: <Source Page="44">Forged in Battle</Source>.
+ * simplexml_load_string() throws attributes away, so those 1783 page numbers never
+ * reached the JSON and the item cards rendered a book with no page. Rewrite them
+ * into the <Book>/<Page> child shape before converting -- the shape Species already
+ * use and items.html already renders. xml_to_json/convert.py does the same in
+ * expand_source_pages().
+ *
+ * @param string $xml
+ * @return string
+ */
+function expandSourcePages($xml)
+{
+    $doc = new DOMDocument();
+    if (!@$doc->loadXML($xml)) {
+        return $xml;
+    }
+    $xpath = new DOMXPath($doc);
+    /** @var DOMElement $source */
+    foreach ($xpath->query('//Source[@Page]') as $source) {
+        // Species already carry <Book>/<Page> children; leave those alone.
+        if ($source->getElementsByTagName('*')->length > 0) {
+            continue;
+        }
+        $book = $source->textContent;
+        $page = $source->getAttribute('Page');
+        $source->removeAttribute('Page');
+        while ($source->firstChild !== null) {
+            $source->removeChild($source->firstChild);
+        }
+        $bookNode = $doc->createElement('Book');
+        $bookNode->appendChild($doc->createTextNode($book));
+        $source->appendChild($bookNode);
+        $pageNode = $doc->createElement('Page');
+        $pageNode->appendChild($doc->createTextNode($page));
+        $source->appendChild($pageNode);
+    }
+    return $doc->saveXML();
+}
+
+/**
  * Every book name attached to a row, across both shapes the data uses:
  * <Sources><Source>..</Sources> and a single <Source>.
  *
@@ -121,7 +161,7 @@ foreach ($validFileNames as $typeKey => $fileName) {
     /** @var string $xmlFile */
     foreach ($xmlFiles as $xmlFile) {
         /** @var SimpleXMLElement $data */
-        $data = simplexml_load_string(file_get_contents($xmlFile));
+        $data = simplexml_load_string(expandSourcePages(file_get_contents($xmlFile)));
         // remove comment nodes
         unset($data->comment);
         $data = json_decode(json_encode($data, JSON_NUMERIC_CHECK));

@@ -24,7 +24,7 @@ Pick whichever of these you already have installed and run it from the project r
 python -m http.server 8000
 
 # Node.js
-npx http-server -p 8000
+npx http-server -p 8000 -c-1
 
 # PHP
 php -S localhost:8000
@@ -34,6 +34,27 @@ Then open <http://localhost:8000> in your browser. An internet connection is req
 first load, because AngularJS itself and the Material Icons font are pulled from a CDN.
 
 Any other web server works just as well — just point its document root at this folder.
+
+#### None of these reload by themselves
+
+They are plain static file servers with no file watcher. After editing a file, or after
+regenerating `data/json/*.json`, **refresh the browser yourself**. A data change always
+needs a full page reload: each tab fetches its JSON once, when the tab is created.
+
+The `-c-1` above matters. Without it `http-server` sends `Cache-Control: max-age=3600`, so
+the browser may keep using a cached copy of a JSON file for an hour and a plain refresh will
+not show regenerated data. `python -m http.server` sends no such header and revalidates on
+every request, so it needs no extra flag.
+
+If you want the browser to reload on its own, use a dev server that watches the folder:
+
+```
+npx live-server --port=8000
+```
+
+It reloads the page whenever any file changes — including a regenerated `data/json/*.json` —
+and hot-swaps CSS without a reload. It works by injecting a small live-reload script into the
+HTML it serves, so use it for development only; it is not a deployment target.
 
 ### Convert the XML data from OggDude Character Generator to JSON files for the STAR WARS GALAXY web application.
 

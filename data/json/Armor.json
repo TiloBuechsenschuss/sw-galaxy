@@ -4,7 +4,10 @@
             "Key": "CLIMBSUIT",
             "Name": "Climbsuit",
             "Description": "\n      [H3]Ayelixe\/Krongbing Climbsuit[h3]\n      Please see page 41 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 41
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -37,7 +40,10 @@
             "Key": "MKINIGHTSTALK",
             "Name": "Mk I Nightstalker Suit",
             "Description": "\n      [H3]Bantin Corp Mk I Nightstalker Suit[h3]\n      Please see page 41 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 41
+            },
             "Categories": {
                 "Category": "Full Body"
             },
@@ -94,7 +100,10 @@
             "Key": "MKIXMIM",
             "Name": "Mk IX Personal Mimetic Concealment Suit",
             "Description": "\n      [H3]Cyricept Mk IX Personal Mimetic Concealment Suit[h3]\n      Please see page 42 of the Cyphers and Masks Sourcebook for details.\n    ",
-            "Source": "Cyphers and Masks",
+            "Source": {
+                "Book": "Cyphers and Masks",
+                "Page": 42
+            },
             "Categories": {
                 "Category": "Full Body"
             },
@@ -127,7 +136,10 @@
             "Key": "CHARGESUIT",
             "Name": "\"Storm\" Charge Suit",
             "Description": "\n      [H3]Corellian Arms \"Storm\" Charge Suit[h3]\n      Please see page 50 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 50
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -182,8 +194,14 @@
             "Description": "\n      [H3]Beast-Hide Armor[h3]\n      Please see page 49 of the Dangerous Covenants Sourcebook, or page 44 of the Savage Spirits Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Dangerous Covenants",
-                    "Savage Spirits"
+                    {
+                        "Book": "Dangerous Covenants",
+                        "Page": 49
+                    },
+                    {
+                        "Book": "Savage Spirits",
+                        "Page": 44
+                    }
                 ]
             },
             "Type": {},
@@ -221,7 +239,10 @@
             "Key": "FLAKVEST",
             "Name": "Mk. III Flak Vest",
             "Description": "\n      [H3]Mk. III Flak Vest[h3]\n      Please see page 49 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -245,7 +266,10 @@
             "Key": "STEELSKIN",
             "Name": "Mk.II \"Steelskin\" Anti-Concussive Armor",
             "Description": "\n      [H3]Loronar Coporation Mk.II \"Steelskin\" Anti-Concussive Armor[h3]\n      Please see page 49 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -293,7 +317,10 @@
             "Key": "PROTECTOR",
             "Name": "Protector 1 Combat Armor",
             "Description": "\n      [H3]Taggeco Protector 1 Combat Armor[h3]\n      Please see page 49 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -319,7 +346,10 @@
             "Key": "POWARMOR",
             "Name": "PX-11 \"Battlement\" Powered Armor",
             "Description": "\n      [H3]Arakyd Industries PX-11 \"Battlement\" Powered Armor[h3]\n      Please see page 51 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": "Dangerous Covenants",
+            "Source": {
+                "Book": "Dangerous Covenants",
+                "Page": 51
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -361,7 +391,10 @@
             "Key": "BANAL",
             "Name": "Banal Apparel",
             "Description": "\n      [H3]Banal Apparel[h3]\n      Please see page 47 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 47
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -385,7 +418,10 @@
             "Key": "CARGOCL",
             "Name": "Cargo Clothing",
             "Description": "\n      [H3]Cargo Clothing[h3]\n      Please see page 47 of the Desperate Allies Sourcebook for details.[P][I]\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 47
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -409,7 +445,10 @@
             "Key": "DIPROBE",
             "Name": "Diplomat's Robes",
             "Description": "\n      [H3]Diplomat's Robes[h3]\n      Please see page 47 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 47
+            },
             "Type": {},
             "Categories": [
                 {
@@ -438,7 +477,10 @@
             "Key": "FLAREJACK",
             "Name": "Flare Jacket",
             "Description": "\n      [H3]Flare Jacket[h3]\n      Please see page 48 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -462,7 +504,10 @@
             "Key": "HAULHARN",
             "Name": "Hauling Harness",
             "Description": "\n      [H3]Hauling Harness[h3]\n      Please see page 48 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": "Heavy"
@@ -498,7 +543,10 @@
             "Key": "HOLOCOST",
             "Name": "Holographic Costume",
             "Description": "\n      [H3]Holographic Costume[h3]\n      Please see page 48 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 48
+            },
             "Type": {},
             "Categories": [
                 {
@@ -527,7 +575,10 @@
             "Key": "LECOUT",
             "Name": "Lector's Outfit",
             "Description": "\n      [H3]Lector's Outfit[h3]\n      Please see page 48 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -557,7 +608,10 @@
             "Key": "NOBREG",
             "Name": "Noble Regalia",
             "Description": "\n      [H3]Noble Regalia[h3]\n      Please see page 49 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -584,7 +638,10 @@
             "Key": "PERFATT",
             "Name": "Performer's Attire",
             "Description": "\n      [H3]Performer's Attire[h3]\n      Please see page 49 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -608,7 +665,10 @@
             "Key": "POWCAPARM",
             "Name": "Powered Capacitive Armor",
             "Description": "\n      [H3]Powered Capacitive Armor[h3]\n      Please see page 49 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 49
+            },
             "Type": {},
             "Defense": 1,
             "Soak": 1,
@@ -636,7 +696,10 @@
             "Key": "RESPROBES",
             "Name": "Resplendent Robes",
             "Description": "\n      [H3]Resplendent Robes[h3]\n      Please see page 49 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 49
+            },
             "Type": {},
             "Defense": 0,
             "Soak": 1,
@@ -663,7 +726,10 @@
             "Key": "SECSKIN",
             "Name": "Second Skin Armor",
             "Description": "\n      [H3]Second Skin Armor[h3]\n      Please see page 49 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": "Desperate Allies",
+            "Source": {
+                "Book": "Desperate Allies",
+                "Page": 49
+            },
             "Type": {},
             "Defense": 1,
             "Soak": 1,
@@ -687,7 +753,10 @@
             "Key": "BIOGELSUIT",
             "Name": "Biogel Suit",
             "Description": "\n      [H3]Biogel Suit[h3]\n      Please see page 45 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 45
+            },
             "Categories": {
                 "Category": "Full Body"
             },
@@ -725,7 +794,10 @@
             "Key": "FORMCOUNARM",
             "Name": "Formal Council Armor",
             "Description": "\n      [H3]Formal Council Armor[h3]\n      Please see page 45 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 45
+            },
             "Categories": {
                 "Category": [
                     "Half Body",
@@ -756,7 +828,10 @@
             "Key": "INDFLDDISR",
             "Name": "Individual Field Disruptor",
             "Description": "\n      [H3]Individual Field Disruptor[h3]\n      Please see page 45 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 45
+            },
             "Categories": {},
             "Price": 9500,
             "Rarity": 7,
@@ -797,7 +872,10 @@
             "Key": "REFBODYGL",
             "Name": "Reflect Body Glove",
             "Description": "\n      [H3]Reflect Body Glove[h3]\n      Please see page 46 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 46
+            },
             "Categories": {
                 "Category": "Full Body"
             },
@@ -827,7 +905,10 @@
             "Key": "DIVESUIT",
             "Name": "SeaScape Diving Suit",
             "Description": "\n      [H3]SeaScape Diving Suit[h3]\n      Please see page 46 of the Disciples of Harmony Sourcebook for details.\n    ",
-            "Source": "Disciples of Harmony",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 46
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -853,9 +934,18 @@
             "Description": "\n      [H3]Adverse Environmental Gear[h3]\n      Please see page 169 of the Edge of the Empire Core Rulebook, page 184 of the Age of Rebellion Core Rulebook, or page 178 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 169
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 184
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 178
+                    }
                 ]
             },
             "Defense": 0,
@@ -883,9 +973,18 @@
             "Description": "\n      [H3]Armored Clothing[h3]\n      Please see page 169 of the Edge of the Empire Core Rulebook, page 184 of the Age of Rebellion Core Rulebook, or page 178 of the Force and Destiny Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 169
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 184
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 178
+                    }
                 ]
             },
             "Defense": 1,
@@ -913,9 +1012,18 @@
             "Description": "\n      [H3]Heavy Battle Armor[h3]\n      Please see page 170 of the Edge of the Empire Core Rulebook, page 184 of the Age of Rebellion Core Rulebook, or page 47 of the Keeping the Peace sourcebook for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Keeping the Peace"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 170
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 184
+                    },
+                    {
+                        "Book": "Keeping the Peace",
+                        "Page": 47
+                    }
                 ]
             },
             "Categories": {
@@ -943,9 +1051,18 @@
             "Description": "\n      [H3]Heavy Clothing[h3]\n      Please see page 169 of the Edge of the Empire Core Rulebook, page 185 of the Age of Rebellion Core Rulebook, or page 180 of the Force and Destiny Core Rulebook for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 169
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 185
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 180
+                    }
                 ]
             },
             "Defense": 0,
@@ -968,8 +1085,14 @@
             "Description": "\n      [H3]Laminate (Stormtrooper Armor)[h3]\n      Please see page 169 of the Edge of the Empire Core Rulebook, or page 185 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 169
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 185
+                    }
                 ]
             },
             "Categories": {
@@ -996,9 +1119,18 @@
             "Description": "\n      [H3]Padded Armor[h3]\n      Please see page 169 of the Edge of the Empire Core Rulebook, page 185 of the Age of Rebellion Core Rulebook, or page 180 of the Force and Destiny Core Rulebook for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook",
-                    "Force and Destiny Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 169
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 185
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 180
+                    }
                 ]
             },
             "Defense": 0,
@@ -1018,8 +1150,14 @@
             "Description": "\n      [H3]Personal Deflector Shield[h3]\n      Please see page 170 of the Edge of the Empire Core Rulebook, or page 185 of the Age of Rebellion Core Rulebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Edge of the Empire Core Rulebook",
-                    "Age of Rebellion Core Rulebook"
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 170
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 185
+                    }
                 ]
             },
             "Defense": 2,
@@ -1042,7 +1180,10 @@
             "Key": "CRASHGEAR",
             "Name": "Crash Gear",
             "Description": "\n      [H3]Crash Gear[h3]\n      Please see page 43 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 43
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1068,7 +1209,10 @@
             "Key": "GSUIT",
             "Name": "G-Suit",
             "Description": "\n      [H3]G-Suit[h3]\n      Please see page 44 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 44
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1094,7 +1238,10 @@
             "Key": "PITCREWCOV",
             "Name": "Pit Crew Coveralls",
             "Description": "\n      [H3]Pit Crew Coveralls[h3]\n      Please see page 44 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 44
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1125,7 +1272,10 @@
             "Key": "ZEPHYRSTEALTH",
             "Name": "Zephyr Stealth Suit",
             "Description": "\n      [H3]Zephyr Stealth Suit[h3]\n      Please see page 44 of the Endless Vigil Sourcebook for details.\n    ",
-            "Source": "Endless Vigil",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 44
+            },
             "Categories": {
                 "Category": "Full Body"
             },
@@ -1154,7 +1304,10 @@
             "Key": "MOUNTARMOR",
             "Name": "A\/KT Mountaineer Armor",
             "Description": "\n      [H3]A\/KT Mountaineer Armor[h3]\n      Please see page 45 of the Enter the Unknown Sourcebook for details.\n    ",
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 45
+            },
             "Defense": 1,
             "Soak": 1,
             "Price": 1800,
@@ -1181,8 +1334,14 @@
             "Description": "\n      [H3]A\/KT Shockrider Crash Suit[h3]\n      Please see page 45 of the Enter the Unknown Sourcebook, or page 42 of the Stay on Target Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Enter the Unknown",
-                    "Stay on Target"
+                    {
+                        "Book": "Enter the Unknown",
+                        "Page": 45
+                    },
+                    {
+                        "Book": "Stay on Target",
+                        "Page": 42
+                    }
                 ]
             },
             "Defense": 0,
@@ -1215,7 +1374,10 @@
             "Key": "UTILITYVEST",
             "Name": "A\/KT Tracker Utility Vest",
             "Description": "\n      [H3]A\/KT Tracker Utility Vest[h3]\n      Please see page 45 of the Enter the Unknown Sourcebook for details.\n    ",
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 45
+            },
             "Categories": {
                 "Category": "Light"
             },
@@ -1244,7 +1406,10 @@
                     "Resistant"
                 ]
             },
-            "Source": "Enter the Unknown",
+            "Source": {
+                "Book": "Enter the Unknown",
+                "Page": 44
+            },
             "Defense": 0,
             "Soak": 2,
             "Price": 750,
@@ -1263,7 +1428,10 @@
             "Key": "RIOTARMOR",
             "Name": "Mk.IV Riot Armor",
             "Description": "\n      [H3]Creshaldyne Mk.IV Riot Armor[h3]\n      Please see page 44 of the Far Horizons Sourcebook for details.\n    ",
-            "Source": "Far Horizons",
+            "Source": {
+                "Book": "Far Horizons",
+                "Page": 44
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1297,7 +1465,10 @@
             "Key": "REINFENVIRO",
             "Name": "Reinforced Environment Gear",
             "Description": "\n      [H3]Reinforced Environment Gear[h3]\n      Please see page 44 of the Far Horizons Sourcebook for details.\n    ",
-            "Source": "Far Horizons",
+            "Source": {
+                "Book": "Far Horizons",
+                "Page": 44
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1329,7 +1500,10 @@
             "Key": "TAILOREDJACKET",
             "Name": "Tailored Armored Jacket",
             "Description": "\n      [H3]Tailored Armored Jacket[h3]\n      Please see page 44 of the Far Horizons Sourcebook for details.\n    ",
-            "Source": "Far Horizons",
+            "Source": {
+                "Book": "Far Horizons",
+                "Page": 44
+            },
             "Type": {},
             "Categories": {
                 "Category": "Resistant"
@@ -1353,7 +1527,10 @@
             "Key": "BLASTVEST",
             "Name": "Blast Vest",
             "Description": "\n      [H3]Blast Vest[h3]\n      Please see page 47 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 47
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -1377,7 +1554,10 @@
             "Key": "MIMETICSUIT",
             "Name": "Mimetic Suit",
             "Description": "\n      [H3]Mimetic Suit[h3]\n      Please see page 47 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 47
+            },
             "Type": {},
             "Categories": [
                 {},
@@ -1410,7 +1590,10 @@
             "Key": "SMUGGLERSTRENCHCOAT",
             "Name": "Smuggler's Trenchcoat",
             "Description": "\n      [H3]Smuggler's Trenchcoat[h3]\n      Please see page 47 of the Fly Casual Sourcebook for details.\n    ",
-            "Source": "Fly Casual",
+            "Source": {
+                "Book": "Fly Casual",
+                "Page": 47
+            },
             "Type": {},
             "Encumbrance": 3,
             "HP": 0,
@@ -1443,7 +1626,10 @@
             "Key": "ARMROBE",
             "Name": "Armored Robes",
             "Description": "\n      [H3]Armored Robes[h3]\n      Please see page 179 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 179
+            },
             "Defense": 1,
             "Soak": 2,
             "Price": 4500,
@@ -1464,7 +1650,10 @@
             "Key": "CONROBE",
             "Name": "Concealing Robes",
             "Description": "\n      [H3]Concealing Robes[h3]\n      Please see page 179 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": "Force and Destiny Core Rulebook",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 179
+            },
             "Defense": 0,
             "Soak": 1,
             "Price": 150,
@@ -1489,7 +1678,10 @@
             "Key": "ALLIANCELTSTEALTH",
             "Name": "Alliance Light Stealth Armor",
             "Description": "\n      [H3]Alliance Light Stealth Armor[h3]\n      Please see page 49 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 49
+            },
             "Categories": {
                 "Category": [
                     "Sealable",
@@ -1523,7 +1715,10 @@
             "Key": "IMPHAZARD",
             "Name": "Imperial Hazard Trooper Armor",
             "Description": "\n      [H3]Imperial Hazard Trooper Armor[h3]\n      Please see page 49 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 49
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1553,7 +1748,10 @@
             "Key": "IMPSTORMCOMM",
             "Name": "Imperial Storm Commando Armor",
             "Description": "\n      [H3]Imperial Storm Commando Armor[h3]\n      Please see page 49 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 49
+            },
             "Categories": {
                 "Category": [
                     "Sealable",
@@ -1592,7 +1790,10 @@
             "Key": "THINSUIT",
             "Name": "Karflo Thinsuit",
             "Description": "\n      [H3]Karflo Thinsuit[h3]\n      Please see page 50 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 50
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1616,7 +1817,10 @@
             "Key": "REBELHEAVY",
             "Name": "Rebel Heavy Battle Armor",
             "Description": "\n      [H3]Rebel Heavy Battle Armor[h3]\n      Please see page 50 of the Forged in Battle Sourcebook for details.\n    ",
-            "Source": "Forged in Battle",
+            "Source": {
+                "Book": "Forged in Battle",
+                "Page": 50
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1644,7 +1848,10 @@
             "Key": "ALLENGHELVEST",
             "Name": "Alliance Engineer's Helmet and Vest",
             "Description": "\n      [H3]Alliance Engineer's Helmet and Vest[h3]\n      Please see page 42 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 42
+            },
             "Categories": {
                 "Category": [
                     "Half Body",
@@ -1668,7 +1875,10 @@
             "Key": "EODMKII",
             "Name": "EOD-Mk II Armor",
             "Description": "\n      [H3]Creshaldyne EOD-Mk II Armor[h3]\n      Please see page 42 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 42
+            },
             "Categories": {
                 "Category": [
                     "Sealable",
@@ -1694,7 +1904,10 @@
             "Key": "FABPROT",
             "Name": "Fabricator's Protective Gear",
             "Description": "\n      [H3]Fabricator's Protective Gear[h3]\n      Please see page 43 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 43
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1722,7 +1935,10 @@
             "Key": "PIONEER",
             "Name": "Pioneer Armor",
             "Description": "\n      [H3]Pioneer Armor[h3]\n      Please see page 43 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 43
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1746,7 +1962,10 @@
             "Key": "SKAKPRESS",
             "Name": "Skakoan Pressure Suit",
             "Description": "\n      [H3]Skakoan Pressure Suit[h3]\n      Please see page 23 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": "Fully Operational",
+            "Source": {
+                "Book": "Fully Operational",
+                "Page": 23
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -1776,7 +1995,10 @@
             "Key": "CRESHARMOR",
             "Name": "Cresh \"Luck\" Armor",
             "Description": "\n      [H3]Cresh \"Luck\" Armor[h3]\n      Please see page 47 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 47
+            },
             "Type": {},
             "Encumbrance": 4,
             "HP": 1,
@@ -1812,7 +2034,10 @@
             "Key": "JEDIBA",
             "Name": "Jedi Battle Armor",
             "Description": "\n      [H3]Jedi Battle Armor[h3]\n      Please see page 47 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 47
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -1849,7 +2074,10 @@
             "Key": "JEDITEMGUAARM",
             "Name": "Jedi Temple Guard Armor",
             "Description": "\n      [H3]Jedi Temple Guard Armor[h3]\n      Please see page 48 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 48
+            },
             "Type": {},
             "Encumbrance": 4,
             "HP": 3,
@@ -1883,7 +2111,10 @@
             "Key": "JEDITRAINSUIT",
             "Name": "Jedi Training Suit (Unweighted)",
             "Description": "\n      [H3]Jedi Training Suit (Unweighted)[h3]\n      Please see page 48 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -1907,7 +2138,10 @@
             "Key": "JEDITRAINSUITW",
             "Name": "Jedi Training Suit (Weighted)",
             "Description": "\n      [H3]Jedi Training Suit (Weighted)[h3]\n      Please see page 48 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 48
+            },
             "Type": {},
             "Encumbrance": 6,
             "HP": 0,
@@ -1936,7 +2170,10 @@
             "Key": "KAVDANNPA",
             "Name": "Kav-Dann Power Armor",
             "Description": "\n      [H3]Kav-Dann Power Armor[h3]\n      Please see page 48 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -1980,7 +2217,10 @@
             "Key": "KOROHALFVEST",
             "Name": "Koromondian Half-Vest",
             "Description": "\n      [H3]Koromondian Half-Vest[h3]\n      Please see page 49 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": "Heavy"
@@ -2004,7 +2244,10 @@
             "Key": "RIOTARM",
             "Name": "Riot Armor",
             "Description": "\n      [H3]Riot Armor[h3]\n      Please see page 49 of the Keeping the Peace Sourcebook for details.\n    ",
-            "Source": "Keeping the Peace",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 49
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2028,7 +2271,10 @@
             "Key": "ANCBATARM",
             "Name": "Ancient Battle Armor",
             "Description": "\n      [H3]Ancient Battle Armor[h3]\n      Please see page 47 of the Knights of Fate Sourcebook for details.\n    ",
-            "Source": "Knights of Fate",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 47
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -2052,7 +2298,10 @@
             "Key": "MK1KATARN",
             "Name": "Mk I Katarn-Class Commando Armor",
             "Description": "\n      [H3]Mk I [I]Katarn[i] -Class Commando Armor[h3]\n      Please see page 47 of the Knights of Fate Sourcebook for details.\n    ",
-            "Source": "Knights of Fate",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 47
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -2109,8 +2358,14 @@
             "Description": "\n      [H3]Phase I ARC Trooper Armor[h3]\n      Please see page 48 of the Knights of Fate Sourcebook, or page 58 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
-                    "Knights of Fate",
-                    "Rise of the Separatists"
+                    {
+                        "Book": "Knights of Fate",
+                        "Page": 48
+                    },
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 58
+                    }
                 ]
             },
             "Categories": {
@@ -2155,7 +2410,10 @@
             "Key": "HUTTSHELLARMOR",
             "Name": "Hutt Shell Armor",
             "Description": "\n      [H3]Hutt Shell Armor[h3]\n      Please see page 104 of the Lords of Nal Hutta Sourcebook for details.\n    ",
-            "Source": "Lords of Nal Hutta",
+            "Source": {
+                "Book": "Lords of Nal Hutta",
+                "Page": 104
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2201,7 +2459,10 @@
             "Key": "SAKSHADOW",
             "Name": "Sakiyan Shadowsuit",
             "Description": "\n      [H3]Sakiyan Shadowsuit[h3]\n      Please see page 105 of the Lords of Nal Hutta Sourcebook for details.\n    ",
-            "Source": "Lords of Nal Hutta",
+            "Source": {
+                "Book": "Lords of Nal Hutta",
+                "Page": 105
+            },
             "Type": {},
             "Categories": [
                 {
@@ -2239,7 +2500,10 @@
             "Key": "ARMDROPSUIT",
             "Name": "Armored Drop Suit",
             "Description": "\n      [H3]Armored Drop Suit[h3]\n      Please see page 49 of the No Disintegrations Sourcebook for details.\n      [P][I]Note:  A vehicle version of this armor exists with the same name.[i]\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 49
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -2269,7 +2533,10 @@
             "Key": "HUNTTROPHARM",
             "Name": "Hunter's Trophy Armor",
             "Description": "\n      [H3]Hunter's Trophy Armor[h3]\n      Please see page 49 of the No Disintegrations Sourcebook for details.\n      [P][I]Note:  If making your own suit from owned hides, price\/rarity drops to 1000\/6.[i]\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 49
+            },
             "Categories": {
                 "Category": "Half Body"
             },
@@ -2309,7 +2576,10 @@
             "Key": "MANDOARM",
             "Name": "Mandalorian Armor",
             "Description": "\n      [H3]Mandalorian Armor[h3]\n      Please see page 50 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": "No Disintegrations",
+            "Source": {
+                "Book": "No Disintegrations",
+                "Page": 50
+            },
             "Categories": {
                 "Category": [
                     "Full Body",
@@ -2332,7 +2602,10 @@
             "Key": "GUNDSCAV",
             "Name": "\"Gundark\" Scav-Suit",
             "Description": "\n      [H3]\"Gundark\" Scav-Suit[h3]\n      Please see page 56 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Source": "Rise of the Separatists",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 56
+            },
             "Categories": {
                 "Category": [
                     "Sealed",
@@ -2371,7 +2644,10 @@
             "Key": "FLIGHTCF9",
             "Name": "CF-9 Naval Flight Suit",
             "Description": "\n      [H3]CF-9 Naval Flight Suit[h3]\n      Please see page 56 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Source": "Rise of the Separatists",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 56
+            },
             "Categories": {
                 "Category": [
                     "Sealed",
@@ -2401,7 +2677,10 @@
             "Key": "HVYROBES",
             "Name": "Heavy Robes",
             "Description": "\n      [H3]Heavy Robes[h3]\n      Please see page 56 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Source": "Rise of the Separatists",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 56
+            },
             "Categories": {
                 "Category": "Full Body"
             },
@@ -2421,7 +2700,10 @@
             "Key": "HT77COLDARM",
             "Name": "HT-77 Cold Assault Armor",
             "Description": "\n      [H3]HT-77 Cold Assault Armor[h3]\n      Please see page 57 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Source": "Rise of the Separatists",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 57
+            },
             "Categories": {
                 "Category": [
                     "Sealable",
@@ -2458,7 +2740,10 @@
             "Key": "JEDICOMM",
             "Name": "Jedi Commander Armor",
             "Description": "\n      [H3]Jedi Commander Armor[h3]\n      Please see page 57 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Source": "Rise of the Separatists",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 57
+            },
             "Categories": {
                 "Category": [
                     "Sealable",
@@ -2481,7 +2766,10 @@
             "Key": "MKIIINSARM",
             "Name": "Mk II \"Hotspot\" Insulated Armor",
             "Description": "\n      [H3]Mk II \"Hotspot\" Insulated Armor[h3]\n      Please see page 57 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Source": "Rise of the Separatists",
+            "Source": {
+                "Book": "Rise of the Separatists",
+                "Page": 57
+            },
             "Categories": {
                 "Category": [
                     "Sealed",
@@ -2519,7 +2807,10 @@
             "Name": "Phase I Clone Trooper Armor",
             "Description": "\n      [H3]Phase I Clone Trooper Armor[h3]\n      Please see page 58 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 58
+                }
             },
             "Categories": {
                 "Category": [
@@ -2552,7 +2843,10 @@
             "Name": "Scavenged Clone Armor",
             "Description": "\n      [H3]Scavenged Clone Armor[h3]\n      Please see page 58 of the Rise of the Separatists Sourcebook, for details.\n    ",
             "Sources": {
-                "Source": "Rise of the Separatists"
+                "Source": {
+                    "Book": "Rise of the Separatists",
+                    "Page": 58
+                }
             },
             "Categories": {
                 "Category": [
@@ -2596,7 +2890,10 @@
             "Key": "ANIPRO",
             "Name": "AniPro Layered Beast Armor",
             "Description": "\n      [H3]VeTech AniPro Layered Beast Armor[h3]\n      Please see page 44 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 44
+            },
             "Type": {},
             "Categories": {
                 "Category": "Half Body"
@@ -2626,7 +2923,10 @@
             "Key": "CHITIN",
             "Name": "Chitin Armor",
             "Description": "\n      [H3]Chitin Armor[h3]\n      Please see page 45 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 45
+            },
             "Type": {},
             "Categories": {
                 "Category": "Hard"
@@ -2662,7 +2962,10 @@
             "Key": "SURVIVALARMOR",
             "Name": "Survivalist Armor",
             "Description": "\n      [H3]Creshaldyne Survivalist Armor[h3]\n      Please see page 45 of the Savage Spirits Sourcebook for details.\n    ",
-            "Source": "Savage Spirits",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 45
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2689,7 +2992,10 @@
             "Key": "CLOAKCOAT",
             "Name": "Cloaking Coat",
             "Description": "\n      [H3]Cloaking Coat[h3]\n      Please see page 47 of the Special Modifications Sourcebook for details.\n    ",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 47
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2716,7 +3022,10 @@
             "Key": "MECHUTILSUIT",
             "Name": "Mechanic's Utility Suit",
             "Description": "\n      [H3]Mechanic's Utility Suit[h3]\n      Please see page 48 of the Special Modifications Sourcebook for details.\n    ",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": "Full Body"
@@ -2740,7 +3049,10 @@
             "Key": "N57",
             "Name": "N-57 Armor",
             "Description": "\n      [H3]Merr-Sonn N-57 Armor[h3]\n      Please see page 48 of the Special Modifications Sourcebook for details.\n    ",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2772,7 +3084,10 @@
             "Key": "P14",
             "Name": "P-14 Hazardous Industry Suit",
             "Description": "\n      [H3]SoroSuub P-14 Hazardous Industry Suit[h3]\n      Please see page 48 of the Special Modifications Sourcebook for details.\n    ",
-            "Source": "Special Modifications",
+            "Source": {
+                "Book": "Special Modifications",
+                "Page": 48
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2815,7 +3130,10 @@
             "Key": "WINGCOMMANDER",
             "Name": "A\/KT Wing Commander Armored Flight Suit",
             "Description": "\n      [H3]A\/KT Wing Commander Armored Flight Suit[h3]\n      Please see page 42 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 42
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2849,7 +3167,10 @@
             "Key": "RIDINGTACK",
             "Name": "Caballerin-Series Riding Tack",
             "Description": "\n      [H3]Caballerin-Series Riding Tack[h3]\n      Please see page 42 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 42
+            },
             "Type": {},
             "Categories": {
                 "Category": "Light"
@@ -2879,7 +3200,10 @@
             "Key": "CAPARIBEAST",
             "Name": "Capari-Series Padded Beast Armor",
             "Description": "\n      [H3]Capari-Series Padded Beast Armor[h3]\n      Please see page 43 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 43
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -2913,7 +3237,10 @@
             "Key": "DESTRIBEAST",
             "Name": "Destri-Series Laminated Beast Armor",
             "Description": "\n      [H3]Destri-Series Laminated Beast Armor[h3]\n      Please see page 43 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 43
+            },
             "Type": {},
             "Categories": [
                 {
@@ -2952,7 +3279,10 @@
             "Key": "MEGAFAUNA",
             "Name": "H-Series Megafauna Carriage",
             "Description": "\n      [H3]H-Series Megafauna Carriage[h3]\n      Please see page 43 of the Stay on Target Sourcebook for details.\n    ",
-            "Source": "Stay on Target",
+            "Source": {
+                "Book": "Stay on Target",
+                "Page": 43
+            },
             "Type": {},
             "Categories": {
                 "Category": "Heavy"
@@ -2986,7 +3316,10 @@
             "Key": "LEVPOWARM",
             "Name": "Leviathan Power Armor",
             "Description": "\n      [H3]Leviathan Power Armor[h3]\n      Please see page 109 of the Strongholds of Resistance Sourcebook for details.\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 109
+            },
             "Type": {},
             "Categories": {
                 "Category": [
@@ -3108,7 +3441,10 @@
             "Key": "BODYSUIT",
             "Name": "Polis Masson Bodysuit",
             "Description": "\n      [H3]Polis Masson Bodysuit[h3]\n      Please see page 109 of the Strongholds of Resistance Sourcebook for details.\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 109
+            },
             "Type": {},
             "Defense": 0,
             "Soak": 1,
@@ -3141,7 +3477,10 @@
             "Key": "VERPFIBUARM",
             "Name": "Verpine Fiber Ultramesh Armor",
             "Description": "\n      [H3]Verpine Fiber Ultramesh Armor[h3]\n      Please see page 109 of the Strongholds of Resistance Sourcebook for details.\n    ",
-            "Source": "Strongholds of Resistance",
+            "Source": {
+                "Book": "Strongholds of Resistance",
+                "Page": 109
+            },
             "Type": {},
             "Defense": 0,
             "Soak": 1,
@@ -3168,7 +3507,10 @@
             "Key": "CATCHVEST",
             "Name": "Catch Vest",
             "Description": "\n      [H3]Catch Vest[h3]\n      Please see page 99 of the Suns of Fortune Sourcebook for details.\n    ",
-            "Source": "Suns of Fortune",
+            "Source": {
+                "Book": "Suns of Fortune",
+                "Page": 99
+            },
             "Defense": 0,
             "Soak": 1,
             "Price": 300,
@@ -3190,7 +3532,10 @@
             "Key": "NOMADCOAT",
             "Name": "Nomad Greatcoat",
             "Description": "\n      [H3]Nomad Greatcoat[h3]\n      Please see page 99 of the Suns of Fortune Sourcebook for details.\n    ",
-            "Source": "Suns of Fortune",
+            "Source": {
+                "Book": "Suns of Fortune",
+                "Page": 99
+            },
             "Defense": 0,
             "Soak": 1,
             "Price": 100,
@@ -3221,7 +3566,10 @@
             "Key": "FLIGHTTX3",
             "Name": "TX-3 Combat Flight Suit",
             "Description": "\n      [H3]TX-3 Combat Flight Suit[h3]\n      Please see page 99 of the Suns of Fortune Sourcebook for details.\n    ",
-            "Source": "Suns of Fortune",
+            "Source": {
+                "Book": "Suns of Fortune",
+                "Page": 99
+            },
             "Categories": {
                 "Category": [
                     "Sealed",
@@ -3247,7 +3595,10 @@
             "Key": "MODARMORIII",
             "Name": "Type III \"Berethron\" Personal Modular Armor",
             "Description": "\n      [H3]Type III \"Berethron\" Personal Modular Armor[h3]\n      Please see page 99 of the Suns of Fortune Sourcebook for details.\n    ",
-            "Source": "Suns of Fortune",
+            "Source": {
+                "Book": "Suns of Fortune",
+                "Page": 99
+            },
             "Defense": 1,
             "Soak": 1,
             "Price": 1250,
@@ -3264,7 +3615,10 @@
             "Key": "SITHPAIN",
             "Name": "Sith Pain Harness",
             "Description": "\n      [H3]Sith Pain Harness[h3]\n      Please see page 51 of the Unlimited Power Sourcebook for details.\n    ",
-            "Source": "Unlimited Power",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 51
+            },
             "Categories": {
                 "Category": "Half Body"
             },
@@ -3286,7 +3640,10 @@
             "Key": "TIMBERCUIR",
             "Name": "Timber Cuirass",
             "Description": "\n      [H3]Sith Pain Harness[h3]\n      Please see page 51 of the Unlimited Power Sourcebook for details.\n    ",
-            "Source": "Unlimited Power",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 51
+            },
             "Categories": {
                 "Category": "Half Body"
             },
@@ -3306,7 +3663,10 @@
             "Key": "WATERWEAVE",
             "Name": "Waterweave",
             "Description": "\n      [H3]Waterweave[h3]\n      Please see page 51 of the Unlimited Power Sourcebook for details.\n    ",
-            "Source": "Unlimited Power",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 51
+            },
             "Categories": {
                 "Category": "Full Body"
             },

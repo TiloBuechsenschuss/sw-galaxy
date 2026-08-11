@@ -116,12 +116,33 @@ def sx_to_obj(el):
     return out
 
 
+def expand_source_pages(root):
+    """
+    OggDude stores the page as an attribute: <Source Page="44">Forged in
+    Battle</Source>. SimpleXML throws attributes away (see the quirks above), so
+    those 1783 page numbers never reached the JSON and the item cards rendered a
+    book with no page. Rewrite them into the <Book>/<Page> child shape before
+    converting -- the shape Species already use and items.html already renders.
+    convert.php does the same in expandSourcePages().
+    """
+    for src in list(root.iter('Source')):
+        page = src.get('Page')
+        if page is None or len(src):     # Species already have the children
+            continue
+        book = src.text or ''
+        del src.attrib['Page']
+        src.text = None
+        ET.SubElement(src, 'Book').text = book
+        ET.SubElement(src, 'Page').text = page
+    return root
+
+
 def load_xml(path):
     with open(path, 'rb') as fh:
         raw = fh.read()
     parser = ET.XMLParser(target=ET.TreeBuilder(insert_comments=True))
     parser.feed(raw)
-    return parser.close()
+    return expand_source_pages(parser.close())
 
 
 # --------------------------------------------------------------------------
