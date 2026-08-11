@@ -10,6 +10,15 @@ App.config(function ($mdThemingProvider) {
         .primaryPalette('red');
 });
 
+/**
+ * Sources that are not selected when the app starts or when the filters are cleared.
+ * They stay available in the "Source" filter, so they can be switched on by choice.
+ * Names must match the Book name in the data exactly.
+ */
+App.constant('defaultDisabledSources', [
+    'Unofficial Species Menagerie'
+]);
+
 App.filter('searchFilter', function () {
     return function (items, search, ctrl) {
         if (!search) {
@@ -1163,7 +1172,7 @@ App.directive('itemList', function () {
             link: function (scope, elem, attrs) {
                 scope.sideNavComponentId = 'sideNav-' + scope.name;
             },
-            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce) {
+            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources) {
                 $scope.items = [];
                 $scope.favourites = [];
                 $scope.types = [];
@@ -1238,9 +1247,18 @@ App.directive('itemList', function () {
                         }
                     });
                 };
+                $scope.getDefaultSources = function () {
+                    var i, l = $scope.sources.length, defaultSources = [];
+                    for (i = 0; i < l; i++) {
+                        if (defaultDisabledSources.indexOf($scope.sources[i]) === -1) {
+                            defaultSources.push($scope.sources[i]);
+                        }
+                    }
+                    return defaultSources;
+                };
                 $scope.resetFilters = function () {
                     $scope.filters = {
-                        source: $scope.sources
+                        source: $scope.getDefaultSources()
                     };
                     $scope.filterItems();
                 };
@@ -1680,7 +1698,7 @@ App.directive('itemList', function () {
                         $scope.min.Presence = $scope.getMinValue(items, 'Presence');
                         $scope.max.Presence = $scope.getMaxValue(items, 'Presence');
                         $scope.items = outputItems;
-                        $scope.filters.source = $scope.sources;
+                        $scope.filters.source = $scope.getDefaultSources();
                         $scope.filterItems();
                         $scope.loading = false;
                     });

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -C /c/Projekte/sw-galaxy remote -v)"
+      "Bash(git -C /c/Projekte/sw-galaxy remote -v)",
+      "Bash(python *)",
+      "Bash(node --check app/module/SWApp.js)"
     ]
   }
 }

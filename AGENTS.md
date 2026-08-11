@@ -81,6 +81,21 @@ Recognized XML file names are fixed in `$validFileNames` in `convert.php`:
 Adding a new data type means touching `convert.php`, `index.html`, and usually
 `items.html`.
 
+### Source selection defaults
+
+The "Source" sidenav filter is a multi-select listing every Book name found in the loaded
+data. By default all of them are selected except those named in the `defaultDisabledSources`
+constant at the top of `SWApp.js` — currently `Unofficial Species Menagerie`. Disabled-by-
+default sources still appear in the dropdown, so they can be switched on by choice.
+
+`$scope.getDefaultSources()` builds that default selection and is used both on load and by
+`resetFilters()`, so "Clear filters" returns to the default rather than selecting everything.
+Note that it returns a fresh array, keeping `$scope.sources` (the list of available options)
+independent of `$scope.filters.source` (the current selection).
+
+Items are matched with `arrayFulltextFilterOr`, so an item is hidden only when *all* of its
+sources are deselected — anything also printed in an official book stays visible.
+
 ### The filter layer
 
 Most of `SWApp.js` is AngularJS filters. Two distinct groups:
