@@ -100,6 +100,8 @@ The short version:
   app schema, resolving skill/talent keys to display names.
 - `xml_to_json/verify_convert.py` rebuilds every JSON from the committed XML and checks
   the schema mapping against the shipped data. Run it after touching any of the three.
+- `xml_to_json/wiki_diff.py` reports coverage against the FFG fandom wiki — read-only,
+  needs network, writes Markdown to `xml_to_json/wiki_diff/`. Not part of the pipeline.
 
 Recognized XML file names are fixed in `$validFileNames` in `convert.php`:
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`.

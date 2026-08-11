@@ -32,16 +32,84 @@ expected to include the regenerated JSON in the same commit.
 | `convert.py` | Python port of `convert.php`, for machines without PHP. **Must stay byte-identical in output.** |
 | `oggdude_species_to_app.py` | Reshapes OggDude's per-species XML into the app's species schema. |
 | `verify_convert.py` | Regression checks. Run after touching any of the above. |
+| `wiki_diff.py` | Reports what a wiki category has that the JSON does not, and vice versa. Read-only. |
 
 ```bash
 python xml_to_json/oggdude_species_to_app.py     # refresh the OggDude source set
 python xml_to_json/convert.py --only Species     # rebuild one JSON file
 python xml_to_json/convert.py --check            # report, write nothing
 python xml_to_json/verify_convert.py             # prove nothing regressed
+python xml_to_json/wiki_diff.py --all            # coverage against the fandom wiki
 ```
 
 `php xml_to_json/convert.php` does the same job as `convert.py`. It can also be
 triggered over HTTP if you are running Apache or nginx.
+
+---
+
+## Coverage against the fandom wiki
+
+`wiki_diff.py` compares a category on
+<https://star-wars-rpg-ffg.fandom.com> against one generated JSON file and writes
+a Markdown report to `xml_to_json/wiki_diff/<target>.md`. It is a **reporting tool
+only** — it never touches the XML, the JSON or the app, and it is the one script
+here that needs network access.
+
+```bash
+python xml_to_json/wiki_diff.py --list        # the configured targets
+python xml_to_json/wiki_diff.py species       # one target
+python xml_to_json/wiki_diff.py --all         # all five
+```
+
+Targets are one line each in `TARGETS` at the top of the script — wiki category,
+JSON file, its type key. Nothing else is target-specific, so covering something
+new is a one-line change. For a throwaway comparison, skip the registry:
+
+```bash
+python xml_to_json/wiki_diff.py --category Talents --json data/json/Gear.json \
+                                --type-key Gear --name talents-scratch
+```
+
+Names rarely line up, so each report sorts its findings into four buckets:
+
+1. **matched exactly** after folding case, punctuation and spacing;
+2. **matched after normalisation** — one of the `RELAXATIONS` applied (drop a
+   `Aqualish - Aquala` subspecies suffix, drop a `Human (Onderonian)`
+   parenthetical, singularise `Toydarians`). Always listed with the rule that did
+   it, so a relaxation cannot quietly hide a real difference. New rules are one
+   line in `RELAXATIONS`; combinations are generated automatically;
+3. **the actual diff** — what only the wiki has, and what only the data has,
+   each entry annotated with where it came from (below);
+4. **possibly the same, named differently** — leftovers paired by similarity
+   (`Adverse Environment Gear` / `Adverse Environmental Gear`). Suggestions for a
+   human, never counted as matches, and both names stay in the diff above.
+
+Expect a large wiki-only count on every target: the wiki carries homebrew and
+material OggDude does not cover. The number to watch is *data-only*, and bucket 4,
+which is where typos surface.
+
+### The source in brackets
+
+Every entry in the two diff lists is annotated so it can be triaged without
+opening anything:
+
+- **data-only** rows show the book on the row itself, via the converter's own
+  `source_books()` — `Mk I Nightstalker Suit (Cyphers and Masks)`;
+- **wiki-only** pages show where the wiki files them. The wiki classifies its own
+  books: official sourcebook categories sit under `Category:Source Book`, fan
+  supplements under `Category:Homebrew`, so `wiki_sources()` reads both sets from
+  the wiki instead of hardcoding them. Fan material is prefixed, which is the
+  whole point of the annotation — `Ewok (Allies)` is worth importing,
+  `Abednedo (homebrew: Sequels)` is not.
+
+Two things to know when reading them. The wiki names books after the **career**
+(`Hired Gun`, `Guardian`, `Ace`), while the data uses the **title**
+(*Dangerous Covenants*, *Keeping the Peace*, *Stay on Target*) — so the same book
+looks different on the two sides. And `Extra Stuff` is a catch-all that sits under
+`Source Book` despite not being one book.
+
+Only the *unmatched* pages are looked up, which keeps this to a few extra requests
+rather than one per page in the category. `--no-sources` skips it entirely.
 
 ---
 
