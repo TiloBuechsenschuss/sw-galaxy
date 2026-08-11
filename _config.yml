@@ -1,0 +1,41 @@
+# GitHub Pages build configuration.
+#
+# The site is plain static files -- there is no build step and no Jekyll theme,
+# layouts or posts. Pages still runs Jekyll over the repo, so this file is here
+# for one reason only: to keep the build-time-only folders out of the published
+# site. Everything not listed below is copied to the site verbatim.
+#
+# Note: excluding a path here only keeps it off the *site*. The files are still
+# in the repository and still publicly browsable on github.com -- this is a
+# what-gets-served list, not a privacy control.
+#
+# Setting `exclude` replaces Jekyll's own defaults (node_modules, vendor/,
+# Gemfile...). None of those exist in this repo, so nothing is lost by that.
+
+exclude:
+  # The raw OggDude Character Generator export -- 64 MB of XML and artwork, and
+  # the largest thing in the repo by a wide margin. It is the *input* to the
+  # data pipeline: xml_to_json/ reads it and writes data/json/ + data/img/,
+  # which are what the app actually loads. Nothing served references it.
+  - oggdudes-data/
+
+  # The converters and their app-schema XML sources (convert.py, convert.php,
+  # oggdude_species_to_app.py, verify_convert.py, wiki_diff.py, xml_sources/).
+  # Offline tooling -- the app reads the generated JSON, never these.
+  - xml_to_json/
+
+  # Guidance for AI coding agents. Repo documentation, not site content.
+  - AGENTS.md
+  - CLAUDE.md
+
+  # Stray empty file, kept out of the site until it is removed from the repo.
+  - console.log
+
+# Dotfiles and dot-folders (.git/, .claude/, .gitignore) are never published by
+# Jekyll, so they do not need listing here.
+#
+# NOT excluded, because the app loads them at runtime -- do not add these:
+#   index.html, app/, css/, js/, font/, img/
+#   bower_components/  (md-data-table + angular-fixed-table-header are vendored)
+#   data/json/         (the five generated JSON files the app fetches)
+#   data/img/          (item and species thumbnails)
