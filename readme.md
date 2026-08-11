@@ -8,6 +8,10 @@ This web application offers a lot of possibilities to search and filter the item
 This website is optimized for mobile devices. This enables the players to search for their preferred items
 from their smartphones even when they are currently in a pen and paper session.
 
+The four buttons above the tabs — **EotE**, **AoR**, **F&D** and **Extended** — switch whole game
+lines on and off. They apply to every tab at once, so a group playing only *Edge of the Empire*
+can hide the rest, and the browser remembers the choice for a month.
+
 ### Run the project locally
 
 > **These commands are for you, the person reading this — not for an AI coding agent.**

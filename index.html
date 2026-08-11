@@ -22,6 +22,18 @@
 </head>
 <body layout="row" ng-controller="TabsController">
 <div flex layout="column">
+    <!-- One button per entry in the "sourceLines" constant, filtering every tab at
+         once. The selection lives in sourceLineSelection and survives a reload. -->
+    <div class="source-lines" layout="row" layout-align="center center" layout-wrap>
+        <md-button ng-repeat="line in sourceLines"
+                   class="md-raised source-line"
+                   ng-class="{'md-primary': isSourceLineEnabled(line.key), 'source-line-off': !isSourceLineEnabled(line.key)}"
+                   ng-click="toggleSourceLine(line.key)"
+                   title="{{line.label}}"
+                   aria-label="{{line.label}}">
+            {{line.short}}
+        </md-button>
+    </div>
     <!-- One tab per entry in the "tabs" constant at the top of SWApp.js, in that
          order. Reorder or add tabs there, not here. -->
     <md-tabs md-border-bottom flex

@@ -183,6 +183,36 @@ Since two tabs share the type key, the sidenav id is `'sideNav-' + name + '-' + 
 — `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would toggle each
 other's panel.
 
+### The source line buttons
+
+Four buttons sit above the tabs — **EotE**, **AoR**, **F&D**, **Extended** — switching whole
+game lines on and off for every tab at once. All four start on. This is the one piece of
+state that is neither per-tab nor derived from the data:
+
+- `sourceLines` (constant) lists the four lines and, under each, every Book name that
+  belongs to it. All 39 books in the data are filed; a book in no list is reported once as
+  `Please add a source line mapping for: …` and **items carrying it stay visible**, so new
+  data can never disappear because nobody filed it yet.
+- `sourceLineSelection` (factory, a singleton) holds which lines are on, persists them and
+  broadcasts `sourceLinesChanged` when one is toggled. Each `itemList` listens and
+  re-filters, including the tabs in the background — `md-tabs` keeps their scopes in the
+  tree, since `md-enable-disconnect` is not set.
+- `sourceLineFilter` runs last in `filterItems()`, after the per-tab Source multi-select.
+  The two are independent and both must pass. An item survives if *any* of its books is in
+  a line that is on — a reprint stays visible while either line is on — and rows whose only
+  "book" is the `Missing` placeholder are never hidden.
+
+The selection is stored in `localStorage` under `sw-galaxy.sourceLines` as the list of lines
+that are **off**, with a timestamp, and is ignored once it is older than
+`STORAGE_MAX_AGE_DAYS` (30). Storing the off list means a line added to the constant later
+starts on instead of being hidden by an old saved selection. Every `localStorage` call is
+wrapped in `try`/`catch`: Safari's private mode throws, and the app has to keep working
+without persistence.
+
+Turning a line off does not touch the per-tab **Source** dropdown, which still lists and
+shows every book as selected. That is intended — one is a coarse global switch, the other a
+fine per-tab filter — but it is the first thing that looks like a bug if you forget it.
+
 ### Source selection defaults
 
 The "Source" sidenav filter is a multi-select listing every Book name found in the loaded

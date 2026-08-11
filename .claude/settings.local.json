@@ -13,7 +13,9 @@
       "Bash(grep -n 'mdTabsTemplate\\\\|$mdTabsTemplate' js/angular-material.js)",
       "Bash(grep -n 'mdTabsTemplate\\\\|compile\\\\|$scope.$parent')",
       "Bash(\" app/module/SWApp.js | head -5; git status --short)",
-      "Bash(grep -nE \"=>|\\\\blet\\\\b|\\\\bconst\\\\b|`\" app/module/SWApp.js | head -5; git status --short)"
+      "Bash(grep -nE \"=>|\\\\blet\\\\b|\\\\bconst\\\\b|`\" app/module/SWApp.js | head -5; git status --short)",
+      "Bash(node \"C:/Users/tilob/AppData/Local/Temp/claude/E--Projects-sw-galaxy/16d0bb0e-129b-4813-b9c9-a96e7196a1a7/scratchpad/check_lines.js\")",
+      "Bash(node \"C:/Users/tilob/AppData/Local/Temp/claude/E--Projects-sw-galaxy/16d0bb0e-129b-4813-b9c9-a96e7196a1a7/scratchpad/check_split.js\")"
     ]
   }
 }

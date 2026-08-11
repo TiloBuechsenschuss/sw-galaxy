@@ -43,8 +43,173 @@ App.constant('tabs', [
     {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
 ]);
 
-App.controller('TabsController', function ($scope, tabs) {
+/**
+ * The four lines a source book can belong to, in the order their buttons appear
+ * above the tabs. Every Book name in the data belongs to exactly one of them.
+ *
+ * "Extended Material" is the catch-all for everything published outside the three
+ * core lines: the Clone Wars era books, and OggDude's "User Data" placeholder for
+ * hand-entered rows.
+ *
+ * A book missing from these lists is reported once by sourceLineFilter, and items
+ * carrying it stay visible -- a new book must never disappear because nobody has
+ * filed it yet. Adding one means adding its name to the right list, in the
+ * existing style. The lists are alphabetical.
+ */
+App.constant('sourceLines', [
+    {
+        key: 'eote', short: 'EotE', label: 'Edge of the Empire', books: [
+            'Beyond the Rim',
+            'Dangerous Covenants',
+            'Edge of the Empire Core Rulebook',
+            'Enter the Unknown',
+            'Far Horizons',
+            'Fly Casual',
+            'Jewel of Yavin',
+            'Long Arm of the Hutt',
+            'Lords of Nal Hutta',
+            'Mask of the Pirate Queen',
+            'No Disintegrations',
+            'Special Modifications',
+            'Suns of Fortune',
+            'Under a Black Sun'
+        ]
+    },
+    {
+        key: 'aor', short: 'AoR', label: 'Age of Rebellion', books: [
+            'Age of Rebellion Beta Rulebook',
+            'Age of Rebellion Core Rulebook',
+            'Cyphers and Masks',
+            'Desperate Allies',
+            'Forged in Battle',
+            'Friends Like These',
+            'Fully Operational',
+            'Lead by Example',
+            'Onslaught at Arda I',
+            'Stay on Target',
+            'Strongholds of Resistance'
+        ]
+    },
+    {
+        key: 'fad', short: 'F&D', label: 'Force and Destiny', books: [
+            'Chronicles of the Gatekeeper',
+            'Disciples of Harmony',
+            'Endless Vigil',
+            'Force and Destiny Beta Rulebook',
+            'Force and Destiny Core Rulebook',
+            'Force and Destiny Game Master\'s Kit',
+            'Keeping the Peace',
+            'Knights of Fate',
+            'Nexus of Power',
+            'Savage Spirits',
+            'Unlimited Power'
+        ]
+    },
+    {
+        key: 'extended', short: 'Extended', label: 'Extended Material', books: [
+            'Collapse of the Republic',
+            'Rise of the Separatists',
+            'User Data'
+        ]
+    }
+]);
+
+/**
+ * Which source lines are switched on. One object for the whole app: the buttons
+ * live above the tabs, every tab filters by it, and it outlives a reload.
+ *
+ * Stored as the list of lines that are *off*, so a line added to the constant
+ * later starts on rather than being silently hidden by an old saved selection.
+ * The stamp expires the selection after STORAGE_MAX_AGE_DAYS -- switching a line
+ * off is meant to last a while, not forever.
+ *
+ * Every localStorage call is guarded: Safari's private mode throws on setItem,
+ * and a browser that refuses to store simply forgets the selection on reload.
+ */
+App.factory('sourceLineSelection', function ($rootScope, $window, sourceLines) {
+    var STORAGE_KEY = 'sw-galaxy.sourceLines',
+        STORAGE_MAX_AGE_DAYS = 30,
+        enabled = {};
+
+    function store() {
+        try {
+            return $window.localStorage;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function enableAll() {
+        var i, l = sourceLines.length;
+        for (i = 0; i < l; i++) {
+            enabled[sourceLines[i].key] = true;
+        }
+    }
+
+    function read() {
+        var storage = store(), raw, payload, i, l;
+        enableAll();
+        if (!storage) {
+            return;
+        }
+        try {
+            raw = storage.getItem(STORAGE_KEY);
+            payload = raw ? angular.fromJson(raw) : null;
+        } catch (e) {
+            payload = null;
+        }
+        if (!payload || typeof payload.saved != 'number' ||
+            $window.Date.now() - payload.saved > STORAGE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000) {
+            return;
+        }
+        if (payload.off && typeof payload.off.length == 'number') {
+            for (i = 0, l = payload.off.length; i < l; i++) {
+                if (enabled.hasOwnProperty(payload.off[i])) {
+                    enabled[payload.off[i]] = false;
+                }
+            }
+        }
+    }
+
+    function write() {
+        var storage = store(), off = [], i, l = sourceLines.length;
+        if (!storage) {
+            return;
+        }
+        for (i = 0; i < l; i++) {
+            if (!enabled[sourceLines[i].key]) {
+                off.push(sourceLines[i].key);
+            }
+        }
+        try {
+            storage.setItem(STORAGE_KEY, angular.toJson({saved: $window.Date.now(), off: off}));
+        } catch (e) {
+            // Out of quota, or storage denied. The selection still works for this
+            // page view; it just will not be there after a reload.
+        }
+    }
+
+    read();
+
+    return {
+        enabled: enabled,
+        isEnabled: function (key) {
+            return enabled[key] === true;
+        },
+        toggle: function (key) {
+            enabled[key] = !enabled[key];
+            write();
+            // Every tab re-filters, including the ones the user is not looking at.
+            $rootScope.$broadcast('sourceLinesChanged');
+        }
+    };
+});
+
+App.controller('TabsController', function ($scope, tabs, sourceLines, sourceLineSelection) {
     $scope.tabs = tabs;
+    $scope.sourceLines = sourceLines;
+    $scope.isSourceLineEnabled = sourceLineSelection.isEnabled;
+    $scope.toggleSourceLine = sourceLineSelection.toggle;
 });
 
 App.filter('searchFilter', function () {
@@ -1185,6 +1350,66 @@ App.filter('max', function () {
 });
 
 /**
+ * Keeps the items printed in a line that is switched on. Reads the normalised
+ * Sources array, so it belongs after fetchSource() has reshaped the rows.
+ *
+ * An item is kept when *any* of its books is in a line that is on -- the same
+ * rule the Source multi-select uses, so something reprinted in two books stays
+ * visible while either line is on. It is also kept when none of its books maps to
+ * a line at all: unfiled books, and the 'Missing' placeholder fetchSource() gives
+ * the handful of rows with no <Source>, must not make items vanish.
+ *
+ * Unmapped books are reported once each, in the house style, so new data shows up
+ * in the console rather than sitting in the wrong bucket.
+ */
+App.filter('sourceLineFilter', function (sourceLines) {
+    var lineOfBook = {},
+        reported = {},
+        i, l, i2, l2;
+    for (i = 0, l = sourceLines.length; i < l; i++) {
+        for (i2 = 0, l2 = sourceLines[i].books.length; i2 < l2; i2++) {
+            lineOfBook[sourceLines[i].books[i2]] = sourceLines[i].key;
+        }
+    }
+
+    function lineOf(book) {
+        if (lineOfBook.hasOwnProperty(book)) {
+            return lineOfBook[book];
+        }
+        // fetchSource()'s own placeholder for a row with no <Source> at all. Not a
+        // book, so it belongs to no line and is not a missing mapping.
+        if (book != 'Missing' && !reported[book]) {
+            reported[book] = true;
+            console.log('Please add a source line mapping for: ' + book);
+        }
+        return null;
+    }
+
+    return function (items, enabled) {
+        if (!enabled) {
+            return items;
+        }
+        return items.filter(function (item) {
+            var i3, l3, line, filed = false;
+            if (!item.Sources || typeof item.Sources.length != 'number') {
+                return true;
+            }
+            for (i3 = 0, l3 = item.Sources.length; i3 < l3; i3++) {
+                line = lineOf(item.Sources[i3].Book);
+                if (line === null) {
+                    continue;
+                }
+                filed = true;
+                if (enabled[line]) {
+                    return true;
+                }
+            }
+            return !filed;
+        });
+    };
+});
+
+/**
  * Keeps the vehicles of one class, so Vehicles.json can feed more than one tab.
  * 'space' is everything that travels between planets, 'land' everything that
  * stays on one -- ground, air and water alike. An empty class keeps every row,
@@ -1282,7 +1507,7 @@ App.directive('itemList', function () {
                 scope.sideNavComponentId = 'sideNav-' + scope.name +
                     (scope.vehicleClass ? '-' + scope.vehicleClass : '');
             },
-            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources) {
+            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources, sourceLineSelection) {
                 $scope.items = [];
                 $scope.favourites = [];
                 $scope.types = [];
@@ -1361,6 +1586,9 @@ App.directive('itemList', function () {
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.addedMod, 'AddedMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.quality, 'Qualities', 'Key');
                             filteredItems = $filter('arrayFulltextFilterOr')(filteredItems, $scope.filters.source, 'Sources', 'Book');
+                            // The global line buttons, on top of this tab's own Source
+                            // selection: an item has to pass both.
+                            filteredItems = $filter('sourceLineFilter')(filteredItems, sourceLineSelection.enabled);
                             if ($scope.order.length > 0) {
                                 filteredItems = $filter('orderBy')(filteredItems, $scope.order);
                             }
@@ -2012,7 +2240,14 @@ App.directive('itemList', function () {
                     if ($scope.isActive == "true" && $scope.items.length == 0) {
                         $scope.fetchSource();
                     }
-                })
+                });
+                // md-tabs keeps a tab's scope in the tree once it has been opened, so
+                // the tabs in the background re-filter too and are right when the user
+                // gets back to them. A tab never opened has no scope yet and loads with
+                // the current selection anyway.
+                $scope.$on('sourceLinesChanged', function () {
+                    $scope.filterItems();
+                });
             }
         }
     }
