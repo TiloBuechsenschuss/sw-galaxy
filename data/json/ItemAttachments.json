@@ -38,6 +38,610 @@
             "Thumbnail": "img\/no_image.png"
         },
         {
+            "Key": "AMPCHAMBER",
+            "Name": "Amplifying Chamber",
+            "Description": "\n      [H3]Amplifying Chamber[h3]\n      Please see page 60 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 60
+                }
+            },
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 350,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "BLAST",
+                        "Count": 4,
+                        "QualSet": "true"
+                    },
+                    {
+                        "MiscDesc": "Adds [SE] to all Mechanics checks to maintain or repair this weapon."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMADD",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "BLAST",
+                        "Count": 5
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BAYONET",
+            "Name": "Bayonet",
+            "Description": "\n      [H3]Bayonet[h3]\n      Please see page 60 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 60
+                }
+            },
+            "CategoryLimit": {
+                "Category": [
+                    "Rifle",
+                    "Carbine",
+                    "Heavy Rifle"
+                ]
+            },
+            "Price": 50,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 1,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "Adds a bayonet profile to the weapon."
+                }
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "DEFENSIVE",
+                        "Count": 1,
+                        "WeaponModifierIndex": 0
+                    },
+                    {
+                        "Key": "PIERCE",
+                        "Count": 1,
+                        "WeaponModifierIndex": 0
+                    }
+                ]
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "Unarmed": "false",
+                    "UnarmedName": "Bayonet",
+                    "SkillKey": "MELEE",
+                    "AllSkillKey": {},
+                    "Damage": 0,
+                    "DamageAdd": 1,
+                    "Crit": 3,
+                    "CritSub": 0,
+                    "RangeValue": "wrEngaged",
+                    "Qualities": {
+                        "0": "\n        "
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CATFAILMOD",
+            "Name": "Catastrophic Failure Modification",
+            "Description": "\n      [H3]Catastrophic Failure Modification[h3]\n      Please see page 61 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 61
+            },
+            "Type": "Weapon",
+            "CategoryLimit": {
+                "Category": "Lightsaber"
+            },
+            "Price": 0,
+            "Rarity": 0,
+            "Restricted": "false",
+            "HP": 0,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "When lightsaber is activated, it overloads, causing it to detonate at the end of the following round, dealing 20 damage with Breach 1 and Vicious 4, to all characters and objects within short range.  The lightsaber, but not the crystal, is destroyed in the processes."
+                }
+            },
+            "AddedMods": {
+                "0": "\n    "
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CHRISTOPHCRYS",
+            "Name": "Christophsis Crystal",
+            "Description": "\n      [H3]Christophsis Crystal[h3]\n      Please see page 62 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 62
+            },
+            "CategoryLimit": {
+                "Category": "Lightsaber"
+            },
+            "Price": 11000,
+            "Rarity": 8,
+            "Restricted": "false",
+            "HP": 2,
+            "IsCrystal": "true",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "DAMSET",
+                        "Count": 7
+                    },
+                    {
+                        "Key": "CRITSET",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "BREACH",
+                        "Count": 1,
+                        "QualSet": "true"
+                    },
+                    {
+                        "Key": "SUNDER",
+                        "QualSet": "true"
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "BREACH",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "KNOCKDOWN"
+                    },
+                    {
+                        "Key": "DAMADD",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "CRITSUB",
+                        "Count": 2
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CLONEBIN",
+            "Name": "Clone Polarized Electrobinoculars",
+            "Description": "\n      [H3]Clone Polarized Electrobinoculars[h3]\n      Please see page 62 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Armor",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 62
+                }
+            },
+            "Price": 500,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Adds [BO] to all sight-based Perception checks."
+                    },
+                    {
+                        "MiscDesc": "Removes [SE] from Perception checks due to distance or low-light conditions."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "PERC",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HAIRTRIG",
+            "Name": "Hair Trigger",
+            "Description": "\n      [H3]Hair Trigger[h3]\n      Please see page 60 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 60
+                }
+            },
+            "SkillLimit": {
+                "Key": "RANGLT"
+            },
+            "ExcludedMods": {
+                "Key": "AUTOFIRE"
+            },
+            "Price": 250,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 2,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "LINKED",
+                        "Count": 1,
+                        "QualSet": "true"
+                    },
+                    {
+                        "Key": "INACCURATE",
+                        "Count": 2,
+                        "QualSet": "true"
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "INACCURATE",
+                    "Count": -1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MANDOCHAMBER",
+            "Name": "Mandalorian Chamber",
+            "Description": "\n      [H3]Mandalorian Chamber[h3]\n      Please see page 60 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Weapon",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 60
+                }
+            },
+            "CategoryLimit": {
+                "Category": "Blaster"
+            },
+            "Price": 250,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 5,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "STUN",
+                        "Count": 3,
+                        "QualSet": "true"
+                    },
+                    {
+                        "Key": "RANGESUB",
+                        "Count": 1,
+                        "QualSet": "true"
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "DISORIENT",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "STUN",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "RANGEADD",
+                        "Count": 1
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BARCSIDECAR",
+            "Name": "Mk I Sidecar for BARC Speeder",
+            "Description": "\n      [H3]Mk I Sidecar for BARC Speeder[h3]\n      Please see page 65 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Vehicle",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 65
+                }
+            },
+            "ItemLimit": {
+                "Key": "BARCSPEEDER"
+            },
+            "Price": 0,
+            "Encumbrance": 0,
+            "HP": 0,
+            "Rarity": 0,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Key": "PASSADD",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "ENCCADD",
+                        "Count": 5
+                    }
+                ]
+            },
+            "AddedMods": {
+                "0": "\n    "
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "Unarmed": "false",
+                    "UnarmedName": "Light Repeating Blaster",
+                    "SkillKey": "GUNN",
+                    "AllSkillKey": {},
+                    "Damage": 11,
+                    "DamageAdd": 0,
+                    "Crit": 3,
+                    "CritSub": 0,
+                    "RangeValue": "wrLong",
+                    "Scale": "wsPersonal",
+                    "Qualities": {
+                        "Quality": [
+                            {
+                                "Key": "AUTOFIRE"
+                            },
+                            {
+                                "Key": "PIERCE",
+                                "Count": 1
+                            }
+                        ]
+                    },
+                    "VehicleWeaponProperties": {
+                        "FiringArcs": {
+                            "Fore": "true",
+                            "Aft": "false",
+                            "Port": "false",
+                            "Starboard": "false",
+                            "Dorsal": "false",
+                            "Ventral": "false"
+                        },
+                        "Turret": "false",
+                        "Location": "Forward",
+                        "Retractable": "false"
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PERVIBROSAW",
+            "Name": "Personal Vibrosaw",
+            "Description": "\n      [H3]Personal Vibrosaw[h3]\n      Please see page 62 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Armor",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 62
+                }
+            },
+            "CategoryLimit": {
+                "0": "\n    "
+            },
+            "Price": 900,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 1,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Adds a vibrosaw that can quickly cut through most materials in two or three rounds."
+                    },
+                    {
+                        "MiscDesc": "Adds a vibrosaw weapon profile."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "0": "\n    "
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "Unarmed": "false",
+                    "UnarmedName": "Vibrosaw",
+                    "SkillKey": "MELEE",
+                    "AllSkillKey": {},
+                    "Damage": 0,
+                    "DamageAdd": 4,
+                    "Crit": 2,
+                    "CritSub": 0,
+                    "RangeValue": "wrEngaged",
+                    "Qualities": {
+                        "Quality": [
+                            {
+                                "Key": "CUMBERSOME",
+                                "Count": 4
+                            },
+                            {
+                                "Key": "PIERCE",
+                                "Count": 2
+                            },
+                            {
+                                "Key": "SUNDER"
+                            },
+                            {
+                                "Key": "UNWIELDY",
+                                "Count": 4
+                            },
+                            {
+                                "Key": "VICIOUS",
+                                "Count": 2
+                            }
+                        ]
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PLASMASHIELD",
+            "Name": "Portable Plasma Shield",
+            "Description": "\n      [H3]Portable Plasma Shield[h3]\n      Please see page 63 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Armor",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 63
+                }
+            },
+            "Price": 2500,
+            "Encumbrance": 0,
+            "HP": 2,
+            "Rarity": 4,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "May be activated or deactivated as an incidental."
+                    },
+                    {
+                        "MiscDesc": "When active, cannot wield two-handed weapons."
+                    },
+                    {
+                        "Key": "DEFENSIVE",
+                        "Count": 1
+                    }
+                ]
+            },
+            "AddedMods": {
+                "Mod": [
+                    {
+                        "Key": "DEFENSIVE",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "DEFLECTION",
+                        "Count": 3
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "RETWRIST",
+            "Name": "Retractable Wrist Blades",
+            "Description": "\n      [H3]Retractable Wrist Blades[h3]\n      Please see page 63 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Armor",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 63
+                }
+            },
+            "CategoryLimit": {
+                "0": "\n    "
+            },
+            "Price": 150,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 1,
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "Armor incorporates a wrist blade that can be readied as an incidental."
+                }
+            },
+            "AddedMods": {
+                "Mod": {
+                    "Key": "DEFENSIVE",
+                    "Count": 2,
+                    "WeaponModifierIndex": 0
+                }
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "Unarmed": "false",
+                    "UnarmedName": "Wrist Blade",
+                    "SkillKey": "MELEE",
+                    "AllSkillKey": {},
+                    "Damage": 0,
+                    "DamageAdd": 1,
+                    "Crit": 3,
+                    "CritSub": 0,
+                    "RangeValue": "wrEngaged",
+                    "Qualities": {
+                        "Quality": {
+                            "Key": "PIERCE",
+                            "Count": 1
+                        }
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "WHIPTHROW",
+            "Name": "Whipcord Thrower",
+            "Description": "\n      [H3]Whipcord Thrower[h3]\n      Please see page 63 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Type": "Armor",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 63
+                }
+            },
+            "CategoryLimit": {
+                "0": "\n    "
+            },
+            "Price": 600,
+            "Encumbrance": 0,
+            "HP": 1,
+            "Rarity": 1,
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Reduces the difficulty of climbing by one."
+                    },
+                    {
+                        "MiscDesc": "May support up to 200 kg."
+                    },
+                    {
+                        "MiscDesc": "May be used as a weapon."
+                    }
+                ]
+            },
+            "AddedMods": {
+                "0": "\n    "
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "Unarmed": "false",
+                    "UnarmedName": "Whipcord Thrower",
+                    "SkillKey": "MELEE",
+                    "AllSkillKey": {},
+                    "Damage": 0,
+                    "DamageAdd": 1,
+                    "Crit": 5,
+                    "CritSub": 0,
+                    "RangeValue": "wrShort",
+                    "Qualities": {
+                        "Quality": {
+                            "Key": "ENSNARE",
+                            "Count": 2
+                        }
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
             "Key": "ARMINS",
             "Name": "Armor Insert",
             "Description": "\n      [H4]Armor Insert[h4]\n      Please see page 57 of the Cyphers and Masks Sourcebook for details.\n    ",
@@ -997,10 +1601,18 @@
         {
             "Key": "WRISTMOUNT",
             "Name": "Model 2 Wrist Mount",
-            "Description": "\n      [H3]Model 2 Wrist Mount[h3]\n      Please see page 52 of the Dangerous Covenants Sourcebook for details.\n    ",
-            "Source": {
-                "Book": "Dangerous Covenants",
-                "Page": 52
+            "Description": "\n      [H3]Model 2 Wrist Mount[h3]\n      Please see page 52 of the Dangerous Covenants Sourcebook, or page 61 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Dangerous Covenants",
+                        "Page": 52
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 61
+                    }
+                ]
             },
             "Type": "Weapon",
             "ItemLimit": {},
@@ -5269,7 +5881,7 @@
                             }
                         ]
                     },
-                    "VehicleProperties": {
+                    "VehicleWeaponProperties": {
                         "FiringArcs": {
                             "Fore": "true",
                             "Aft": "true",
@@ -6095,7 +6707,7 @@
         {
             "Key": "ILUM",
             "Name": "Ilum Crystal",
-            "Description": "\n      [H3]Ilum Crystal[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook, or page 63 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Description": "\n      [H3]Ilum Crystal[h3]\n      Please see page 197 of the Force and Destiny Core Rulebook, page 63 of the Rise of the Separatists Sourcebook, or page 62 of the Collapse of the Republic Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
                     {
@@ -6105,6 +6717,10 @@
                     {
                         "Book": "Rise of the Separatists",
                         "Page": 63
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 62
                     }
                 ]
             },
@@ -6114,6 +6730,14 @@
             "TypeLimit": {},
             "CategoryLimit": {
                 "Category": "Lightsaber"
+            },
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 9,
+                    "Price": 9000,
+                    "Restricted": "false"
+                }
             },
             "Price": 9000,
             "Rarity": 10,
@@ -7978,10 +8602,18 @@
         {
             "Key": "PROXDET",
             "Name": "Proximity Detonator",
-            "Description": "\n      [H3]Proximity Detonator[h3]\n      See page 52 of the Fully Operational Sourcebook for details.\n    ",
-            "Source": {
-                "Book": "Fully Operational",
-                "Page": 52
+            "Description": "\n      [H3]Proximity Detonator[h3]\n      See page 52 of the Fully Operational Sourcebook, or page 60 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Fully Operational",
+                        "Page": 52
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 60
+                    }
+                ]
             },
             "Type": "Weapon",
             "CategoryLimit": {
@@ -9786,10 +10418,18 @@
         {
             "Key": "MICROROCKARMMOUNT",
             "Name": "Micro-Rocket Armor Mounting",
-            "Description": "\n      [H3]Micro-Rocket Armor Mounting[h3]\n      Please see page 52 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": {
-                "Book": "No Disintegrations",
-                "Page": 52
+            "Description": "\n      [H3]Micro-Rocket Armor Mounting[h3]\n      Please see page 52 of the No Disintegrations Sourcebook, or page 62 of the Collapse of the Republic Sourcebook,  for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "No Disintegrations",
+                        "Page": 52
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 62
+                    }
+                ]
             },
             "Type": "Armor",
             "Price": 800,
@@ -10750,10 +11390,7 @@
             "Key": "THONTIIN",
             "Name": "Thontiin Crystal",
             "Description": "\n      [H3]Thontiin Crystal[h3]\n      Please see page 63 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Type": [
-                "Weapon",
-                "Weapon"
-            ],
+            "Type": "Weapon",
             "Sources": {
                 "Source": {
                     "Book": "Rise of the Separatists",
@@ -10811,10 +11448,7 @@
             "Key": "ZOPHIS",
             "Name": "Zophis Crystal",
             "Description": "\n      [H3]Thontiin Crystal[h3]\n      Please see page 64 of the Rise of the Separatists Sourcebook for details.\n    ",
-            "Type": [
-                "Weapon",
-                "Weapon"
-            ],
+            "Type": "Weapon",
             "Sources": {
                 "Source": {
                     "Book": "Rise of the Separatists",

@@ -86,10 +86,7 @@
                 "Page": 193
             },
             "Price": 1000,
-            "Restricted": [
-                "true",
-                "true"
-            ],
+            "Restricted": "true",
             "Encumbrance": 1,
             "Rarity": 6,
             "Type": "Slicing Tools",
@@ -331,6 +328,117 @@
             "Thumbnail": "data\/img\/GearHOLOCRONWARDE.png"
         },
         {
+            "Key": "AQUASUIT",
+            "Name": "Aquasuit",
+            "Description": "\n      [H3]Aquasuit[h3]\n      Please see page 58 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 58
+            },
+            "Price": 250,
+            "Encumbrance": 3,
+            "Rarity": 2,
+            "Type": "Survival",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Provides six hours of atmosphere."
+                    },
+                    {
+                        "MiscDesc": "Wearer does not suffer movement penalties for traveling through water."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "JT12CJETPACK",
+            "Name": "JT-12C Jetpack",
+            "Description": "\n      [H3]Aquasuit[h3]\n      Please see page 58 of the Collapse of the Republic Sourcebook for details.\n      [P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]\n    ",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 58
+            },
+            "Price": 4750,
+            "Encumbrance": 2,
+            "Rarity": 7,
+            "Type": "Tools\/Electronics",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Provides six hours of atmosphere."
+                    },
+                    {
+                        "MiscDesc": "Wearer does not suffer movement penalties for traveling through water."
+                    }
+                ]
+            },
+            "Thumbnail": "data\/img\/GearJT12CJETPACK.png"
+        },
+        {
+            "Key": "NANODROIDS",
+            "Name": "Nano-Droids",
+            "Description": "\n      [H3]Nano-Droids[h3]\n      Please see page 58 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 58
+            },
+            "Price": 50000,
+            "Encumbrance": 0,
+            "Rarity": 9,
+            "Type": "Tools\/Electronics",
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Add [SE][SE][SE] to Perception checks to notice nano-droids."
+                    },
+                    {
+                        "MiscDesc": "Can be reprogrammed to explode."
+                    }
+                ]
+            },
+            "WeaponModifiers": {
+                "WeaponModifier": {
+                    "UnarmedName": "Nano-Droid Bomb",
+                    "SkillKey": "COMP",
+                    "Damage": 20,
+                    "DamageAdd": 0,
+                    "Crit": 0,
+                    "CritSub": 0,
+                    "RangeValue": "wrShort",
+                    "Qualities": {
+                        "Quality": {
+                            "Key": "BREACH",
+                            "Count": 1
+                        }
+                    },
+                    "BaseMods": {
+                        "Mod": {
+                            "MiscDesc": "Damage is dealt to containing object or person, plus anything else within short range."
+                        }
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "Z6JETPACK",
+            "Name": "Z-6 Jetpack",
+            "Description": "\n      [H3]Z-6 Jetpack[h3]\n      Please see page 59 of the Collapse of the Republic Sourcebook for details.\n      [P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]\n    ",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 59
+            },
+            "Price": 5250,
+            "Encumbrance": 3,
+            "Rarity": 7,
+            "Type": "Tools\/Electronics",
+            "BaseMods": {
+                "0": "\n    "
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
             "Key": "DROIDAC1",
             "Name": "AC1-Series Surveillance Droid",
             "Description": "\n      [H3]AC1-Series Surveillance Droid[h3]\n      Please see page 49 of the Cyphers and Masks Sourcebook for details.\n    ",
@@ -363,7 +471,7 @@
                     "MiscDesc": "Upgraded [B]Daunting ([CH][DI][DI][DI]) Resilience check[b]. Fail: 10 wound and Critical Injury +40 per [TH].  [TH][TH][TH] or [DE] may kill instantly."
                 }
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearAFFIDECRYS.png"
         },
         {
             "Key": "AGENTSBAG",
@@ -422,7 +530,7 @@
                     }
                 }
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearCONCESCAPEKIT.png"
         },
         {
             "Key": "CORTEXBOMB",
@@ -780,7 +888,7 @@
                     "MiscDesc": "Provides all benefits of a tool kit."
                 }
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearMULTITOOLHAND.png"
         },
         {
             "Key": "PAINDAMP",
@@ -834,7 +942,7 @@
             "Rarity": 6,
             "Type": "Droids",
             "AdvImportPath": "Cyphers and Masks\\Droids\\RA-7 Protocol Droid - Rival.xml",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearDROIDRA7.png"
         },
         {
             "Key": "RETINALIMP",
@@ -1717,10 +1825,18 @@
         {
             "Key": "CONCREC",
             "Name": "Concealed Recorder",
-            "Description": "\n      [H3]Concealed Recorder[h3]\n      Please see page 50 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": {
-                "Book": "Desperate Allies",
-                "Page": 50
+            "Description": "\n      [H3]Concealed Recorder[h3]\n      Please see page 50 of the Desperate Allies Sourcebook, or page 58 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Desperate Allies",
+                        "Page": 50
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 58
+                    }
+                ]
             },
             "Encumbrance": 0,
             "Price": 175,
@@ -1795,10 +1911,18 @@
         {
             "Key": "DIPLAUTH",
             "Name": "Diplomatic Authorization",
-            "Description": "\n      [H3]Diplomatic Authorizationp[h3]\n      Please see page 51 of the Desperate Allies Sourcebook for details.\n    ",
-            "Source": {
-                "Book": "Desperate Allies",
-                "Page": 51
+            "Description": "\n      [H3]Diplomatic Authorizationp[h3]\n      Please see page 51 of the Desperate Allies Sourcebook, or page 58 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Desperate Allies",
+                        "Page": 51
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 58
+                    }
+                ]
             },
             "Price": 10000,
             "Encumbrance": 0,
@@ -8738,6 +8862,14 @@
             "Price": 700,
             "Rarity": 9,
             "Restricted": "true",
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 7,
+                    "Price": 400,
+                    "Restricted": "false"
+                }
+            },
             "BaseMods": {
                 "Mod": [
                     {
@@ -8773,6 +8905,14 @@
             "Price": 1000,
             "Rarity": 8,
             "Restricted": "true",
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 7,
+                    "Price": 800,
+                    "Restricted": "false"
+                }
+            },
             "BaseMods": {
                 "Mod": {
                     "Count": 1,
@@ -8923,10 +9063,18 @@
         {
             "Key": "STUNCUFFS",
             "Name": "Stun Cuffs",
-            "Description": "\n      [H3]Stun Cuffs[h3]\n      Please see page 52 of the Keeping the Peace sourcebook for details.\n    ",
-            "Source": {
-                "Book": "Keeping the Peace",
-                "Page": 52
+            "Description": "\n      [H3]Stun Cuffs[h3]\n      Please see page 52 of the Keeping the Peace Sourcebook, or page 59 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Keeping the Peace",
+                        "Page": 52
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 59
+                    }
+                ]
             },
             "Type": "Security\/Espionage",
             "Categories": {},
@@ -9010,7 +9158,7 @@
             "Rarity": 9,
             "Type": "Droids",
             "AdvImportPath": "Knights of Fate\\Droids\\ASP-19 Battle Droid - Nemesis.xml",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearDROIDASP19.png"
         },
         {
             "Key": "RLR331AMMO",
@@ -9040,7 +9188,7 @@
             "Rarity": 6,
             "Type": "Droids",
             "AdvImportPath": "Knights of Fate\\Droids\\SR-Series Scout_Observation Droid - Rival.xml",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearDROIDSRSERIES.png"
         },
         {
             "Key": "TRAINWEIGHT",
@@ -10363,10 +10511,18 @@
         {
             "Key": "ROCKETBOOTS",
             "Name": "Rocket Boots",
-            "Description": "[H3]Rocket Boots[h3]\nPlease see page 53 of the No Disintegrations Sourcebook for details.\n[P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]",
-            "Source": {
-                "Book": "No Disintegrations",
-                "Page": 53
+            "Description": "[H3]Rocket Boots[h3]\nPlease see page 53 of the No Disintegrations Sourcebook, or page 59 of the Collapse of the Republic Sourcebook, for details.\n[P][I]Note:  For the vehicle version of this item, see the vehicle of the same name.[i]",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "No Disintegrations",
+                        "Page": 53
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 59
+                    }
+                ]
             },
             "Type": "Tools\/Electronics",
             "Categories": {},
@@ -10604,7 +10760,7 @@
                     "MiscDesc": "Adds [SU] to all checks involving formal Republic proceedings, proof of identity, or verificaiton of past actions."
                 }
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/GearREPSEAL.png"
         },
         {
             "Key": "X5RDEMOKIT",

@@ -90,9 +90,11 @@ reads** (and what translates between them), and the four `simplexml_load_string(
 
 The short version:
 
-- `convert.php` is a *mechanical* XML→JSON conversion. It reshapes only one thing —
+- `convert.php` is a *mechanical* XML→JSON conversion. It reshapes only two things —
   `<Source Page="44">Book</Source>` becomes `<Source><Book/><Page/></Source>`, because
-  SimpleXML drops attributes and the page numbers would otherwise be lost — so a source
+  SimpleXML drops attributes and the page numbers would otherwise be lost; and a field
+  OggDude's export wrote twice on one row has its later copies dropped, because SimpleXML
+  would otherwise turn them into an array (`"Type": ["Weapon","Weapon"]`). A source
   file must otherwise already be in the app's schema.
 - `xml_to_json/convert.py` is a Python port for machines without PHP. **The two must
   produce identical output** — change one, change the other.

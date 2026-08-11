@@ -144,7 +144,21 @@ in alphabetical order**, and:
    which is the shape Species already use and the one `items.html` renders as
    *"Source: <book> page N"*. Sources that already have `<Book>`/`<Page>`
    children are left alone.
-5. Recognised file names are fixed in `$validFileNames`: `Armor.xml`,
+5. **Duplicated fields are collapsed.** OggDude's export sometimes writes the
+   same field twice on one row, and SimpleXML turns repeated siblings into an
+   array — `THONTIIN`, `ZOPHIS` and `PROTTORPHVY` reached the JSON with
+   `"Type": ["Weapon","Weapon"]`, `DATABRBO` with
+   `"Restricted": ["true","true"]`, which `items.html` rendered as the array.
+   `dropDuplicateSiblings()` / `drop_duplicate_siblings()` keep the first copy
+   and drop the rest, printing a `~` line for each so a new export bug is
+   visible. The rule is narrow on purpose: only *childless* elements whose tag,
+   attributes **and** text all match. `<Mod>`, `<Skill>` and `<Option>` blocks
+   have children and are untouched; so are `CONCMISSILEMK10`'s two
+   `Dangerous Covenants` sources, which differ by page and both belong in the
+   JSON; so are whitespace-only elements, which quirk 2 below depends on.
+   Whole duplicated rows (`SYNTHEROPE`, `ENCRYCOMP`, `SHISBLADE`, `ASHMALA`)
+   are not this rule's job — the first-`Key`-wins merge already handles them.
+6. Recognised file names are fixed in `$validFileNames`: `Armor.xml`,
    `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`. Adding a new
    data type means touching the converter, `index.html` and usually `items.html`.
 
@@ -161,7 +175,8 @@ cp oggdudes-data/SpeciesImages/VURK.png data/img/SpeciesVURK.png
 
 ## The two species schemas
 
-`convert.php` is a *mechanical* XML→JSON conversion. It never reshapes anything.
+`convert.php` is a *mechanical* XML→JSON conversion. Beyond the two repairs in
+merge rules 4 and 5, it never reshapes anything.
 So a source file must already be in the schema the app reads — the one
 `xml_sources/oggdude/Species.xml` uses, and which `items.html` binds against.
 That is **not** the schema OggDude ships:

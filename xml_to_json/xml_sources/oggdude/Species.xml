@@ -1611,10 +1611,16 @@ parts of the sentence.</Description>
   <Species>
     <Key>CLONE</Key>
     <Name>Clone</Name>
-    <Source>
-      <Book>Rise of the Separatists</Book>
-      <Page>11</Page>
-    </Source>
+    <Sources>
+      <Source>
+        <Book>Rise of the Separatists</Book>
+        <Page>11</Page>
+      </Source>
+      <Source>
+        <Book>Collapse of the Republic</Book>
+        <Page>11</Page>
+      </Source>
+    </Sources>
     <Characteristics>
       <Brawn>2</Brawn>
       <Agility>2</Agility>
@@ -1647,7 +1653,7 @@ parts of the sentence.</Description>
     <OptionChoices/>
     <SpecialAbilities/>
     <Description>[H4]Clone[h4]
-Please see page 11 of the Rise of the Separatists Sourcebook for details.</Description>
+Please see page 11 of the Rise of the Separatists Sourcebook, or page 11 of the Collapse of the Republic Sourcebook, for details.</Description>
   </Species>
   <Species>
     <Key>HUMANCOR</Key>
@@ -1788,6 +1794,47 @@ Dashadi was the official language of Urkupp. It was used by the planet's native 
 the Dashades.  As Dashadi
 has never been a widely-used language beyond Urkupp, its speakers have increasingly seen
 the advantages of using Basic to communicate with other species.</Description>
+  </Species>
+  <Species>
+    <Key>DATHOMIRIAN</Key>
+    <Name>Dathomirian</Name>
+    <Source>
+      <Book>Collapse of the Republic</Book>
+      <Page>13</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>2</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>2</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>10</WoundThreshold>
+      <StrainThreshold>11</StrainThreshold>
+      <Experience>100</Experience>
+    </Attributes>
+    <Talents>
+      <Talent>
+        <Name>Outdoorsman</Name>
+        <RankAdd>1</RankAdd>
+      </Talent>
+    </Talents>
+    <Skills>
+      <Skill>
+        <Name>Coercion</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+      <Skill>
+        <Name>Survival</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities/>
+    <Description>[H4]Dathomirian[h4]
+Please see page 13 of the Collapse of the Republic Sourcebook for details.</Description>
   </Species>
   <Species>
     <Key>DEFEL</Key>
@@ -3775,6 +3822,47 @@ will contain a suffix of -sa, for example, "We-sa" and "You-sa". Many one-syllab
 words ending in a consonant will end with -u.</Description>
   </Species>
   <Species>
+    <Key>HARCH</Key>
+    <Name>Harch</Name>
+    <Source>
+      <Book>Collapse of the Republic</Book>
+      <Page>14</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>2</Brawn>
+      <Agility>2</Agility>
+      <Intellect>2</Intellect>
+      <Cunning>3</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>3</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>11</WoundThreshold>
+      <StrainThreshold>11</StrainThreshold>
+      <Experience>75</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Perception</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Additional Limbs</Name>
+        <Description>Harches have multiple sets of arms.  As a result, they gain an additional free maneuver per turn, though they still may not perform more than two maneuvers per turn.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Venomous Fangs</Name>
+        <Description>When a Harch makes a Brawl check to deal damage to an opponent, the attack gains the Stun 3 item quality.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>[H4]Harch[h4]
+Please see page 14 of the Collapse of the Republic Sourcebook for details.</Description>
+  </Species>
+  <Species>
     <Key>HERGLIC</Key>
     <Name>Herglic</Name>
     <Source>
@@ -4193,6 +4281,47 @@ Please see page 25 of the No Disintegrations Sourcebook for details.</Descriptio
     </SpecialAbilities>
     <Description>[H4]Kaminoan[h4]
 Please see page 20 of the Fully Operational Sourcebook, or page 14 of the Rise of the Separatists Sourcebook, for details.</Description>
+  </Species>
+  <Species>
+    <Key>KARKARODON</Key>
+    <Name>Karkarodon</Name>
+    <Source>
+      <Book>Collapse of the Republic</Book>
+      <Page>15</Page>
+    </Source>
+    <Characteristics>
+      <Brawn>3</Brawn>
+      <Agility>2</Agility>
+      <Intellect>1</Intellect>
+      <Cunning>2</Cunning>
+      <Willpower>2</Willpower>
+      <Presence>2</Presence>
+    </Characteristics>
+    <Attributes>
+      <WoundThreshold>12</WoundThreshold>
+      <StrainThreshold>10</StrainThreshold>
+      <Experience>90</Experience>
+    </Attributes>
+    <Talents/>
+    <Skills>
+      <Skill>
+        <Name>Athletics</Name>
+        <RankAdd>1</RankAdd>
+      </Skill>
+    </Skills>
+    <OptionChoices/>
+    <SpecialAbilities>
+      <SpecialAbility>
+        <Name>Amphibious</Name>
+        <Description>Karkarodons may breathe underwater without penalty and never suffer movement penalties for traveling through water.</Description>
+      </SpecialAbility>
+      <SpecialAbility>
+        <Name>Jaws</Name>
+        <Description>When a Karkarodon makes a Brawl check to deal damage to an opponent, they deal +1 damage and the attack has a critical rating of 3.</Description>
+      </SpecialAbility>
+    </SpecialAbilities>
+    <Description>[H4]Karkarodon[h4]
+Please see page 15 of the Collapse of the Republic Sourcebook for details.</Description>
   </Species>
   <Species>
     <Key>KELDOR</Key>

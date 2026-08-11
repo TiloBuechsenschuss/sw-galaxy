@@ -440,6 +440,475 @@
             "Thumbnail": "img\/no_image.png"
         },
         {
+            "Key": "BESKAD",
+            "Name": "Beskad",
+            "Description": "\n      [H3]Beskad[h3]\n      Please see page 53 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 53
+                }
+            },
+            "SkillKey": "MELEE",
+            "Damage": 0,
+            "DamageAdd": 3,
+            "Crit": 2,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 4,
+            "HP": 2,
+            "Price": 6500,
+            "Rarity": 8,
+            "Type": "Melee",
+            "Restricted": "true",
+            "Categories": {
+                "Category": "Cutting Edge Melee"
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "CORTOSIS"
+                    },
+                    {
+                        "Key": "CUMBERSOME",
+                        "Count": 3
+                    },
+                    {
+                        "Key": "SUNDER"
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 3
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CRUSHGAUNTS",
+            "Name": "Crushgaunts",
+            "Description": "\n      [H3]Crushgaunts[h3]\n      Please see page 54 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 54
+                }
+            },
+            "SkillKey": "BRAWL",
+            "Damage": 0,
+            "DamageAdd": 4,
+            "Crit": 2,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 0,
+            "Price": 5000,
+            "Rarity": 8,
+            "Type": "Brawling",
+            "Restricted": "true",
+            "Categories": {
+                "Category": [
+                    "Bludgeoning Brawl",
+                    "Powered Brawl"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "CORTOSIS"
+                    },
+                    {
+                        "Key": "SUNDER"
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 2
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Upgrade ability of Brawn checks made to grip, crush, or hold onto items once."
+                    },
+                    {
+                        "MiscDesc": "GM may spend [TH][TH][TH] or [DE] on checks to crush or destroy to deal 2 wounds to the wearer."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "DC12UBEAM",
+            "Name": "DC-12U Beam Rifle",
+            "Description": "\n      [H3]DC-12U Beam Rifle[h3]\n      Please see page 51 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 51
+                }
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 7,
+            "Crit": 3,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 3,
+            "HP": 3,
+            "Price": 1600,
+            "Rarity": 7,
+            "Type": "Energy Weapon",
+            "Restricted": "true",
+            "Categories": {
+                "Category": [
+                    "Rifle",
+                    "Blaster Rifle",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": {
+                    "Key": "LINKED",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "data\/img\/WeaponDC12UBEAM.png"
+        },
+        {
+            "Key": "DE10BLAST",
+            "Name": "DE-10 Blaster Pistol",
+            "Description": "\n      [H3]DE-10 Blaster Pistol[h3]\n      Please see page 51 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 51
+                }
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 6,
+            "Crit": 2,
+            "RangeValue": "wrLong",
+            "Encumbrance": 1,
+            "HP": 2,
+            "Price": 1400,
+            "Rarity": 8,
+            "Type": "Energy Weapon",
+            "Restricted": "false",
+            "Categories": {
+                "Category": [
+                    "Pistol",
+                    "Blaster Pistol",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Reduces difficulty of combat checks made at long and extreme range by one."
+                    },
+                    {
+                        "MiscDesc": "A DE-10 in need of minor repair does not add [SE] to checks."
+                    },
+                    {
+                        "MiscDesc": "Add [BO] to checks made to repair a DE-10."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "DUSKBLADE",
+            "Name": "Dusk Blade",
+            "Description": "\n      [H3]Dusk Blade[h3]\n      Please see page 54 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 54
+                }
+            },
+            "SkillKey": "MELEE",
+            "Damage": 0,
+            "DamageAdd": 2,
+            "Crit": 3,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 2,
+            "HP": 1,
+            "Price": 1800,
+            "Rarity": 8,
+            "Type": "Melee",
+            "Restricted": "false",
+            "Categories": {
+                "Category": "Cutting Edge Melee"
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "PIERCE",
+                        "Count": 2
+                    },
+                    {
+                        "Key": "SUPERIOR"
+                    }
+                ]
+            },
+            "Thumbnail": "data\/img\/WeaponDUSKBLADE.png"
+        },
+        {
+            "Key": "E5BLASTER",
+            "Name": "E-5 Blaster Rifle",
+            "Description": "\n      [H3]E-5 Blaster Rifle[h3]\n      Please see page 52 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 52
+                }
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 9,
+            "Crit": 3,
+            "RangeValue": "wrLong",
+            "Encumbrance": 2,
+            "HP": 2,
+            "Price": 600,
+            "Rarity": 4,
+            "Type": "Energy Weapon",
+            "Restricted": "false",
+            "Categories": {
+                "Category": [
+                    "Rifle",
+                    "Blaster Rifle",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": {
+                    "Key": "STUNSETTING"
+                }
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "If an E-5 suffers damage, it suffers one additional step of damage."
+                    },
+                    {
+                        "MiscDesc": "May spend [TH][TH][TH] or [DE] to cause an E-5 to overheat. This damages the weapon and deals 2 wound to the wield if organic."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "EE3BLASTER",
+            "Name": "EE-3 Blaster Carbine",
+            "Description": "\n      [H3]EE-3 Blaster Carbine[h3]\n      Please see page 52 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 52
+                }
+            },
+            "SkillKey": "RANGHVY",
+            "Damage": 8,
+            "Crit": 3,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 3,
+            "HP": 3,
+            "Price": 1500,
+            "Rarity": 6,
+            "Type": "Energy Weapon",
+            "Restricted": "false",
+            "Categories": {
+                "Category": [
+                    "Carbine",
+                    "Blaster Carbine",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "AUTOFIRE"
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "Thumbnail": "data\/img\/WeaponEE3BLASTER.png"
+        },
+        {
+            "Key": "KALDAGGER",
+            "Name": "Kal Dagger",
+            "Description": "\n      [H3]Kal Dagger[h3]\n      Please see page 54 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 54
+                }
+            },
+            "SkillKey": "MELEE",
+            "Damage": 0,
+            "DamageAdd": 2,
+            "Crit": 2,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 1,
+            "Price": 4000,
+            "Rarity": 8,
+            "Type": "Melee",
+            "Restricted": "true",
+            "Categories": {
+                "Category": "Cutting Edge Melee"
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "CORTOSIS"
+                    },
+                    {
+                        "Key": "SUNDER"
+                    },
+                    {
+                        "Key": "VICIOUS",
+                        "Count": 2
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SABERCANE",
+            "Name": "Sabercane",
+            "Description": "\n      [H3]Sabercane[h3]\n      Please see page 55 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 55
+                }
+            },
+            "SkillKey": "LTSABER",
+            "Damage": 5,
+            "DamageAdd": 0,
+            "Crit": 2,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 3,
+            "Price": 10000,
+            "Rarity": 10,
+            "Restricted": "false",
+            "Type": "Lightsaber",
+            "Categories": {
+                "Category": "Lightsaber"
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "BREACH",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "SUNDER"
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SABERCANEHILT",
+            "Name": "Sabercane Hilt",
+            "Description": "\n      [H3]Sabercane Hilt[h3]\n      Please see page 55 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 55
+                }
+            },
+            "SkillKey": "LTSABER",
+            "Damage": 0,
+            "DamageAdd": 0,
+            "Crit": 0,
+            "RangeValue": "wrEngaged",
+            "Encumbrance": 1,
+            "HP": 3,
+            "Price": 500,
+            "Rarity": 6,
+            "Restricted": "false",
+            "Type": "Lightsaber",
+            "Categories": {
+                "Category": "Lightsaber"
+            },
+            "Qualities": {
+                "Quality": {
+                    "Key": "ACCURATE",
+                    "Count": 1
+                }
+            },
+            "BaseMods": {
+                "Mod": {
+                    "Key": "DAMSUB",
+                    "Count": 1
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "WESTAR35",
+            "Name": "WESTAR-35 Blaster Pistol",
+            "Description": "\n      [H3]WESTAR-35 Pistol[h3]\n      Please see page 53 of the Collapse of the Republic Sourcebook for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 53
+                }
+            },
+            "SkillKey": "RANGLT",
+            "Damage": 6,
+            "Crit": 2,
+            "RangeValue": "wrMedium",
+            "Encumbrance": 1,
+            "HP": 3,
+            "Price": 1200,
+            "Rarity": 8,
+            "Type": "Energy Weapon",
+            "Restricted": "false",
+            "Categories": {
+                "Category": [
+                    "Pistol",
+                    "Blaster Pistol",
+                    "Blaster",
+                    "Ranged"
+                ]
+            },
+            "Qualities": {
+                "Quality": [
+                    {
+                        "Key": "ACCURATE",
+                        "Count": 1
+                    },
+                    {
+                        "Key": "STUNSETTING"
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
             "Key": "A280CFEPISTOL",
             "Name": "A280-CFE Convertible Heavy Blaster Pistol (Pistol Mode)",
             "Description": "\n      [H3]BlasTech A280-CFE Convertible Heavy Blaster Pistol (Pistol Mode)[h3]\n      Please see page 38 of the Cyphers and Masks Sourcebook for details.\n    ",
@@ -882,7 +1351,7 @@
                     }
                 ]
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponVACMK127ARC.png"
         },
         {
             "Key": "VACMK127",
@@ -939,7 +1408,7 @@
                     }
                 ]
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponVACMK127.png"
         },
         {
             "Key": "WRISTBLAST",
@@ -9250,7 +9719,7 @@
         {
             "Key": "LTSABERBASIC",
             "Name": "Basic Lightsaber",
-            "Description": "\n      [H3]Basic Lightsaber[h3]\n      Please see page 176 of the Force and Destiny Core Rulebook, or page 54 of the Rise of the Separatists Sourcebook, for details.\n    ",
+            "Description": "\n      [H3]Basic Lightsaber[h3]\n      Please see page 176 of the Force and Destiny Core Rulebook, page 54 of the Rise of the Separatists Sourcebook, or page 54 of the Collapse of the Republic Sourcebook, for details.\n    ",
             "Sources": {
                 "Source": [
                     {
@@ -9259,6 +9728,10 @@
                     },
                     {
                         "Book": "Rise of the Separatists",
+                        "Page": 54
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
                         "Page": 54
                     }
                 ]
@@ -9274,6 +9747,14 @@
             "Rarity": 10,
             "Restricted": "true",
             "Type": "Lightsaber",
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 10,
+                    "Price": 8000,
+                    "Restricted": "false"
+                }
+            },
             "Categories": {
                 "Category": "Lightsaber"
             },
@@ -9303,6 +9784,10 @@
                     {
                         "Book": "Rise of the Separatists",
                         "Page": 54
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 55
                     }
                 ]
             },
@@ -9411,10 +9896,18 @@
         {
             "Key": "LTSABERDBL",
             "Name": "Double-Bladed Lightsaber",
-            "Description": "\n      [H3]Double-Bladed Lightsaber[h3]\n      Please see page 176 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": {
-                "Book": "Force and Destiny Core Rulebook",
-                "Page": 176
+            "Description": "\n      [H3]Double-Bladed Lightsaber[h3]\n      Please see page 176 of the Force and Destiny Core Rulebook, or page 55 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 176
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 55
+                    }
+                ]
             },
             "SkillKey": "LTSABER",
             "Damage": 6,
@@ -9455,10 +9948,18 @@
         {
             "Key": "LTSABERDBLHILT",
             "Name": "Double-Bladed Lightsaber Hilt",
-            "Description": "\n      [H3]Double-Bladed Lightsaber Hilt[h3]\n      Please see page 125 of the Force and Destiny Core Rulebook for details.\n    ",
-            "Source": {
-                "Book": "Force and Destiny Core Rulebook",
-                "Page": 125
+            "Description": "\n      [H3]Double-Bladed Lightsaber Hilt[h3]\n      Please see page 125 of the Force and Destiny Core Rulebook, or page 55 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 125
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 55
+                    }
+                ]
             },
             "SkillKey": "LTSABER",
             "Damage": 0,
@@ -9719,6 +10220,14 @@
             "Rarity": 10,
             "Restricted": "true",
             "Type": "Lightsaber",
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 10,
+                    "Price": 8000,
+                    "Restricted": "false"
+                }
+            },
             "Categories": {
                 "Category": "Lightsaber"
             },
@@ -10912,10 +11421,25 @@
         {
             "Key": "GALAAR15",
             "Name": "GALAAR-15 Blaster Carbine",
-            "Description": "\n      [H3]GALAAR-15 Blaster Carbine[h3]\n      Please see page 36 of the Friends Like These Adventure Module for details.\n    ",
-            "Source": {
-                "Book": "Friends Like These",
-                "Page": 36
+            "Description": "\n      [H3]GALAAR-15 Blaster Carbine[h3]\n      Please see page 36 of the Friends Like These Adventure Module, or page 53 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Friends Like These",
+                        "Page": 36
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 53
+                    }
+                ]
+            },
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 7,
+                    "Price": 1100
+                }
             },
             "Type": "Energy Weapon",
             "Categories": {},
@@ -12698,7 +13222,7 @@
                 ]
             },
             "Range": "Engaged",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponCONTENERAXE.png"
         },
         {
             "Key": "DOUBVIBROSW",
@@ -12750,7 +13274,7 @@
                 ]
             },
             "Range": "Engaged",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponDOUBVIBROSW.png"
         },
         {
             "Key": "FWG7F",
@@ -12794,7 +13318,7 @@
                 ]
             },
             "Range": "Medium",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponFWG7F.png"
         },
         {
             "Key": "GRLIGHTSABER",
@@ -12834,7 +13358,7 @@
                 ]
             },
             "Range": "Engaged",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponGRLIGHTSABER.png"
         },
         {
             "Key": "GRLIGHTSABERHILT",
@@ -12872,7 +13396,7 @@
                 }
             },
             "Range": "Engaged",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponGRLIGHTSABERHILT.png"
         },
         {
             "Key": "HIGHEXPMISSILE",
@@ -13089,7 +13613,7 @@
                 ]
             },
             "Range": "Short",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponMODEL4THUND.png"
         },
         {
             "Key": "MR90",
@@ -13134,7 +13658,7 @@
                 ]
             },
             "Range": "Extreme",
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponMR90.png"
         },
         {
             "Key": "REPTHROWRAZ",
@@ -15743,17 +16267,23 @@
                     }
                 ]
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponBLASTRIFDC15.png"
         },
         {
             "Key": "BLASTCARBDC15A",
             "Name": "DC-15A Blaster Carbine",
-            "Description": "\n      [H3]DC-15A Blaster Carbine[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Description": "\n      [H3]DC-15A Blaster Carbine[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook, or page 51 of the Collapse of the Republic Sourcebook, for details.\n    ",
             "Sources": {
-                "Source": {
-                    "Book": "Rise of the Separatists",
-                    "Page": 51
-                }
+                "Source": [
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 51
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 51
+                    }
+                ]
             },
             "SkillKey": "RANGHVY",
             "Damage": 9,
@@ -15792,12 +16322,18 @@
         {
             "Key": "BLASTDC17",
             "Name": "DC-17 Hand Blaster",
-            "Description": "\n      [H3]DC-17 Hand Blaster[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Description": "\n      [H3]DC-17 Hand Blaster[h3]\n      Please see page 51 of the Rise of the Separatists Sourcebook, or page 51 of the Collapse of the Republic Sourcebook, for details.\n    ",
             "Sources": {
-                "Source": {
-                    "Book": "Rise of the Separatists",
-                    "Page": 51
-                }
+                "Source": [
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 51
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 51
+                    }
+                ]
             },
             "SkillKey": "RANGLT",
             "Damage": 7,
@@ -15833,7 +16369,7 @@
                     "MiscDesc": "May run out of ammo on a [TH][TH][TH], as well as a [DE]."
                 }
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponBLASTDC17.png"
         },
         {
             "Key": "M3BLASTSHIELD",
@@ -15875,7 +16411,7 @@
                     }
                 ]
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/WeaponM3BLASTSHIELD.png"
         },
         {
             "Key": "M8KNIFE",
@@ -15917,7 +16453,7 @@
         {
             "Key": "MK1EMPGR",
             "Name": "Mk II EMP Grenade",
-            "Description": "\n      [H3]AP-M1 Armor Piercing Grenade[h3]\n      Please see page 53 of the Rise of the Separatists Sourcebook for details.\n    ",
+            "Description": "\n      [H3]Mk II EMP Grenade[h3]\n      Please see page 53 of the Rise of the Separatists Sourcebook for details.\n    ",
             "Sources": {
                 "Source": {
                     "Book": "Rise of the Separatists",
@@ -18045,10 +18581,7 @@
                 "Book": "Strongholds of Resistance",
                 "Page": 119
             },
-            "Type": [
-                "Vehicle",
-                "Vehicle"
-            ],
+            "Type": "Vehicle",
             "Categories": {
                 "Category": "Proton Torpedo"
             },

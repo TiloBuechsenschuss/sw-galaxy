@@ -253,6 +253,135 @@
             "Thumbnail": "data\/img\/SpeciesSATHARI.png"
         },
         {
+            "Key": "DATHOMIRIAN",
+            "Name": "Dathomirian",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 13
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 10,
+                "StrainThreshold": 11,
+                "Experience": 100
+            },
+            "Talents": {
+                "Talent": {
+                    "Name": "Outdoorsman",
+                    "RankAdd": 1
+                }
+            },
+            "Skills": {
+                "Skill": [
+                    {
+                        "Name": "Coercion",
+                        "RankAdd": 1
+                    },
+                    {
+                        "Name": "Survival",
+                        "RankAdd": 1
+                    }
+                ]
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {},
+            "Description": "[H4]Dathomirian[h4]\nPlease see page 13 of the Collapse of the Republic Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesDATHOMIRIAN.png"
+        },
+        {
+            "Key": "HARCH",
+            "Name": "Harch",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 14
+            },
+            "Characteristics": {
+                "Brawn": 2,
+                "Agility": 2,
+                "Intellect": 2,
+                "Cunning": 3,
+                "Willpower": 2,
+                "Presence": 3
+            },
+            "Attributes": {
+                "WoundThreshold": 11,
+                "StrainThreshold": 11,
+                "Experience": 75
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Perception",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Additional Limbs",
+                        "Description": "Harches have multiple sets of arms.  As a result, they gain an additional free maneuver per turn, though they still may not perform more than two maneuvers per turn."
+                    },
+                    {
+                        "Name": "Venomous Fangs",
+                        "Description": "When a Harch makes a Brawl check to deal damage to an opponent, the attack gains the Stun 3 item quality."
+                    }
+                ]
+            },
+            "Description": "[H4]Harch[h4]\nPlease see page 14 of the Collapse of the Republic Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesHARCH.png"
+        },
+        {
+            "Key": "KARKARODON",
+            "Name": "Karkarodon",
+            "Source": {
+                "Book": "Collapse of the Republic",
+                "Page": 15
+            },
+            "Characteristics": {
+                "Brawn": 3,
+                "Agility": 2,
+                "Intellect": 1,
+                "Cunning": 2,
+                "Willpower": 2,
+                "Presence": 2
+            },
+            "Attributes": {
+                "WoundThreshold": 12,
+                "StrainThreshold": 10,
+                "Experience": 90
+            },
+            "Talents": {},
+            "Skills": {
+                "Skill": {
+                    "Name": "Athletics",
+                    "RankAdd": 1
+                }
+            },
+            "OptionChoices": {},
+            "SpecialAbilities": {
+                "SpecialAbility": [
+                    {
+                        "Name": "Amphibious",
+                        "Description": "Karkarodons may breathe underwater without penalty and never suffer movement penalties for traveling through water."
+                    },
+                    {
+                        "Name": "Jaws",
+                        "Description": "When a Karkarodon makes a Brawl check to deal damage to an opponent, they deal +1 damage and the attack has a critical rating of 3."
+                    }
+                ]
+            },
+            "Description": "[H4]Karkarodon[h4]\nPlease see page 15 of the Collapse of the Republic Sourcebook for details.",
+            "Thumbnail": "data\/img\/SpeciesKARKARODON.png"
+        },
+        {
             "Key": "BALOSAR",
             "Name": "Balosar",
             "Source": {
@@ -3461,9 +3590,17 @@
         {
             "Key": "CLONE",
             "Name": "Clone",
-            "Source": {
-                "Book": "Rise of the Separatists",
-                "Page": 11
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 11
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 11
+                    }
+                ]
             },
             "Characteristics": {
                 "Brawn": 2,
@@ -3498,7 +3635,7 @@
             },
             "OptionChoices": {},
             "SpecialAbilities": {},
-            "Description": "[H4]Clone[h4]\nPlease see page 11 of the Rise of the Separatists Sourcebook for details.",
+            "Description": "[H4]Clone[h4]\nPlease see page 11 of the Rise of the Separatists Sourcebook, or page 11 of the Collapse of the Republic Sourcebook, for details.",
             "Thumbnail": "data\/img\/SpeciesCLONE.png"
         },
         {

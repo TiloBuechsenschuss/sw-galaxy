@@ -18,6 +18,79 @@ $excludedBooks = array('Unofficial Species Menagerie');
 
 
 /**
+ * OggDude's export sometimes writes the same field twice on one row: THONTIIN,
+ * ZOPHIS and PROTTORPHVY each carry <Type> twice, DATABRBO carries <Restricted>
+ * twice. simplexml_load_string() turns repeated siblings into an array, so the
+ * field reached the JSON as ["Weapon","Weapon"] and items.html rendered the
+ * array instead of the value. Drop the later copies, keeping the first.
+ *
+ * Deliberately narrow, so nothing legitimately repeated is collapsed:
+ *
+ *  - only childless elements are considered -- <Mod>, <Skill>, <Option> and the
+ *    like have children and are left alone, as are whole duplicated rows, which
+ *    the first-Key-wins merge already handles;
+ *  - tag, attributes and text must all match, so the two <Source Page="42"> /
+ *    <Source Page="46"> entries CONCMISSILEMK10 has for Dangerous Covenants are
+ *    kept -- same book, two pages, and both belong in the JSON;
+ *  - whitespace-only and empty elements are skipped, so quirk 2 still holds and
+ *    <ItemLimit /> style placeholders survive untouched.
+ *
+ * Runs before expandSourcePages(), so an exactly duplicated <Source> would be
+ * caught here too. xml_to_json/convert.py does the same in
+ * drop_duplicate_siblings().
+ *
+ * @param string $xml
+ * @return string
+ */
+function dropDuplicateSiblings($xml)
+{
+    $doc = new DOMDocument();
+    if (!@$doc->loadXML($xml)) {
+        return $xml;
+    }
+    $xpath = new DOMXPath($doc);
+    $duplicates = array();
+    /** @var DOMElement $parent */
+    foreach ($xpath->query('//*') as $parent) {
+        $seen = array();
+        /** @var DOMNode $child */
+        foreach ($parent->childNodes as $child) {
+            if ($child->nodeType != XML_ELEMENT_NODE) {
+                continue;
+            }
+            if ($child->getElementsByTagName('*')->length > 0) {
+                continue;
+            }
+            $text = trim($child->textContent);
+            if ($text === '') {
+                continue;
+            }
+            $attributes = array();
+            foreach ($child->attributes as $attribute) {
+                $attributes[] = $attribute->name . '=' . $attribute->value;
+            }
+            sort($attributes);
+            $signature = $child->nodeName . "\0" . implode("\0", $attributes) . "\0" . $text;
+            if (isset($seen[$signature])) {
+                // Collected first: removing while iterating a live DOMNodeList
+                // skips the following sibling.
+                $duplicates[] = $child;
+                $keyNodes = $parent->getElementsByTagName('Key');
+                $rowKey = $keyNodes->length > 0 ? $keyNodes->item(0)->textContent : $parent->nodeName;
+                print "  ~ {$rowKey}: dropped duplicate <{$child->nodeName}>{$text}</{$child->nodeName}>\n";
+            } else {
+                $seen[$signature] = true;
+            }
+        }
+    }
+    /** @var DOMElement $duplicate */
+    foreach ($duplicates as $duplicate) {
+        $duplicate->parentNode->removeChild($duplicate);
+    }
+    return $doc->saveXML();
+}
+
+/**
  * OggDude stores the page as an attribute: <Source Page="44">Forged in Battle</Source>.
  * simplexml_load_string() throws attributes away, so those 1783 page numbers never
  * reached the JSON and the item cards rendered a book with no page. Rewrite them
@@ -185,7 +258,7 @@ foreach ($validFileNames as $typeKey => $fileName) {
     /** @var string $xmlFile */
     foreach ($xmlFiles as $xmlFile) {
         /** @var SimpleXMLElement $data */
-        $data = simplexml_load_string(expandSourcePages(file_get_contents($xmlFile)));
+        $data = simplexml_load_string(expandSourcePages(dropDuplicateSiblings(file_get_contents($xmlFile))));
         // remove comment nodes
         unset($data->comment);
         $data = json_decode(json_encode($data, JSON_NUMERIC_CHECK));

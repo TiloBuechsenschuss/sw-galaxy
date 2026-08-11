@@ -137,12 +137,53 @@ def expand_source_pages(root):
     return root
 
 
+def drop_duplicate_siblings(root):
+    """
+    OggDude's export sometimes writes the same field twice on one row: THONTIIN,
+    ZOPHIS and PROTTORPHVY each carry <Type> twice, DATABRBO carries
+    <Restricted> twice. SimpleXML turns repeated siblings into a list, so the
+    field reached the JSON as ["Weapon","Weapon"] and items.html rendered the
+    array instead of the value. Drop the later copies, keeping the first.
+
+    Deliberately narrow, so nothing legitimately repeated is collapsed:
+
+    * only childless elements are considered -- <Mod>, <Skill>, <Option> and the
+      like have children and are left alone, as are whole duplicated rows, which
+      the first-Key-wins merge already handles;
+    * tag, attributes and text must all match, so the two <Source Page="42"> /
+      <Source Page="46"> entries CONCMISSILEMK10 has for Dangerous Covenants are
+      kept -- same book, two pages, and both belong in the JSON;
+    * whitespace-only and empty elements are skipped, so PHP quirk 2 still holds
+      and <ItemLimit /> style placeholders survive untouched.
+
+    Runs before expand_source_pages(), so an exactly duplicated <Source> would be
+    caught here too. convert.php does the same in dropDuplicateSiblings().
+    """
+    for parent in list(root.iter()):
+        seen = set()
+        for child in list(parent):
+            if len(child):
+                continue
+            text = (child.text or '').strip()
+            if text == '':
+                continue
+            sig = (child.tag, tuple(sorted(child.attrib.items())), text)
+            if sig in seen:
+                parent.remove(child)
+                print("  ~ %s: dropped duplicate <%s>%s</%s>"
+                      % (parent.findtext('Key') or parent.tag,
+                         child.tag, text, child.tag))
+            else:
+                seen.add(sig)
+    return root
+
+
 def load_xml(path):
     with open(path, 'rb') as fh:
         raw = fh.read()
     parser = ET.XMLParser(target=ET.TreeBuilder(insert_comments=True))
     parser.feed(raw)
-    return expand_source_pages(parser.close())
+    return expand_source_pages(drop_duplicate_siblings(parser.close()))
 
 
 # --------------------------------------------------------------------------

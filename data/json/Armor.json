@@ -1,6 +1,220 @@
 {
     "Armor": [
         {
+            "Key": "CLONEDIVE",
+            "Name": "Clone Dive Armor",
+            "Description": "\n      [H3]Clone Dive Armor[h3]\n      Please see page 56 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 56
+                }
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 4500,
+            "Restricted": "true",
+            "Encumbrance": 3,
+            "HP": 2,
+            "Rarity": 7,
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body"
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Wearer does not suffer movement penalties for traveling through water."
+                    },
+                    {
+                        "MiscDesc": "Wearer removes [SE] from Perception checks due to underwater conditions."
+                    }
+                ]
+            },
+            "Thumbnail": "data\/img\/ArmorCLONEDIVE.png"
+        },
+        {
+            "Key": "CLONERECON",
+            "Name": "Clone Reconnaissance Armor",
+            "Description": "\n      [H3]Clone Reconnaissance Armor[h3]\n      Please see page 56 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 56
+                }
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 4000,
+            "Restricted": "true",
+            "Encumbrance": 3,
+            "HP": 2,
+            "Rarity": 6,
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body"
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "MiscDesc": "Wearer adds [BO] to Stealth checks.",
+                        "DieModifiers": {
+                            "DieModifier": {
+                                "SkillKey": "STEAL",
+                                "BoostCount": 1
+                            }
+                        }
+                    },
+                    {
+                        "MiscDesc": "Remove [SE] from visual Perception checks."
+                    }
+                ]
+            },
+            "Thumbnail": "data\/img\/ArmorCLONERECON.png"
+        },
+        {
+            "Key": "JEDIRECON",
+            "Name": "Jedi Reconnaissance Armor",
+            "Description": "\n      [H3]Jedi Reconnaissance Armor[h3]\n      Please see page 56 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 56
+                }
+            },
+            "Defense": 1,
+            "Soak": 1,
+            "Price": 4000,
+            "Restricted": "false",
+            "Encumbrance": 2,
+            "HP": 2,
+            "Rarity": 8,
+            "Categories": {
+                "Category": [
+                    "Half Body",
+                    "Heavy"
+                ]
+            },
+            "BaseMods": {
+                "Mod": {
+                    "MiscDesc": "Wearer adds [BO] to Stealth checks.",
+                    "DieModifiers": {
+                        "DieModifier": {
+                            "SkillKey": "STEAL",
+                            "BoostCount": 1
+                        }
+                    }
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "KATARNCOMM",
+            "Name": "Katarn-Class Commando Armor",
+            "Description": "\n      [H3][I]Katarn[i] - Class Commando Armor[h3]\n      Please see page 56 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 56
+                }
+            },
+            "Defense": 1,
+            "Soak": 2,
+            "Price": 6500,
+            "Restricted": "true",
+            "Encumbrance": 4,
+            "HP": 3,
+            "Rarity": 7,
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body",
+                    "Sealed"
+                ]
+            },
+            "BaseMods": {
+                "0": "\n    "
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PHASEIIARC",
+            "Name": "Phase II ARC Trooper Armor",
+            "Description": "\n      [H3]Phase II ARC Trooper Armor[h3]\n      Please see page 57 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 57
+                }
+            },
+            "Defense": 1,
+            "Soak": 2,
+            "Price": 5500,
+            "Restricted": "true",
+            "Encumbrance": 4,
+            "HP": 2,
+            "Rarity": 7,
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body"
+                ]
+            },
+            "BaseMods": {
+                "Mod": [
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Includes an integrated comlink with scrambler."
+                    },
+                    {
+                        "Count": 1,
+                        "MiscDesc": "Incorporates emergency rations, water filtration, microfiber line, and distress beacon."
+                    }
+                ]
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PHASEIICLONE",
+            "Name": "Phase II Clone Trooper Armor",
+            "Description": "\n      [H3]Phase II Clone Trooper Armor[h3]\n      Please see page 57 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": {
+                    "Book": "Collapse of the Republic",
+                    "Page": 57
+                }
+            },
+            "Defense": 0,
+            "Soak": 2,
+            "Price": 3000,
+            "Restricted": "true",
+            "Encumbrance": 4,
+            "HP": 4,
+            "Rarity": 6,
+            "Categories": {
+                "Category": [
+                    "Full Body",
+                    "Hard",
+                    "Hard Full Body"
+                ]
+            },
+            "BaseMods": {
+                "Mod": {
+                    "Count": 1,
+                    "MiscDesc": "Includes an integrated comlink with scrambler."
+                }
+            },
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
             "Key": "CLIMBSUIT",
             "Name": "Climbsuit",
             "Description": "\n      [H3]Ayelixe\/Krongbing Climbsuit[h3]\n      Please see page 41 of the Cyphers and Masks Sourcebook for details.\n    ",
@@ -94,7 +308,7 @@
                     }
                 ]
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/ArmorMKINIGHTSTALK.png"
         },
         {
             "Key": "MKIXMIM",
@@ -2292,7 +2506,7 @@
                 }
             },
             "Soak": 2,
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/ArmorANCBATARM.png"
         },
         {
             "Key": "MK1KATARN",
@@ -2375,6 +2589,14 @@
                     "Hard Full Body"
                 ]
             },
+            "EraPricing": {
+                "Era": {
+                    "Name": "Clone Wars",
+                    "Rarity": 7,
+                    "Price": 6000,
+                    "Restricted": "true"
+                }
+            },
             "Encumbrance": 4,
             "HP": 2,
             "Price": 5000,
@@ -2404,7 +2626,7 @@
             },
             "Defense": 1,
             "Soak": 2,
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/ArmorPHASEIARC.png"
         },
         {
             "Key": "HUTTSHELLARMOR",
@@ -2575,17 +2797,25 @@
         {
             "Key": "MANDOARM",
             "Name": "Mandalorian Armor",
-            "Description": "\n      [H3]Mandalorian Armor[h3]\n      Please see page 50 of the No Disintegrations Sourcebook for details.\n    ",
-            "Source": {
-                "Book": "No Disintegrations",
-                "Page": 50
+            "Description": "\n      [H3]Mandalorian Armor[h3]\n      Please see page 50 of the No Disintegrations Sourcebook, or page 57 of the Collapse of the Republic Sourcebook, for details.\n    ",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "No Disintegrations",
+                        "Page": 50
+                    },
+                    {
+                        "Book": "Collapse of the Republic",
+                        "Page": 57
+                    }
+                ]
             },
             "Categories": {
                 "Category": [
                     "Full Body",
                     "Hard Full Body",
                     "Heavy",
-                    "Sealable",
+                    "Sealed",
                     "Hard"
                 ]
             },
@@ -2638,7 +2868,7 @@
                     }
                 ]
             },
-            "Thumbnail": "img\/no_image.png"
+            "Thumbnail": "data\/img\/ArmorGUNDSCAV.png"
         },
         {
             "Key": "FLIGHTCF9",
