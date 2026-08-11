@@ -13,8 +13,11 @@ does not.
 
 Adding a target
 ---------------
-One line in TARGETS below. Nothing else is target-specific. For a one-off
-comparison that does not deserve a permanent entry, pass the pieces directly:
+One line in TARGETS below. Nothing else is target-specific. A target may name
+several wiki categories when one JSON file covers what the wiki splits up --
+Vehicles.json holds both Category:Vehicles and Category:Starships -- in which
+case the union of their pages is compared. For a one-off comparison that does
+not deserve a permanent entry, pass the pieces directly:
 
     python xml_to_json/wiki_diff.py --category Talents --json data/json/Gear.json \\
                                     --type-key Gear --name adhoc
@@ -26,6 +29,9 @@ RELAXATIONS (drop a subspecies suffix, drop a parenthetical, singularise).
 Anything matched that way is reported in its own section with the rule that did
 it, so a relaxation can never quietly hide a real difference. Add a rule by
 appending one line to RELAXATIONS; combinations are handled automatically.
+
+The wiki-only list is ordered official material first, homebrew after it, since
+only the official half is worth importing.
 
 What is left over is still noisy, because the two sides name things differently
 ("Arakyd Industries PX-11 Powered Armor" vs "PX-11 Powered Armor"). Those names
@@ -59,14 +65,24 @@ Target = namedtuple('Target', 'category json_file type_key name_field')
 
 # target name -> wiki category, JSON file under data/json/, its type key, and the
 # field holding the display name. The type key is the one wrapping the array in
-# the JSON -- note Weapons.json is keyed "Weapon".
+# the JSON -- note Weapons.json is keyed "Weapon". The category is one name, or a
+# tuple of them when the wiki splits what one JSON file holds together.
 TARGETS = OrderedDict([
     ('species',     Target('Species',     'Species.json',         'Species',         'Name')),
     ('armor',       Target('Armor',       'Armor.json',           'Armor',           'Name')),
     ('weapons',     Target('Weapon',      'Weapons.json',         'Weapon',          'Name')),
     ('gear',        Target('Gear',        'Gear.json',            'Gear',            'Name')),
     ('attachments', Target('Attachments', 'ItemAttachments.json', 'ItemAttachments', 'Name')),
+    ('vehicles',    Target(('Vehicles', 'Starships'),
+                                          'Vehicles.json',        'Vehicle',         'Name')),
 ])
+
+
+def categories_of(target):
+    """A target's wiki categories as a tuple -- one line may name several."""
+    if isinstance(target.category, str):
+        return (target.category,)
+    return tuple(target.category)
 
 
 # --------------------------------------------------------------------------
@@ -233,6 +249,23 @@ def fetch_category(category, api=API, verbose=True):
     return sorted(titles)
 
 
+def fetch_category_union(categories, api=API, verbose=True):
+    """
+    The page titles of one category or of several, merged.
+
+    A page filed under two of them is one entry, so a target naming several
+    categories compares against their union rather than a list with repeats.
+    """
+    titles = []
+    for category in categories:
+        titles += fetch_category(category, api=api, verbose=verbose)
+    merged = sorted(OrderedDict.fromkeys(titles))
+    if verbose and len(categories) > 1:
+        print('  wiki  %-23s %4d pages' % ('union of %d categories' % len(categories),
+                                           len(merged)))
+    return merged
+
+
 def load_names(json_file, type_key, name_field, repo_root=REPO_ROOT, verbose=True):
     """
     Every display name in one generated JSON file, plus {name: source books}
@@ -311,7 +344,7 @@ def fetch_categories(titles, api=API):
     return found
 
 
-def wiki_sources(titles, own_category, verbose=True):
+def wiki_sources(titles, own_categories, verbose=True):
     """
     {page title: readable source} for wiki pages.
 
@@ -339,7 +372,7 @@ def wiki_sources(titles, own_category, verbose=True):
         elif 'Homebrew' in page:
             bits.append('homebrew')
         if not bits:
-            rest = sorted(c for c in page if c != own_category)
+            rest = sorted(c for c in page if c not in own_categories)
             bits.append(', '.join(rest) if rest else 'source not stated')
         labels[title] = ' / '.join(bits)
     return labels
@@ -349,6 +382,23 @@ def wiki_sources(titles, own_category, verbose=True):
 # Report
 # --------------------------------------------------------------------------
 
+def is_homebrew(source):
+    """
+    True when a source label names nothing but fan material.
+
+    A page filed under an official book *and* a homebrew supplement counts as
+    official: the importable half is what decides. An empty or unknown label
+    counts as official too, so --no-sources leaves the order alphabetical.
+    """
+    parts = [p for p in (source or '').split(' / ') if p]
+    return bool(parts) and all(p.startswith('homebrew') for p in parts)
+
+
+def homebrew_last(titles, books):
+    """Official material first, fan material after it, alphabetical within each."""
+    return sorted(titles, key=lambda t: (is_homebrew(books.get(t)), t))
+
+
 def render(name, target, source_label, wiki_names, local_names, result,
            wiki_books=None, local_books=None):
     """The Markdown report for one target."""
@@ -356,6 +406,8 @@ def render(name, target, source_label, wiki_names, local_names, result,
     suggestions = suggest(wiki_only, local_only)
     wiki_books = wiki_books or {}
     local_books = local_books or {}
+
+    official_only = [t for t in wiki_only if not is_homebrew(wiki_books.get(t))]
 
     def with_source(title, books):
         source = books.get(title)
@@ -368,7 +420,8 @@ def render(name, target, source_label, wiki_names, local_names, result,
     out.append('')
     out.append('| | count |')
     out.append('| --- | ---: |')
-    out.append('| `Category:%s` on the wiki | %d |' % (target.category, len(wiki_names)))
+    on_the_wiki = ' + '.join('`Category:%s`' % c for c in categories_of(target))
+    out.append('| %s on the wiki | %d |' % (on_the_wiki, len(wiki_names)))
     out.append('| rows in `%s` | %d |' % (source_label, len(local_names)))
     out.append('| matched exactly | %d |' % len(exact))
     out.append('| matched after normalisation | %d |' % len(relaxed))
@@ -381,9 +434,13 @@ def render(name, target, source_label, wiki_names, local_names, result,
     out.append('')
     out.append('The source in brackets is where the wiki files the page. Anything marked')
     out.append('`homebrew` is fan material, not an official FFG book.')
+    if wiki_books:
+        out.append('')
+        out.append('Official material is listed first -- %d of these, then %d homebrew.'
+                   % (len(official_only), len(wiki_only) - len(official_only)))
     out.append('')
     if wiki_only:
-        for title in wiki_only:
+        for title in homebrew_last(wiki_only, wiki_books):
             out.append(with_source(title, wiki_books))
     else:
         out.append('_None._')
@@ -433,13 +490,14 @@ def run(name, target, out_dir, repo_root=REPO_ROOT, verbose=True, with_sources=T
     """Compare one target and write its report. Returns the result tuple."""
     if verbose:
         print('%s' % name)
-    wiki_names = fetch_category(target.category, verbose=verbose)
+    categories = categories_of(target)
+    wiki_names = fetch_category_union(categories, verbose=verbose)
     local_names, local_books, source_label = load_names(
         target.json_file, target.type_key, target.name_field, repo_root, verbose)
     result = compare(wiki_names, local_names)
     # Only the unmatched pages need a source, which keeps this to a handful of
     # extra requests rather than one per page in the category.
-    wiki_books = wiki_sources(result[2], target.category, verbose) if with_sources else {}
+    wiki_books = wiki_sources(result[2], set(categories), verbose) if with_sources else {}
     report = render(name, target, source_label, wiki_names, local_names, result,
                     wiki_books, local_books if with_sources else {})
 
@@ -463,7 +521,9 @@ def main(argv=None):
     parser.add_argument('--list', action='store_true', help='list the targets and exit')
     parser.add_argument('--out', default=os.path.join(REPO_ROOT, 'xml_to_json', 'wiki_diff'),
                         help='directory for the reports')
-    parser.add_argument('--category', help='ad-hoc: wiki category, without the "Category:" prefix')
+    parser.add_argument('--category', help='ad-hoc: wiki category without the "Category:" '
+                                           'prefix; several, comma separated, are compared '
+                                           'as their union')
     parser.add_argument('--json', dest='json_file', help='ad-hoc: JSON file under data/json/')
     parser.add_argument('--type-key', help='ad-hoc: the key wrapping the array in that JSON')
     parser.add_argument('--name', default='adhoc', help='ad-hoc: name for the report file')
@@ -472,15 +532,20 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     if args.list:
-        print('%-14s %-22s %s' % ('target', 'wiki category', 'json'))
+        print('%-14s %-38s %s' % ('target', 'wiki category', 'json'))
         for name, target in TARGETS.items():
-            print('%-14s %-22s %s' % (name, 'Category:' + target.category, target.json_file))
+            print('%-14s %-38s %s'
+                  % (name, ' + '.join('Category:' + c for c in categories_of(target)),
+                     target.json_file))
         return 0
 
     if args.category or args.json_file or args.type_key:
         if not (args.category and args.json_file and args.type_key):
             parser.error('--category, --json and --type-key must be given together')
-        jobs = [(args.name, Target(args.category, args.json_file, args.type_key, 'Name'))]
+        categories = tuple(c.strip() for c in args.category.split(',') if c.strip())
+        if not categories:
+            parser.error('--category is empty')
+        jobs = [(args.name, Target(categories, args.json_file, args.type_key, 'Name'))]
     elif args.all:
         jobs = list(TARGETS.items())
     elif args.targets:

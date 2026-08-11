@@ -6,7 +6,10 @@
       "Bash(node --check app/module/SWApp.js)",
       "Bash(command -v php)",
       "Bash(npx --version)",
-      "Bash(php --version)"
+      "Bash(php --version)",
+      "Bash(awk '/^## In the data, not on the wiki/,0' xml_to_json/wiki_diff/vehicles.md)",
+      "Bash(awk '/^## Matched only after normalisation/,/^## Possibly/' xml_to_json/wiki_diff/vehicles.md)",
+      "Bash(awk '/^## Possibly/,0' xml_to_json/wiki_diff/vehicles.md)"
     ]
   }
 }

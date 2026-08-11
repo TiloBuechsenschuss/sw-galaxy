@@ -61,12 +61,16 @@ here that needs network access.
 ```bash
 python xml_to_json/wiki_diff.py --list        # the configured targets
 python xml_to_json/wiki_diff.py species       # one target
-python xml_to_json/wiki_diff.py --all         # all five
+python xml_to_json/wiki_diff.py --all         # all six
 ```
 
 Targets are one line each in `TARGETS` at the top of the script — wiki category,
 JSON file, its type key. Nothing else is target-specific, so covering something
-new is a one-line change. For a throwaway comparison, skip the registry:
+new is a one-line change. A target may name **several categories** where the wiki
+splits what one JSON file holds together — `vehicles` compares `Vehicles.json`
+against the union of `Category:Vehicles` and `Category:Starships` — and a page
+filed under both is still one entry. For a throwaway comparison, skip the
+registry (`--category` takes a comma-separated list too):
 
 ```bash
 python xml_to_json/wiki_diff.py --category Talents --json data/json/Gear.json \
@@ -104,6 +108,13 @@ opening anything:
   the wiki instead of hardcoding them. Fan material is prefixed, which is the
   whole point of the annotation — `Ewok (Allies)` is worth importing,
   `Abednedo (homebrew: Sequels)` is not.
+
+That prefix also sets the order: the wiki-only list puts **official material
+first**, homebrew after it, alphabetical within each half, with the split counted
+under the heading. A page filed under both an official book and a fan supplement
+(`Quadnoculars (Beginner Sequel / homebrew: Andor)`) counts as official — the
+importable half is what decides. With `--no-sources` there is nothing to sort by
+and the list stays plain alphabetical.
 
 Two things to know when reading them. The wiki names books after the **career**
 (`Hired Gun`, `Guardian`, `Ace`), while the data uses the **title**

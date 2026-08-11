@@ -143,7 +143,8 @@ Species — the most recently added type — is wired end to end.
 
 `verify_convert.py` should grow a section for the new type, the way it checks the species
 schema mapping. `wiki_diff.py` takes one line in `TARGETS` if the wiki has a matching
-category.
+category — or several categories in that one line when the wiki splits what the JSON holds
+together, as `vehicles` does across `Category:Vehicles` and `Category:Starships`.
 
 **`Adversary` is a half-built sixth type.** `items.html` references `name == 'Adversary'`
 29 times — Soak, Wound/Strain Threshold, Experience, all six characteristics and Force
