@@ -59,8 +59,13 @@ in alphabetical order**, and:
    book, whatever the folder order. 27 species are Menagerie-only and have no
    official version, so they stay; the app hides them by default via
    `defaultDisabledSources` in `SWApp.js`.
-3. **Species are sorted by `Name`** before writing (`$sortByName` / `SORT_BY_NAME`),
-   so the committed JSON has a stable diff. Other types keep source order.
+3. **Every type is sorted before writing** — by the row's *first* `Source` book,
+   then by `Name`, with `Key` as the tie-breaker (`compareRows` in `convert.php`,
+   `sort_key` in `convert.py`). Source order in the XML is not preserved: OggDude
+   regenerates its exports in an arbitrary order, and sorting is what keeps the
+   committed JSON diffing cleanly across refreshes. Comparison is
+   case-insensitive over ASCII only, matching PHP's byte-wise `strtolower()`.
+   A row with no source book at all sorts first.
 4. Recognised file names are fixed in `$validFileNames`: `Armor.xml`,
    `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`. Adding a new
    data type means touching the converter, `index.html` and usually `items.html`.
@@ -169,6 +174,6 @@ alphabetically earlier means higher priority.
 
 ### Change how conflicts resolve
 
-`$deprioritisedBooks` / `DEPRIORITISED_BOOKS` and `$sortByName` / `SORT_BY_NAME`
-sit at the top of `convert.php` and `convert.py`. **Change both**, then run
-`verify_convert.py`.
+`$deprioritisedBooks` / `DEPRIORITISED_BOOKS` sit at the top of `convert.php`
+and `convert.py`; the output order lives in `compareRows` / `sort_key` just
+below. **Change both files**, then run `verify_convert.py`.

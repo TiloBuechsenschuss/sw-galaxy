@@ -66,10 +66,10 @@ xml_to_json/xml_sources/<set>/ One folder per data source, each holding the XML 
    `img/no_image.png` when no matching PNG exists) and writes `data/json/<Name>.json`.
    The JSON is shaped `{ "<TypeKey>": [ ...items ] }`.
    **Precedence follows the alphabetical glob order and the first `Key` wins**, so a
-   folder that sorts earlier overrides later ones. Two exceptions: an entry sourced
+   folder that sorts earlier overrides later ones. One exception: an entry sourced
    *only* from a book in `$deprioritisedBooks` (the Unofficial Species Menagerie)
-   always loses to one with an official book, and Species are sorted by `Name`
-   before writing.
+   always loses to one with an official book. Rows are then written sorted by their
+   first `Source` book, then `Name`, then `Key`, so a regenerated export diffs cleanly.
 3. `index.html` declares one `<div item-list>` per tab, passing `source-name` (the type
    key inside the JSON) and `source-url` (the JSON file).
 4. The `itemList` directive's controller `$http.get`s that JSON, normalizes every item,

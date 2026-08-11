@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git -C /c/Projekte/sw-galaxy remote -v)",
       "Bash(python *)",
-      "Bash(node --check app/module/SWApp.js)"
+      "Bash(node --check app/module/SWApp.js)",
+      "Bash(command -v php)"
     ]
   }
 }

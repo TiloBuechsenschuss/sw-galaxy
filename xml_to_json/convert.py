@@ -19,7 +19,8 @@ Merge rules
 * EXCEPT that an entry whose only source book is in DEPRIORITISED_BOOKS (the
   Unofficial Species Menagerie) is always beaten by an entry with an official
   book, regardless of folder order.
-* Species are sorted by Name so the committed JSON has a stable diff.
+* Rows are then sorted by their first Source book, then by Name, then by Key,
+  so the committed JSON has a stable diff.
 
 Output format matches the committed files: pretty-printed with 4 spaces,
 forward slashes escaped the way PHP does it, ASCII-only, CRLF, no trailing
@@ -44,9 +45,6 @@ VALID_FILE_NAMES = OrderedDict([
 
 # Fan-made data. Anything printed in an official book wins over these.
 DEPRIORITISED_BOOKS = ('Unofficial Species Menagerie',)
-
-# Types whose rows are sorted by Name before being written.
-SORT_BY_NAME = ('Species',)
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -161,6 +159,39 @@ def is_deprioritised(row):
 
 
 # --------------------------------------------------------------------------
+# Output order
+# --------------------------------------------------------------------------
+
+_PHP_TRIM = ' \t\n\r\0\x0b'                 # exactly what PHP trim() strips
+_ASCII_LOWER = str.maketrans('ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                             'abcdefghijklmnopqrstuvwxyz')
+
+
+def _fold(value):
+    """
+    PHP's strtolower(trim($s)). str.lower() would also fold non-ASCII letters,
+    which PHP's byte-wise strtolower leaves alone -- keep the two converters
+    ordering identically.
+    """
+    return str(value).strip(_PHP_TRIM).translate(_ASCII_LOWER)
+
+
+def sort_book(row):
+    """The book a row sorts under: its first source book, '' when it has none."""
+    books = source_books(row)
+    return books[0] if books else ''
+
+
+def sort_key(row):
+    """
+    First Source book, then Name, then Key as tie-breaker. Comparing codepoints
+    matches PHP's strcmp() on bytes, because UTF-8 preserves codepoint order.
+    """
+    return (_fold(sort_book(row)), _fold(row.get('Name', '')),
+            str(row.get('Key', '')))
+
+
+# --------------------------------------------------------------------------
 
 def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
     """Return {type_key: (output_path, payload)} without writing anything."""
@@ -218,10 +249,7 @@ def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
                 extra = ', %d replaced a fan-made entry' % replaced if replaced else ''
                 print("Read %s (%d new%s)" % (xml_file, kept, extra))
 
-        out_rows = list(rows.values())
-        if type_key in SORT_BY_NAME:
-            out_rows.sort(key=lambda r: (str(r.get('Name', '')).strip().lower(),
-                                         str(r.get('Key', ''))))
+        out_rows = sorted(rows.values(), key=sort_key)
         results[type_key] = (json_file, {type_key: out_rows})
         if verbose:
             print("=> %s (%d rows)" % (json_file, len(out_rows)))

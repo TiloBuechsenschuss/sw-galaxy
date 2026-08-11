@@ -16,8 +16,6 @@ $validFileNames = array(
  */
 $deprioritisedBooks = array('Unofficial Species Menagerie');
 
-/** Types whose rows get sorted by Name, so the committed JSON diffs cleanly. */
-$sortByName = array('Species');
 
 /**
  * Every book name attached to a row, across both shapes the data uses:
@@ -74,6 +72,43 @@ function isDeprioritised($row, $deprioritisedBooks)
         }
     }
     return true;
+}
+
+/**
+ * The book a row sorts under: the first of its source books, or '' when it
+ * carries none.
+ *
+ * @param stdClass $row
+ * @return string
+ */
+function sortBook($row)
+{
+    $books = sourceBooks($row);
+    return count($books) > 0 ? $books[0] : '';
+}
+
+/**
+ * Rows are written ordered by their first Source book, then by Name, with Key
+ * as the tie-breaker so the committed JSON diffs cleanly. xml_to_json/convert.py
+ * sorts the same way.
+ *
+ * @param stdClass $a
+ * @param stdClass $b
+ * @return int
+ */
+function compareRows($a, $b)
+{
+    $cmp = strcmp(strtolower(trim(sortBook($a))), strtolower(trim(sortBook($b))));
+    if ($cmp !== 0) {
+        return $cmp;
+    }
+    $aName = strtolower(trim(isset($a->Name) ? $a->Name : ''));
+    $bName = strtolower(trim(isset($b->Name) ? $b->Name : ''));
+    $cmp = strcmp($aName, $bName);
+    if ($cmp !== 0) {
+        return $cmp;
+    }
+    return strcmp(isset($a->Key) ? $a->Key : '', isset($b->Key) ? $b->Key : '');
 }
 if (function_exists('apache_request_headers')) {
     print "<pre>";
@@ -132,16 +167,7 @@ foreach ($validFileNames as $typeKey => $fileName) {
     }
     foreach ($fileData as $dataKey => $rows) {
         $rows = array_values($rows);
-        if (in_array($dataKey, $sortByName, true)) {
-            usort($rows, function ($a, $b) {
-                $aName = strtolower(trim(isset($a->Name) ? $a->Name : ''));
-                $bName = strtolower(trim(isset($b->Name) ? $b->Name : ''));
-                if ($aName === $bName) {
-                    return strcmp(isset($a->Key) ? $a->Key : '', isset($b->Key) ? $b->Key : '');
-                }
-                return strcmp($aName, $bName);
-            });
-        }
+        usort($rows, 'compareRows');
         $fileData[$dataKey] = $rows;
     }
     // The committed JSON is pretty-printed with CRLF line endings; keep it that

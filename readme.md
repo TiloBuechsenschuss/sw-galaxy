@@ -81,4 +81,6 @@ If you have ideas for new features or found an bug, please create an issue to le
 
 ### Oh, Thanks!
 
+Thanks to the original team: Dutzen, MarceloAlves and applification. You can find their original work at https://github.com/applifaction/sw-galaxy
+
 Thank you OggDude for creating and offering your data and awesome [OggDude Character Generator](https://www.legendsofthegalaxy.com/Oggdude/) to us!
