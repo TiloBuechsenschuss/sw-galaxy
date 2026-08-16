@@ -61,12 +61,16 @@ import sys
 import xml.etree.ElementTree as ET
 from collections import OrderedDict
 
+from xml.sax.saxutils import escape
+
 from oggdude_specializations_to_app import (
     COLUMNS, REPO_ROOT, collapse, layout_row, link_grid, load_key_names,
     read_directions, text_of, to_xml, write,
 )
 
 OUT_REL = os.path.join('xml_to_json', 'xml_sources', 'oggdude', 'ForcePowers.xml')
+ABILITIES_OUT_REL = os.path.join('xml_to_json', 'xml_sources', 'oggdude',
+                                 'ForceAbilities.xml')
 
 
 def int_or(text, default=0):
@@ -74,6 +78,100 @@ def int_or(text, default=0):
         return int((text or '').strip())
     except ValueError:
         return default
+
+
+def abilities_to_xml(rec, indent='  '):
+    """
+    One <ForceAbility> row for the lookup file. Kept in OggDude's own shape --
+    <Source Page="280"> included, which the converter expands -- because nothing
+    here needs reshaping: the app looks a row up by Key and reads its Name,
+    Description and Sources.
+    """
+    L = []
+    p, q, r = indent, indent * 2, indent * 3
+    L.append(p + '<ForceAbility>')
+    L.append(q + '<Key>%s</Key>' % escape(rec['Key']))
+    L.append(q + '<Name>%s</Name>' % escape(rec['Name']))
+    srcs = rec['Sources']
+    if len(srcs) == 1:
+        attr = ' Page="%s"' % escape(srcs[0][1], {'"': '&quot;'}) if srcs[0][1] else ''
+        L.append(q + '<Source%s>%s</Source>' % (attr, escape(srcs[0][0])))
+    elif len(srcs) > 1:
+        L.append(q + '<Sources>')
+        for b, pg in srcs:
+            attr = ' Page="%s"' % escape(pg, {'"': '&quot;'}) if pg else ''
+            L.append(r + '<Source%s>%s</Source>' % (attr, escape(b)))
+        L.append(q + '</Sources>')
+    if rec['Power']:
+        L.append(q + '<Power>%s</Power>' % escape(rec['Power']))
+    if rec['Description']:
+        L.append(q + '<Description>%s</Description>' % escape(rec['Description']))
+    L.append(p + '</ForceAbility>')
+    return L
+
+
+def build_abilities(source_dir, powers=None, warn=None):
+    """
+    The 177 force abilities as their own rows, so the app can look up what a box
+    in a force tree is when it is hovered or opened.
+
+    They are NOT embedded in the tree the way a node's name and cost are: an
+    ability appears in several trees, the file is fetched once per tab rather
+    than per row, and it is where wiki_descriptions.py writes the rules text.
+
+    <Power> IS TAKEN FROM THE TREE THAT USES THE ABILITY, not from OggDude's own
+    <Power> element, when the transformed powers are passed in. The element is
+    unreliable in two ways and both matter here, because wiki_descriptions.py
+    groups abilities by power and looks the power's page up by that name:
+
+    * four rows have no <Power> at all -- BATMEDBASIC, BINDBASIC, BINDMASTERY
+      and SENSECONTROL3;
+    * the eight Foresee abilities spell it "Forsee", which is the KEY's spelling,
+      not the power's name. The wiki page is "Foresee".
+
+    Every one of the 177 is referenced by exactly one tree, so the trees settle
+    both. A disagreement with OggDude's own element is reported, never silent.
+    """
+    owner = {}
+    for power in (powers or []):
+        for row in power['Tree']:
+            for node in row['Nodes']:
+                if node['Key']:
+                    owner.setdefault(node['Key'], set()).add(power['Name'])
+    root = ET.parse(os.path.join(source_dir, 'Force Abilities.xml')).getroot()
+    records = []
+    for el in root.iter('ForceAbility'):
+        rec = OrderedDict()
+        rec['Key'] = text_of(el.find('Key'))
+        rec['Name'] = text_of(el.find('Name'))
+        if not rec['Key'] or not rec['Name']:
+            continue
+        rec['Sources'] = []
+        single = el.find('Source')
+        if single is not None and text_of(single):
+            rec['Sources'].append((text_of(single), single.attrib.get('Page')))
+        for s in el.findall('Sources/Source'):
+            if text_of(s):
+                rec['Sources'].append((text_of(s), s.attrib.get('Page')))
+        stated = text_of(el.find('Power'))
+        trees = sorted(owner.get(rec['Key'], []))
+        if trees:
+            rec['Power'] = trees[0]
+            if len(trees) > 1 and warn is not None:
+                warn.append('%s: used by %d trees (%s) -- filed under the first'
+                            % (rec['Key'], len(trees), ', '.join(trees)))
+            if stated != rec['Power'] and warn is not None:
+                warn.append('%s: <Power> says %r, the %s tree uses it'
+                            % (rec['Key'], stated, rec['Power']))
+        else:
+            rec['Power'] = stated
+            if powers and warn is not None:
+                warn.append('%s: no tree uses it -- <Power> %r kept as it stands'
+                            % (rec['Key'], stated))
+        rec['Description'] = collapse(el.findtext('Description')) or ''
+        records.append(rec)
+    records.sort(key=lambda r: (r['Name'].strip().lower(), r['Key']))
+    return records
 
 
 def transform(power, ability_names, warn):
@@ -170,6 +268,8 @@ def main(argv=None):
                     help='folder holding "Force Powers/" and "Force Abilities.xml"')
     ap.add_argument('--out', default=OUT_REL,
                     help='repo-relative path of the ForcePowers.xml to write')
+    ap.add_argument('--abilities-out', default=ABILITIES_OUT_REL,
+                    help='repo-relative path of the ForceAbilities.xml to write')
     ap.add_argument('--dry-run', action='store_true', help='write nothing')
     args = ap.parse_args(argv)
 
@@ -203,8 +303,37 @@ def main(argv=None):
     for w in warn:
         print('  WARNING: %s' % w)
 
-    return write(records, args.out, args.dry_run,
-                 'ForcePowerList', 'ForcePower', 'ForcePower')
+    rc = write(records, args.out, args.dry_run,
+               'ForcePowerList', 'ForcePower', 'ForcePower')
+    if rc:
+        return rc
+
+    # The companion lookup, written from the same source file in the same run so
+    # the two can never drift apart.
+    awarn = []
+    abilities = build_abilities(source_dir, records, awarn)
+    pointers = sum(1 for a in abilities if 'lease see page' in a['Description'])
+    print()
+    print('%d force abilities, %d of them still a page pointer'
+          % (len(abilities), pointers))
+    print('  filed under %d powers by the tree that uses them'
+          % len(set(a['Power'] for a in abilities)))
+    for w in awarn:
+        print('  WARNING: %s' % w)
+    lines = ['<?xml version="1.0" ?>', '<ForceAbilityList>']
+    for rec in abilities:
+        lines += abilities_to_xml(rec)
+    lines.append('</ForceAbilityList>')
+    text = '\n'.join(lines) + '\n'
+    out = os.path.join(REPO_ROOT, args.abilities_out)
+    if args.dry_run:
+        print('--dry-run: would write %s (%d bytes)' % (out, len(text)))
+        return 0
+    with open(out, 'w', encoding='utf-8', newline='\r\n') as fh:
+        fh.write(text)
+    print('wrote %s' % out)
+    print('now run: python xml_to_json/convert.py --only ForcePower --only ForceAbility')
+    return 0
 
 
 if __name__ == '__main__':

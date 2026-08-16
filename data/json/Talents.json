@@ -4390,7 +4390,7 @@
             "Categories": {
                 "Category": "Ranked"
             },
-            "Description": "Once per round on the character\u2019s turn, the character may perform a Precise Aim maneuver before attempting a combat check and suffer a number of strain. The number of strain cannot exceed their ranks in Precise Aim. They then decreases the target\u2019s defense (ranged and melee) by one per strain suffered for that combat check. [I]The following is a [B]homebrew[b] expansion of this talent from a community-produced homebrew sourcebook![i]",
+            "Description": "Once per round on the character's turn, the character may perform a Precise Aim maneuver before attempting a combat check and suffer a number of strain. The number of strain cannot exceed their ranks in Precise Aim. They then decreases the target's defense (ranged and melee) by one per strain suffered for that combat check. [I]The following is a [B]homebrew[b] expansion of this talent from a community-produced homebrew sourcebook![i]",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -8981,7 +8981,7 @@
             "Categories": {
                 "Category": "Force"
             },
-            "Description": "[I]Force talent.[i] When making a combat check that does not involve either using the Gunnery skill or operating a non-starship weapon, the character may add Force dice no greater than their Force rating to the check. The character may spend a Force point (\u25d0) to add an [ADVANTAGE] result, or three Force points (\u25d0\u25d0\u25d0) to add a [TRIUMPH] result (character's choice), to the result. [ADVANTAGE] results gained in this way cannot be used to recover strain.",
+            "Description": "[I]Force talent.[i] When making a combat check that does not involve either using the Gunnery skill or operating a non-starship weapon, the character may add Force dice no greater than their Force rating to the check. The character may spend a Force point ([FORCEPOINT]) to add an [ADVANTAGE] result, or three Force points ([FORCEPOINT][FORCEPOINT][FORCEPOINT]) to add a [TRIUMPH] result (character's choice), to the result. [ADVANTAGE] results gained in this way cannot be used to recover strain.",
             "Thumbnail": "img\/no_image.png"
         },
         {

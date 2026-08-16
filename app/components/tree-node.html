@@ -1,0 +1,58 @@
+<!--
+    One box of a talent or force tree, opened from the tree.
+
+    Everything here is already resolved: showNode() in SWApp.js passes the box
+    itself, the row fetchNodeInfo() looked up by its key, and what kind of thing
+    it is. `info` is undefined when the lookup has not landed or does not know
+    the key, which is the one case the template has to say something about --
+    a box always has a name and a price, even when nothing else is known.
+-->
+<md-dialog aria-label="{{node.Name}}" class="sw-node-dialog">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{node.Name}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()"
+                       aria-label="Close">
+                <md-icon md-font-set="material-icons">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div class="sw-node-meta">
+                <span class="sw-node-tag">{{kind}}</span>
+                <span class="sw-node-tag" ng-if="node.XP">{{node.XP}} XP</span>
+                <span class="sw-node-tag" ng-if="info.Type">{{info.Type}}</span>
+                <!-- Ranked / Force / Conflict on a talent. -->
+                <span class="sw-node-tag" ng-repeat="tag in info.Tags">{{tag}}</span>
+                <!-- Which force power the ability upgrades. -->
+                <span class="sw-node-tag" ng-if="info.Power">{{info.Power}}</span>
+            </div>
+            <!-- The rules text, where the data has any. Every one of the 177
+                 force abilities is still OggDude's "please see page N" pointer
+                 instead, and printing that as the rules would say nothing the
+                 Source list below does not say better -- so it is not printed. -->
+            <div class="sw-description" ng-if="info.Info && !info.IsPointer"
+                 ng-bind-html="info.Info"></div>
+            <p class="sw-node-missing" ng-if="info.IsPointer">
+                The rules text for this one is not in the data -- see the book below.
+            </p>
+            <p class="sw-node-missing" ng-if="!info">
+                Nothing is on file for this one.
+            </p>
+            <div class="sw-node-sources" ng-if="info.Books.length">
+                <p>Source:</p>
+                <ul>
+                    <li ng-repeat="book in info.Books">
+                        <i>{{book.Book}}<span ng-if="book.Page"> page {{book.Page}}</span></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="close()" class="md-primary">Close</md-button>
+    </md-dialog-actions>
+</md-dialog>

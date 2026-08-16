@@ -53,6 +53,10 @@ VALID_FILE_NAMES = OrderedDict([
     ('Talent', 'Talents.xml'),
     ('Specialization', 'Specializations.xml'),
     ('ForcePower', 'ForcePowers.xml'),
+    # Not a tab: a lookup the Force Trees tab fetches to say what a box in a
+    # tree is. Registered here so it is generated, sorted and diffed like
+    # everything else rather than being a hand-copied file.
+    ('ForceAbility', 'ForceAbilities.xml'),
 ])
 
 # Books that are not imported at all. A row whose every source is one of these

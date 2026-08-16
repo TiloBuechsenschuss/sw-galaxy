@@ -90,6 +90,9 @@ Check 7 -- tree schema mapping
         with <Experience> as the sum
       * the one-sided links the importers union are counted, so a change in that
         count is visible rather than silently accepted
+      * every box resolves to a row in the lookup file its tab fetches for the
+        tooltip and the popup -- checked against the generated JSON, since a key
+        with no row there shows no tooltip and fails silently
 """
 import glob
 import json
@@ -595,6 +598,8 @@ def check_wiki_override():
 
         rows = ET.parse(path).getroot().findall(row_tag)
         orphans, changed, empty, pointers = [], [], [], []
+        seen_text = {}
+        shared = []
         for row in rows:
             key = (row.findtext('Key') or '').strip()
             original = base.get(key)
@@ -608,9 +613,20 @@ def check_wiki_override():
                 empty.append(key)
             elif 'please see page' in text.lower():
                 pointers.append(key)
+            # TWO ROWS WITH THE SAME DESCRIPTION MEANS TEXT WAS LOST on the way
+            # out of the page, not that the wiki repeats itself. It is how the
+            # Heal/Harm and Protect/Unleash upgrades were caught: their rules
+            # live in `*'''Heal:'''` bullets, prose() was dropping those as if
+            # they were a talent page's `*'''Activation:'''` header, and seven
+            # abilities came out as the one line of boilerplate above them.
+            if text:
+                if text in seen_text:
+                    shared.append('%s = %s' % (seen_text[text], key))
+                seen_text[text] = key
 
         for label, bad in (('rows with no row to override', orphans),
                            ('rows changed outside Description', changed),
+                           ('rows sharing one description', shared),
                            ('empty descriptions', empty),
                            ('descriptions still a page pointer', pointers)):
             print('  %-16s %-38s %s' % (file_name, label + ':', not bad))
@@ -808,6 +824,36 @@ def check_trees():
     for w in unresolved[:8]:
         print('      %s' % w)
     print('  one-sided links, unioned: %d (5 in the committed export)' % len(onesided))
+
+    # --- the lookup the tooltip and the popup read ------------------------
+    # A box in a tree carries only its key, name and cost; the text behind it
+    # comes from a companion file the tab fetches and looks up BY THAT KEY. A
+    # key with no row there is a silent failure -- the box simply never shows a
+    # tooltip -- so it is asserted here rather than being noticed in a browser.
+    # Checked against the generated JSON rather than the XML, because the JSON is
+    # what the tab actually fetches -- this is the contract the browser sees.
+    def lookup_keys(file_name, type_key):
+        path = os.path.join(ROOT, 'data', 'json', file_name)
+        if not os.path.isfile(path):
+            return None
+        with open(path, encoding='utf-8') as fh:
+            return set(r['Key'] for r in json.load(fh)[type_key] if r.get('Key'))
+
+    for label, spec_records, file_name, type_key in (
+            ('force tree', records, 'ForceAbilities.json', 'ForceAbility'),
+            ('talent tree', S.build(source_dir, [])[0], 'Talents.json', 'Talent')):
+        known = lookup_keys(file_name, type_key)
+        if known is None:
+            print('  %s lookup %s not generated yet -- skipped' % (label, file_name))
+            continue
+        used = set(n['Key'] for r in spec_records for row in r['Tree']
+                   for n in row['Nodes'] if n['Key'])
+        orphan = sorted(used - known)
+        if orphan:
+            failures.append('%s boxes with no row in %s: %s'
+                            % (label, file_name, orphan[:5]))
+        print('  every %s box resolves in %s: %s (%d keys)'
+              % (label, file_name, not orphan, len(used)))
 
     if failures:
         print()

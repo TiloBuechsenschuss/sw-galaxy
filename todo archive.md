@@ -80,3 +80,97 @@ All pre-existing, all now silent — zero `Please add base mod mapping for: …`
       byte identical. Demon Mask, Iron Fists and Meditation Focus sound like talents but
       are in `descriptorFilter` and stay unwrapped — none is in `Talents.json`, each is an
       artifact effect named after its own piece of gear.
+
+### Rules text from the wiki
+
+OggDude ships **no rules text** — almost every `Description` is "Please see page 132 of
+the Edge of the Empire Core Rulebook for details". `xml_to_json/wiki_descriptions.py`
+now fills that in for the four types where the prose *is* the content, from
+<https://star-wars-rpg-ffg.fandom.com>. Full detail in `xml_to_json/README.md` under
+*Rules text from the wiki*.
+
+- [x] **Talents** — 588 of 601 rows carry the real text. The 13 with no wiki page keep
+      their pointer and are listed in `xml_to_json/wiki_diff/talents-descriptions.md`.
+- [x] **Careers** — all 20 carry the flavour paragraph from the wiki's career *category*
+      page. A career is a category, not an article, which is why this did not work before.
+- [x] **Force powers** — all 20, the lead paragraph of the power's page.
+- [x] **Force abilities** — all 177, and the one type with **no page of its own**: they
+      are paragraphs on their *power's* page under `===UPGRADES===`, labelled only by
+      kind (`'''Control Upgrade:'''`), up to ten under the identical label. Matching them
+      to keys is **not positional** — the wiki orders upgrades alphabetically by label and
+      follows the book within them, while Enhance's keys run `CONT1` Coordination, `CONT2`
+      Resilience, `CONT3` Force Leap against a page that runs Coordination, Piloting
+      (Planetary), Piloting (Space), Agility… Pairing in order mis-describes seven of its
+      ten. They are told apart instead by the distinctive words in each ability's own
+      name, weighted by how many paragraphs of the group carry each word.
+
+      Three things decided whether that was right, each of which got it wrong first:
+      the power's own name is not a clue on its own page (*Sense* appeared in exactly one
+      Sense paragraph — the wrong one — and the tie put three abilities out by one); the
+      stop list has to stay short (*target* was on it and cost Seek the one paragraph that
+      says *target*); and `prose()` has to keep `*'''Heal:'''` bullets here, since
+      dropping them as talent-page headers left seven abilities holding nothing but
+      "This Control upgrade has different effects for Heal and for Harm."
+
+      166 of the 177 match on a word or are the only paragraph of their kind, 9 are
+      settled by elimination, and **2 are a genuine guess** — Imbue's two upgrades are
+      both named "Duration" and no content separates them; paired in order, which reading
+      them confirms (the first commits two Force dice, the second reduces it to one).
+      `wiki_diff/forceabilities-descriptions.md` names how every row matched.
+- [x] **Where the text comes from, and whether it can be redistributed.** The FFG fandom
+      wiki, Fandom's default **CC BY-SA 3.0** — redistributable with attribution and
+      share-alike, though the underlying rules are FFG's copyright. The generated files
+      carry an attribution header and `wiki_diff/<type>-descriptions.md` records the page
+      and revision behind every line. *The deploy decision this raised is still open — see
+      `todo.md`.*
+- [x] **What shape it lands in.** `xml_to_json/xml_sources/fandom-wiki/`, a second source
+      folder that sorts before `oggdude` and so wins the first-Key-wins merge. Each row is
+      the oggdude row copied verbatim with only `<Description>` swapped, and
+      `verify_convert.py` Check 6 proves it — including, now, that no two rows in one
+      override file share a description, which is the offline shape of the bullet bug
+      above.
+- [x] **`wiki_diff.py` coverage targets.** `careers` and `talents` work now (careers are
+      wiki *subcategories*, and a talent's page is titled "<Name> talent" — neither of
+      which the tool used to know), and `specializations` and `forcepowers` were added.
+      Both new targets report **0 data-only**: every row matches a wiki page. Note the
+      categories are *singular* — `Category:Specialization`, `Category:Force Power`; the
+      plurals do not exist.
+
+### Talent trees and force trees
+
+Two new tabs, and the first content in the app that is a *picture* rather than a row: a
+grid of boxes with connectors, drawn in the row's expandable area. See *Talent trees and
+force trees* in `AGENTS.md`.
+
+- [x] **Specializations (123) and Force powers (20)** — the **Talent Trees** and **Force
+      Trees** tabs. The geometry is computed at import time by
+      `oggdude_specializations_to_app.py`, which `oggdude_force_powers_to_app.py` imports
+      rather than restating; `readTree()` only unwraps SimpleXML shapes and the template
+      only draws. `verify_convert.py` Check 7 asserts the invariant the CSS grid rests on:
+      every row lays out exactly four columns wide, counting spans.
+
+      What the data made hard: a box can span up to four columns and a cell can be a
+      *hole* (a span of 0 that nothing covers, or a present-but-empty `<Key/>` that still
+      claims a 5 XP cost), both of which break the width if mishandled. And links are
+      undirected but stated twice, with **nine stated only once** — emitted on the union,
+      which is not a coin toss: under the intersection two nodes in *Enhance* and
+      *Farsight* become unreachable from the top row, which no printed tree does.
+- [x] **Talent trees, the open question from the wiki work.** Solved from the data rather
+      than the wiki: the 123 specialization files say which talents a tree offers and at
+      what tier, so the tab draws the tree and the *Teaches* dropdown answers "which trees
+      offer Grit?" directly. The wiki's `*'''Trees:'''` bullets stay dropped — the data
+      says the same thing, per tier.
+- [x] **What a box does: tooltip and popup.** Hovering a box gives its rules text;
+      clicking or tapping it opens a `$mdDialog` (`app/components/tree-node.html`) with
+      the name, XP price, activation, tags, full text and citation. Two ways in because a
+      phone has no hover and the app is used at the table. The text comes from a lookup
+      file the tab fetches once and keys into — `Talents.json` for talent trees, and
+      `ForceAbilities.json`, generated for this and having no tab of its own, for force
+      trees. Embedding the prose in the trees instead would repeat Grit's text in dozens
+      of them.
+
+      Two bugs found on the way: `readList()` silently dropped single *string* children,
+      so a talent with exactly one category showed no tags (133 boxes → 1824); and the
+      trees were being built for every row on screen, expanded or not, because the
+      collapse row is `ng-show` — with a tooltip per box, "Show all" would have put 2460
+      of them in the DOM unseen.

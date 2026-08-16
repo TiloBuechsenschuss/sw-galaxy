@@ -1367,7 +1367,12 @@
                              box with no talent in it is a hole that still occupies
                              its column -- both are why the boxes in a row are not
                              always four. -->
-                        <div class="sw-tree" ng-if="item.Tree.length">
+                        <!-- Built only while the row is open. The collapse row is
+                             ng-show, so its markup exists for every row on screen
+                             whether or not it is expanded, and a tree is 20 boxes
+                             with a tooltip each -- "Show all" on this tab would
+                             otherwise put 2460 of them in the DOM unseen. -->
+                        <div class="sw-tree" ng-if="expanded && item.Tree.length">
                             <div class="sw-tree-group" ng-repeat="row in item.Tree">
                                 <!-- Specializations price a whole row at once;
                                      force powers price each box, so they have no
@@ -1385,10 +1390,33 @@
                                              class="sw-tree-node"
                                              ng-class="['sw-tree-span-' + node.Span,
                                                         {'sw-tree-hole': node.Empty,
-                                                         'sw-tree-linked': node.Linked}]">
+                                                         'sw-tree-linked': node.Linked}]"
+                                             ng-click="showNode(node, $event)">
                                             <span class="sw-tree-name">{{node.Name}}</span>
                                             <span class="sw-tree-node-cost"
                                                   ng-if="node.Cost">{{node.Cost}} XP</span>
+                                            <!-- What the box does, on hover. The
+                                                 lookup is fetched separately and
+                                                 may not have landed yet, or may
+                                                 not know the key, so the tooltip
+                                                 appears only once there is
+                                                 something to say -- nodeInfo is
+                                                 an empty map on every other tab. -->
+                                            <md-tooltip md-direction="top"
+                                                        class="sw-tree-tooltip"
+                                                        ng-if="nodeInfo[node.Key]">
+                                                <span class="sw-tree-tip-name">{{node.Name}}</span>
+                                                <span class="sw-tree-tip-meta"
+                                                      ng-if="nodeInfo[node.Key].Type">{{nodeInfo[node.Key].Type}}</span>
+                                                <!-- The rules text where there is
+                                                     any, and where there is not,
+                                                     the book to read instead of a
+                                                     sentence saying so at length. -->
+                                                <span ng-if="!nodeInfo[node.Key].IsPointer"
+                                                      ng-bind-html="nodeInfo[node.Key].Info"></span>
+                                                <span class="sw-tree-tip-cite"
+                                                      ng-if="nodeInfo[node.Key].IsPointer">{{nodeInfo[node.Key].Cite}}</span>
+                                            </md-tooltip>
                                         </div>
                                     </div>
                                     <!-- One cell per grid column, a bar where this

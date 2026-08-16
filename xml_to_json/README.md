@@ -39,7 +39,7 @@ expected to include the regenerated JSON in the same commit.
 | `oggdude_careers_to_app.py` | The same for the 20 per-career files, resolving skill and specialization keys. |
 | `oggdude_talents_to_app.py` | Reshapes the single flat `Talents.xml` — see *Talents* below for why it is not just copied. |
 | `oggdude_specializations_to_app.py` | The 123 talent trees. Lays the grid out; see *Specializations and force powers*. |
-| `oggdude_force_powers_to_app.py` | The 20 force trees. Imports the layout code from the one above. |
+| `oggdude_force_powers_to_app.py` | The 20 force trees, **and** the 177-row `ForceAbilities.xml` lookup beside them. Imports the layout code from the one above. |
 | `verify_convert.py` | Regression checks, one per importer. Run after touching any of the above. |
 | `wiki.py` | The shared, cached client for the fandom wiki. Imported by the two below; nothing else opens a connection. |
 | `wiki_diff.py` | Reports what a wiki category has that the JSON does not, and vice versa. Read-only. |
@@ -190,8 +190,9 @@ python xml_to_json/wiki_descriptions.py --all --refresh    # re-download first
 python xml_to_json/convert.py                              # then regenerate
 ```
 
-Coverage today: **588 of 601 talents** and **20 of 20 careers**. The 13 talents
-with no wiki page keep their pointer.
+Coverage today: **588 of 601 talents**, **20 of 20 careers**, **20 of 20 force
+powers** and **177 of 177 force abilities**. The 13 talents with no wiki page
+keep their pointer; nothing else does.
 
 ### It writes a second source folder
 
@@ -220,10 +221,67 @@ another page pointer.
 | Talents | `<Name> talent` | the page's own `==Name==` heading |
 | Talents, `X (Improved)` / `X (Supreme)` | `X talent` | the `===Improved===` / `===Supreme===` subsection |
 | Careers | `Category:<Name>` | the lead paragraph, everything above the first `<blockquote>` |
+| Force powers | `<Name>` | the lead paragraph, cut the same way |
+| Force abilities | their **power's** page | the `===BASIC POWER===` section, or one paragraph of `===UPGRADES===` |
 
 The Improved and Supreme variants are the reason this works at all: they are not
 pages of their own, which is exactly what the data's 67 `(Improved)` and 17
 `(Supreme)` rows need.
+
+### Matching a force ability to its paragraph
+
+A force ability is the one type with no page of its own. All 177 sit on their
+power's page under `===UPGRADES===`, as paragraphs led by a bold label:
+
+```
+'''Control Upgrade:''' The user gains the ability to move objects fast enough...
+'''Magnitude Upgrade:''' Spend a Force point to increase the number of...
+```
+
+The label gives only the *kind*, and a power has up to ten Control upgrades
+under the identical label — so the work is deciding which paragraph is
+`MOVECONTROL1` and which is `MOVECONTROL3`.
+
+**It is not positional.** The wiki orders its upgrades alphabetically by label,
+and within the Control upgrades it follows the book rather than OggDude's key
+numbering. Enhance is the proof: its page runs Coordination, Piloting
+(Planetary), Piloting (Space), Agility, Resilience, Brawl, Brawn, then three
+Force Leaps, while the keys run `ENHANCECONT1` Coordination, `CONT2` Resilience,
+`CONT3` Force Leap… Pairing them off in order mis-describes seven of the ten.
+
+What makes it work is that OggDude **names each ability for what it does** —
+"Control: Coordination", "Control: Force Leap (Vertical)" — so the name's
+distinctive words are looked for in the paragraphs. Each word is weighted by how
+many paragraphs of that group contain it, so a word in all of them counts for
+almost nothing and a word in exactly one settles the match; the best-scoring
+pair is taken first, then the next.
+
+Three things that decide whether it is right, each of which got it wrong first:
+
+- **The power's own name is not a clue on its own page.** "Control: Sense
+  Thoughts" contains "Sense", which appeared in exactly one Sense paragraph —
+  the wrong one — and so scored as highly there as "thoughts" did in the right
+  one. The tie went the wrong way and put three of Sense's abilities out by one.
+  The power's name is now a stop word within its own page.
+- **The stop list must stay short.** The weighting already discounts common
+  words; a word wrongly listed costs a match outright. "Target" was on it, and
+  cost Seek its "Control: Target" — whose paragraph is the only one that says
+  *target*.
+- **`prose()` must keep the bullets here.** Every Control upgrade on the
+  Heal/Harm and Protect/Unleash pages is one line of boilerplate followed by
+  `*'''Heal:'''` and `*'''Harm:'''`. Dropping those as if they were a talent
+  page's `*'''Activation:'''` header left seven abilities holding nothing but
+  *"This Control upgrade has different effects for Heal and for Harm."*
+
+166 of the 177 match on a word or are the only paragraph of their kind. The
+report names how every row matched, so the rest can be read without re-running
+anything: 9 are settled by elimination once their group's others match, and
+**2 are a genuine guess** — Imbue's two upgrades are both named just "Duration"
+and no content can tell them apart. They are paired in order, which is right:
+the first commits two Force dice, the second reduces that to one.
+
+`verify_convert.py` Check 6 asserts that no two rows in an override file share a
+description, which is the offline shape of the bullet bug above.
 
 Everything above the prose on a talent page — the `*'''Activation:'''`,
 `*'''Ranked:'''` and `*'''Trees:'''` bullets — is dropped. The first two are
@@ -646,8 +704,8 @@ and 20 force powers under `oggdudes-data/Force Powers/`, one file each.
 
 ```bash
 python xml_to_json/oggdude_specializations_to_app.py   # rebuild the app-schema source
-python xml_to_json/oggdude_force_powers_to_app.py
-python xml_to_json/convert.py --only Specialization --only ForcePower
+python xml_to_json/oggdude_force_powers_to_app.py      # ...and ForceAbilities.xml
+python xml_to_json/convert.py --only Specialization --only ForcePower --only ForceAbility
 ```
 
 These two importers differ from the others in kind, not just in detail: **their
@@ -705,6 +763,23 @@ Artwork: none, same as careers and talents. Descriptions are still OggDude's
 page pointers for both types — the tree is the content, so it costs far less
 here than it did for talents, but `wiki_descriptions.py` would cover them with
 one `SOURCES` entry each.
+
+### The force abilities lookup
+
+`oggdude_force_powers_to_app.py` writes a **second file**, `ForceAbilities.xml`,
+from the same `Force Abilities.xml` it already reads for its names — in the same
+run, so the two can never drift. It is a registered type in `VALID_FILE_NAMES`
+but **has no tab**: the Force Trees tab fetches `ForceAbilities.json` and looks a
+box up by its key, to say what that box does on hover and in its popup. The rows
+are OggDude's own shape, untouched — the app reads `Name`, `Description`,
+`Sources` and `Power`.
+
+Talent trees need no equivalent: they look their boxes up in `Talents.json`,
+which the Talents tab already loads.
+
+All 177 force abilities and all 20 force powers now carry real rules text from
+the wiki — see *Matching a force ability to its paragraph* below, which is where
+the interesting part of that import lives.
 
 Both have a `wiki_diff.py` target, and both report **0 data-only**: every
 specialization and force power in the data matches a wiki page. Note that the

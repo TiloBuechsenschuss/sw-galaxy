@@ -403,3 +403,110 @@ tr.collapse-row td.md-cell {
     margin-left: -1px;
     border-left: 2px solid #999999;
 }
+
+/* A box is clickable -- it opens its own detail popup. A hole is not: it has no
+   talent behind it, so showNode() returns without opening anything. */
+.sw-tree-node {
+    cursor: pointer;
+}
+
+.sw-tree-node.sw-tree-hole {
+    cursor: default;
+}
+
+.sw-tree-node:not(.sw-tree-hole):hover {
+    border-color: #999999;
+    background: #e8e8e8;
+}
+
+/* The hover tooltip: what the box does.
+
+   A stock md-tooltip is a single 22px line -- `white-space: nowrap`,
+   `text-overflow: ellipsis`, a fixed `height` -- which is right for a label and
+   useless for a rules paragraph, so all four have to be undone. THIS VERSION
+   PUTS THOSE ON THE md-tooltip ELEMENT ITSELF, not on an inner `.md-content`:
+   $mdPanel takes the element as its contentElement and adds `md-tooltip` to it,
+   so the element matches both the `md-tooltip` and the `.md-tooltip` rules. The
+   selector below is `md-tooltip.sw-tree-tooltip` to outweigh the latter on
+   specificity rather than on load order.
+
+   Deliberately capped: the long Improved and Supreme talents run past this, and
+   a tap or a click opens the popup with the full text. */
+md-tooltip.sw-tree-tooltip {
+    height: auto;
+    max-width: 320px;
+    max-height: 16em;
+    padding: 8px 12px;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: normal;
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.45;
+}
+
+md-tooltip.sw-tree-tooltip p {
+    margin: 0 0 4px 0;
+}
+
+.sw-tree-tip-name {
+    display: block;
+    font-weight: bold;
+}
+
+.sw-tree-tip-meta {
+    display: block;
+    margin-bottom: 4px;
+    opacity: 0.75;
+    font-size: 11px;
+}
+
+/* The detail popup. Held to the viewport on a phone, which is where the tooltip
+   is unreachable and this is the only way to read a box. */
+.sw-node-dialog {
+    max-width: 560px;
+    max-height: 88vh;
+}
+
+.sw-node-dialog .sw-node-meta {
+    margin-bottom: 8px;
+}
+
+.sw-node-dialog .sw-node-tag {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: #f2f2f2;
+    color: #666666;
+    font-size: 12px;
+}
+
+.sw-node-dialog .sw-node-missing {
+    color: #666666;
+    font-style: italic;
+}
+
+.sw-node-dialog .sw-node-sources {
+    margin-top: 12px;
+    border-top: 1px solid #ccc;
+    padding-top: 8px;
+    color: #666666;
+    font-size: 13px;
+}
+
+.sw-node-dialog .sw-node-sources p {
+    margin: 0 0 2px 0;
+}
+
+.sw-node-dialog .sw-node-sources ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.sw-tree-tip-cite {
+    display: block;
+    opacity: 0.85;
+    font-style: italic;
+}

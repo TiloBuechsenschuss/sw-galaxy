@@ -46,8 +46,17 @@ App.constant('tabs', [
     {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
     {label: 'Careers', name: 'Career', url: 'data/json/Careers.json'},
     {label: 'Talents', name: 'Talent', url: 'data/json/Talents.json'},
-    {label: 'Talent Trees', name: 'Specialization', url: 'data/json/Specializations.json'},
-    {label: 'Force Trees', name: 'ForcePower', url: 'data/json/ForcePowers.json'},
+    // nodeUrl/nodeName are the two tree tabs' lookup: what a box in the tree
+    // actually does. A box carries only its key, name and cost, so the text
+    // behind it is fetched once per tab from a file keyed by that key --
+    // Talents.json is the one the Talents tab already loads, and
+    // ForceAbilities.json is generated for this and has no tab of its own.
+    // Embedding the prose in the tree instead would repeat every talent once
+    // per tree that teaches it.
+    {label: 'Talent Trees', name: 'Specialization', url: 'data/json/Specializations.json',
+        nodeUrl: 'data/json/Talents.json', nodeName: 'Talent'},
+    {label: 'Force Trees', name: 'ForcePower', url: 'data/json/ForcePowers.json',
+        nodeUrl: 'data/json/ForceAbilities.json', nodeName: 'ForceAbility'},
 ]);
 
 /**
@@ -1731,6 +1740,8 @@ App.directive('itemList', function () {
                 keyDesc: '@keyDesc',
                 vehicleClass: '@',
                 attachmentClass: '@',
+                nodeUrl: '@',
+                nodeName: '@',
             },
             link: function (scope, elem, attrs) {
                 // Two tabs share the Vehicle type key and two more share
@@ -1741,8 +1752,11 @@ App.directive('itemList', function () {
                     (scope.vehicleClass ? '-' + scope.vehicleClass : '') +
                     (scope.attachmentClass ? '-' + scope.attachmentClass : '');
             },
-            controller: function ($scope, $timeout, $mdSidenav, $http, $filter, $sce, defaultDisabledSources, sourceLineSelection) {
+            controller: function ($scope, $timeout, $mdSidenav, $mdDialog, $http, $filter, $sce, defaultDisabledSources, sourceLineSelection) {
                 $scope.items = [];
+                // Key -> what that box in a tree does, filled by fetchNodeInfo()
+                // on the two tree tabs and left empty everywhere else.
+                $scope.nodeInfo = {};
                 $scope.favourites = [];
                 $scope.types = [];
                 $scope.categories = [];
@@ -2551,20 +2565,30 @@ App.directive('itemList', function () {
                     // and Categories blocks each unwrap inline -- pulled out
                     // here because a tree nests them four deep and doing it
                     // inline would be unreadable.
-                    var i, l, out = [];
+                    var i, l, value, out = [];
                     if (typeof holder != 'object' || holder === null) {
                         return out;
                     }
-                    if (typeof holder[child] != 'object' || holder[child] === null) {
+                    value = holder[child];
+                    // A child may be a plain string rather than an element with
+                    // its own children -- <Category>Ranked is one, <Node> is not.
+                    // Tested before the length check, because a string has a
+                    // numeric length too and would otherwise be walked one
+                    // character at a time.
+                    if (typeof value == 'string') {
+                        out.push(value);
                         return out;
                     }
-                    if (typeof holder[child].length == 'number') {
-                        l = holder[child].length;
+                    if (typeof value != 'object' || value === null) {
+                        return out;
+                    }
+                    if (typeof value.length == 'number') {
+                        l = value.length;
                         for (i = 0; i < l; i++) {
-                            out.push(holder[child][i]);
+                            out.push(value[i]);
                         }
                     } else {
-                        out.push(holder[child]);
+                        out.push(value);
                     }
                     return out;
                 };
@@ -2610,10 +2634,118 @@ App.directive('itemList', function () {
                             // and still has to take up its column, or the row
                             // would come out narrower than the ones around it.
                             node.Empty = typeof node.Name != 'string';
+                            // What the detail popup prints as the price of this
+                            // box. A force power prices each box and a
+                            // specialization prices the whole row, so the popup
+                            // reads one field either way -- while the box itself
+                            // still only shows a cost where there is one to show,
+                            // the row's own cost being in the gutter beside it.
+                            node.XP = node.Cost || rows[i].Cost;
                         }
                         tree.push({Cost: rows[i].Cost, Nodes: nodes, Down: bars});
                     }
                     return tree;
+                };
+                $scope.fetchNodeInfo = function () {
+                    // What a box in a tree actually does. Only the two tree tabs
+                    // set node-url, and this runs once per tab rather than once
+                    // per row: the same talent appears in dozens of trees, so
+                    // the text is looked up by key instead of being carried in
+                    // every tree that teaches it.
+                    //
+                    // The tree renders as soon as its own file lands; this only
+                    // adds the tooltip and the detail popup, so nothing waits on
+                    // it and a failed fetch costs the boxes their text, not the
+                    // tree its shape.
+                    var i, l, rows, row;
+                    if (!$scope.nodeUrl || !$scope.nodeName) {
+                        return;
+                    }
+                    $http.get($scope.nodeUrl).then(function (res) {
+                        rows = res.data[$scope.nodeName];
+                        if (typeof rows == 'undefined' || typeof rows.length != 'number') {
+                            return;
+                        }
+                        l = rows.length;
+                        for (i = 0; i < l; i++) {
+                            row = rows[i];
+                            if (typeof row.Key != 'string') {
+                                continue;
+                            }
+                            // Rendered once here rather than by a filter in the
+                            // template: an ng-bind-html bound to a filter would
+                            // re-run it on every digest, for every box on screen.
+                            row.Info = $filter('descriptionFilter')(row);
+                            // A row citing one book carries <Source>, several
+                            // carry <Sources><Source> -- the same two shapes
+                            // fetchSource() copes with on an item.
+                            row.Books = $scope.readList(row.Sources, 'Source');
+                            if (!row.Books.length && typeof row.Source == 'object') {
+                                row.Books = [row.Source];
+                            }
+                            // Ranked / Force / Conflict on a talent; force
+                            // abilities carry none.
+                            row.Tags = $scope.readList(row.Categories, 'Category');
+                            // OggDude ships no rules text, so a Description is
+                            // often nothing but "Please see page 132 of ... for
+                            // details". The wiki import replaced those for 594
+                            // of 601 talents, but ALL 177 force abilities are
+                            // still pointers. Printing one as though it were the
+                            // rules is worse than useless -- it fills the tooltip
+                            // with a sentence that says nothing -- so a pointer
+                            // is flagged here and rendered as the citation it
+                            // actually is.
+                            row.IsPointer = typeof row.Description == 'string' &&
+                                row.Description.indexOf('lease see page') !== -1;
+                            row.Cite = $scope.citation(row.Books);
+                            $scope.nodeInfo[row.Key] = row;
+                        }
+                    });
+                };
+                $scope.citation = function (books) {
+                    // "Force and Destiny Core Rulebook p298", joined for a row
+                    // printed in several books. This is all a force ability has
+                    // to offer -- see the IsPointer note in fetchNodeInfo().
+                    var i, l = books.length, out = [], line;
+                    for (i = 0; i < l; i++) {
+                        if (typeof books[i].Book != 'string') {
+                            continue;
+                        }
+                        line = books[i].Book;
+                        if (books[i].Page) {
+                            line += ' p' + books[i].Page;
+                        }
+                        out.push(line);
+                    }
+                    return out.join(' · ');
+                };
+                $scope.showNode = function (node, ev) {
+                    // The box's own detail popup. A tooltip is a hover, which a
+                    // phone does not have, and this app is used at the table --
+                    // so everything the tooltip hints at has to be reachable by
+                    // tapping the box as well.
+                    if (!node || !node.Key) {
+                        return;
+                    }
+                    $mdDialog.show({
+                        templateUrl: 'app/components/tree-node.html',
+                        parent: angular.element(document.body),
+                        targetEvent: ev,
+                        clickOutsideToClose: true,
+                        locals: {
+                            node: node,
+                            info: $scope.nodeInfo[node.Key],
+                            kind: $scope.name == 'ForcePower' ? 'Force ability' : 'Talent'
+                        },
+                        controller: function ($scope, $mdDialog, node, info, kind) {
+                            $scope.node = node;
+                            $scope.info = info;
+                            $scope.kind = kind;
+                            $scope.close = function () {
+                                $mdDialog.hide();
+                            };
+                        }
+                    });
                 };
                 $scope.sizeLimit = function (min, max) {
                     // The silhouettes a vehicle attachment fits, as one string.
@@ -2687,6 +2819,8 @@ App.directive('itemList', function () {
                 $scope.$watch('isActive', function () {
                     if ($scope.isActive == "true" && $scope.items.length == 0) {
                         $scope.fetchSource();
+                        // Independent of fetchSource: the tree draws without it.
+                        $scope.fetchNodeInfo();
                     }
                 });
                 // md-tabs keeps a tab's scope in the tree once it has been opened, so

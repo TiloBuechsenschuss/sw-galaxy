@@ -224,7 +224,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Enhance[h4]\nPlease see page 298 of the Age of Rebellion Core Rulebook, page 288 of the Force and Destiny Core Rulebook, or page 46 of the Rise of the Separatists Sourcebook, for details.",
+            "Description": "Those strong in the Force can allow it to flow through them, responding to their own intent and movement in order to enhance the actions of their body.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -446,7 +446,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Foresee[h4]\nPlease see page 300 of the Age of Rebellion Core Rulebook, or page 290 of the Force and Destiny Core Rulebook, for details.",
+            "Description": "Force users often have precognitive flashes, experiencing waking dreams or visions about people and situations through their abilities.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -656,7 +656,7 @@
                     }
                 ]
             },
-            "Description": "Please see page 10 of the Chronicles of the Gatekeeper adventure module for details.",
+            "Description": "Suljo Warde was particularly skilled at prognostication, and he refined this ability considerably over the course of his life, gaining the capacity to predict how people would react before they had even made up their own minds.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -862,7 +862,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Imbue[h4]\nPlease see page 39 of the Disciples of Harmony Sourcebook for details.",
+            "Description": "Some Force users have compared the Force to an ocean.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -1052,7 +1052,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Imbue[h4]\nPlease see page 37 of the Disciples of Harmony Sourcebook for details.",
+            "Description": "Those who count the Force as their ally can use the Force to imbue their allies in turn.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -1279,7 +1279,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Influence[h4]\nPlease see page 281 of the Edge of the Empire Core Rulebook, or page 294 of the Force and Destiny Core Rulebook, for details.",
+            "Description": "The ability to influence the minds of others is not something to be taken lightly.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -1521,7 +1521,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Move[h4]\nPlease see page 283 of the Edge of the Empire Core Rulebook, page 296 of the Age of Rebellion Core Rulebook, or page 298 of the Force and Destiny Core Rulebook, for details.",
+            "Description": "Many Force users develop the ability to shift objects without physically handling them, moving matter with the power of the mind.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -1741,7 +1741,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Sense[h4]\nPlease see page 279 of the Edge of the Empire Core Rulebook, or page 304 of the Force and Destiny Core Rulebook, for details.",
+            "Description": "By opening their mind, a Force user can commune with the world around them.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -1968,7 +1968,7 @@
                     }
                 ]
             },
-            "Description": "Please see page 37 of the Endless Vigil Sourcebook for details.",
+            "Description": "While many Force users seek to use their powers to interact with other living beings or enhance their own abilities, some are more attuned to how the Force affects and modifies machinery.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -2173,7 +2173,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Battle Meditation[h4]\nPlease see page 284 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Some Force users can telepathically guide allies around them, helping them to coordinate and achieve amazing feats.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -2400,7 +2400,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Bind[h4]\nPlease see page 286 of the Force and Destiny Core Rulebook, or page 44 of the Rise of the Separatists Sourcebook, for details.",
+            "Description": "Those strong in the Force can use it to extend their reach beyond their physical capabilities.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -2604,7 +2604,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Heal\/Harm[h4]\nPlease see page 292 of the Force and Destiny Core Rulebook for details.",
+            "Description": "This power reflects a Force user's capacity to manipulate the living energy in things around them.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -2830,7 +2830,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Misdirect[h4]\nPlease see page 296 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Trickery is an important part of many Force users' arsenals, letting them tip the scales of battle in their favor or even avoid some conflicts entirely.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -3063,7 +3063,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Protect\/Unleash[h4]\nPlease see page 300 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Force users can harness the innate abilities of the Force to protect themselves and others from harm.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -3257,7 +3257,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Seek[h4]\nPlease see page 302 of the Force and Destiny Core Rulebook for details.",
+            "Description": "The Force user casts out with their mind's eye, searching for something lost, concealed, or forgotten.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -3437,7 +3437,7 @@
                     }
                 ]
             },
-            "Description": "[H4]Force Power: Suppress[h4]\nPlease see page 38 of the Keeping the Peace sourcebook for details.",
+            "Description": "By feeling the flow of the Force and the seizing hostile currents in a mental grip, a Force sensitive can directly grapple with supernatural attacks, preventing harm and shielding allies from their strikes.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -3623,7 +3623,7 @@
                     }
                 ]
             },
-            "Description": "Please see page 36 of the Knights of Fate Sourcebook for details.",
+            "Description": "Those strong in the Force, and who learn to control that gift, can achieve great, even seemingly impossible feats of physical prowess.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -3814,7 +3814,7 @@
                     }
                 ]
             },
-            "Description": "Please see page 36 of the Savage Spirits Sourcebook for details.",
+            "Description": "Through their strong connection to the Force, some Force-sensitives can stretch their normal visual senses far beyond what would otherwise be possible.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -4057,7 +4057,7 @@
                     }
                 ]
             },
-            "Description": "Enter description for Force Power \"Alter\" here.",
+            "Description": "Many Force users have the ability to sense the life force of the environment around them.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -4264,7 +4264,7 @@
                     }
                 ]
             },
-            "Description": "Please see page 39 of the Unlimited Power Sourcebook for details.",
+            "Description": "Some of the more esoteric uses of the Force can seem like magic to the ignorant and uninformed.",
             "Thumbnail": "img\/no_image.png"
         }
     ]

@@ -46,6 +46,8 @@ app/module/SWApp.js            The entire application (~2350 lines): module, the
                                controller
 app/components/items.html      Template for the itemList directive (~1245 lines):
                                sidenav filters + result table + item detail cards
+app/components/tree-node.html  $mdDialog template: one box of a talent or force
+                               tree, opened by clicking it
 css/style.css                  Custom styles, @font-face for the FFG symbol font
 css/angular-material.min.css   Vendored Angular Material stylesheet
 js/angular-material.js         Vendored Angular Material JS
@@ -120,7 +122,7 @@ The short version:
 Recognized XML file names are fixed in `VALID_FILE_NAMES` in `convert.py`:
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`,
 `Vehicles.xml`, `Careers.xml`, `Talents.xml`, `Specializations.xml`,
-`ForcePowers.xml`. Adding a new data type means touching
+`ForcePowers.xml`, `ForceAbilities.xml`. Adding a new data type means touching
 `convert.py`, the `tabs` constant in `SWApp.js`, and usually `items.html` — see the next
 section for the full list.
 
@@ -400,17 +402,68 @@ grid gap**, by a pseudo-element on the box (horizontal) or by a cell of the link
 (vertical), so `--sw-tree-gap` is shared by the boxes, the strip's height and both
 offsets — change it in one place and the lines stop meeting the boxes.
 
-Neither type has artwork or rules text: OggDude ships no images for them, and their
-descriptions are still page pointers. The tree *is* the content, so this matters far less
-than it did for talents, but `wiki_descriptions.py` could cover them with one `SOURCES`
-entry each.
+The tree is built under `ng-if="expanded && item.Tree.length"`. **That `expanded` is
+load-bearing, not decoration:** the collapse row is `ng-show`, so its markup exists for
+every row on screen whether or not it is open, and a tree is 20 boxes each carrying a
+tooltip — "Show all" would otherwise put 2460 of them in the DOM unseen.
+
+#### What a box does: the tooltip and the popup
+
+A box carries only its key, name and cost. The text behind it comes from a **lookup
+file the tab fetches once**, keyed by that key — `nodeUrl`/`nodeName` on the tab entry,
+read by `fetchNodeInfo()` into `$scope.nodeInfo`. Talent trees use `Talents.json`, the
+file the Talents tab already loads; force trees use `ForceAbilities.json`, which is
+generated for this and **has no tab of its own** — it is a registered type in
+`VALID_FILE_NAMES` so it is built and diffed like everything else. Embedding the prose in
+the tree instead would repeat every talent once per tree that teaches it, and Grit is in
+dozens.
+
+This is separate plumbing from the unused `keyDesc` attribute; don't confuse the two.
+
+The fetch is deliberately independent of `fetchSource()`: the tree draws from its own
+file, and this only adds the hover text and the popup, so nothing waits on it and a
+failed fetch costs the boxes their text rather than the tree its shape. `descriptionFilter`
+is run **once per lookup row at fetch time**, not from the template — an `ng-bind-html`
+bound to a filter would re-run it on every digest for every box on screen.
+
+Two ways in, because a phone has no hover and this app is used at the table:
+
+- **Hover** gives an `md-tooltip`. Note that this Material build puts
+  `white-space: nowrap` and a fixed `height` on the `md-tooltip` **element** rather than
+  on an inner `.md-content` — `$mdPanel` takes the element as its `contentElement` — so
+  `md-tooltip.sw-tree-tooltip` overrides them by specificity. (The repo's older
+  `md-tooltip .md-content` rule matches nothing in this build. It is left alone.)
+- **Clicking a box** opens `showNode()` → `$mdDialog` with
+  `app/components/tree-node.html`: name, price, activation, tags, the rules text and the
+  citation. A hole has no key, so `showNode()` returns without opening anything.
+
+Both tabs carry real rules text: 594 of 601 talents and **all 177 force abilities**, the
+latter matched to their paragraph on the power's wiki page by
+`wiki_descriptions.py` — see *Matching a force ability to its paragraph* in
+`xml_to_json/README.md`, which is where the difficulty of that import is written down.
+
+The pointer fallback is still live and still needed. OggDude ships no rules text, so a
+`Description` may be nothing but "please see page 132 of … for details";
+`fetchNodeInfo()` flags that as `IsPointer`, and neither the tooltip nor the popup prints
+it as though it were the rules — they show the citation instead
+(`"Force and Destiny Core Rulebook p298"`, built by `$scope.citation()`). Today it fires
+for the 5 boxes whose talent has no wiki page.
+
+Neither type has artwork; OggDude ships no images for them.
 
 ### Descriptions from the wiki
 
 OggDude ships no rules text: almost every `Description` is *"Please see page 132 of the
 Edge of the Empire Core Rulebook for details"*. `wiki_descriptions.py` replaces those
-for the two types where the prose *is* the content — **588 of 601 talents** and **20 of
-20 careers** — from <https://star-wars-rpg-ffg.fandom.com>.
+for the four types where the prose *is* the content — **588 of 601 talents**, **20 of
+20 careers**, **20 of 20 force powers** and **177 of 177 force abilities** — from
+<https://star-wars-rpg-ffg.fandom.com>.
+
+A force ability is the one type with no page of its own: all 177 are paragraphs on their
+*power's* page, labelled only by kind (`'''Control Upgrade:'''`), up to ten under the
+identical label, and **not in the order of OggDude's keys**. They are told apart by the
+distinctive words in the ability's own name. That matching, and the three ways it got
+things wrong first, is documented in `xml_to_json/README.md`.
 
 It writes `xml_sources/fandom-wiki/<Type>.xml`, a **second source folder** that sorts
 before `oggdude` and therefore wins the converter's first-Key-wins merge. Whole-row
