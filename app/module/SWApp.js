@@ -373,21 +373,57 @@ App.filter('descriptionFilter', function ($sce, $filter) {
 });
 
 App.filter('infoFilter', function ($sce, $filter) {
+    // One <Mod> can hold two <MiscDesc> siblings -- the Glop Grenade is the one
+    // row that does -- which SimpleXML turns into an array. Reading only the
+    // string shape dropped both sentences and then logged 'debugging!', because
+    // a MiscDesc-only mod has no <Key> to fall back on. Returns '' when the mod
+    // carries no description at all, which is the signal to read its Key.
+    function miscDesc(mod) {
+        var out = '', i, l;
+        if (typeof mod.MiscDesc == 'string') {
+            return "<li>" + mod.MiscDesc + "</li>";
+        }
+        if (typeof mod.MiscDesc == 'object' && typeof mod.MiscDesc.length == 'number') {
+            for (i = 0, l = mod.MiscDesc.length; i < l; i++) {
+                out += "<li>" + mod.MiscDesc[i] + "</li>";
+            }
+        }
+        return out;
+    }
+
+    // The <li> for a mod that names a <Key>. The count prefix is the book's own
+    // "2 Skill (Athletics) Mods".
+    //
+    // A SkillIsCareer mod is the exception: it carries no Count and grants no
+    // rank, it makes the skill a career skill, and it shares its <Key> with the
+    // Skill Mod above -- so the flag is the only thing telling the two apart,
+    // and it is visible here and nowhere else (descriptorFilter only ever sees
+    // the bare key). The "Skill (...) Mod" wording that filter produces is what
+    // marks a key as a skill in the first place; if it is ever reworded, this
+    // falls through and prints the Skill Mod line rather than breaking.
+    function modLine(mod) {
+        var text = $filter('modFilter')(mod.Key), count = '';
+        if (mod.SkillIsCareer == 'true') {
+            return "<li>" + text.replace(/^Skill \((.+)\) Mod$/, '$1 as a career skill') + "</li>";
+        }
+        if (typeof mod.Count == 'number' && mod.Count != 0) {
+            count = mod.Count + ' x ';
+        }
+        return "<li>" + count + text + "</li>";
+    }
+
     return function (item) {
-        var html = '', mods = '', count;
+        var html = '', mods = '', desc;
 
         if (typeof item.BaseMods == 'object') {
             if (typeof item.BaseMods.Mod == 'object' && item.BaseMods.Mod.length > 0) {
                 for (var i = 0, l = item.BaseMods.Mod.length; i < l; i++) {
-                    if (typeof item.BaseMods.Mod[i].MiscDesc == 'string') {
-                        mods += "<li>" + item.BaseMods.Mod[i].MiscDesc + "</li>";
+                    desc = miscDesc(item.BaseMods.Mod[i]);
+                    if (desc.length > 0) {
+                        mods += desc;
                     } else {
                         if (typeof item.BaseMods.Mod[i].Key == 'string') {
-                            count = '';
-                            if (typeof item.BaseMods.Mod[i].Count == 'number' && item.BaseMods.Mod[i].Count != 0) {
-                                count = item.BaseMods.Mod[i].Count + ' x ';
-                            }
-                            mods += "<li>" + count + $filter('modFilter')(item.BaseMods.Mod[i].Key) + "</li>";
+                            mods += modLine(item.BaseMods.Mod[i]);
                         } else {
                             console.log('debugging!');
                         }
@@ -395,15 +431,12 @@ App.filter('infoFilter', function ($sce, $filter) {
                 }
             } else {
                 if (typeof item.BaseMods.Mod != 'undefined') {
-                    if (typeof item.BaseMods.Mod.MiscDesc == 'string') {
-                        mods += "<li>" + item.BaseMods.Mod.MiscDesc + "</li>";
+                    desc = miscDesc(item.BaseMods.Mod);
+                    if (desc.length > 0) {
+                        mods += desc;
                     } else {
                         if (typeof item.BaseMods.Mod.Key == 'string') {
-                            count = '';
-                            if (typeof item.BaseMods.Mod.Count == 'number' && item.BaseMods.Mod.Count != 0) {
-                                count = item.BaseMods.Mod.Count + ' x ';
-                            }
-                            mods += "<li>" + count + $filter('modFilter')(item.BaseMods.Mod.Key) + "</li>";
+                            mods += modLine(item.BaseMods.Mod);
                         } else {
                             console.log('debugging!');
                         }
@@ -418,15 +451,12 @@ App.filter('infoFilter', function ($sce, $filter) {
             mods = '';
             if (typeof item.AddedMods.Mod == 'object' && item.AddedMods.Mod.length > 0) {
                 for (i = 0, l = item.AddedMods.Mod.length; i < l; i++) {
-                    if (typeof item.AddedMods.Mod[i].MiscDesc == 'string') {
-                        mods += "<li>" + item.AddedMods.Mod[i].MiscDesc + "</li>";
+                    desc = miscDesc(item.AddedMods.Mod[i]);
+                    if (desc.length > 0) {
+                        mods += desc;
                     } else {
                         if (typeof item.AddedMods.Mod[i].Key == 'string') {
-                            count = '';
-                            if (typeof item.AddedMods.Mod[i].Count == 'number' && item.AddedMods.Mod[i].Count != 0) {
-                                count = item.AddedMods.Mod[i].Count + ' x ';
-                            }
-                            mods += "<li>" + count + $filter('modFilter')(item.AddedMods.Mod[i].Key) + "</li>";
+                            mods += modLine(item.AddedMods.Mod[i]);
                         } else {
                             console.log('debugging!');
                         }
@@ -434,15 +464,12 @@ App.filter('infoFilter', function ($sce, $filter) {
                 }
             } else {
                 if (typeof item.AddedMods.Mod != 'undefined') {
-                    if (typeof item.AddedMods.Mod.MiscDesc == 'string') {
-                        mods += "<li>" + item.AddedMods.Mod.MiscDesc + "</li>";
+                    desc = miscDesc(item.AddedMods.Mod);
+                    if (desc.length > 0) {
+                        mods += desc;
                     } else {
                         if (typeof item.AddedMods.Mod.Key == 'string') {
-                            count = '';
-                            if (typeof item.AddedMods.Mod.Count == 'number' && item.AddedMods.Mod.Count != 0) {
-                                count = item.AddedMods.Mod.Count + ' x ';
-                            }
-                            mods += "<li>" + count + $filter('modFilter')(item.AddedMods.Mod.Key) + "</li>";
+                            mods += modLine(item.AddedMods.Mod);
                         } else {
                             console.log('debugging!');
                         }
@@ -538,6 +565,53 @@ App.filter('skillFilter', function () {
     }
 });
 
+/**
+ * The item an attachment's <ItemLimit> names, as a display name. OggDude's
+ * export carries the key only -- BLASTLTREP, KIHRAXZLTSTAR -- and the item it
+ * points at lives in a JSON file the attachment tabs never load, so the names
+ * are listed here rather than looked up at runtime.
+ *
+ * One text.replace line per key, anchored, the way descriptorFilter and
+ * talentFilter are written. A key with no mapping falls through as itself and is
+ * reported, so new data shows up in the console instead of reading as gibberish
+ * in the Limits column.
+ */
+App.filter('itemLimitFilter', function () {
+    return function (text) {
+        if (typeof text === 'string') {
+            var initText = text;
+            text = text.replace(/^A36PTHFNDR$/g, "A-36 Pathfinder-class Force Recon Vessel");
+            text = text.replace(/^AD1SMOD$/g, "AD-1S Modular Multi-Role Starfighter");
+            text = text.replace(/^BARCSPEEDER$/g, "BARC Speeder");
+            text = text.replace(/^BLASTHVYREP$/g, "Heavy Repeating Blaster");
+            text = text.replace(/^BLASTLTREP$/g, "Light Repeating Blaster");
+            text = text.replace(/^DARVROLTFR$/g, "Darvro-Class Light Freighter");
+            text = text.replace(/^DUSTCRAWLER$/g, "Dustcrawler");
+            text = text.replace(/^EODMKII$/g, "EOD-Mk II Armor");
+            text = text.replace(/^IONTHRUST$/g, "Ion Thruster Gun");
+            text = text.replace(/^KIHRAXZLTSTAR$/g, "Kihraxz Light Starfighter");
+            text = text.replace(/^LORONARE9$/g, "Loronar E-9 Explorer-class Long Range Scout");
+            text = text.replace(/^MILMODBACK$/g, "Military Modular Backpack Frame");
+            text = text.replace(/^MODEL77$/g, "Model 77 Air Rifle");
+            text = text.replace(/^MODPACK$/g, "Mk. IV Modular Backpack");
+            text = text.replace(/^MODPACK3$/g, "Mk. III Modular Backpack");
+            text = text.replace(/^MULTIGOO$/g, "Multi-Goo Gun");
+            text = text.replace(/^PODCOCK$/g, "Podracer Cockpit");
+            text = text.replace(/^RIVETGUN$/g, "Rivet Gun");
+            text = text.replace(/^SHEATHIPEDESPY$/g, "Sheathipede-Class Spy Shuttle");
+            text = text.replace(/^SPACESLUG$/g, "Enormous Space Slug");
+            text = text.replace(/^STARHAWKSPEED$/g, "Starhawk Speeder Bike");
+            text = text.replace(/^TALLANX$/g, "Tallanx-Class Stealth Fighter");
+            if (initText == text) {
+                console.log('Please add an item limit mapping for: ' + text);
+            }
+            return text;
+        } else {
+            return '';
+        }
+    }
+});
+
 App.filter('rangeFilter', function () {
     return function (text) {
         if (typeof text === 'string') {
@@ -555,17 +629,46 @@ App.filter('rangeFilter', function () {
     }
 });
 
+/**
+ * A base or added mod key as display text. The two key lists it chains are tried
+ * in turn, and **this is the only place that reports a miss**: a mod key is a
+ * descriptor or a talent, never both (the two lists share no key), so whichever
+ * one does not hold it would report every key the other resolves. That is what
+ * filled the console with lines like "Please add base mod mapping for: Additional
+ * Damage Mod" -- already-resolved display text, reported by talentFilter for a
+ * key descriptorFilter had just mapped correctly. Neither list has any other
+ * caller, so the check belongs here, where the whole chain is known to have
+ * failed.
+ *
+ * A key talentFilter resolves is a talent the item grants, and the books print
+ * that as "2 Innate Talent (Brace) Mods" -- so the name is wrapped here rather
+ * than in the list, which holds bare talent names and is 474 lines long. All 33
+ * talent keys the data actually uses are real rows on the Talents tab, and each
+ * equals that talent's own Key. Three talent-*sounding* names -- Demon Mask, Iron
+ * Fists, Meditation Focus -- are in descriptorFilter instead and stay unwrapped,
+ * correctly: none is a talent, each is an artifact effect named after its own
+ * piece of gear.
+ *
+ * Both lists are anchored /^KEY$/, so returning as soon as one matches is what
+ * running both always did -- a display name with spaces in it can never match the
+ * other list. symbolFilter is unanchored and still runs on whatever comes out.
+ */
 App.filter('modFilter', function ($filter) {
     return function (text) {
         if (typeof text === 'string') {
-            var initText = text;
-            text = $filter('descriptorFilter')(text);
-            text = $filter('talentFilter')(text);
-            text = $filter('symbolFilter')(text);
-            if (initText == text) {
+            var mapped = $filter('descriptorFilter')(text);
+            if (mapped != text) {
+                return $filter('symbolFilter')(mapped);
+            }
+            mapped = $filter('talentFilter')(text);
+            if (mapped != text) {
+                return "Innate Talent (" + $filter('symbolFilter')(mapped) + ") Mod";
+            }
+            mapped = $filter('symbolFilter')(text);
+            if (mapped == text) {
                 console.log('Please add base mod mapping for: ' + text);
             }
-            return text;
+            return mapped;
         } else {
             return '';
         }
@@ -575,10 +678,11 @@ App.filter('modFilter', function ($filter) {
 App.filter('descriptorFilter', function ($filter) {
     return function (text) {
         if (typeof text === 'string') {
-            var initText = text;
             text = text.replace(/^DAMADD$/g, "Additional Damage Mod");
 			text = text.replace(/^DAMSUB$/g, "Reduced Damage Mod");
 			text = text.replace(/^DAMSET$/g, "Base Damage Mod");
+			text = text.replace(/^DAMADDCRYS$/g, "Additional Damage Mod (Crystal)");
+			text = text.replace(/^DAMSUBCRYS$/g, "Reduced Damage Mod (Crystal)");
 			text = text.replace(/^RESDOSE$/g, "Increase doses by 1 Mod");
 			text = text.replace(/^HOLSTER3$/g, "Hoster Weapon up to Encumbrance 3 Mod");
 			text = text.replace(/^MOUNT3$/g, "Mount Weapon up to Encumbrance 3 Mod");
@@ -610,9 +714,12 @@ App.filter('descriptorFilter', function ($filter) {
 			text = text.replace(/^ENCTSUB$/g, "Decreases Encumbrance Threshold Mod");
 			text = text.replace(/^CRITSUB$/g, "Decrease Critical Mod");
 			text = text.replace(/^SOAKADD$/g, "Increase Soak Mod");
+			text = text.replace(/^SOAKSET$/g, "Base Soak Mod");
 			text = text.replace(/^MELEEDEFADD$/g, "Increase Melee Defense Mod");
 			text = text.replace(/^RANGEDEFADD$/g, "Increase Ranged Defense Mod");
 			text = text.replace(/^DEFADD$/g, "Increase Defense Mod");
+			text = text.replace(/^DEFSET$/g, "Base Defense Mod");
+			text = text.replace(/^DEFADDFORCE$/g, "Increase Defense per Force Rating Mod");
 			text = text.replace(/^SETBACKADD$/g, "Add Setback Mod");
 			text = text.replace(/^SETBACKSUB$/g, "Remove Setback Mod");
 			text = text.replace(/^BOOSTADD$/g, "Add Boost Mod");
@@ -741,6 +848,63 @@ App.filter('descriptorFilter', function ($filter) {
 			text = text.replace(/^VICIOUS$/g, "Vicious Quality");
 			text = text.replace(/^VICIOUSDROID$/g, "Vicious (Droid Only) Quality");
 			text = text.replace(/^UNWIELDY$/g, "Unwieldy Quality");
+			text = text.replace(/^REMQUALBREACH$/g, "Removes Breach Quality Mod");
+			text = text.replace(/^REMQUALION$/g, "Removes Ion Quality Mod");
+			text = text.replace(/^REMQUALLIMITEDAMMO$/g, "Removes Limited Ammo Quality Mod");
+			text = text.replace(/^REMQUALSTUNSETTING$/g, "Removes Stun Setting Quality Mod");
+			text = text.replace(/^REMQUALSUNDER$/g, "Removes Sunder Quality Mod");
+			text = text.replace(/^SUBQUALCUMBERSOME$/g, "Reduces Cumbersome Quality Mod");
+			text = text.replace(/^SUBQUALINACCURATE$/g, "Reduces Inaccurate Quality Mod");
+			text = text.replace(/^SUBQUALUNWIELDY$/g, "Reduces Unwieldy Quality Mod");
+			text = text.replace(/^SUBQUALVICIOUS$/g, "Reduces Vicious Quality Mod");
+			text = text.replace(/^RETRACTWEAPSYSTEM$/g, "Weapon System Retracts When Not In Use Mod");
+			text = text.replace(/^MOVEBASIC$/g, "Move Item as a Maneuver Mod");
+			// A skill key is FFG's printed "N Skill (Athletics) Mods" -- confirmed
+			// against the Strength Enhancing System, whose Modification Options read
+			// exactly that for its {"Key":"ATHL","Count":2}. Names come from
+			// oggdudes-data/Skills.xml, the same table the Careers and Species
+			// importers resolve against, so one skill reads the same on every tab.
+			// A SkillIsCareer mod shares these keys but means something else; see
+			// infoFilter, which is the only place the flag is visible.
+			// The three characteristics take the "Increase ... Mod" shape of the
+			// Soak and Defense lines above, matching the book's "Increases wearer's
+			// Brawn by one point".
+			text = text.replace(/^ASTRO$/g, "Skill (Astrogation) Mod");
+			text = text.replace(/^ATHL$/g, "Skill (Athletics) Mod");
+			text = text.replace(/^BRAWL$/g, "Skill (Brawl) Mod");
+			text = text.replace(/^CHARM$/g, "Skill (Charm) Mod");
+			text = text.replace(/^COERC$/g, "Skill (Coercion) Mod");
+			text = text.replace(/^COMP$/g, "Skill (Computers) Mod");
+			text = text.replace(/^COOL$/g, "Skill (Cool) Mod");
+			text = text.replace(/^COORD$/g, "Skill (Coordination) Mod");
+			text = text.replace(/^CORE$/g, "Skill (Core Worlds) Mod");
+			text = text.replace(/^DECEP$/g, "Skill (Deception) Mod");
+			text = text.replace(/^DISC$/g, "Skill (Discipline) Mod");
+			text = text.replace(/^EDU$/g, "Skill (Education) Mod");
+			text = text.replace(/^GUNN$/g, "Skill (Gunnery) Mod");
+			text = text.replace(/^LEAD$/g, "Skill (Leadership) Mod");
+			text = text.replace(/^LORE$/g, "Skill (Lore) Mod");
+			text = text.replace(/^LTSABER$/g, "Skill (Lightsaber) Mod");
+			text = text.replace(/^MECH$/g, "Skill (Mechanics) Mod");
+			text = text.replace(/^MED$/g, "Skill (Medicine) Mod");
+			text = text.replace(/^NEG$/g, "Skill (Negotiation) Mod");
+			text = text.replace(/^OUT$/g, "Skill (Outer Rim) Mod");
+			text = text.replace(/^PERC$/g, "Skill (Perception) Mod");
+			text = text.replace(/^PILOTPL$/g, "Skill (Piloting - Planetary) Mod");
+			text = text.replace(/^PILOTSP$/g, "Skill (Piloting - Space) Mod");
+			text = text.replace(/^RANGLT$/g, "Skill (Ranged - Light) Mod");
+			text = text.replace(/^RESIL$/g, "Skill (Resilience) Mod");
+			text = text.replace(/^SKUL$/g, "Skill (Skulduggery) Mod");
+			text = text.replace(/^STEAL$/g, "Skill (Stealth) Mod");
+			text = text.replace(/^SURV$/g, "Skill (Survival) Mod");
+			text = text.replace(/^SW$/g, "Skill (Streetwise) Mod");
+			text = text.replace(/^UND$/g, "Skill (Underworld) Mod");
+			text = text.replace(/^VIGIL$/g, "Skill (Vigilance) Mod");
+			text = text.replace(/^WARF$/g, "Skill (Warfare) Mod");
+			text = text.replace(/^XEN$/g, "Skill (Xenology) Mod");
+			text = text.replace(/^BR$/g, "Increase Brawn Mod");
+			text = text.replace(/^AG$/g, "Increase Agility Mod");
+			text = text.replace(/^INT$/g, "Increase Intellect Mod");
 			text = text.replace(/^QUALADVSUB$/g, "Quality Takes One Less Advantage to Activate Mod");
 			text = text.replace(/^AUTOFIREADV$/g, "Autofire Takes One Less Advantage to Activate Mod");
 			text = text.replace(/^BURNADV$/g, "Burn Takes One Less Advantage to Activate Mod");
@@ -753,9 +917,8 @@ App.filter('descriptorFilter', function ($filter) {
 			text = text.replace(/^LINKEDADV$/g, "Linked Takes One Less Advantage to Activate Mod");
 			text = text.replace(/^STUNADV$/g, "Stun Takes One Less Advantage to Activate Mod");
 			text = text.replace(/^SUNDERADV$/g, "Sunder Takes One Less Advantage to Activate Mod");
-            if (initText == text) {
-                console.log('Please add base mod mapping for: ' + text);
-            }
+            // No miss reported here: a key this list does not hold may still be a
+            // talent, and modFilter is the one that knows the chain failed.
             return text;
         } else {
             return '';
@@ -766,7 +929,6 @@ App.filter('descriptorFilter', function ($filter) {
 App.filter('talentFilter', function ($filter) {
     return function (text) {
         if (typeof text === 'string') {
-            var initText = text;
             text = text.replace(/^ADV$/g, "Adversary");
 			text = text.replace(/^ANAT$/g, "Anatomy Lessons");
 			text = text.replace(/^ALLTERDRIV$/g, "All-Terrain Driver");
@@ -1242,9 +1404,9 @@ App.filter('talentFilter', function ($filter) {
 			text = text.replace(/^SECRETLORE$/g, "Secret Lore");
 			text = text.replace(/^TRANSMOG$/g, "Transmogrify");
 
-            if (initText == text) {
-                console.log('Please add base mod mapping for: ' + text);
-            }
+            // No miss reported here either -- see modFilter. This list ran second,
+            // so by now `text` is usually a descriptor's display name rather than
+            // a key, and reporting it named the wrong thing entirely.
             return text;
         } else {
             return '';
@@ -1580,7 +1742,8 @@ App.directive('itemList', function () {
                 $scope.categories = [];
                 $scope.sensorRanges = [];
                 $scope.skills = [];
-                $scope.careerSkills = [];
+                $scope.grantedSkills = [];
+                $scope.restrictions = [];
                 $scope.sources = [];
                 $scope.ranges = [];
                 $scope.qualities = [];
@@ -1648,8 +1811,9 @@ App.directive('itemList', function () {
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.skill, 'SkillKey');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.range, 'RangeValue');
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.sensorRange, 'SensorRange');
+                            filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.restriction, 'Restricted');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.category, 'Categories', 'Key');
-                            filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.careerSkill, 'Skills', 'Name');
+                            filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.grantedSkill, 'Skills', 'Name');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.baseMod, 'BaseMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.addedMod, 'AddedMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.quality, 'Qualities', 'Key');
@@ -1732,7 +1896,7 @@ App.directive('itemList', function () {
                 $scope.fetchSource = function () {
                     $scope.loading = true;
                     $http.get($scope.sourceUrl).then(function (res) {
-                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, categories, vehicleWeapons, builtInAttachments, specializations, outputItems = [];
+                        var i, l, i2, l2, items, qualities, baseMods, addedMods, talents, skills, abilities, sources, categoryLimits, itemLimits, typeLimits, skillLimits, categories, vehicleWeapons, builtInAttachments, specializations, outputItems = [];
                         items = res.data[$scope.name];
                         // Before anything reads the rows, so the sliders' ranges and
                         // the filter dropdowns describe this tab's half of the file.
@@ -1811,6 +1975,29 @@ App.directive('itemList', function () {
                             }
                             if (typeof items[i].HP == 'undefined') {
                                 items[i].HP = 0;
+                            }
+                            // OggDude writes Restricted as the *string* "true" or
+                            // "false", so the value has to be compared -- "false"
+                            // is truthy. It is also simply absent on rows nobody
+                            // flagged either way (204 weapons, 235 gear), and an
+                            // absent flag means the same as an explicit "false":
+                            // defaulting them here is what keeps picking
+                            // "Unrestricted" from hiding two thirds of the tab.
+                            //
+                            // Turned into the label the badge and the dropdown
+                            // both read, the way SkillKey and RangeValue are
+                            // rewritten in place above. Only on the types that
+                            // carry the field at all -- species, careers and
+                            // talents have no legality to speak of, and would
+                            // otherwise get a dropdown with one useless option.
+                            if ($scope.name == 'Weapon' || $scope.name == 'Armor' ||
+                                $scope.name == 'Gear' || $scope.name == 'Vehicle' ||
+                                $scope.name == 'ItemAttachments') {
+                                if (items[i].Restricted == 'true') {
+                                    items[i].Restricted = 'Restricted';
+                                } else {
+                                    items[i].Restricted = 'Unrestricted';
+                                }
                             }
                             if (typeof items[i].Qualities == 'object') {
                                 if (typeof items[i].Qualities.Quality == 'object') {
@@ -2089,15 +2276,21 @@ App.directive('itemList', function () {
                                 }
                             }
                             items[i].CategoryLimit = categoryLimits;
+                            // <ItemLimit> holds <Key>, not <Item> -- reading the
+                            // wrong child left this array empty on all 35 rows
+                            // that carry one, which is why no "Item:" line has
+                            // ever appeared beside the category and type limits.
+                            // The key is an item in another JSON file, so it goes
+                            // through the name list rather than to the template.
                             if (typeof items[i].ItemLimit == 'object') {
-                                if (typeof items[i].ItemLimit.Item == 'string') {
-                                    itemLimits.push(items[i].ItemLimit.Item);
+                                if (typeof items[i].ItemLimit.Key == 'string') {
+                                    itemLimits.push($filter('itemLimitFilter')(items[i].ItemLimit.Key));
                                 }
-                                if (typeof items[i].ItemLimit.Item == 'object') {
-                                    if (typeof items[i].ItemLimit.Item.length == 'number') {
-                                        l2 = items[i].ItemLimit.Item.length;
+                                if (typeof items[i].ItemLimit.Key == 'object') {
+                                    if (typeof items[i].ItemLimit.Key.length == 'number') {
+                                        l2 = items[i].ItemLimit.Key.length;
                                         for (i2 = 0; i2 < l2; i2++) {
-                                            itemLimits.push(items[i].ItemLimit.Item[i2]);
+                                            itemLimits.push($filter('itemLimitFilter')(items[i].ItemLimit.Key[i2]));
                                         }
                                     }
                                 }
@@ -2117,20 +2310,43 @@ App.directive('itemList', function () {
                                 }
                             }
                             items[i].TypeLimit = typeLimits;
+                            // <SkillLimit> holds <Key> too, and the same six skill
+                            // codes the Weapons tab already resolves, so it reuses
+                            // skillFilter rather than a list of its own.
                             if (typeof items[i].SkillLimit == 'object') {
-                                if (typeof items[i].SkillLimit.Skill == 'string') {
-                                    skillLimits.push(items[i].SkillLimit.Skill);
+                                if (typeof items[i].SkillLimit.Key == 'string') {
+                                    skillLimits.push($filter('skillFilter')(items[i].SkillLimit.Key));
                                 }
-                                if (typeof items[i].SkillLimit.Skill == 'object') {
-                                    if (typeof items[i].SkillLimit.Skill.length == 'number') {
-                                        l2 = items[i].SkillLimit.Skill.length;
+                                if (typeof items[i].SkillLimit.Key == 'object') {
+                                    if (typeof items[i].SkillLimit.Key.length == 'number') {
+                                        l2 = items[i].SkillLimit.Key.length;
                                         for (i2 = 0; i2 < l2; i2++) {
-                                            skillLimits.push(items[i].SkillLimit.Skill[i2]);
+                                            skillLimits.push($filter('skillFilter')(items[i].SkillLimit.Key[i2]));
                                         }
                                     }
                                 }
                             }
                             items[i].SkillLimit = skillLimits;
+                            // What decides whether a vehicle mod actually fits the
+                            // hull: a silhouette range, whether it has to be a
+                            // starship, whether the hull needs a hyperdrive, and a
+                            // floor on encumbrance capacity. Built here rather than
+                            // in the template so the Limits cell stays the flat list
+                            // of strings the category and type limits above it are.
+                            //
+                            // A MinSize, MaxSize or MinEncumCap of 0 is OggDude's
+                            // "no bound" and not a limit to print -- two rows pair a
+                            // MinSize of 3 or 5 with a MaxSize of 0 -- and the two
+                            // flags are the string "true"/"false" the way Restricted
+                            // is, so they have to be compared rather than tested.
+                            items[i].SilhouetteLimit = $scope.sizeLimit(items[i].MinSize, items[i].MaxSize);
+                            items[i].StarshipLimit = items[i].MustBeStarship == 'true';
+                            items[i].HyperdriveLimit = items[i].MustHaveHyperdrive == 'true';
+                            if (typeof items[i].MinEncumCap == 'number' && items[i].MinEncumCap > 0) {
+                                items[i].EncumbranceCapacityLimit = items[i].MinEncumCap;
+                            } else {
+                                items[i].EncumbranceCapacityLimit = 0;
+                            }
                             // Weapons, Armor and Gear carry <Categories> too, but some of
                             // their rows use the whitespace-quirk array shape this block
                             // does not read, which would give those tabs a half-populated
@@ -2216,12 +2432,15 @@ App.directive('itemList', function () {
                                 }
                             }
                             items[i].Specializations = specializations;
-                            // Species carry a Skills array too, but theirs are starting
-                            // ranks rather than the six or eight skills a career makes
-                            // cheap, and the dropdown is labelled for careers -- so the
-                            // values are collected on that tab only.
-                            if ($scope.name == 'Career') {
-                                $scope.collectValues(items[i].Skills, 'Name', $scope.careerSkills);
+                            // A career's Skills are the six or eight it makes cheap, a
+                            // species' the one or two it starts with a rank in -- the
+                            // same shape and the same question ("which of these gives
+                            // me Piloting - Space?"), so both tabs collect into the
+                            // one dropdown, which is why it is labelled just "Skill".
+                            // The other types' Skills array is always empty; the gate
+                            // says so rather than relying on it.
+                            if ($scope.name == 'Career' || $scope.name == 'Species') {
+                                $scope.collectValues(items[i].Skills, 'Name', $scope.grantedSkills);
                             }
                             $scope.collectValues(items[i].Qualities, 'Key', $scope.qualities);
                             $scope.collectValues(items[i].BaseMods, 'Key', $scope.baseMods);
@@ -2235,6 +2454,7 @@ App.directive('itemList', function () {
                         $scope.max.Deflection = $scope.getMaxValue(items, 'Deflection');
                         $scope.collectValues(outputItems, 'SkillKey', $scope.skills);
                         $scope.collectValues(outputItems, 'Type', $scope.types);
+                        $scope.collectValues(outputItems, 'Restricted', $scope.restrictions);
                         $scope.collectValues(outputItems, 'RangeValue', $scope.ranges);
                         $scope.collectValues(outputItems, 'SensorRange', $scope.sensorRanges);
                         $scope.min.WoundThreshold = $scope.getMinValue(items, 'WoundThreshold');
@@ -2291,6 +2511,24 @@ App.directive('itemList', function () {
                         quality.Key = $filter('qualityFilter')(quality.Key);
                     }
                     return out;
+                };
+                $scope.sizeLimit = function (min, max) {
+                    // The silhouettes a vehicle attachment fits, as one string.
+                    // 0 is OggDude's "no bound", so a MinSize of 5 beside a
+                    // MaxSize of 0 reads "5+" rather than "5-0"; a row with
+                    // neither bound gets '' and prints no line at all.
+                    var hasMin = typeof min == 'number' && min > 0,
+                        hasMax = typeof max == 'number' && max > 0;
+                    if (hasMin && hasMax) {
+                        return min + '-' + max;
+                    }
+                    if (hasMin) {
+                        return min + '+';
+                    }
+                    if (hasMax) {
+                        return 'up to ' + max;
+                    }
+                    return '';
                 };
                 $scope.collectValues = function (items, attribute, values) {
                     var value, i, l = items.length;

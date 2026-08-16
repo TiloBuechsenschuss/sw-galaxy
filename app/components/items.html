@@ -680,17 +680,36 @@
                         </md-select>
                     </div>
                 </md-list-item>
-                <md-list-item ng-if="careerSkills.length">
-                    <h4 layout="row">Career skill</h4>
+                <!-- Careers and Species both: the skills a career makes cheap and the
+                     ones a species starts with a rank in. Not the "Skill" dropdown
+                     above, which is a weapon's SkillKey -- the two never appear on
+                     the same tab, so both can carry the plain label. -->
+                <md-list-item ng-if="grantedSkills.length">
+                    <h4 layout="row">Skill</h4>
 
                     <div layout="column" layout-margin flex>
-                        <md-select ng-model="filters.careerSkill"
+                        <md-select ng-model="filters.grantedSkill"
                                    ng-change="filterItems()"
                                    multiple=""
-                                   aria-label="Career skill">
-                            <md-option ng-repeat="careerSkill in careerSkills"
-                                       ng-value="careerSkill">
-                                {{careerSkill}}
+                                   aria-label="Skill">
+                            <md-option ng-repeat="grantedSkill in grantedSkills"
+                                       ng-value="grantedSkill">
+                                {{grantedSkill}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </md-list-item>
+                <md-list-item ng-if="restrictions.length">
+                    <h4 layout="row">Legality</h4>
+
+                    <div layout="column" layout-margin flex>
+                        <md-select ng-model="filters.restriction"
+                                   ng-change="filterItems()"
+                                   aria-label="Legality">
+                            <md-option ng-value="">None</md-option>
+                            <md-option ng-repeat="restriction in restrictions"
+                                       ng-value="restriction">
+                                {{restriction}}
                             </md-option>
                         </md-select>
                     </div>
@@ -933,6 +952,16 @@
                                      layout-margin/>
                             </td>
                             <td md-cell>
+                                <!-- Floated, so it sits in the corner of the cell and the
+                                     name flows beside it: item.Name is trusted HTML and
+                                     renders as a block, so an inline badge before or
+                                     after it would land on a line of its own. -->
+                                <span class="sw-restricted"
+                                      ng-if="item.Restricted == 'Restricted'">
+                                    <md-icon md-font-set="material-icons"
+                                             aria-label="Restricted">gavel</md-icon>
+                                    <md-tooltip md-direction="left">Restricted</md-tooltip>
+                                </span>
                                 <div class="sw-description" style="min-width: 200px"
                                      ng-bind-html="item.Name">
                             	</div>
@@ -1182,20 +1211,36 @@
                                     <div class="no-break" ng-repeat="categoryLimit in item.CategoryLimit">
                                         <strong>Category:</strong> {{categoryLimit}}
                                     </div>
+                                    <!-- fetchSource() flattens all four limits to arrays
+                                         of display strings, so these are the same one
+                                         line the category limit above is. They used to
+                                         guard a nested case with isString()/isObject(),
+                                         neither of which is defined on the scope, so the
+                                         ng-if was always false and no Item or Skill limit
+                                         ever rendered. -->
                                     <div class="no-break" ng-repeat="itemLimit in item.ItemLimit">
-                                        <span ng-if="isString(itemLimit)"><strong>Item:</strong> {{itemLimit}}</span>
-                                        <div ng-if="isObject(itemLimit)" class="no-break" ng-repeat="item in itemLimit">
-                                            <strong>Item:</strong> {{item}}
-                                        </div>
+                                        <strong>Item:</strong> {{itemLimit}}
                                     </div>
                                     <div class="no-break" ng-repeat="skillLimit in item.SkillLimit">
-                                        <span ng-if="isString(skillLimit)"><strong>Skill:</strong> {{skillLimit}}</span>
-                                        <div ng-if="isObject(skillLimit)" class="no-break" ng-repeat="skill in skillLimit">
-                                            <strong>Skill:</strong> {{skill}}
-                                        </div>
+                                        <strong>Skill:</strong> {{skillLimit}}
                                     </div>
                                     <div class="no-break" ng-repeat="typeLimit in item.TypeLimit">
                                         <strong>Type:</strong> {{typeLimit}}
+                                    </div>
+                                    <!-- What decides whether a vehicle mod fits the hull.
+                                         Only the vehicle attachments carry these, so the
+                                         lines simply never appear on the other tab. -->
+                                    <div class="no-break" ng-if="item.SilhouetteLimit">
+                                        <strong>Silhouette:</strong> {{item.SilhouetteLimit}}
+                                    </div>
+                                    <div class="no-break" ng-if="item.StarshipLimit">
+                                        <strong>Starship only</strong>
+                                    </div>
+                                    <div class="no-break" ng-if="item.HyperdriveLimit">
+                                        <strong>Needs a hyperdrive</strong>
+                                    </div>
+                                    <div class="no-break" ng-if="item.EncumbranceCapacityLimit">
+                                        <strong>Encum. capacity:</strong> {{item.EncumbranceCapacityLimit}}+
                                     </div>
                                     <div ng-if="item.IsCrystal">
                                         <div><strong>Category:</strong> Lightsaber</div>

@@ -3,36 +3,6 @@
 Roughly in the order they are worth doing. Everything under *Display missing* is
 already in `data/json/` and needs no import at all.
 
-## Display missing
-
-- [ ] **Fix the Limits column on both attachment tabs.** `items.html:1186-1193`
-      calls `isString()` and `isObject()`, and neither is defined on the scope,
-      so `ng-if` is always false and the **"Item:" and "Skill:" limits have never
-      rendered on any build**. 59 attachments carry a non-empty `ItemLimit` and
-      18 a `SkillLimit`; the `CategoryLimit` (139) and `TypeLimit` (58) lines
-      beside them render fine, which is why it has gone unnoticed. Two lines on
-      `$scope`; check both shapes, since the normalisation makes these arrays of
-      strings and the template also handles a nested case.
-- [ ] **Vehicle-attachment fit rules.** Now that the vehicle attachments have
-      their own tab, the fields that decide whether a mod actually fits are the
-      ones missing from it. Of the 125 rows on that tab: `MaxSize` (18),
-      `MustBeStarship` (11), `MinSize` (10), `MustHaveHyperdrive` (3),
-      `MinEncumCap` (3).
-      "Silhouette 3-5, starship only, needs a hyperdrive" belongs in the Limits
-      column next to the category and type limits — an addition to that cell,
-      not a new column.
-- [ ] **`Restricted`.** Flagged on 117 weapons, 132 gear, 105 vehicles, 62
-      attachments and 42 armor, and shown nowhere. It is a one-glyph badge next
-      to the name, and a plausible filter. Note the field is the *string*
-      `"true"`/`"false"`, not a boolean — `"false"` is truthy in JS, so it needs
-      `== 'true'` rather than a truthiness test.
-- [ ] **`Hidden` and `JuryRigged`** on attachments (14 and 100 rows). Same
-      zero-import story, smaller payoff.
-- [ ] **Species skill filter.** Dropping the `Career` gate on the one
-      `collectValues` line at `SWApp.js:2224` would let species be filtered by
-      the skill they grant, reusing the multi-select the Careers tab now has.
-      The dropdown label would need to stop saying "Career skill".
-
 ## Fill in missing details in
 
 OggDude's export ships **no rules text**. Almost every `Description` in the data

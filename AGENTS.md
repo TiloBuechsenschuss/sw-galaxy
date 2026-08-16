@@ -205,6 +205,54 @@ Since two tabs share a type key, the sidenav id is `'sideNav-' + name` with the 
 appended — `$mdSidenav` looks components up by that id, and two `sideNav-Vehicle`s would
 toggle each other's panel.
 
+### The attachment Limits column
+
+One `<td>`, shared by both attachment tabs, holding everything that decides what a mod
+bolts onto. `fetchSource()` flattens all of it to arrays of display strings and plain
+values, so the template is a flat list of `ng-repeat`/`ng-if` lines with no unwrapping of
+its own.
+
+The four `*Limit` blocks each read a *different* child element, which is easy to get
+wrong: `<CategoryLimit><Category>`, `<TypeLimit><Type>`, but `<ItemLimit><Key>` and
+`<SkillLimit><Key>`. Reading `<Item>`/`<Skill>` is what silently emptied those two arrays
+until 2026, so no "Item:" or "Skill:" line had ever rendered. Each comes through as a
+string when there is one and an array when there are several — the SimpleXML shape the
+whole of `fetchSource()` copes with — and an element holding only whitespace arrives as
+`{"0": "\n    "}`, which reads as neither and is correctly ignored.
+
+Both key-valued limits are resolved to display names rather than printed raw:
+`SkillLimit` reuses `skillFilter` (its six codes are the ones the Weapons tab already
+maps); `ItemLimit` gets its own `itemLimitFilter`, 22 anchored `text.replace` lines in the
+`descriptorFilter` style, because the items it names live in JSON files the attachment
+tabs never load and a runtime lookup would mean extra fetches. Unmapped keys log
+`Please add an item limit mapping for: …`.
+
+The vehicle fit rules land in the same cell rather than in columns of their own —
+`MinSize`/`MaxSize` via the `$scope.sizeLimit()` helper, plus `MustBeStarship`,
+`MustHaveHyperdrive` and `MinEncumCap`. **`0` is OggDude's "no bound", not a limit:** two
+rows pair a real `MinSize` with a `MaxSize` of 0, so a truthiness test would print
+"Silhouette 5-0".
+
+### `Restricted`
+
+The string `"true"`/`"false"`, never a boolean — `"false"` is truthy, so it must be
+compared. It is also simply **absent** on the rows nobody flagged either way (204 weapons,
+235 gear, 218 attachments), and an absent flag means the same as an explicit `"false"`.
+
+`fetchSource()` therefore rewrites it in place to `'Restricted'`/`'Unrestricted'`, the way
+`SkillKey` and `RangeValue` are rewritten, defaulting the absent case — otherwise picking
+"Unrestricted" in the Legality dropdown would hide two thirds of the tab. That gives a
+badge condition (`item.Restricted == 'Restricted'`, a floated `gavel` icon in the Name
+cell) and a `collectValues` + `fulltextFilter` dropdown for free, with no new filter.
+
+The rewrite is gated to the five types that carry the field: species, careers and talents
+have no legality, and would otherwise get a dropdown with one useless option.
+
+**`Hidden` and `JuryRigged` are deliberately not shown.** `Hidden` is OggDude's
+"don't offer this in the picker" flag — its 14 rows are the Special Modifications crafting
+templates plus two "Lessons" gear entries — not a game rule. `JuryRigged` is true on
+exactly two rows, both already named "Jury Rigged (Armor)" and "Jury Rigged (Weapon)".
+
 ### Careers and Talents
 
 Both are reference tabs with no artwork and no numeric sliders, so they have no image
@@ -227,12 +275,13 @@ The tab's two filters are both reuse rather than new machinery:
   multi-select picks it up. The rating stays in its own field, where the sortable Force
   column reads it. `verify_convert.py` asserts the tag and the rating never disagree,
   since the filter would otherwise select the wrong set.
-- **Career skill** is `arrayFulltextFilter` over the normalised `Skills` array on `Name`,
-  populated into `$scope.careerSkills` — all 35 skills in the game appear. Selecting
+- **Skill** is `arrayFulltextFilter` over the normalised `Skills` array on `Name`,
+  populated into `$scope.grantedSkills` — all 35 skills in the game appear. Selecting
   several is an AND, so `Cool` + `Piloting - Space` gives the three careers with both.
-  Species carry a `Skills` array too, but theirs are starting ranks and the dropdown is
-  labelled for careers, so `collectValues` is gated to `Career`; dropping that gate is
-  all it would take to offer the same filter on Species.
+  Species carry a `Skills` array of the same shape (their starting ranks, 23 distinct
+  skills), so `collectValues` is gated to `Career` **or** `Species` and both tabs share
+  the one dropdown. It is labelled plainly "Skill" for that reason; the other "Skill"
+  dropdown is a weapon's `SkillKey` and the two never appear on the same tab.
 
 **Talents** is 601 rows out of 604 listings: `FORCEWILL`, `WORKLIKECHARM` and
 `ANALYZEDATA` are each listed twice, and the importer merges them, unioning their
@@ -321,20 +370,86 @@ Most of `SWApp.js` is AngularJS filters. Two distinct groups:
   Results are paginated in JS: 10 shown initially, `increaseLimit()` adds 100, `showAll()`
   adds the rest.
 - **Rendering filters** — `nameFilter`, `descriptionFilter`, `infoFilter`, `symbolFilter`,
-  `qualityFilter`, `tooltipFilter`, `skillFilter`, `rangeFilter`, `modFilter`,
-  `descriptorFilter`, `talentFilter`. These turn OggDude's markup and key codes into HTML.
+  `qualityFilter`, `tooltipFilter`, `skillFilter`, `itemLimitFilter`, `rangeFilter`,
+  `modFilter`, `descriptorFilter`, `talentFilter`. These turn OggDude's markup and key
+  codes into HTML.
 
 The rendering filters produce HTML that is passed through `$sce.trustAsHtml`. The source
 data is a trusted, committed artifact, so this is intentional — but it does mean any newly
 introduced data source is effectively trusted code. Keep that in mind before wiring up
 user-supplied or remote data.
 
-`descriptorFilter` and `talentFilter` are long, flat lists of
+`descriptorFilter`, `talentFilter` and `itemLimitFilter` are long, flat lists of
 `text.replace(/^KEY$/g, "Human readable name")` lines — several hundred of them. This is
-the intended shape of the code: when the data contains a key with no mapping, the filters
-log `Please add base mod mapping for: <KEY>` to the console. **Adding a missing mapping
-means adding one more `text.replace` line in the right list, in the existing style** —
-do not refactor these into lookup tables unless explicitly asked.
+the intended shape of the code: when the data contains a key with no mapping, the console
+gets `Please add base mod mapping for: <KEY>`. **Adding a missing mapping means adding one
+more `text.replace` line in the right list, in the existing style** — do not refactor these
+into lookup tables unless explicitly asked.
+
+**Only `modFilter` reports a missing base-mod mapping.** It tries `descriptorFilter` then
+`talentFilter`, then runs `symbolFilter` over whatever comes out. A mod key is a descriptor
+or a talent, never both — the two lists share no key — so a list that logged its own misses
+would report every key the other resolves. Both used to, which is where console lines naming
+*already-resolved display text* came from (`Please add base mod mapping for: Additional
+Damage Mod` — `talentFilter` reporting a key `descriptorFilter` had just mapped correctly).
+Neither list has any caller but `modFilter`. If you add a third list, do not give it a log
+of its own.
+
+`modFilter` returns as soon as one list matches. That is exactly what running both always
+did: every line in both is anchored `/^KEY$/`, so a display name — which has spaces in it —
+can never match the other list. `symbolFilter` is unanchored by design and still runs last.
+
+**A talent key is wrapped as the books print it**: `BRA` → `Innate Talent (Brace) Mod`, so
+a `Count` of 2 renders "2 x Innate Talent (Brace) Mod" against the printed "2 Innate Talent
+(Brace) Mods". The wrap lives in `modFilter`, not in `talentFilter`'s 474 lines, because
+everything that list resolves *is* a talent the item grants — it has no other caller. All 33
+talent keys the data uses are real rows on the Talents tab and each equals that talent's own
+`Key`. Three talent-sounding names — Demon Mask, Iron Fists, Meditation Focus — live in
+`descriptorFilter` and stay unwrapped, correctly: none is in `Talents.json`, and each is an
+artifact effect named after its own piece of gear.
+
+### Base mods, and the three shapes of a skill mod
+
+`infoFilter` renders `<BaseMods>` and `<AddedMods>` under **Base Mods** and **Additional
+Mods**, which is the books' own *Base Modifiers* / *Modification Options* split: the first
+is what the item always does, the second what you can install into its hard points.
+
+A `<Mod>` is either a `<MiscDesc>` — free prose, printed as-is — or a `<Key>` with an
+optional `Count`, printed by `modLine()` as `"2 x Skill (Athletics) Mod"` or
+`"2 x Innate Talent (Brace) Mod"`. **One `<Mod>` can hold two `<MiscDesc>` siblings**, which
+SimpleXML turns into an array; the Glop Grenade is the row that does, and reading only the
+string shape dropped both sentences and logged `debugging!`, since a MiscDesc-only mod has
+no `<Key>` to fall back on.
+
+The Strength Enhancing System is the row to check a change against, because its printed
+entry covers both halves and both key kinds:
+
+| Book | Data | Rendered |
+| --- | --- | --- |
+| Base Modifiers: *increases wearer's Brawn by one point* | `BaseMods` `{BR, Count 1}` | Base Mods: `1 x Increase Brawn Mod` |
+| Modification Options: *2 Skill (Athletics) Mods, 2 Innate Talent (Brace) Mods* | `AddedMods` `{ATHL, Count 2}`, `{BRA, Count 2}` | Additional Mods: `2 x Skill (Athletics) Mod`, `2 x Innate Talent (Brace) Mod` |
+
+A skill `<Key>` arrives three ways, and the flags are visible only in `infoFilter` —
+`descriptorFilter` sees the bare key:
+
+| Shape | Means | Renders |
+| --- | --- | --- |
+| `{Key, Count}` | the printed "N Skill (X) Mods" | `2 x Skill (Athletics) Mod` |
+| `{Key, Count, SkillIsRanked}` | a rank granted outright (2 rows, CAAF-2 Avionics Interface) | same — a Skill Mod *is* a rank |
+| `{Key, SkillIsCareer}` | no Count, grants nothing; makes the skill a **career skill** | `Athletics as a career skill` |
+
+The wording is checked against the book: the Strength Enhancing System prints
+*"Base Modifiers: Increases wearer's Brawn by one point"* and *"Modification Options: 2
+Skill (Athletics) Mods"* for its `{BR, Count 1}` and `{ATHL, Count 2}`. Skill names come
+from `oggdudes-data/Skills.xml`, the table the Careers and Species importers already
+resolve against, so a skill reads the same on every tab. The three characteristics
+(`AG`/`BR`/`INT` → Agility/Brawn/Intellect) take the `Increase … Mod` shape of the Soak and
+Defense lines.
+
+`modLine()` recognises a skill mod by the `Skill (…) Mod` wording `descriptorFilter`
+produces — that string is the marker, since nothing else distinguishes a skill key. Reword
+those 33 lines and the career case degrades to printing the Skill Mod line; it does not
+break.
 
 OggDude's inline markup handled by the rendering filters: `[H3]…[h3]`, `[H4]…[h4]`,
 `[B]…[b]`, `[I]…[i]`, `[P]`, `[BR]`, and dice/symbol tokens such as `[ADVANTAGE]`/`[AD]`,
@@ -412,10 +527,13 @@ and a throwaway script beats a guess. Everything below has caught a real bug in 
 - **Simulate the normalisation in Node** against the real `data/json/*.json` to confirm a
   new type produces the shapes the template expects — and that the other tabs are
   untouched.
-- **Predict the console.** The page should stay quiet. Extract the keys the data actually
-  contains and check them against the `text.replace(/^KEY$/g, …)` lists in
-  `descriptorFilter`/`talentFilter`/`qualityFilter`; anything unmapped becomes a
-  `Please add base mod mapping for: …` line at runtime.
+- **Predict the console.** The page should stay quiet, and as of the base-mod pass it is:
+  zero `Please add base mod mapping for: …` and zero `debugging!` against the committed
+  data. Extract the keys the data actually contains and run them through the
+  `text.replace(/^KEY$/g, …)` lists in `descriptorFilter`/`talentFilter`/`qualityFilter`.
+  Pull those lists out of `SWApp.js` rather than re-typing them — take every
+  `text = text.replace(` line between one `App.filter(` and the next, or a comment inside
+  the list will silently truncate the extraction and report mappings as missing.
 
 ### What only the owner can check
 
