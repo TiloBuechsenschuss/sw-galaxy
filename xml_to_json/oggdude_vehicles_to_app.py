@@ -10,11 +10,11 @@ Reads  <source>/Vehicles/*.xml          (one file per vehicle, OggDude's format)
        <source>/ItemAttachments.xml     (Key -> display name, for built-ins)
 Writes xml_to_json/xml_sources/oggdude/Vehicles.xml   (override with --out)
 
-Then run convert.py (or convert.php) to regenerate data/json/Vehicles.json.
+Then run convert.py to regenerate data/json/Vehicles.json.
 
 Why this exists
 ---------------
-Same reason as oggdude_species_to_app.py: convert.php does a mechanical
+Same reason as oggdude_species_to_app.py: convert.py does a mechanical
 XML->JSON conversion and never reshapes anything, so a source file has to
 ALREADY be in the schema the app reads. Armor, Weapons, Gear and
 ItemAttachments ship as one file each and are copied straight across. Vehicles

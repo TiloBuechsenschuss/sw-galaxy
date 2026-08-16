@@ -16,7 +16,7 @@ App.config(function ($mdThemingProvider) {
  * Names must match the Book name in the data exactly.
  *
  * Empty on purpose: the only entry this ever held was excluded from the import
- * instead, so no data carries it any more. See $excludedBooks in convert.php.
+ * instead, so no data carries it any more. See EXCLUDED_BOOKS in convert.py.
  */
 App.constant('defaultDisabledSources', []);
 

@@ -36,3 +36,7 @@ Temporary Items
 # Byte-compiled output from the xml_to_json/ conversion scripts
 __pycache__/
 *.py[cod]
+### The wiki page cache
+# xml_to_json/wiki.py downloads pages here. A cache, not a source: regenerate
+# it with "python xml_to_json/wiki.py cache <Category>".
+xml_to_json/wiki_cache/

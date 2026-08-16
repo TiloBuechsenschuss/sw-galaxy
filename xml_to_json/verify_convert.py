@@ -4,14 +4,15 @@ Regression checks for the conversion pipeline.
 
     python xml_to_json/verify_convert.py
 
-Run this after touching convert.py, convert.php or oggdude_species_to_app.py.
+Run this after touching convert.py or any oggdude_*_to_app.py.
 Exits non-zero if anything fails.
 
 Check 1 -- converter fidelity
     Rebuild every data/json/*.json from the committed XML sources and compare to
-    what is on disk. This is what proves the Python port behaves like the PHP
-    one; it is how the SimpleXML quirks (dropped attributes, whitespace-only
-    elements, is_numeric's trailing-space rule, nested comments) were found.
+    what is on disk. data/json/ is a committed deployment artifact, so this is
+    the check that keeps the converter's parsing quirks (dropped attributes,
+    whitespace-only elements, the trailing-space rule on numbers, nested
+    comments) intact -- it is how each of them was found in the first place.
 
 Check 2 -- schema mapping
     Check the OggDude -> app-schema translation against the OggDude source
@@ -56,6 +57,22 @@ Check 5 -- talent schema mapping
       * every ActivationValue resolves to display text
       * the Ranked / Force / Conflict categories match the flags in the source,
         and nothing else is invented
+
+Check 6 -- the wiki description override
+    xml_sources/fandom-wiki/ overrides whole rows, because that is the only
+    precedence convert.py has, but it is only ever meant to replace the
+    Description. So:
+
+      * every row it holds has a counterpart with the same Key in another
+        source folder -- an override with nothing to override is a row the app
+        would silently gain
+      * the two rows are identical everywhere except <Description>, tags,
+        attributes and text compared in order
+      * the new Description is not empty and is not another page pointer
+
+    This is the check that would catch a row rewritten by hand, or an oggdude
+    re-import that moved a field the override folder is still carrying an old
+    copy of.
 """
 import glob
 import json
@@ -517,9 +534,83 @@ def check_talents():
     return not failures
 
 
+def _shape(el):
+    """
+    An element as (tag, attributes, text, children) -- everything but the
+    Description, which is the one field the override folder is allowed to
+    change. Order is kept: two rows listing the same tags differently are not
+    the same row.
+    """
+    return (el.tag, tuple(sorted(el.attrib.items())), (el.text or '').strip(),
+            tuple(_shape(c) for c in el if c.tag != 'Description'))
+
+
+def check_wiki_override():
+    print()
+    print('=' * 72)
+    print('Check 6: the wiki description override only changes descriptions')
+    print('=' * 72)
+    override_dir = os.path.join(ROOT, 'xml_to_json', 'xml_sources', 'fandom-wiki')
+    if not os.path.isdir(override_dir):
+        print('  xml_sources/fandom-wiki not present -- skipped')
+        return True
+
+    failures = []
+    for path in sorted(glob.glob(os.path.join(override_dir, '*.xml'))):
+        file_name = os.path.basename(path)
+        row_tag = next((k for k, v in convert.VALID_FILE_NAMES.items()
+                        if v == file_name), None)
+        if row_tag is None:
+            failures.append('%s is not a file name convert.py knows' % file_name)
+            continue
+
+        base = OrderedDict()
+        for other in sorted(glob.glob(os.path.join(
+                ROOT, 'xml_to_json', 'xml_sources', '*', file_name))):
+            if os.path.dirname(other) == override_dir:
+                continue
+            for row in ET.parse(other).getroot().findall(row_tag):
+                key = (row.findtext('Key') or '').strip()
+                if key and key not in base:
+                    base[key] = row
+
+        rows = ET.parse(path).getroot().findall(row_tag)
+        orphans, changed, empty, pointers = [], [], [], []
+        for row in rows:
+            key = (row.findtext('Key') or '').strip()
+            original = base.get(key)
+            if original is None:
+                orphans.append(key)
+                continue
+            if _shape(row) != _shape(original):
+                changed.append(key)
+            text = (row.findtext('Description') or '').strip()
+            if not text:
+                empty.append(key)
+            elif 'please see page' in text.lower():
+                pointers.append(key)
+
+        for label, bad in (('rows with no row to override', orphans),
+                           ('rows changed outside Description', changed),
+                           ('empty descriptions', empty),
+                           ('descriptions still a page pointer', pointers)):
+            print('  %-16s %-38s %s' % (file_name, label + ':', not bad))
+            if bad:
+                failures.append('%s: %s (%d) %s'
+                                % (file_name, label, len(bad), sorted(bad)[:5]))
+        print('  %-16s %d rows override %d' % (file_name, len(rows), len(base)))
+
+    if failures:
+        print()
+        print('  FAILURES:')
+        for f in failures:
+            print('    %s' % f)
+    return not failures
+
+
 if __name__ == '__main__':
     checks = [check_converter(), check_mapping(), check_vehicles(),
-              check_careers(), check_talents()]
+              check_careers(), check_talents(), check_wiki_override()]
     print()
     print('RESULT:', 'PASS' if all(checks) else 'FAIL')
     sys.exit(0 if all(checks) else 1)

@@ -10,11 +10,11 @@ Reads  <source>/Species/*.xml        (one file per species, OggDude's own format
        <source>/Talents.xml          (Key -> display name)
 Writes xml_to_json/xml_sources/oggdude/Species.xml   (override with --out)
 
-Then run convert.py (or convert.php) to regenerate data/json/Species.json.
+Then run convert.py to regenerate data/json/Species.json.
 
 Why this exists
 ---------------
-convert.php does a mechanical XML->JSON conversion; it never reshapes anything.
+convert.py does a mechanical XML->JSON conversion; it never reshapes anything.
 So a source file has to ALREADY be in the schema the app reads -- the one
 items.html binds against -- which is not the schema OggDude ships:
 

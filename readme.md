@@ -35,9 +35,6 @@ python -m http.server 8000
 
 # Node.js
 npx http-server -p 8000 -c-1
-
-# PHP
-php -S localhost:8000
 ```
 
 Then open <http://localhost:8000> in your browser. An internet connection is required on
@@ -68,8 +65,7 @@ HTML it serves, so use it for development only; it is not a deployment target.
 
 ### Convert the XML data from OggDude Character Generator to JSON files for the STAR WARS GALAXY web application.
 
-Just move following files from the `SWEotECharGen` folder into the folder `xml_to_json/xml_sources/oggdude` and execute
-the php script `xml_to_json/convert.php` from a unix like shell like this: `php xml_to_json/convert.php`.
+Just move following files from the `SWEotECharGen` folder into the folder `xml_to_json/xml_sources/oggdude`:
 
 ```
 Data/Armor.xml
@@ -78,9 +74,7 @@ Data/ItemAttachments.xml
 Data/Weapons.xml
 ```
 
-If you are running a web server like apache or nginx, you can run the `convert.php` script with a http request too.
-
-No PHP? There is a Python port that produces the same output:
+Then run the converter. Python 3 is all it needs — no packages to install:
 
 ```
 python xml_to_json/convert.py            # convert everything
@@ -92,14 +86,14 @@ python xml_to_json/verify_convert.py     # check nothing regressed
 
 Multiple data sets can be merged too. Just create a new folder in `xml_to_json/xml_sources`. The name of the new folder is up to yours.
 Then copy your custom XML files in. Currently following file names are supported: `Armor.xml`, `Gear.xml`, `ItemAttachments.xml`, `Weapons.xml`, `Species.xml`.
-Then run the `convert.php` like described above.
+Then run `convert.py` like described above.
 
 Folders are read in alphabetical order and the first entry for a given `Key` wins, so an
 earlier-sorting folder takes priority.
 
 Some books can be left out of the import entirely: any entry whose sources are all listed in
-`$excludedBooks` (`convert.php`) / `EXCLUDED_BOOKS` (`convert.py`) is skipped, so it shows up
-neither in the data nor in the app's Source filter. Add a book name there to drop it.
+`EXCLUDED_BOOKS` (`convert.py`) is skipped, so it shows up neither in the data nor in the
+app's Source filter. Add a book name there to drop it.
 
 Species XML from OggDude uses a different schema than this app reads, so it has to be
 translated first with `python xml_to_json/oggdude_species_to_app.py`.

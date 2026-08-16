@@ -45,7 +45,7 @@
                     "Rigger"
                 ]
             },
-            "Description": "[H4]Ace [h4]\nPlease see page 64 of the Age of Rebellion Core Rulebook for details.",
+            "Description": "Piloting vehicles, from repulsorlift speeders to massive starships and everything in between, is a fairly common skill for anyone who lives outside of a completely isolated society.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -93,7 +93,7 @@
                     "Strategist"
                 ]
             },
-            "Description": "[H4]Commander [h4]\nPlease see page 70 of the Age of Rebellion Core Rulebook for details.",
+            "Description": "The role of a Commander is to organize, manage, and lead the fighters and other people who serve in a military force so they accomplish truly great things.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -141,7 +141,7 @@
                     "Propagandist"
                 ]
             },
-            "Description": "[H4]Diplomat[h4]\nPlease see page 76 of the Age of Rebellion Core Rulebook for details.",
+            "Description": "The single most important resource in any war is people, and the Diplomat is the procurer of this resource, as well as the one who guides its use.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -189,7 +189,7 @@
                     "Sapper"
                 ]
             },
-            "Description": "[H4]Engineer[h4]\nPlease see page 82 of the Age of Rebellion Core Rulebook for details.",
+            "Description": "There would be no Galactic Civil War if not for the massive technological capabilities of both the Empire and the Alliance.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -237,7 +237,7 @@
                     "Vanguard"
                 ]
             },
-            "Description": "[H4]Soldier[h4]\nPlease see page 88 of the Age of Rebellion Core Rulebook for details.",
+            "Description": "Soldiers are the ones who take up arms and face death for a cause, for pay, or sometimes for lack of anything better to do.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -285,7 +285,7 @@
                     "Sleeper Agent"
                 ]
             },
-            "Description": "[H4]Spy[h4]\nPlease see page 94 of the Age of Rebellion Core Rulebook for details.",
+            "Description": "Soldiers of a different type, Spies seek out the secrets of the enemy, undo the enemy's plans and hinder the enemy's ability to do battle effectively.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -333,7 +333,7 @@
                     "Skip Tracer"
                 ]
             },
-            "Description": "[H4]Bounty Hunter[h4]\nPlease see page 56 of the Edge of the Empire Core Rulebook for details.",
+            "Description": "The name says it all: this is a hunter who seeks to collect bounties for their work.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -381,7 +381,7 @@
                     "Performer"
                 ]
             },
-            "Description": "[H4]Colonist[h4]\nPlease see page 62 of the Edge of the Empire Core Rulebook for details.",
+            "Description": "In a way, Colonists are the most out-of-place people in the Outer Rim.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -429,7 +429,7 @@
                     "Big-Game Hunter"
                 ]
             },
-            "Description": "[H4]Explorer[h4]\nPlease see page 67 of the Edge of the Empire Core Rulebook for details.",
+            "Description": "An Empire is vast, but it is a mere fraction of the galaxy, and the Explorer seeks to uncover the countless mysteries and opportunities the universe contains.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -477,7 +477,7 @@
                     "Heavy"
                 ]
             },
-            "Description": "[H4]Hired Gun[h4]\nPlease see page 74 of the Edge of the Empire Core Rulebook for details.",
+            "Description": "When it comes to fighting, the Hired Gun is at the forefront.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -525,7 +525,7 @@
                     "Gunslinger"
                 ]
             },
-            "Description": "[H4]Smuggler[h4]\nPlease see page 80 of the Edge of the Empire Core Rulebook for details.",
+            "Description": "Though they spend most of their lives struggling to avoid Imperial entanglements, keeping their ships flying, dodging blaster fire, and having enough to eat, Smugglers are often seen as the freest beings in the galaxy.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -573,7 +573,7 @@
                     "Modder"
                 ]
             },
-            "Description": "[H4]Technician[h4]\nPlease see page 86 of the Edge of the Empire Core Rulebook for details.",
+            "Description": "Pretty much anything to do with technology or mechanical devices lies within the Technician's purview.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -622,7 +622,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Consular[h4]\nPlease see page 66 of the Force and Destiny Core Rulebook for details.",
+            "Description": "The Consular focuses on the goal of achieving peace and harmony through positive discourse.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -671,7 +671,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Guardian[h4]\nPlease see page 72 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Adherents of the Guardian career are driven by a strong sense of responsibility and compassion.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -720,7 +720,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Mystic[h4]\nPlease see page 78 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Characters who follow the Mystic career are typically born to accept this mantle.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -769,7 +769,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Seeker[h4]\nPlease see page 84 of the Force and Destiny Core Rulebook for details.",
+            "Description": "It is not uncommon for some Force adepts to feel compelled to travel throughout the galaxy to aid those in need and to oppose those who use the dark side.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -818,7 +818,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Sentinel[h4]\nPlease see page 90 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Every city has its secrets, and every shining beacon of civilization has its seedy underworld.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -867,7 +867,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Warrior[h4]\nPlease see page 96 of the Force and Destiny Core Rulebook for details.",
+            "Description": "Though the lightsaber is an iconic weapon of many Force users, some dedicate themselves wholly to becoming paragons of strife.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -924,7 +924,7 @@
                 ]
             },
             "FreeRanks": 4,
-            "Description": "[H4]Clone Soldier[h4]\nPlease see page 18 of the Rise of the Separatists Sourcebook and page 18 of the Collapse of the Republic Sourcebook  for details.",
+            "Description": "In the beginning of the Clone Wars, the Grand Army of the Republic consisted of identical soldiers with training along specific parameters: ground combat, air combat, and officer and leadership training.",
             "Thumbnail": "img\/no_image.png"
         },
         {
@@ -971,7 +971,7 @@
                 "ForceRating": 1
             },
             "FreeRanks": 3,
-            "Description": "[H4]Jedi[h4]\nPlease see page 24 of the Rise of the Separatists Sourcebook for details.",
+            "Description": "Before the Clone Wars, the Jedi acted as an independent troubleshooting body and also as a monastic order meditating on the nature of the Force and philosophizing on members' role in the galaxy. Now, they serve as generals and commanders constantly involved in war.",
             "Thumbnail": "img\/no_image.png"
         }
     ]

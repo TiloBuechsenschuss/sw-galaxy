@@ -2,8 +2,8 @@
 """
 XML -> JSON converter for STAR WARS GALAXY.
 
-A Python port of convert.php, for machines without PHP. Both converters produce
-the same output; if you change one, change the other (see README.md).
+The only converter. It was once a port of a PHP script, convert.php, which is
+why the output format looks the way it does -- see "Output format" below.
 
     python xml_to_json/convert.py                # convert everything
     python xml_to_json/convert.py --only Species # just one type
@@ -21,9 +21,17 @@ Merge rules
 * Rows are then sorted by their first Source book, then by Name, then by Key,
   so the committed JSON has a stable diff.
 
-Output format matches the committed files: pretty-printed with 4 spaces,
-forward slashes escaped the way PHP does it, ASCII-only, CRLF, no trailing
-newline.
+Output format
+-------------
+Matches the committed files exactly: pretty-printed with 4 spaces, forward
+slashes escaped, ASCII-only, CRLF, no trailing newline. Several of the parsing
+rules below look arbitrary and are not -- each was derived by regenerating the
+committed JSON and diffing until it matched.
+
+They are the quirks of the original PHP converter, which no longer exists. They
+stay because data/json/*.json is a committed deployment artifact and
+verify_convert.py fails on any drift: "simplifying" one of them turns into
+several hundred lines of spurious diff across files nobody touched.
 """
 import argparse
 import json
@@ -56,16 +64,18 @@ _FLOAT_RE = re.compile(r'^[+-]?(\d+\.\d*|\.\d+|\d+)([eE][+-]?\d+)?$')
 
 
 # --------------------------------------------------------------------------
-# PHP simplexml_load_string() + json_encode(JSON_NUMERIC_CHECK) emulation.
+# The committed JSON's parsing rules.
 #
-# Every rule below was derived by regenerating the committed JSON from the
+# Inherited from the original PHP converter -- simplexml_load_string() plus
+# json_encode(JSON_NUMERIC_CHECK) -- and kept because the committed data has
+# this shape. Every rule was derived by regenerating the committed JSON from the
 # committed XML and diffing until it matched. Do not "simplify" them.
 # --------------------------------------------------------------------------
 
 def numeric_check(s):
     """
-    JSON_NUMERIC_CHECK uses PHP 7 is_numeric(): leading whitespace is allowed,
-    trailing whitespace is not. Weapons.xml has "<Count>4\\n        </Count>",
+    A numeric-looking string becomes a number, but leading whitespace is allowed
+    and trailing whitespace is not. Weapons.xml has "<Count>4\\n        </Count>",
     which stays the string '4\\n        ' rather than becoming 4.
     """
     t = s.lstrip(' \t\n\r\v\f')
@@ -93,8 +103,8 @@ def node_name(c):
 def sx_to_obj(el):
     """Convert an Element the way SimpleXML + json_encode would."""
     if el.tag is ET.Comment:
-        # A comment exposes no content -> empty object. This is why convert.php
-        # has to unset($data->comment); nested ones survive as "comment": {}.
+        # A comment exposes no content -> empty object. This is why the top-level
+        # 'comment' key is popped below; nested ones survive as "comment": {}.
         return OrderedDict()
 
     children = [c for c in el if c.tag is ET.Comment or isinstance(c.tag, str)]
@@ -126,7 +136,6 @@ def expand_source_pages(root):
     those 1783 page numbers never reached the JSON and the item cards rendered a
     book with no page. Rewrite them into the <Book>/<Page> child shape before
     converting -- the shape Species already use and items.html already renders.
-    convert.php does the same in expandSourcePages().
     """
     for src in list(root.iter('Source')):
         page = src.get('Page')
@@ -156,11 +165,11 @@ def drop_duplicate_siblings(root):
     * tag, attributes and text must all match, so the two <Source Page="42"> /
       <Source Page="46"> entries CONCMISSILEMK10 has for Dangerous Covenants are
       kept -- same book, two pages, and both belong in the JSON;
-    * whitespace-only and empty elements are skipped, so PHP quirk 2 still holds
-      and <ItemLimit /> style placeholders survive untouched.
+    * whitespace-only and empty elements are skipped, so the whitespace-only rule
+      in sx_to_obj() still holds and <ItemLimit /> placeholders survive untouched.
 
     Runs before expand_source_pages(), so an exactly duplicated <Source> would be
-    caught here too. convert.php does the same in dropDuplicateSiblings().
+    caught here too.
     """
     for parent in list(root.iter()):
         seen = set()
@@ -243,18 +252,18 @@ def mixes_excluded_book(row):
 # Output order
 # --------------------------------------------------------------------------
 
-_PHP_TRIM = ' \t\n\r\0\x0b'                 # exactly what PHP trim() strips
+_TRIM = ' \t\n\r\0\x0b'                     # the characters the sort key strips
 _ASCII_LOWER = str.maketrans('ABCDEFGHIJKLMNOPQRSTUVWXYZ',
                              'abcdefghijklmnopqrstuvwxyz')
 
 
 def _fold(value):
     """
-    PHP's strtolower(trim($s)). str.lower() would also fold non-ASCII letters,
-    which PHP's byte-wise strtolower leaves alone -- keep the two converters
-    ordering identically.
+    ASCII-only lowercasing after a trim. str.lower() would also fold non-ASCII
+    letters, which would reorder the committed rows -- the fold has to stay
+    byte-wise.
     """
-    return str(value).strip(_PHP_TRIM).translate(_ASCII_LOWER)
+    return str(value).strip(_TRIM).translate(_ASCII_LOWER)
 
 
 def sort_book(row):
@@ -266,7 +275,7 @@ def sort_book(row):
 def sort_key(row):
     """
     First Source book, then Name, then Key as tie-breaker. Comparing codepoints
-    matches PHP's strcmp() on bytes, because UTF-8 preserves codepoint order.
+    matches the committed order, because UTF-8 preserves codepoint order.
     """
     return (_fold(sort_book(row)), _fold(row.get('Name', '')),
             str(row.get('Key', '')))
@@ -288,7 +297,7 @@ def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
 
         for xml_file in xml_files:
             data = sx_to_obj(load_xml(xml_file))
-            data.pop('comment', None)          # convert.php: unset($data->comment)
+            data.pop('comment', None)          # see sx_to_obj() on comments
             values = next(iter(data.values())) if data else []
             if isinstance(values, dict):
                 values = [values]
@@ -341,7 +350,7 @@ def convert(repo_root=REPO_ROOT, only_types=None, verbose=True):
 
 
 def dump(payload):
-    """Match the committed files: PHP JSON_PRETTY_PRINT, escaped slashes, CRLF."""
+    """Match the committed files: 4-space indent, escaped slashes, CRLF."""
     text = json.dumps(payload, indent=4, ensure_ascii=True)
     return text.replace('/', '\\/').replace('\n', '\r\n')
 

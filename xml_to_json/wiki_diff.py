@@ -39,8 +39,9 @@ stay in the two _only lists -- they are genuinely unmatched -- and the report
 additionally pairs each with its closest counterpart as a *suggestion* to check
 by hand. Suggestions are never treated as matches.
 
-This reads a third-party site over the network. It is a reporting tool only --
-it never touches the XML sources, the JSON, or the app.
+This reads a third-party site over the network through wiki.py, the shared
+client. It is a reporting tool only -- it never touches the XML sources, the
+JSON, or the app. `wiki_descriptions.py` is the one that writes.
 """
 import argparse
 import datetime
@@ -49,24 +50,30 @@ import os
 import re
 import sys
 import urllib.error
-import urllib.parse
-import urllib.request
 from collections import OrderedDict, namedtuple
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import convert                       # noqa: E402  (source_books, shared with the converter)
+import wiki                          # noqa: E402  (the shared wiki client)
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-API = 'https://star-wars-rpg-ffg.fandom.com/api.php'
-USER_AGENT = 'sw-galaxy-wiki-diff/1.0 (+https://github.com/tilobuechsenschuss/sw-galaxy)'
-
-Target = namedtuple('Target', 'category json_file type_key name_field')
+Target = namedtuple('Target', 'category json_file type_key name_field strip kind')
+Target.__new__.__defaults__ = (None, 'page')
 
 # target name -> wiki category, JSON file under data/json/, its type key, and the
 # field holding the display name. The type key is the one wrapping the array in
 # the JSON -- note Weapons.json is keyed "Weapon". The category is one name, or a
 # tuple of them when the wiki splits what one JSON file holds together.
+#
+# Two optional fields cover the categories that are not a plain list of items:
+#
+# * `strip` -- a regex removed from every wiki title before comparing. The wiki
+#   disambiguates talents by titling the page "Parry talent"; without this every
+#   one of the 601 rows would be reported as unmatched.
+# * `kind` -- the API's cmtype. A career is a *category* on the wiki rather than
+#   a page, so Category:Careers has no page members at all and only 'subcat'
+#   finds them. The "Category:" prefix then comes off via `strip`.
 TARGETS = OrderedDict([
     ('species',     Target('Species',     'Species.json',         'Species',         'Name')),
     ('armor',       Target('Armor',       'Armor.json',           'Armor',           'Name')),
@@ -75,8 +82,10 @@ TARGETS = OrderedDict([
     ('attachments', Target('Attachments', 'ItemAttachments.json', 'ItemAttachments', 'Name')),
     ('vehicles',    Target(('Vehicles', 'Starships'),
                                           'Vehicles.json',        'Vehicle',         'Name')),
-    ('careers',     Target('Careers',     'Careers.json',         'Career',          'Name')),
-    ('talents',     Target('Talents',     'Talents.json',         'Talent',          'Name')),
+    ('careers',     Target('Careers',     'Careers.json',         'Career',          'Name',
+                           r'^Category:', 'subcat')),
+    ('talents',     Target('Talents',     'Talents.json',         'Talent',          'Name',
+                           r'\s+talent$')),
 ])
 
 
@@ -228,44 +237,37 @@ def suggest(wiki_only, local_only):
 # Inputs
 # --------------------------------------------------------------------------
 
-def fetch_category(category, api=API, verbose=True):
-    """Every page title in a wiki category, following the API's continuation."""
-    titles, params = [], {}
-    while True:
-        query = {'action': 'query', 'list': 'categorymembers',
-                 'cmtitle': 'Category:' + category, 'cmlimit': '500',
-                 'cmtype': 'page', 'format': 'json'}
-        query.update(params)
-        request = urllib.request.Request(api + '?' + urllib.parse.urlencode(query),
-                                         headers={'User-Agent': USER_AGENT})
-        with urllib.request.urlopen(request, timeout=30) as response:
-            payload = json.load(response)
-        if 'error' in payload:
-            raise RuntimeError('wiki API: %s' % payload['error'].get('info', payload['error']))
-        titles += [m['title'] for m in payload['query']['categorymembers']]
-        if 'continue' not in payload:
-            break
-        params = payload['continue']
+def fetch_category(category, kind='page', verbose=True):
+    """Every title in a wiki category."""
+    titles = wiki.members(category, kind=kind)
     if verbose:
-        print('  wiki  Category:%-14s %4d pages' % (category, len(titles)))
-    return sorted(titles)
+        print('  wiki  Category:%-14s %4d %s' % (category, len(titles),
+                                                 'pages' if kind == 'page' else kind))
+    return titles
 
 
-def fetch_category_union(categories, api=API, verbose=True):
+def fetch_category_union(categories, kind='page', strip=None, verbose=True):
     """
-    The page titles of one category or of several, merged.
+    The titles of one category or of several, merged.
 
     A page filed under two of them is one entry, so a target naming several
     categories compares against their union rather than a list with repeats.
+    `strip` is the target's regex for the part of a title that is not the item's
+    name -- the " talent" the wiki appends, the "Category:" a subcategory
+    carries.
     """
     titles = []
     for category in categories:
-        titles += fetch_category(category, api=api, verbose=verbose)
-    merged = sorted(OrderedDict.fromkeys(titles))
+        titles += fetch_category(category, kind=kind, verbose=verbose)
+    page_titles = OrderedDict()
+    for title in titles:
+        page_titles.setdefault(re.sub(strip, '', title).strip() if strip else title,
+                               title)
+    merged = sorted(page_titles)
     if verbose and len(categories) > 1:
         print('  wiki  %-23s %4d pages' % ('union of %d categories' % len(categories),
                                            len(merged)))
-    return merged
+    return merged, page_titles
 
 
 def load_names(json_file, type_key, name_field, repo_root=REPO_ROOT, verbose=True):
@@ -301,69 +303,36 @@ def load_names(json_file, type_key, name_field, repo_root=REPO_ROOT, verbose=Tru
 _SUBCATEGORY_CACHE = {}
 
 
-def fetch_subcategories(category, api=API):
+def fetch_subcategories(category):
     """The subcategory names of a category, fetched once per run."""
-    if category in _SUBCATEGORY_CACHE:
-        return _SUBCATEGORY_CACHE[category]
-    names, params = [], {}
-    while True:
-        query = {'action': 'query', 'list': 'categorymembers',
-                 'cmtitle': 'Category:' + category, 'cmlimit': '500',
-                 'cmtype': 'subcat', 'format': 'json'}
-        query.update(params)
-        request = urllib.request.Request(api + '?' + urllib.parse.urlencode(query),
-                                         headers={'User-Agent': USER_AGENT})
-        with urllib.request.urlopen(request, timeout=30) as response:
-            payload = json.load(response)
-        names += [m['title'].split(':', 1)[1] for m in payload['query']['categorymembers']]
-        if 'continue' not in payload:
-            break
-        params = payload['continue']
-    _SUBCATEGORY_CACHE[category] = set(names)
+    if category not in _SUBCATEGORY_CACHE:
+        _SUBCATEGORY_CACHE[category] = set(wiki.subcategories(category))
     return _SUBCATEGORY_CACHE[category]
 
 
-def fetch_categories(titles, api=API):
-    """{page title: [category names]}, in batches of the API's 50-title limit."""
-    found = OrderedDict((t, []) for t in titles)
-    for start in range(0, len(titles), 50):
-        batch, params = titles[start:start + 50], {}
-        while True:
-            query = {'action': 'query', 'prop': 'categories',
-                     'titles': '|'.join(batch), 'cllimit': 'max', 'format': 'json'}
-            query.update(params)
-            request = urllib.request.Request(api + '?' + urllib.parse.urlencode(query),
-                                             headers={'User-Agent': USER_AGENT})
-            with urllib.request.urlopen(request, timeout=30) as response:
-                payload = json.load(response)
-            for page in payload['query']['pages'].values():
-                found.setdefault(page['title'], [])
-                found[page['title']] += [c['title'].split(':', 1)[1]
-                                         for c in page.get('categories', [])]
-            if 'continue' not in payload:
-                break
-            params = payload['continue']
-    return found
-
-
-def wiki_sources(titles, own_categories, verbose=True):
+def wiki_sources(titles, own_categories, page_titles=None, verbose=True):
     """
-    {page title: readable source} for wiki pages.
+    {name: readable source} for wiki pages.
 
     Official books are named plainly, fan material is prefixed 'homebrew:', so
     the report says at a glance whether an entry is worth importing.
+
+    `page_titles` maps a name back to the page it came from, for the targets
+    whose titles were stripped ("Parry" -> "Parry talent"). The API has to be
+    asked by page title; the report is keyed by name.
     """
     if not titles:
         return {}
+    page_titles = page_titles or {}
     official = fetch_subcategories('Source Book')
     fan_made = fetch_subcategories('Homebrew')
-    categories = fetch_categories(titles)
+    categories = wiki.page_categories([page_titles.get(t, t) for t in titles])
     if verbose:
         print('  wiki  sources for %d pages (%d official books, %d homebrew known)'
               % (len(titles), len(official), len(fan_made)))
     labels = {}
     for title in titles:
-        page = categories.get(title, [])
+        page = categories.get(page_titles.get(title, title), [])
         books = sorted(c for c in page if c in official)
         fan = sorted(c for c in page if c in fan_made)
         bits = []
@@ -431,6 +400,12 @@ def render(name, target, source_label, wiki_names, local_names, result,
     out.append('| **in the data only** | **%d** |' % len(local_only))
     out.append('| of those, likely the same thing named differently | %d |' % len(suggestions))
     out.append('')
+    if target.kind != 'page':
+        out.append('The wiki files these as subcategories, not as pages.')
+        out.append('')
+    if target.strip:
+        out.append('Wiki titles had `%s` removed before comparing.' % target.strip)
+        out.append('')
 
     out.append('## On the wiki, not in the data (%d)' % len(wiki_only))
     out.append('')
@@ -493,13 +468,15 @@ def run(name, target, out_dir, repo_root=REPO_ROOT, verbose=True, with_sources=T
     if verbose:
         print('%s' % name)
     categories = categories_of(target)
-    wiki_names = fetch_category_union(categories, verbose=verbose)
+    wiki_names, page_titles = fetch_category_union(
+        categories, kind=target.kind, strip=target.strip, verbose=verbose)
     local_names, local_books, source_label = load_names(
         target.json_file, target.type_key, target.name_field, repo_root, verbose)
     result = compare(wiki_names, local_names)
     # Only the unmatched pages need a source, which keeps this to a handful of
     # extra requests rather than one per page in the category.
-    wiki_books = wiki_sources(result[2], set(categories), verbose) if with_sources else {}
+    wiki_books = (wiki_sources(result[2], set(categories), page_titles, verbose)
+                  if with_sources else {})
     report = render(name, target, source_label, wiki_names, local_names, result,
                     wiki_books, local_books if with_sources else {})
 
@@ -529,6 +506,10 @@ def main(argv=None):
     parser.add_argument('--json', dest='json_file', help='ad-hoc: JSON file under data/json/')
     parser.add_argument('--type-key', help='ad-hoc: the key wrapping the array in that JSON')
     parser.add_argument('--name', default='adhoc', help='ad-hoc: name for the report file')
+    parser.add_argument('--strip', help='ad-hoc: regex removed from every wiki title, '
+                                        r'e.g. "\s+talent$"')
+    parser.add_argument('--kind', default='page', choices=['page', 'subcat'],
+                        help='ad-hoc: whether the category holds pages or subcategories')
     parser.add_argument('--no-sources', action='store_true',
                         help='skip the per-page source lookup (fewer requests)')
     args = parser.parse_args(argv)
@@ -547,7 +528,8 @@ def main(argv=None):
         categories = tuple(c.strip() for c in args.category.split(',') if c.strip())
         if not categories:
             parser.error('--category is empty')
-        jobs = [(args.name, Target(categories, args.json_file, args.type_key, 'Name'))]
+        jobs = [(args.name, Target(categories, args.json_file, args.type_key, 'Name',
+                                   args.strip, args.kind))]
     elif args.all:
         jobs = list(TARGETS.items())
     elif args.targets:
@@ -564,6 +546,9 @@ def main(argv=None):
             result = run(name, target, args.out, with_sources=not args.no_sources)
         except (urllib.error.URLError, urllib.error.HTTPError) as exc:
             print('  !     %s: could not reach the wiki (%s)' % (name, exc))
+            return 2
+        except wiki.WikiError as exc:
+            print('  !     %s: wiki API: %s' % (name, exc))
             return 2
         except (KeyError, ValueError) as exc:
             print('  !     %s: unexpected response or JSON (%r)' % (name, exc))

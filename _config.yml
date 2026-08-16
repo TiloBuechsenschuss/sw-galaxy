@@ -19,8 +19,8 @@ exclude:
   # which are what the app actually loads. Nothing served references it.
   - oggdudes-data/
 
-  # The converters and their app-schema XML sources (convert.py, convert.php,
-  # oggdude_species_to_app.py, verify_convert.py, wiki_diff.py, xml_sources/).
+  # The converter and its app-schema XML sources (convert.py,
+  # oggdude_species_to_app.py, verify_convert.py, wiki*.py, xml_sources/).
   # Offline tooling -- the app reads the generated JSON, never these.
   - xml_to_json/
 

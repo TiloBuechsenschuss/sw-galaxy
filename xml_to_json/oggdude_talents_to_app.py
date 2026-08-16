@@ -8,7 +8,7 @@ Convert OggDude's Talents.xml into the schema this app reads.
 Reads  <source>/Talents.xml                          (one flat file, 604 rows)
 Writes xml_to_json/xml_sources/oggdude/Talents.xml   (override with --out)
 
-Then run convert.py (or convert.php) to regenerate data/json/Talents.json.
+Then run convert.py to regenerate data/json/Talents.json.
 
 Why this exists
 ---------------

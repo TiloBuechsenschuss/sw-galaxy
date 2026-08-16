@@ -4,14 +4,16 @@ How the JSON the app reads gets built, and how to add more of it.
 
 ```
 oggdudes-data/                    raw OggDude export (any format)
-        |
-        |  oggdude_<type>_to_app.py       <- reshapes to the app's schema
-        v
-xml_to_json/xml_sources/<set>/*.xml       <- app-schema XML, one folder per set
-        |
-        |  convert.py  (or convert.php)   <- merges + emits JSON
-        v
-data/json/*.json                          <- what index.html actually loads
+        |                                          fandom wiki (network)
+        |  oggdude_<type>_to_app.py                        |
+        |    <- reshapes to the app's schema               |  wiki.py
+        v                                                  v  wiki_descriptions.py
+xml_to_json/xml_sources/oggdude/*.xml     xml_to_json/xml_sources/fandom-wiki/*.xml
+        |                                                  |   <- rules text only
+        +--------------------------+-----------------------+
+                                   |  convert.py
+                                   v     merges, first Key wins
+                          data/json/*.json    <- what index.html actually loads
 ```
 
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml` and `Gear.xml` are already in
@@ -29,28 +31,63 @@ expected to include the regenerated JSON in the same commit.
 
 | Script | What it does |
 | --- | --- |
-| `convert.php` | The original converter. Needs PHP 7. |
-| `convert.py` | Python port of `convert.php`, for machines without PHP. **Must stay byte-identical in output.** |
+| `convert.py` | The XML -> JSON converter. **Its output must stay byte-identical to the committed JSON.** |
 | `oggdude_species_to_app.py` | Reshapes OggDude's per-species XML into the app's species schema. |
 | `oggdude_vehicles_to_app.py` | The same for the 413 per-vehicle files. |
 | `oggdude_careers_to_app.py` | The same for the 20 per-career files, resolving skill and specialization keys. |
 | `oggdude_talents_to_app.py` | Reshapes the single flat `Talents.xml` — see *Talents* below for why it is not just copied. |
 | `verify_convert.py` | Regression checks, one per importer. Run after touching any of the above. |
+| `wiki.py` | The shared, cached client for the fandom wiki. Imported by the two below; nothing else opens a connection. |
 | `wiki_diff.py` | Reports what a wiki category has that the JSON does not, and vice versa. Read-only. |
+| `wiki_descriptions.py` | Writes the rules text OggDude does not ship into `xml_sources/fandom-wiki/`. |
 
 ```bash
 python xml_to_json/oggdude_species_to_app.py     # refresh the OggDude source set
+python xml_to_json/wiki_descriptions.py --all    # refresh the wiki descriptions
 python xml_to_json/convert.py --only Species     # rebuild one JSON file
 python xml_to_json/convert.py --check            # report, write nothing
 python xml_to_json/verify_convert.py             # prove nothing regressed
 python xml_to_json/wiki_diff.py --all            # coverage against the fandom wiki
 ```
 
-`php xml_to_json/convert.php` does the same job as `convert.py`. It can also be
-triggered over HTTP if you are running Apache or nginx — but that is a note about
-how the script *can* be used, not an invitation to start a server. Agents run the
-converters from the command line and never serve anything; see *Verifying changes*
-in `AGENTS.md`.
+Everything here is Python 3 with the standard library only — nothing to install.
+Agents run these from the command line and never serve anything; see *Verifying
+changes* in `AGENTS.md`.
+
+---
+
+## Talking to the fandom wiki
+
+Three scripts share one client. **`wiki.py` is the only place that opens a
+connection** — anything fetching more content later should import it rather than
+reaching for `urllib`.
+
+```bash
+python xml_to_json/wiki.py members Talents          # titles in a category
+python xml_to_json/wiki.py subcats "Source Book"    # its subcategories
+python xml_to_json/wiki.py search "Bounty Hunter"   # what does the wiki call it?
+python xml_to_json/wiki.py page "Parry talent"      # one page's wikitext
+python xml_to_json/wiki.py cache Talents            # download a whole category
+```
+
+It offers `members()`, `subcategories()`, `page_categories()`, `search()` and
+`wikitext()`, each following the API's continuation cursor and batching to the
+50-title limit, with a descriptive User-Agent and a pause between requests.
+
+`wikitext()` **caches every page** as JSON under `xml_to_json/wiki_cache/`, with
+the revision id and timestamp. That directory is gitignored: it is a download,
+not a source. The cache is what makes writing a parser bearable — the
+edit-and-rerun loop over 700 talent pages costs no requests at all. Pass
+`--refresh` to re-download.
+
+Two wiki facts are worth knowing before writing anything against it, because
+neither is guessable:
+
+- **A talent's page is titled `<Name> talent`**, not `<Name>`. There is no
+  `Grit` page; there is a `Grit talent` page.
+- **A career is a category, not a page.** `Category:Careers` has *no* page
+  members at all — the 24 careers are its subcategories, and the prose lives on
+  the category page itself.
 
 ---
 
@@ -69,7 +106,10 @@ python xml_to_json/wiki_diff.py --all         # all eight
 ```
 
 Targets are one line each in `TARGETS` at the top of the script — wiki category,
-JSON file, its type key. Nothing else is target-specific, so covering something
+JSON file, its type key, and two optional fields for the categories that are not
+a plain list of items: `strip`, a regex removed from every wiki title before
+comparing (`\s+talent$`, `^Category:`), and `kind`, the API's member type
+(`subcat` for careers). Nothing else is target-specific, so covering something
 new is a one-line change. A target may name **several categories** where the wiki
 splits what one JSON file holds together — `vehicles` compares `Vehicles.json`
 against the union of `Category:Vehicles` and `Category:Starships` — and a page
@@ -131,33 +171,125 @@ rather than one per page in the category. `--no-sources` skips it entirely.
 
 ---
 
+## Rules text from the wiki
+
+OggDude's export ships **no rules text**. Almost every `Description` is a pointer
+— *"Please see page 132 of the Edge of the Empire Core Rulebook for details"* —
+and for talents that is the whole content of the row. `wiki_descriptions.py`
+fills those in from the wiki, which writes the text out in a strikingly regular
+format.
+
+```bash
+python xml_to_json/wiki_descriptions.py --all              # talents and careers
+python xml_to_json/wiki_descriptions.py talents --dry-run  # one type, write nothing
+python xml_to_json/wiki_descriptions.py --all --refresh    # re-download first
+python xml_to_json/convert.py                              # then regenerate
+```
+
+Coverage today: **588 of 601 talents** and **20 of 20 careers**. The 13 talents
+with no wiki page keep their pointer.
+
+### It writes a second source folder
+
+The output is `xml_sources/fandom-wiki/<Type>.xml`, **not** an edit of the
+oggdude folder. Source folders are read in alphabetical order and the first
+`Key` wins, so `fandom-wiki` sorting before `oggdude` overrides it. Nothing in
+the converter changes.
+
+Whole-row override is the only precedence `convert.py` has, so each row written
+here is **the oggdude row copied verbatim with only its `<Description>`
+swapped** — a row can never lose its `Key`, `Sources`, `Type` or `Categories` by
+being overridden. Rows with no wiki text are not written at all and oggdude's
+row stands, which is why the file holds 588 rows and not 601.
+
+That makes it a *derived* file with two inputs. **Re-run it after the oggdude
+importers, never instead of them**, or the override folder will keep serving an
+old copy of a row the import has since changed. `verify_convert.py` Check 6
+enforces exactly that: every row has a counterpart to override, the two are
+identical outside `<Description>`, and the new description is neither empty nor
+another page pointer.
+
+### Where the text comes from
+
+| Type | Page | Section |
+| --- | --- | --- |
+| Talents | `<Name> talent` | the page's own `==Name==` heading |
+| Talents, `X (Improved)` / `X (Supreme)` | `X talent` | the `===Improved===` / `===Supreme===` subsection |
+| Careers | `Category:<Name>` | the lead paragraph, everything above the first `<blockquote>` |
+
+The Improved and Supreme variants are the reason this works at all: they are not
+pages of their own, which is exactly what the data's 67 `(Improved)` and 17
+`(Supreme)` rows need.
+
+Everything above the prose on a talent page — the `*'''Activation:'''`,
+`*'''Ranked:'''` and `*'''Trees:'''` bullets — is dropped. The first two are
+already the row's `Type` and its `Ranked` category. **Trees is genuinely new
+information** (which specializations offer the talent, and at what tier), but it
+runs to a hundred entries on Grit and belongs in a column of its own rather than
+glued to the front of a description.
+
+### Markup
+
+`to_markup()` turns wikitext into the inline markup `descriptionFilter` in
+`SWApp.js` already renders: `'''bold'''` → `[B]…[b]`, `''italic''` → `[I]…[i]`,
+a blank line → `[P]`, `<br>` → `[BR]`, and a link down to its display text.
+
+Dice references become the app's **symbol tokens** where a symbol is
+unambiguous — `[[Narrative Dice#Advantage|advantage]]` is `[ADVANTAGE]` — and
+stay as words where it is not. That distinction is not fussiness: the wiki
+spells "Force points" as *two* links, `[[…Light Point|Force]] [[…Dark
+Point|points]]`, and mapping both would produce `[LIGHT][DARK]`. The targets
+left as words are listed in `DICE_AS_WORDS`; an unrecognised `Narrative Dice#`
+target is reported rather than guessed at, the way the app reports an unmapped
+base mod.
+
+The app hands a `Description` to `$sce.trustAsHtml`, so `to_markup()` unescapes
+entities *before* stripping tags and then drops every remaining angle bracket. A
+wiki page writing `&lt;script&gt;` must not come out the other end as a tag.
+
+### Licence
+
+The wiki is Fandom, **CC BY-SA 3.0**, and the text describes FFG's copyrighted
+rules. Each generated file carries an attribution header, and
+`wiki_diff/<type>-descriptions.md` names the page and revision every description
+came from. That report is the thing to read before shipping this anywhere.
+
+### Adding a type
+
+One entry in `SOURCES`: the XML file name, the row tag, a function turning a row
+into the wiki title(s) it could come from, and a function pulling the prose out
+of the page. `to_markup()`, the row copying, the XML writing and the report are
+shared.
+
+---
+
 ## Merge rules
 
-`convert.php`/`convert.py` glob `xml_sources/*/<Type>.xml`, so **folders are read
-in alphabetical order**, and:
+`convert.py` globs `xml_sources/*/<Type>.xml`, so **folders are read in
+alphabetical order**, and:
 
 1. **First occurrence of a `Key` wins.** A folder sorting earlier overrides later
    ones. There is currently only one folder, `oggdude`, so nothing collides —
    but this is what to reason about when adding a second.
 2. **Excluded books are not imported at all.** A row whose every source book is
-   in `$excludedBooks` / `EXCLUDED_BOOKS` is skipped, so neither the row nor the
+   in `EXCLUDED_BOOKS` is skipped, so neither the row nor the
    book name reaches the JSON or the app's Source filter. This drops 28 rows
    (27 species and one Gear entry). A row with *no* source is kept — seven
    generic Gear entries have none and are legitimate. A row that mixed an
    excluded book with a kept one would be ambiguous; none exists, so the
-   converters print a warning instead of guessing.
+   converter prints a warning instead of guessing.
 3. **Every type is sorted before writing** — by the row's *first* `Source` book,
-   then by `Name`, with `Key` as the tie-breaker (`compareRows` in `convert.php`,
-   `sort_key` in `convert.py`). Source order in the XML is not preserved: OggDude
-   regenerates its exports in an arbitrary order, and sorting is what keeps the
-   committed JSON diffing cleanly across refreshes. Comparison is
-   case-insensitive over ASCII only, matching PHP's byte-wise `strtolower()`.
-   A row with no source book at all sorts first.
+   then by `Name`, with `Key` as the tie-breaker (`sort_key` in `convert.py`).
+   Source order in the XML is not preserved: OggDude regenerates its exports in
+   an arbitrary order, and sorting is what keeps the committed JSON diffing
+   cleanly across refreshes. Comparison is case-insensitive **over ASCII only** —
+   folding non-ASCII letters too would reorder the committed rows. A row with no
+   source book at all sorts first.
 4. **Source pages are un-attributed first.** OggDude writes the page as an XML
-   attribute — `<Source Page="44">Forged in Battle</Source>` — and SimpleXML
+   attribute — `<Source Page="44">Forged in Battle</Source>` — and the converter
    drops attributes (quirk 1 below), so every page number was being thrown away
-   for Armor, Weapons, Gear and ItemAttachments. `expandSourcePages()` /
-   `expand_source_pages()` rewrite those into
+   for Armor, Weapons, Gear and ItemAttachments. `expand_source_pages()` rewrites
+   those into
    `<Source><Book>…</Book><Page>44</Page></Source>` before the conversion runs,
    which is the shape Species already use and the one `items.html` renders as
    *"Source: <book> page N"*. Sources that already have `<Book>`/`<Page>`
@@ -193,7 +325,7 @@ cp oggdudes-data/SpeciesImages/VURK.png data/img/SpeciesVURK.png
 
 ## The two species schemas
 
-`convert.php` is a *mechanical* XML→JSON conversion. Beyond the two repairs in
+`convert.py` is a *mechanical* XML→JSON conversion. Beyond the two repairs in
 merge rules 4 and 5, it never reshapes anything.
 So a source file must already be in the schema the app reads — the one
 `xml_sources/oggdude/Species.xml` uses, and which `items.html` binds against.
@@ -237,33 +369,39 @@ derived by diffing against the already-shipped data:
 
 ---
 
-## PHP quirks the Python port has to reproduce
+## Four parsing quirks the output depends on
 
-`convert.php` leans on `simplexml_load_string()` + `json_encode(JSON_NUMERIC_CHECK)`,
-whose behaviour is surprising in four ways. All four were found by regenerating
-the committed JSON and diffing until it matched — `verify_convert.py` still
-checks all of them.
+`data/json/*.json` is a **committed deployment artifact**, so the converter's job
+is to reproduce it exactly, not to parse XML the most sensible way. Four of its
+rules look arbitrary and are load-bearing. All four were found by regenerating
+the committed JSON and diffing until it matched — `verify_convert.py` Check 1
+still enforces every one of them.
+
+They are inherited: the original converter was a PHP script, `convert.php`, and
+these are the behaviours of `simplexml_load_string()` +
+`json_encode(JSON_NUMERIC_CHECK)`. **That script has been deleted and the
+pipeline is Python only** — but the quirks stay, because the data does.
+"Simplifying" one of them turns into several hundred lines of spurious diff
+across files nobody touched.
 
 1. **Attributes are dropped.** `<Source Page="169">Edge…</Source>` becomes the
    plain string `"Edge…"`, not `{"@attributes":…}`. The XML carries 1783
    `Page="…"` attributes and the JSON contains no `@attributes` key at all.
    Page numbers therefore only survive when `<Page>` is a child element — which
-   is why the converters rewrite `<Source Page="…">` into that shape up front
+   is why the converter rewrites `<Source Page="…">` into that shape up front
    (merge rule 4). Any *other* attribute added to the sources in future will
    still vanish silently.
 2. **Whitespace-only elements keep their text** under a `"0"` key:
    `<BaseMods>\n    </BaseMods>` → `{"0":"\n    "}`, while a truly empty element
    gives `{}`.
-3. **`JSON_NUMERIC_CHECK` uses PHP 7 `is_numeric()`** — leading whitespace is
-   allowed, trailing whitespace is not. `<Count>4\n    </Count>` stays the
-   *string* `"4\n    "`. (PHP 8 changed this; the committed data predates it.)
-4. **Nested XML comments survive** as `"comment": {}`. `convert.php` only does
-   `unset($data->comment)` at the root, which is what commit `23a8b4e` fixed —
-   comments deeper in the tree still land in the JSON.
+3. **A number keeps leading whitespace but not trailing whitespace.** `" 4"`
+   becomes `4`; `<Count>4\n    </Count>` stays the *string* `"4\n    "`.
+4. **Nested XML comments survive** as `"comment": {}`. Only the root-level
+   `comment` key is dropped, which is what commit `23a8b4e` fixed — comments
+   deeper in the tree still land in the JSON.
 
-Output format, matched by both converters: pretty-printed with 4 spaces, PHP's
-escaped forward slashes (`data\/img\/…`), ASCII-only, CRLF line endings, no
-trailing newline.
+Output format: pretty-printed with 4 spaces, escaped forward slashes
+(`data\/img\/…`), ASCII-only, CRLF line endings, no trailing newline.
 
 ---
 
@@ -288,9 +426,8 @@ alphabetically earlier means higher priority.
 
 ### Change how conflicts resolve
 
-`$excludedBooks` / `EXCLUDED_BOOKS` sit at the top of `convert.php` and
-`convert.py`; the output order lives in `compareRows` / `sort_key` just below.
-**Change both files**, then run `verify_convert.py`.
+`EXCLUDED_BOOKS` sits at the top of `convert.py`; the output order lives in
+`sort_key` just below. Then run `verify_convert.py`.
 
 ---
 

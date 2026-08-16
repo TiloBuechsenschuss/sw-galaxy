@@ -12,43 +12,60 @@ details":
 | Type | Rows | Descriptions that are just a page pointer |
 | --- | --- | --- |
 | Armor | 111 | 100% |
-| Careers | 20 | 100% |
 | Vehicles | 413 | 98% |
 | Weapons | 469 | 98% |
 | Gear | 584 | 97% |
 | Attachments | 357 | 97% |
-| Talents | 601 | 91% |
 | Species | 102 | 58% |
+| Talents | 601 | ~2% (was 91%) |
+| Careers | 20 | 0% (was 100%) |
 
 For most types the stats carry the information and the missing prose costs
-little. For these two it is the whole content:
+little. For these two it was the whole content, and both are now done:
 
-- [ ] **Talents** — 601 rows, ~547 of them a page pointer. Without the text a
-      talent is a name, an activation type and three flags; there is nothing to
-      tell you what it *does*. The worst offender in the app.
-- [ ] **Career** — 20 of 20 are pointers. Less painful, because the career
-      skills and specializations now shown on the tab are the substance, and the
-      description is mostly flavour.
+- [x] **Talents** — 588 of 601 rows now carry the real rules text, taken from
+      the fandom wiki by `xml_to_json/wiki_descriptions.py`. The 13 without a
+      wiki page keep their pointer; they are listed in
+      `xml_to_json/wiki_diff/talents-descriptions.md`.
+- [x] **Career** — all 20 carry the flavour paragraph from the wiki's career
+      category page.
 
-Species is the one type that reads well today, because its text comes from
+Species is the one type that already read well, because its text comes from
 `OptionChoices` and `SpecialAbilities` rather than from `Description`.
+
+Still open on this front:
+
+- [ ] **Talent trees.** The wiki lists, per talent, which specializations offer
+      it and at what tier (`*'''Trees:'''`). That is real information the data
+      does not have, and `wiki_descriptions.py` deliberately drops it — it needs
+      a column of its own, not a paragraph glued to the description.
+- [ ] The other six types are still pointers. The wiki has pages for most of
+      them; the same machinery would cover them, one `SOURCES` entry each. Lower
+      value, since the stats already carry those rows.
 
 ## Get Missing Data from books
 
-The source for the above. Worth deciding before starting:
+- [x] **Where the text comes from, and whether it can be redistributed.** It
+      comes from the FFG fandom wiki, which is Fandom's default **CC BY-SA
+      3.0** — redistributable with attribution and share-alike, though the
+      underlying rules are FFG's copyright. The generated files carry an
+      attribution header and `wiki_diff/<type>-descriptions.md` records the page
+      and revision behind every line. **Worth a deliberate decision before the
+      next public deploy** — the repo now ships prose it did not before.
+- [x] **What shape it lands in.** `xml_to_json/xml_sources/fandom-wiki/`, a
+      second source folder that sorts before `oggdude` and so wins the
+      first-Key-wins merge. Each row is the oggdude row copied verbatim with
+      only `<Description>` swapped, and `verify_convert.py` Check 6 proves it.
+- [x] `wiki_diff.py` reports what the wiki has that the data does not. The
+      `careers` and `talents` targets work now: careers are wiki
+      *subcategories* rather than pages, and a talent's page is titled
+      "<Name> talent", neither of which the tool used to know.
 
-- [ ] Where the text comes from, and whether it can be redistributed. The
-      descriptions are FFG's copyrighted rules text; the current data set only
-      ever points at a page number, which may be exactly why.
-- [ ] What shape it lands in. It has to go into the **XML sources**, never into
-      `data/json/*.json` — those are generated, and hand-edits are lost on the
-      next `convert.py` run. A hand-written set is a second folder under
-      `xml_to_json/xml_sources/` that merges by `Key`, which the pipeline already
-      supports: folders are read in alphabetical order and the first `Key` wins,
-      so a folder sorting before `oggdude` overrides it per row.
-- [ ] `wiki_diff.py` already reports what the fandom wiki has that the data does
-      not, per type, including the new `careers` and `talents` targets. That is
-      the cheapest survey of what is missing before anyone starts transcribing.
+Left over from the survey, for whoever wants more content:
+
+- [ ] 193 talents and 4 careers exist on the wiki but not in the data — see
+      `xml_to_json/wiki_diff/talents.md`. Much of it is homebrew (the report
+      sorts official material first), but not all.
 
 ## Could become a tab
 

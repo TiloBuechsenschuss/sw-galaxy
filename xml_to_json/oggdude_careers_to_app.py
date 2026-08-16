@@ -10,11 +10,11 @@ Reads  <source>/Careers/*.xml           (one file per career, OggDude's format)
        <source>/Specializations/*.xml   (Key -> display name)
 Writes xml_to_json/xml_sources/oggdude/Careers.xml   (override with --out)
 
-Then run convert.py (or convert.php) to regenerate data/json/Careers.json.
+Then run convert.py to regenerate data/json/Careers.json.
 
 Why this exists
 ---------------
-Same reason as oggdude_species_to_app.py: convert.php does a mechanical
+Same reason as oggdude_species_to_app.py: convert.py does a mechanical
 XML->JSON conversion and never reshapes anything, so a source file has to
 ALREADY be in the schema the app reads. OggDude ships 20 separate career files
 that have to be merged into one, and both lists inside them are key references:
