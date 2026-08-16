@@ -6,8 +6,8 @@ Guidance for AI coding agents working in this repository.
 
 **SW Galaxy** is a static, client-side single-page web app that lets Star Wars FFG
 (*Edge of the Empire* / *Age of Rebellion* / *Force and Destiny*) role players search and
-filter weapons, armor, gear, attachments, vehicles, species, careers and talents. It is
-deployed as a plain static site on GitHub Pages:
+filter weapons, armor, gear, attachments, vehicles, species, careers, talents, talent
+trees and force trees. It is deployed as a plain static site on GitHub Pages:
 <https://applifaction.github.io/sw-galaxy>
 
 There is **no build step, no package manager, no test suite and no CI**. What is in the
@@ -104,6 +104,8 @@ The short version:
 - `xml_to_json/oggdude_species_to_app.py` translates OggDude's per-species XML into the
   app schema, resolving skill/talent keys to display names. `oggdude_vehicles_to_app.py`,
   `oggdude_careers_to_app.py` and `oggdude_talents_to_app.py` do the same for their types.
+  `oggdude_specializations_to_app.py` and `oggdude_force_powers_to_app.py` are the two
+  whose output is a *layout* rather than a row — see *Talent trees and force trees*.
 - `xml_to_json/verify_convert.py` rebuilds every JSON from the committed XML and checks
   the schema mapping against the shipped data. Run it after touching any of the three.
 - `xml_to_json/wiki.py` is the **only** thing that talks to the FFG fandom wiki: a
@@ -117,7 +119,8 @@ The short version:
 
 Recognized XML file names are fixed in `VALID_FILE_NAMES` in `convert.py`:
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml`, `Gear.xml`, `Species.xml`,
-`Vehicles.xml`, `Careers.xml`, `Talents.xml`. Adding a new data type means touching
+`Vehicles.xml`, `Careers.xml`, `Talents.xml`, `Specializations.xml`,
+`ForcePowers.xml`. Adding a new data type means touching
 `convert.py`, the `tabs` constant in `SWApp.js`, and usually `items.html` — see the next
 section for the full list.
 
@@ -156,7 +159,9 @@ Species — the most recently added type — is wired end to end.
    because eight talents use `<Attributes>` for what the talent *grants* while
    `fetchSource()` reads that tag as a species' *starting stats* — copying the file across
    would have put a talent's `<WoundThreshold>2` in the Wound Thr. column. Read the
-   importer's docstring before assuming a type can be copied.
+   importer's docstring before assuming a type can be copied. Specializations and force
+   powers go furthest: their importers compute a whole *layout*, because what the app
+   renders is a grid rather than a row.
 2. **Converter registration** — one line in `VALID_FILE_NAMES` (`convert.py`). The key is
    the singular type name used inside the JSON (`Weapon`, `Vehicle`), the value the plural
    file name
@@ -178,6 +183,10 @@ Species — the most recently added type — is wired end to end.
    `<th>`/`<td>` pairs. In `SWApp.js` each numeric column needs a `min`/`max` pair in
    `filterItems()` and in the `$scope.min`/`$scope.max` block, and each dropdown filter a
    `fulltextFilter`/`arrayFulltextFilter` line — all flat, repetitive lists. Match them.
+
+Not every type is a row in the shared table. A **tree** — a specialization, a force power
+— is drawn in the row's expandable detail area instead, and step 5 then covers only the
+few columns the list is sorted and scanned on. See *Talent trees and force trees*.
 
 `verify_convert.py` should grow a section for the new type, the way it checks the species
 schema mapping — there is one check per importer, and each states its invariants in the
@@ -283,10 +292,10 @@ Both are reference tabs with no artwork and no numeric sliders, so they have no 
 column and take their filter button in the Name header the way Attachments does.
 
 **Careers** is 20 rows: career skills and specializations, each resolved from a key to a
-display name by `oggdude_careers_to_app.py`. The specializations are names only —
-the specialization itself is a 4×5 talent *tree* with directional links between its nodes,
-which is a renderer this app does not have, so listing which ones a career opens is as far
-as it goes. `<Skills><Skill><Name>` is deliberately the species shape, so `fetchSource()`
+display name by `oggdude_careers_to_app.py`. The specializations are names only — the
+tree behind each one is drawn on the Talent Trees tab, which reads the same 123 files
+from the other end (see *Talent trees and force trees*); the career row lists which ones
+it opens. `<Skills><Skill><Name>` is deliberately the species shape, so `fetchSource()`
 unwraps it with no new code, and a non-zero `<Attributes><ForceRating>` reuses the
 `Adversary` Force column. `FreeRanks` is present on eight rows and absent on twelve because
 OggDude only writes it when it differs from the usual four — it is **not** defaulted, and
@@ -315,14 +324,86 @@ only its Age of Rebellion citation and vanished whenever that line was switched 
 "Incidental (out of turn)"), which reuses the Type column *and* the Type dropdown; the
 `Ranked`, `ForceTalent` and `Conflict` flags become `<Categories>`, which reuses the
 Category multi-select. That is why the `Categories` normalisation block in `fetchSource()`
-is gated on `Vehicle`, `Talent` **or** `Career`: the other types' rows include the
-whitespace-quirk array shape it does not read. All three of those files are written by an
-importer that emits nothing but plain `<Category>` strings, so they are safe.
+is gated on `Vehicle`, `Talent`, `Career` **or** `Specialization`: the other types' rows
+include the whitespace-quirk array shape it does not read. All four of those files are
+written by an importer that emits nothing but plain `<Category>` strings, so they are safe.
 
 `items[i].Categories` is assigned even when a row carries none, so it is an array on every
 row of those tabs. `arrayFulltextFilter` reads `.length` on each row, and leaving the field
 `undefined` made picking a category throw — which it did for the 16 vehicles without
 categories before Talents ever existed.
+
+### Talent trees and force trees
+
+The **Talent Trees** tab is 123 specializations, the **Force Trees** tab 20 force powers.
+They are the only tabs whose content is a *picture*: a grid of boxes with connectors
+between them, rendered in the row's expandable detail area rather than in a cell.
+
+**The geometry is computed at import time, never in the app.**
+`oggdude_specializations_to_app.py` lays each tree out and
+`oggdude_force_powers_to_app.py` imports its layout functions rather than restating
+them. `readTree()` in `SWApp.js` only unwraps SimpleXML's shapes, and `items.html` is a
+flat `ng-repeat` that draws what it is given. That split is the point: if a tree looks
+wrong, the bug is in the importer, and `verify_convert.py` Check 7 is where to assert
+the fix.
+
+What the importers encode, all of it derived from a census of the 143 source files:
+
+- **Every row lays out to exactly four columns**, counting spans. This is the one
+  invariant the CSS grid rests on, and Check 7 tests it on every row of every tree.
+- **A box can span up to four columns** (`<Span>`), which only force powers do — Move's
+  first row is one Basic Power four columns wide. The N−1 cells it covers repeat the
+  same key as filler and are dropped. Specializations are a clean 5×4 and never span.
+- **A cell can be a hole**: a span of 0 that nothing covers (Endure, Conjure) or a
+  present-but-empty `<Key/>` (Warde's Foresight). A hole still occupies its column —
+  dropping it would pull the row left and shear the grid — and renders as a dashed
+  ghost.
+- **Links are undirected, and the export states each one twice** — `Down` on the upper
+  cell and `Up` on the lower. **Nine of them are stated only once, and a link is
+  emitted when either end declares it.** The union is not a guess: under the
+  intersection, two nodes in *Enhance* and *Farsight* become unreachable from row 0,
+  which no printed tree does. Each one-sided flag is reported, and Check 7 counts them
+  (4 specializations, 5 force powers today) so a changed export is visible.
+- **Each connector is written out once**, from the end that owns it: a vertical link is
+  `<Down><Col>n</Col>` on the row *above* it, a horizontal one is `<LinkRight>` on the
+  *left* box of the pair. The renderer therefore never de-duplicates.
+- **Vertical links are per column, not per box.** A box spanning four columns can be
+  joined downward in each of them, so collapsing them to one bar under the middle of
+  the box would drop connectors that are printed. `readTree()` expands the sparse
+  `<Down>` list back into four booleans the template indexes by position.
+
+Nine horizontal links sit *inside* a spanning box, joining a cell to itself. There is no
+gap to draw them in and they are not drawn; nothing is lost.
+
+Almost everything else on these two tabs is reuse rather than new machinery:
+
+- **`<Categories>` is the careers that offer the tree**, plus `Universal` for the eleven
+  any career may take — the same trick careers play with `Force`, so "the Guardian
+  trees" is a filter for no new UI. The dropdown is relabelled *Career* on that tab
+  since that is what it lists. This is why the `Categories` normalisation block in
+  `fetchSource()` is gated on `Vehicle`, `Talent`, `Career` **or** `Specialization`.
+- **`<Skills>`** is the specialization's four career skills in the species
+  `<Skill><Name>` shape, so it joins the shared *Skill* dropdown with careers and
+  species.
+- **`<Talents>`** is the distinct talents the tree teaches, and a force power writes its
+  *abilities* under the same tag on purpose — one column, one *Teaches* dropdown and one
+  renderer serve both tabs. The existing species `Talents` block already turns it into an
+  array, so the tree tabs only add the `collectValues` call. `searchFilter` stringifies
+  it the way it already does `Qualities`, so the search box reaches into the tree.
+- **Force powers alone carry `MinForceRating`** (14 of 20 state one; it is *not*
+  defaulted to 1, for the reason `FreeRanks` is not defaulted to 4) and `Experience`,
+  the summed cost of every box, which reuses the existing Experience slider. On a
+  specialization that number is the constant 300 and is not written.
+
+The CSS lives under `.sw-tree` in `css/style.css`. **Every connector is drawn into the
+grid gap**, by a pseudo-element on the box (horizontal) or by a cell of the links strip
+(vertical), so `--sw-tree-gap` is shared by the boxes, the strip's height and both
+offsets — change it in one place and the lines stop meeting the boxes.
+
+Neither type has artwork or rules text: OggDude ships no images for them, and their
+descriptions are still page pointers. The tree *is* the content, so this matters far less
+than it did for talents, but `wiki_descriptions.py` could cover them with one `SOURCES`
+entry each.
 
 ### Descriptions from the wiki
 

@@ -51,6 +51,8 @@ VALID_FILE_NAMES = OrderedDict([
     ('Vehicle', 'Vehicles.xml'),
     ('Career', 'Careers.xml'),
     ('Talent', 'Talents.xml'),
+    ('Specialization', 'Specializations.xml'),
+    ('ForcePower', 'ForcePowers.xml'),
 ])
 
 # Books that are not imported at all. A row whose every source is one of these

@@ -298,6 +298,29 @@
                     </div>
                 </md-list-item>
                 <md-list-item
+                        ng-if="min.MinForceRating || max.MinForceRating">
+                    <h4 layout="row">Force</h4>
+
+                    <div layout="row" layout-margin>
+                        <md-input-container layout="row">
+                            <label>Min</label>
+                            <input ng-model="filters.minMinForceRating"
+                                   ng-change="filterItems()"
+                                   type="number"
+                                   min="{{min.MinForceRating}}"
+                                   max="{{max.MinForceRating}}">
+                        </md-input-container>
+                        <md-input-container layout="row">
+                            <label>Max</label>
+                            <input ng-model="filters.maxMinForceRating"
+                                   ng-change="filterItems()"
+                                   type="number"
+                                   min="{{min.MinForceRating}}"
+                                   max="{{max.MinForceRating}}">
+                        </md-input-container>
+                    </div>
+                </md-list-item>
+                <md-list-item
                         ng-if="min.Brawn || max.Brawn">
                     <h4 layout="row">BR</h4>
 
@@ -574,13 +597,18 @@
                     </div>
                 </md-list-item>
                 <md-list-item ng-if="categories.length">
-                    <h4 layout="row">Category</h4>
+                    <!-- One dropdown, built from <Categories> on every tab that has
+                         them. On the talent trees those values are the careers that
+                         offer the tree, so it is labelled for what it lists there
+                         rather than for the tag it comes from. -->
+                    <h4 layout="row" ng-if="name != 'Specialization'">Category</h4>
+                    <h4 layout="row" ng-if="name == 'Specialization'">Career</h4>
 
                     <div layout="column" layout-margin flex>
                         <md-select ng-model="filters.category"
                                    ng-change="filterItems()"
                                    multiple=""
-                                   aria-label="Category">
+                                   aria-label="{{name == 'Specialization' ? 'Career' : 'Category'}}">
                             <md-option ng-repeat="category in categories"
                                        ng-value="category">
                                 {{category}}
@@ -699,6 +727,24 @@
                         </md-select>
                     </div>
                 </md-list-item>
+                <!-- What the tree teaches. Only the two tree tabs fill this, and
+                     picking several is an AND, so "Grit" + "Dedication" gives the
+                     specializations offering both. -->
+                <md-list-item ng-if="treeTalents.length">
+                    <h4 layout="row">Teaches</h4>
+
+                    <div layout="column" layout-margin flex>
+                        <md-select ng-model="filters.treeTalent"
+                                   ng-change="filterItems()"
+                                   multiple=""
+                                   aria-label="Teaches">
+                            <md-option ng-repeat="treeTalent in treeTalents"
+                                       ng-value="treeTalent">
+                                {{treeTalent}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </md-list-item>
                 <md-list-item ng-if="restrictions.length">
                     <h4 layout="row">Legality</h4>
 
@@ -774,7 +820,7 @@
                                 <md-button class="md-primary md-raised"
                                            ng-click="toggleSideNav()" hide-md hide-sm hide-xs hide-gt-lg
                                            style="padding: 0 12px"
-                                           ng-if="name == 'ItemAttachments' || name == 'Career' || name == 'Talent'"
+                                           ng-if="name == 'ItemAttachments' || name == 'Career' || name == 'Talent' || name == 'Specialization' || name == 'ForcePower'"
                                            aria-label="Show filters">
                                     <md-icon md-font-set="material-icons">search</md-icon>
                                     Filter
@@ -938,6 +984,26 @@
                             <th md-column
                                 ng-if="name == 'Career'">Specializations
                             </th>
+                            <!-- The two tree tabs. The tree itself is too wide for a
+                                 cell and renders in the expanded row below it; these
+                                 are what the list has to be sortable and scannable
+                                 on. -->
+                            <th md-column
+                                md-numeric
+                                md-order-by="MinForceRating"
+                                ng-if="name == 'ForcePower'">Force
+                            </th>
+                            <th md-column
+                                md-numeric
+                                md-order-by="Experience"
+                                ng-if="name == 'ForcePower'">XP
+                            </th>
+                            <th md-column
+                                ng-if="name == 'Specialization'">Career skills
+                            </th>
+                            <th md-column
+                                ng-if="name == 'Specialization' || name == 'ForcePower'">Teaches
+                            </th>
                         </tr>
                         </thead>
                         <tbody md-body>
@@ -1069,7 +1135,12 @@
                                 <div ng-click="expanded = !expanded"  class="sw-description" style="min-width: 200px">                            
                         			<span ng-show="!expanded"><md-icon md-font-set="material-icons">arrow_drop_down</md-icon>  </span>
                         			<span ng-show="expanded"><md-icon md-font-set="material-icons">arrow_drop_up</md-icon>   </span>                      		                         			                   			                    			
-                    			<span >Description</span>
+                    			<span ng-if="!item.Tree.length">Description</span>
+                    			<!-- On the two tree tabs the tree is what the row is
+                    			     for, so the toggle says so: the description
+                    			     under it is still OggDude's page pointer. -->
+                    			<span ng-if="item.Tree.length && name == 'Specialization'">Talent tree</span>
+                    			<span ng-if="item.Tree.length && name == 'ForcePower'">Force tree</span>
                             	</div>
                             </td>
                             <td md-cell ng-if="name == 'Vehicle'">{{item.Silhouette}}</td>
@@ -1262,10 +1333,74 @@
                                     </div>
                                 </div>
                             </td>
+                            <td md-cell ng-if="name == 'ForcePower'">
+                                {{item.MinForceRating}}
+                            </td>
+                            <td md-cell ng-if="name == 'ForcePower'">
+                                {{item.Experience}}
+                            </td>
+                            <td md-cell ng-if="name == 'Specialization'">
+                                <div class="sw-qualities">
+                                    <div class="no-break" ng-repeat="skill in item.Skills">
+                                        {{skill.Name}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td md-cell ng-if="name == 'Specialization' || name == 'ForcePower'">
+                                <div class="sw-qualities">
+                                    <div class="no-break" ng-repeat="talent in item.Talents">
+                                        {{talent.Name}}
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                         <tr md-row ng-repeat-end class="collapse-row" ng-show="expanded">
 
                         <td md-cell colspan="14">
+                        <!-- The talent / force tree. The importer has already laid
+                             it out (see oggdude_specializations_to_app.py), so this
+                             is a flat walk: one group per row of the grid, holding
+                             that row's boxes and the connectors running down from
+                             it to the row below. Nothing here computes geometry.
+
+                             A box carries its own Span, 1 to 4 columns wide, and a
+                             box with no talent in it is a hole that still occupies
+                             its column -- both are why the boxes in a row are not
+                             always four. -->
+                        <div class="sw-tree" ng-if="item.Tree.length">
+                            <div class="sw-tree-group" ng-repeat="row in item.Tree">
+                                <!-- Specializations price a whole row at once;
+                                     force powers price each box, so they have no
+                                     gutter and the cost sits in the box. -->
+                                <div class="sw-tree-cost" ng-if="row.Cost">
+                                    {{row.Cost}}<span class="sw-tree-xp">XP</span>
+                                </div>
+                                <div class="sw-tree-grid">
+                                    <div class="sw-tree-row">
+                                        <!-- The span goes through ng-class rather than
+                                             an interpolated class attribute, so the
+                                             two are not both writing the element's
+                                             class list. -->
+                                        <div ng-repeat="node in row.Nodes"
+                                             class="sw-tree-node"
+                                             ng-class="['sw-tree-span-' + node.Span,
+                                                        {'sw-tree-hole': node.Empty,
+                                                         'sw-tree-linked': node.Linked}]">
+                                            <span class="sw-tree-name">{{node.Name}}</span>
+                                            <span class="sw-tree-node-cost"
+                                                  ng-if="node.Cost">{{node.Cost}} XP</span>
+                                        </div>
+                                    </div>
+                                    <!-- One cell per grid column, a bar where this
+                                         row is joined to the one below it. The last
+                                         row is joined to nothing, so it draws none. -->
+                                    <div class="sw-tree-links" ng-hide="$last">
+                                        <div ng-repeat="linked in row.Down track by $index"
+                                             ng-class="{'sw-tree-bar': linked}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="sw-description" style="min-width: 200px"
                                      ng-bind-html="item.Description">
                             	</div>

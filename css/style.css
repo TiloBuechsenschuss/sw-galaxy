@@ -259,3 +259,147 @@ tr.collapse-row td.md-cell {
 .source-lines-menu-content md-menu-item md-icon {
     margin-right: 16px;
 }
+
+/* ---------------------------------------------------------------------------
+   The talent and force trees, in the expanded row of the two tree tabs.
+
+   A tree is a grid of four columns with short connectors between the boxes,
+   the way the books print it. The geometry is NOT computed here or in the
+   template: oggdude_specializations_to_app.py lays every row out to exactly
+   four columns and states each connector once, so this only has to draw.
+
+   The two things worth knowing before changing any number below:
+
+   * THE GAP IS THE CANVAS. Every connector is drawn INTO the grid gap, by a
+     pseudo-element on the box (horizontal) or by a cell of the links strip
+     (vertical). --sw-tree-gap is therefore shared by the boxes, the strip's
+     height and the offsets of both connectors -- change it in one place and
+     the lines stop meeting the boxes.
+   * A BOX CAN BE WIDER THAN ONE COLUMN. Force powers span up to all four, and
+     a spanning box has to cover the gaps it straddles, which `grid-column:
+     span n` does for free. Specializations never span; their boxes are all
+     .sw-tree-span-1.
+   --------------------------------------------------------------------------- */
+.sw-tree {
+    --sw-tree-gap: 10px;
+    padding: 6px 0 10px;
+    /* Names do not shorten, so on a phone the tree scrolls with the table it
+       sits in rather than squeezing four columns into the viewport. */
+    min-width: 560px;
+}
+
+/* One row of the grid: its cost gutter beside its boxes. */
+.sw-tree-group {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Specializations price a row at a time -- 5, 10, 15, 20, 25 XP -- so the cost
+   is a gutter. Force powers price each box and have no gutter at all, which is
+   why this is ng-if'd rather than left empty: the boxes then start at the edge.
+   Bottom padding matches the links strip so the number sits against its row. */
+.sw-tree-cost {
+    flex: 0 0 3.6em;
+    padding: 8px 8px 0 0;
+    text-align: right;
+    white-space: nowrap;
+    color: #666666;
+    font-size: 13px;
+}
+
+.sw-tree-xp {
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+.sw-tree-grid {
+    flex: 1;
+    /* Without this a long talent name blows the flex item past its share and
+       the four columns stop lining up between rows. */
+    min-width: 0;
+}
+
+.sw-tree-row,
+.sw-tree-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: var(--sw-tree-gap);
+}
+
+.sw-tree-node {
+    /* The anchor for the horizontal connector, which is drawn outside the box. */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 46px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #f2f2f2;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.sw-tree-name {
+    /* Long names break inside a 25% column rather than widening it. */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.sw-tree-node-cost {
+    margin-top: 2px;
+    color: #666666;
+    font-size: 11px;
+}
+
+/* A cell with no talent in it. It keeps its column -- dropping it would pull
+   the rest of the row left and shear the grid -- but there is nothing to draw,
+   so only the ghost of a box is left. Endure, Conjure and Warde's Foresight are
+   the three trees with holes. */
+.sw-tree-node.sw-tree-hole {
+    border-style: dashed;
+    border-color: #e6e6e6;
+    background: transparent;
+}
+
+.sw-tree-span-1 { grid-column: span 1; }
+.sw-tree-span-2 { grid-column: span 2; }
+.sw-tree-span-3 { grid-column: span 3; }
+.sw-tree-span-4 { grid-column: span 4; }
+
+/* The connector to the box on the right, drawn across the gap. Only the LEFT
+   box of a pair carries it, so each line is drawn once. It is inset by a pixel
+   at each end so it meets the borders instead of overlapping them. */
+.sw-tree-node.sw-tree-linked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: calc(-1px - var(--sw-tree-gap));
+    width: calc(var(--sw-tree-gap) + 2px);
+    border-top: 2px solid #999999;
+}
+
+/* The strip between two rows: four cells, one per grid column, each drawing a
+   bar where the row above is joined to the row below. Per column rather than
+   per box, because a box spanning several columns can be joined downward in
+   each of them -- Move's basic power is one box over four columns with four
+   connectors under it. */
+.sw-tree-links {
+    height: var(--sw-tree-gap);
+}
+
+.sw-tree-links > div {
+    position: relative;
+}
+
+.sw-tree-links > div.sw-tree-bar::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: 50%;
+    margin-left: -1px;
+    border-left: 2px solid #999999;
+}

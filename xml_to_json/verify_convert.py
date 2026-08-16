@@ -73,6 +73,23 @@ Check 6 -- the wiki description override
     This is the check that would catch a row rewritten by hand, or an oggdude
     re-import that moved a field the override folder is still carrying an old
     copy of.
+
+Check 7 -- tree schema mapping
+    oggdude_specializations_to_app.py and oggdude_force_powers_to_app.py are the
+    two importers whose output is a LAYOUT, so what has to hold is geometry:
+
+      * one row per source file, and every distinct cell key in a row survives
+        it -- either as a box or absorbed into a spanning one
+      * every tree row lays out exactly four columns wide, counting spans. This
+        is the invariant the renderer rests on, and holes and spans are the two
+        ways OggDude's export can break it
+      * each connector is written exactly once and points at something: no
+        <Down> on the last row, no LinkRight on a box at the right edge
+      * specializations never span (they are a clean 5x4), every one of them
+        belongs to a career or is universal, and every force power box is priced
+        with <Experience> as the sum
+      * the one-sided links the importers union are counted, so a change in that
+        count is visible rather than silently accepted
 """
 import glob
 import json
@@ -87,6 +104,8 @@ import oggdude_species_to_app as O    # noqa: E402
 import oggdude_vehicles_to_app as V   # noqa: E402
 import oggdude_careers_to_app as C    # noqa: E402
 import oggdude_talents_to_app as T    # noqa: E402
+import oggdude_specializations_to_app as S  # noqa: E402
+import oggdude_force_powers_to_app as F     # noqa: E402
 
 ROOT = convert.REPO_ROOT
 
@@ -608,9 +627,200 @@ def check_wiki_override():
     return not failures
 
 
+def _tree_invariants(label, records, expected, cell_path, failures, min_rows):
+    """
+    The invariants both tree importers share. `expected` maps Key -> the OggDude
+    root element, `cell_path` is where that element lists a row's cell keys.
+    """
+    by_key = {r['Key']: r for r in records}
+
+    missing = set(expected) - set(by_key)
+    extra = set(by_key) - set(expected)
+    if missing or extra:
+        failures.append('%s row set: missing %s, unexpected %s'
+                        % (label, sorted(missing)[:5], sorted(extra)[:5]))
+    print('  %d rows, one per source file: %s'
+          % (len(records), not missing and not extra))
+
+    # --- every row lays out exactly four columns wide ----------------------
+    # The single invariant the renderer depends on: a row that laid out three
+    # or five columns wide would shear the grid, and holes and spans are
+    # exactly the two ways OggDude's export can make that happen.
+    bad_width, short = [], []
+    for key, rec in sorted(by_key.items()):
+        if len(rec['Tree']) < min_rows:
+            short.append('%s: %d rows' % (key, len(rec['Tree'])))
+        for r, row in enumerate(rec['Tree']):
+            width = sum(n['Span'] for n in row['Nodes'])
+            if width != S.COLUMNS:
+                bad_width.append('%s row %d: %d columns' % (key, r, width))
+    if bad_width:
+        failures.append('%s rows not %d columns wide (%d)'
+                        % (label, S.COLUMNS, len(bad_width)))
+    print('  every tree row lays out %d columns wide: %s'
+          % (S.COLUMNS, not bad_width))
+    for b in bad_width[:8]:
+        print('      %s' % b)
+    if short:
+        failures.append('%s trees with fewer than %d rows (%d)'
+                        % (label, min_rows, len(short)))
+        for b in short[:8]:
+            print('      %s' % b)
+
+    # --- no cell is lost ---------------------------------------------------
+    # A named cell in the source must come out either as a box or as one of the
+    # covered cells a spanning box absorbed. Counting columns rather than boxes
+    # is what makes this hold for both types at once.
+    lost = []
+    for key, root in sorted(expected.items()):
+        rec = by_key.get(key)
+        if rec is None:
+            continue
+        rows = root.findall(cell_path)
+        if len(rows) != len(rec['Tree']):
+            lost.append('%s: %d source rows, %d out' % (key, len(rows), len(rec['Tree'])))
+            continue
+        for r, row_el in enumerate(rows):
+            want = set(k.text.strip() for k in row_el.findall('Key')
+                       if k.text and k.text.strip())
+            got = set(n['Key'] for n in rec['Tree'][r]['Nodes'] if n['Key'])
+            if want != got:
+                lost.append('%s row %d: source %s, out %s'
+                            % (key, r, sorted(want), sorted(got)))
+    if lost:
+        failures.append('%s cells lost or invented (%d)' % (label, len(lost)))
+    print('  every distinct cell key in a row survives it: %s' % (not lost))
+    for l in lost[:8]:
+        print('      %s' % l)
+
+    # --- links are written once, and never off the grid --------------------
+    # A vertical link belongs to the row ABOVE it and a horizontal one to the
+    # LEFT node of the pair, so the last row can carry no <Down> and the node
+    # ending at the right edge can carry no LinkRight. Getting this wrong draws
+    # a connector into empty space.
+    stray = []
+    for key, rec in sorted(by_key.items()):
+        last = len(rec['Tree']) - 1
+        for r, row in enumerate(rec['Tree']):
+            if r == last and row['Down']:
+                stray.append('%s: last row links down' % key)
+            for c in row['Down']:
+                if not 0 <= c < S.COLUMNS:
+                    stray.append('%s row %d: down link at column %d' % (key, r, c))
+            for n in row['Nodes']:
+                if n['LinkRight'] and n['Col'] + n['Span'] >= S.COLUMNS:
+                    stray.append('%s row %d: node at %d links right off the edge'
+                                 % (key, r, n['Col']))
+    if stray:
+        failures.append('%s links off the grid (%d)' % (label, len(stray)))
+    print('  no connector points off the grid: %s' % (not stray))
+    for s in stray[:8]:
+        print('      %s' % s)
+
+
+def check_trees():
+    print()
+    print('=' * 72)
+    print('Check 7: OggDude -> app schema tree translation holds')
+    print('=' * 72)
+    source_dir = os.path.join(ROOT, 'oggdudes-data')
+    if not os.path.isdir(os.path.join(source_dir, 'Specializations')):
+        print('  oggdudes-data/Specializations not present -- skipped')
+        return True
+
+    failures = []
+
+    print('  -- specializations --')
+    warn = []
+    records, _, _ = S.build(source_dir, warn)
+    expected = {}
+    for path in sorted(glob.glob(os.path.join(source_dir, 'Specializations', '*.xml'))):
+        root = ET.parse(path).getroot()
+        expected[(root.findtext('Key') or '').strip()] = root
+    _tree_invariants('specialization', records, expected,
+                     'TalentRows/TalentRow/Talents', failures, min_rows=5)
+
+    # Specializations are a clean 5x4 with no spans at all -- if a future export
+    # starts spanning them, layout_row() would silently start dropping cells,
+    # since it reads spans only when the caller passes them.
+    ragged = [r['Key'] for r in records
+              if any(n['Span'] != 1 for row in r['Tree'] for n in row['Nodes'])]
+    if ragged:
+        failures.append('specializations with a span other than 1: %s' % ragged[:5])
+    print('  every specialization cell is one column: %s' % (not ragged))
+
+    # Every tree belongs to a career or is universal; that tag IS the sidenav
+    # filter, so a tree with neither would be unreachable from the dropdown.
+    orphan = [r['Key'] for r in records if not r['Categories']]
+    if orphan:
+        failures.append('specializations no career offers: %s' % orphan[:5])
+    print('  every tree has a career or is universal: %s' % (not orphan))
+
+    # The one-sided links from the module docstring. Four is what the committed
+    # export contains; a change in that count means the export changed, and the
+    # union rule should be re-read before it is accepted.
+    onesided = [w for w in warn if 'from one end only' in w]
+    unresolved = [w for w in warn if 'from one end only' not in w]
+    if unresolved:
+        failures.append('specialization warnings beyond one-sided links (%d)'
+                        % len(unresolved))
+    print('  all talent and skill keys resolve: %s' % (not unresolved))
+    for w in unresolved[:8]:
+        print('      %s' % w)
+    print('  one-sided links, unioned: %d (4 in the committed export)' % len(onesided))
+
+    print('  -- force powers --')
+    warn = []
+    records, _ = F.build(source_dir, warn)
+    expected = {}
+    for path in sorted(glob.glob(os.path.join(source_dir, 'Force Powers', '*.xml'))):
+        root = ET.parse(path).getroot()
+        expected[(root.findtext('Key') or '').strip()] = root
+    # Farsight and Heal/Harm have four rows, not five.
+    _tree_invariants('force power', records, expected,
+                     'AbilityRows/AbilityRow/Abilities', failures, min_rows=4)
+
+    # Every box is priced, and the total is what the Experience slider reads.
+    unpriced = []
+    for rec in records:
+        for r, row in enumerate(rec['Tree']):
+            for n in row['Nodes']:
+                if n['Name'] and not F.int_or(n['Cost']):
+                    unpriced.append('%s row %d: %s costs nothing'
+                                    % (rec['Key'], r, n['Name']))
+        total = sum(F.int_or(n['Cost']) for row in rec['Tree']
+                    for n in row['Nodes'] if n['Name'])
+        if str(total) != (rec['Experience'] or '0'):
+            unpriced.append('%s: Experience %r, boxes total %d'
+                            % (rec['Key'], rec['Experience'], total))
+    if unpriced:
+        failures.append('force power costs (%d)' % len(unpriced))
+    print('  every box is priced and Experience is their sum: %s' % (not unpriced))
+    for u in unpriced[:8]:
+        print('      %s' % u)
+
+    onesided = [w for w in warn if 'from one end only' in w]
+    unresolved = [w for w in warn if 'from one end only' not in w]
+    if unresolved:
+        failures.append('force power warnings beyond one-sided links (%d)'
+                        % len(unresolved))
+    print('  all ability keys resolve, no row clipped: %s' % (not unresolved))
+    for w in unresolved[:8]:
+        print('      %s' % w)
+    print('  one-sided links, unioned: %d (5 in the committed export)' % len(onesided))
+
+    if failures:
+        print()
+        print('  FAILURES:')
+        for f in failures:
+            print('    %s' % f)
+    return not failures
+
+
 if __name__ == '__main__':
     checks = [check_converter(), check_mapping(), check_vehicles(),
-              check_careers(), check_talents(), check_wiki_override()]
+              check_careers(), check_talents(), check_wiki_override(),
+              check_trees()]
     print()
     print('RESULT:', 'PASS' if all(checks) else 'FAIL')
     sys.exit(0 if all(checks) else 1)

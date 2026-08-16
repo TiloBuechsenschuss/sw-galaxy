@@ -1,0 +1,4271 @@
+{
+    "ForcePower": [
+        {
+            "Key": "ENHANCE",
+            "Name": "Enhance",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 298
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 288
+                    },
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 46
+                    }
+                ]
+            },
+            "MinForceRating": 1,
+            "Experience": 95,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "ENHANCEBASIC",
+                                "Name": "Enhance Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ENHANCECONT1",
+                                    "Name": "Control: Coordination",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ENHANCECONT2",
+                                    "Name": "Control: Resilience",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "ENHANCECONT3",
+                                    "Name": "Control: Force Leap (Horizontal)",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ENHANCECONT4",
+                                    "Name": "Control: Piloting - Planetary",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ENHANCECONT5",
+                                    "Name": "Control: Brawl",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "ENHANCECONT6",
+                                    "Name": "Control: Force Leap (Vertical)",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ENHANCECONT7",
+                                    "Name": "Control: Piloting - Space",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "ENHANCECONT8",
+                                    "Name": "Control: Brawn",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "ENHANCERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "ENHANCECONT9",
+                                    "Name": "Control: Agility",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "ENHANCECONT0",
+                                    "Name": "Control: Force Leap (Maneuver)",
+                                    "Cost": 10
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Agility"
+                    },
+                    {
+                        "Name": "Control: Brawl"
+                    },
+                    {
+                        "Name": "Control: Brawn"
+                    },
+                    {
+                        "Name": "Control: Coordination"
+                    },
+                    {
+                        "Name": "Control: Force Leap (Horizontal)"
+                    },
+                    {
+                        "Name": "Control: Force Leap (Maneuver)"
+                    },
+                    {
+                        "Name": "Control: Force Leap (Vertical)"
+                    },
+                    {
+                        "Name": "Control: Piloting - Planetary"
+                    },
+                    {
+                        "Name": "Control: Piloting - Space"
+                    },
+                    {
+                        "Name": "Control: Resilience"
+                    },
+                    {
+                        "Name": "Enhance Basic Power"
+                    },
+                    {
+                        "Name": "Range"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Enhance[h4]\nPlease see page 298 of the Age of Rebellion Core Rulebook, page 288 of the Force and Destiny Core Rulebook, or page 46 of the Rise of the Separatists Sourcebook, for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "FORSEE",
+            "Name": "Foresee",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 300
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 290
+                    }
+                ]
+            },
+            "MinForceRating": 1,
+            "Experience": 90,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "FORSEEBASIC",
+                                "Name": "Foresee Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 3,
+                                    "Key": "FORSEECONTROL1",
+                                    "Name": "Control: Initiative (Success)",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "FORSEESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "FORSEEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "FORSEERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "FORSEECONTROL2",
+                                    "Name": "Control: Defense",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "FORSEEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "FORSEEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "FORSEERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "FORSEERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "FORSEESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 3,
+                                    "Key": "FORSEECONTROL3",
+                                    "Name": "Control: Initiative (Maneuver)",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "FORSEEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Defense"
+                    },
+                    {
+                        "Name": "Control: Initiative (Maneuver)"
+                    },
+                    {
+                        "Name": "Control: Initiative (Success)"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Foresee Basic Power"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Foresee[h4]\nPlease see page 300 of the Age of Rebellion Core Rulebook, or page 290 of the Force and Destiny Core Rulebook, for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "WARFOR",
+            "Name": "Warde's Foresight",
+            "Source": {
+                "Book": "Chronicles of the Gatekeeper",
+                "Page": 10
+            },
+            "MinForceRating": 1,
+            "Experience": 130,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 3,
+                                    "Key": "WARFORBASIC",
+                                    "Name": "Warde's Foresight Basic Power",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "WARFORRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 3,
+                                    "Key": "WARFORCONTROL1",
+                                    "Name": "Control: Successes",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "WARFORSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "WARFORCONTROL2",
+                                    "Name": "Control: Maneuver",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "WARFORDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "WARFORDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "WARFORRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "WARFORDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "WARFORCONTROL3",
+                                    "Name": "Control:  Initiative",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "WARFORMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "WARFORSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 3,
+                                    "Key": "WARFORCONTROL4",
+                                    "Name": "Control: Ally Initiative",
+                                    "Cost": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control:  Initiative"
+                    },
+                    {
+                        "Name": "Control: Ally Initiative"
+                    },
+                    {
+                        "Name": "Control: Maneuver"
+                    },
+                    {
+                        "Name": "Control: Successes"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    },
+                    {
+                        "Name": "Warde's Foresight Basic Power"
+                    }
+                ]
+            },
+            "Description": "Please see page 10 of the Chronicles of the Gatekeeper adventure module for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "EBBFLOW",
+            "Name": "Ebb\/Flow",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 39
+            },
+            "Experience": 120,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "EBBFLOWBASIC",
+                                "Name": "Ebb\/Flow Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "EBBFLOWMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "EBBFLOWRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "EBBFLOWSTRENGTH",
+                                    "Name": "Strength: Strain",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "EBBFLOWCONTROL1",
+                                    "Name": "Control: Question",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "EBBFLOWCONTROL2",
+                                    "Name": "Control: Threat\/Advantage",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "EBBFLOWSTRENGTH2",
+                                    "Name": "Strength: Threat\/Advantage",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "EBBFLOWMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "EBBFLOWCONTROL3",
+                                    "Name": "Control: Failure\/Success",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "EBBFLOWSTRENGTH3",
+                                    "Name": "Strength: Failure\/Success",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "EBBFLOWCONTROL4",
+                                    "Name": "Control: Skill Checks",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "EBBFLOWCONTROL5",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Failure\/Success"
+                    },
+                    {
+                        "Name": "Control: Question"
+                    },
+                    {
+                        "Name": "Control: Skill Checks"
+                    },
+                    {
+                        "Name": "Control: Threat\/Advantage"
+                    },
+                    {
+                        "Name": "Ebb\/Flow Basic Power"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength: Failure\/Success"
+                    },
+                    {
+                        "Name": "Strength: Strain"
+                    },
+                    {
+                        "Name": "Strength: Threat\/Advantage"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Imbue[h4]\nPlease see page 39 of the Disciples of Harmony Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "IMBUE",
+            "Name": "Imbue",
+            "Source": {
+                "Book": "Disciples of Harmony",
+                "Page": 37
+            },
+            "MinForceRating": 2,
+            "Experience": 160,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "IMBUEBASIC",
+                                "Name": "Imbue Basic Power",
+                                "Cost": 15
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "IMBUESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "IMBUECONTROL1",
+                                    "Name": "Control: Skill Ranks",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "IMBUERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "IMBUERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "IMBUERANGE",
+                                    "Name": "Range",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "IMBUESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "IMBUEMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 25
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "IMBUEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "IMBUERANGE",
+                                    "Name": "Range",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "IMBUESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "IMBUEDURATION2",
+                                    "Name": "Duration",
+                                    "Cost": 20
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Skill Ranks"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Imbue Basic Power"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Imbue[h4]\nPlease see page 37 of the Disciples of Harmony Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "INFLUENCE",
+            "Name": "Influence",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 281
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 294
+                    }
+                ]
+            },
+            "MinForceRating": 1,
+            "Experience": 110,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "INFLUENCEBASIC",
+                                "Name": "Influence Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "INFLUENCERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "INFLUENCECONTROL1",
+                                    "Name": "Control: Emotion\/Belief",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 3,
+                                    "Key": "INFLUENCECONTROL2",
+                                    "Name": "Control: Skills",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "INFLUENCESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "INFLUENCERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "INFLUENCERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "INFLUENCEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Emotion\/Belief"
+                    },
+                    {
+                        "Name": "Control: Skills"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Influence Basic Power"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Influence[h4]\nPlease see page 281 of the Edge of the Empire Core Rulebook, or page 294 of the Force and Destiny Core Rulebook, for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MOVE",
+            "Name": "Move",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 283
+                    },
+                    {
+                        "Book": "Age of Rebellion Core Rulebook",
+                        "Page": 296
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 298
+                    }
+                ]
+            },
+            "MinForceRating": 1,
+            "Experience": 150,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "MOVEBASIC",
+                                "Name": "Move Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MOVEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MOVESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MOVERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MOVERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MOVEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MOVESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "MOVECONTROL1",
+                                    "Name": "Control: Hurl",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MOVEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MOVESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MOVECONTROL2",
+                                    "Name": "Control: Pull",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MOVERANGE",
+                                    "Name": "Range",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MOVEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MOVESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "MOVECONTROL3",
+                                    "Name": "Control: Manipulate",
+                                    "Cost": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Hurl"
+                    },
+                    {
+                        "Name": "Control: Manipulate"
+                    },
+                    {
+                        "Name": "Control: Pull"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Move Basic Power"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Move[h4]\nPlease see page 283 of the Edge of the Empire Core Rulebook, page 296 of the Age of Rebellion Core Rulebook, or page 298 of the Force and Destiny Core Rulebook, for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SENSE",
+            "Name": "Sense",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Edge of the Empire Core Rulebook",
+                        "Page": 279
+                    },
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 304
+                    }
+                ]
+            },
+            "MinForceRating": 1,
+            "Experience": 110,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "SENSEBASIC",
+                                "Name": "Sense Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SENSECONTROL1",
+                                    "Name": "Control: Upgrade Difficulty",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "SENSECONTROL2",
+                                    "Name": "Control: Sense Thoughts",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SENSEDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "SENSERANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SENSEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SENSESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "SENSERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SENSEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SENSECONTROL3",
+                                    "Name": "Control: Upgrade Ability",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "SENSERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SENSEMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Sense Thoughts"
+                    },
+                    {
+                        "Name": "Control: Upgrade Ability"
+                    },
+                    {
+                        "Name": "Control: Upgrade Difficulty"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Sense Basic Power"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Sense[h4]\nPlease see page 279 of the Edge of the Empire Core Rulebook, or page 304 of the Force and Destiny Core Rulebook, for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MANIPULATE",
+            "Name": "Manipulate",
+            "Source": {
+                "Book": "Endless Vigil",
+                "Page": 37
+            },
+            "Experience": 155,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "MANIPULATEBASIC",
+                                "Name": "Manipulate Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MANIPULATECONTROL1",
+                                    "Name": "Control: Item Damage",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MANIPULATESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "MANIPULATECONTROL2",
+                                    "Name": "Control: Increase System Strain",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MANIPULATECONTROL3",
+                                    "Name": "Control: Mechanics",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MANIPULATERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MANIPULATECONTROL4",
+                                    "Name": "Control: Heal Droid",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MANIPULATECONTROL5",
+                                    "Name": "Control: Inflict Strain",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "MANIPULATECONTROL6",
+                                    "Name": "Control: Increase Hull Trauma",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MANIPULATERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MANIPULATESTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MANIPULATECONTROL7",
+                                    "Name": "Control: Upgrade Computers and Mechanics",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MANIPULATERANGE",
+                                    "Name": "Range",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "MANIPULATEMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Heal Droid"
+                    },
+                    {
+                        "Name": "Control: Increase Hull Trauma"
+                    },
+                    {
+                        "Name": "Control: Increase System Strain"
+                    },
+                    {
+                        "Name": "Control: Inflict Strain"
+                    },
+                    {
+                        "Name": "Control: Item Damage"
+                    },
+                    {
+                        "Name": "Control: Mechanics"
+                    },
+                    {
+                        "Name": "Control: Upgrade Computers and Mechanics"
+                    },
+                    {
+                        "Name": "Manipulate Basic Power"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "Please see page 37 of the Endless Vigil Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BATMED",
+            "Name": "Battle Meditation",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 284
+            },
+            "MinForceRating": 2,
+            "Experience": 185,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "BATMEDBASIC",
+                                "Name": "Battle Meditation Basic Power",
+                                "Cost": 15
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BATMEDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BATMEDRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "BATMEDCONTROL1",
+                                    "Name": "Control: Orders",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BATMEDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BATMEDRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "BATMEDSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BATMEDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BATMEDRANGE",
+                                    "Name": "Range",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "BATMEDDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 25
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BATMEDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BATMEDCONTROL2",
+                                    "Name": "Control: Planetary Scale",
+                                    "Cost": 20,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "BATMEDMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 25
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Battle Meditation Basic Power"
+                    },
+                    {
+                        "Name": "Control: Orders"
+                    },
+                    {
+                        "Name": "Control: Planetary Scale"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Battle Meditation[h4]\nPlease see page 284 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "BIND",
+            "Name": "Bind",
+            "Sources": {
+                "Source": [
+                    {
+                        "Book": "Force and Destiny Core Rulebook",
+                        "Page": 286
+                    },
+                    {
+                        "Book": "Rise of the Separatists",
+                        "Page": 44
+                    }
+                ]
+            },
+            "MinForceRating": 2,
+            "Experience": 215,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "BINDBASIC",
+                                "Name": "Bind Basic Power",
+                                "Cost": 15
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BINDRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BINDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "BINDSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "BINDCONTROL1",
+                                    "Name": "Control: Strain",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BINDRANGE",
+                                    "Name": "Range",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BINDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "BINDSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "BINDDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BINDCONTROL2",
+                                    "Name": "Control: Move",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "BINDMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 25
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "BINDSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 20
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "BINDRANGE",
+                                    "Name": "Range",
+                                    "Cost": 20,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 3,
+                                    "Key": "BINDMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 25
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Bind Basic Power"
+                    },
+                    {
+                        "Name": "Control: Move"
+                    },
+                    {
+                        "Name": "Control: Strain"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Bind[h4]\nPlease see page 286 of the Force and Destiny Core Rulebook, or page 44 of the Rise of the Separatists Sourcebook, for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "HEALHARM",
+            "Name": "Heal\/Harm",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 292
+            },
+            "MinForceRating": 1,
+            "Experience": 200,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "HEALHARMBASIC",
+                                "Name": "Heal\/Harm Basic Power",
+                                "Cost": 15
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "HEALHARMRANGE",
+                                    "Name": "Range",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "HEALHARMMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "HEALHARMMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "HEALHARMCONTROL2",
+                                    "Name": "Control: Strain",
+                                    "Cost": 20
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "HEALHARMRANGE",
+                                    "Name": "Range",
+                                    "Cost": 20,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "HEALHARMMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "HEALHARMSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "HEALHARMCONTROL3",
+                                    "Name": "Control: Status",
+                                    "Cost": 20
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "HEALHARMCONTROL1",
+                                    "Name": "Control: Medicine",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "HEALHARMCONTROL4",
+                                    "Name": "Control: Critical",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "HEALHARMMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "HEALHARMSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Critical"
+                    },
+                    {
+                        "Name": "Control: Medicine"
+                    },
+                    {
+                        "Name": "Control: Status"
+                    },
+                    {
+                        "Name": "Control: Strain"
+                    },
+                    {
+                        "Name": "Heal\/Harm Basic Power"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Heal\/Harm[h4]\nPlease see page 292 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "MISDIRECT",
+            "Name": "Misdirect",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 296
+            },
+            "MinForceRating": 1,
+            "Experience": 175,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "MISDIRBASIC",
+                                "Name": "Misdirect Basic Power",
+                                "Cost": 15
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MISDIRRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MISDIRDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MISDIRSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MISDIRCONTROL1",
+                                    "Name": "Control: Appearance",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MISDIRMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MISDIRMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MISDIRSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MISDIRCONTROL2",
+                                    "Name": "Control: Illusion",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "MISDIRRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "MISDIRCONTROL3",
+                                    "Name": "Control: Combat",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "MISDIRSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "MISDIRMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "MISDIRRANGE",
+                                    "Name": "Range",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "MISDIRSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Appearance"
+                    },
+                    {
+                        "Name": "Control: Combat"
+                    },
+                    {
+                        "Name": "Control: Illusion"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Misdirect Basic Power"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Misdirect[h4]\nPlease see page 296 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "PROTUNL",
+            "Name": "Protect\/Unleash",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 300
+            },
+            "MinForceRating": 3,
+            "Experience": 215,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "PROTUNLBASICPOWER",
+                                "Name": "Protect\/Unleash Basic Power",
+                                "Cost": 20
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "PROTUNLRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "PROTUNLSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "PROTUNLSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "PROTUNLCONTROL1",
+                                    "Name": "Control: Defense\/Strain",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "PROTUNLRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "PROTUNLMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "PROTUNLRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "PROTUNLCONTROL2",
+                                    "Name": "Control: All Attacks\/Ensnare",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "PROTUNLMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "PROTUNLSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "PROTUNLSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "PROTUNLDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "PROTUNLCONTROL3",
+                                    "Name": "Control: Incidental\/Maneuver",
+                                    "Cost": 25
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "PROTUNLMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 25
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: All Attacks\/Ensnare"
+                    },
+                    {
+                        "Name": "Control: Defense\/Strain"
+                    },
+                    {
+                        "Name": "Control: Incidental\/Maneuver"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Protect\/Unleash Basic Power"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Protect\/Unleash[h4]\nPlease see page 300 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SEEK",
+            "Name": "Seek",
+            "Source": {
+                "Book": "Force and Destiny Core Rulebook",
+                "Page": 302
+            },
+            "MinForceRating": 1,
+            "Experience": 145,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "SEEKBASICPOWER",
+                                "Name": "Seek Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SEEKMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "SEEKCONTROL1",
+                                    "Name": "Control: Skills",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "SEEKSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "SEEKMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SEEKMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "SEEKCONTROL2",
+                                    "Name": "Control: Target",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "SEEKSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SEEKMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "SEEKDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "SEEKCONTROL3",
+                                    "Name": "Control: Pierce",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SEEKMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Pierce"
+                    },
+                    {
+                        "Name": "Control: Skills"
+                    },
+                    {
+                        "Name": "Control: Target"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Seek Basic Power"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Seek[h4]\nPlease see page 302 of the Force and Destiny Core Rulebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "SUPPRESS",
+            "Name": "Suppress",
+            "Source": {
+                "Book": "Keeping the Peace",
+                "Page": 38
+            },
+            "MinForceRating": 1,
+            "Experience": 100,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "SUPPRESSBASIC",
+                                "Name": "Suppress Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": {
+                            "Col": 2
+                        }
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SUPPRESSSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "SUPPRESSDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SUPPRESSRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 3,
+                                    "Key": "SUPPRESSCONTROL1",
+                                    "Name": "Control: Commit",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SUPPRESSRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SUPPRESSSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "SUPPRESSCONTROL2",
+                                    "Name": "Control: Destiny",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "SUPPRESSRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "SUPPRESSMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "SUPPRESSCONTROL3",
+                                    "Name": "Control: Strain",
+                                    "Cost": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Commit"
+                    },
+                    {
+                        "Name": "Control: Destiny"
+                    },
+                    {
+                        "Name": "Control: Strain"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    },
+                    {
+                        "Name": "Suppress Basic Power"
+                    }
+                ]
+            },
+            "Description": "[H4]Force Power: Suppress[h4]\nPlease see page 38 of the Keeping the Peace sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "ENDURE",
+            "Name": "Endure",
+            "Source": {
+                "Book": "Knights of Fate",
+                "Page": 36
+            },
+            "Experience": 125,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "ENDUREBASIC",
+                                "Name": "Endure Basic Power",
+                                "Cost": 10
+                            }
+                        },
+                        "Down": {
+                            "Col": 0
+                        }
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ENDURESTRENGTH1",
+                                    "Name": "Strength - Increase Severity",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ENDURECONTROL",
+                                    "Name": "Control - Additional Injuries",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "ENDUREDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": {
+                            "Col": 1
+                        }
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ENDURECONTROL",
+                                    "Name": "Control - Additional Injuries",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ENDURESTRENGTH1",
+                                    "Name": "Strength - Increase Severity",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "ENDUREMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ENDURESTRENGTH1",
+                                    "Name": "Strength - Increase Severity",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ENDURECONTROL",
+                                    "Name": "Control - Additional Injuries",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "ENDURESTRENGTH2",
+                                    "Name": "Strength - Ignore Death",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "ENDURERANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": {
+                            "Col": 2
+                        }
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "ENDUREMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control - Additional Injuries"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Endure Basic Power"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength - Ignore Death"
+                    },
+                    {
+                        "Name": "Strength - Increase Severity"
+                    }
+                ]
+            },
+            "Description": "Please see page 36 of the Knights of Fate Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "FARSIGHT",
+            "Name": "Farsight",
+            "Source": {
+                "Book": "Savage Spirits",
+                "Page": 36
+            },
+            "Experience": 105,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "FARSIGHTBASIC",
+                                "Name": "Farsight Basic Power",
+                                "Cost": 5
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTCONTROL1",
+                                    "Name": "Control: Microscopic Details",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTCONTROL2",
+                                    "Name": "Control: Transparent",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTCONTROL6",
+                                    "Name": "Control: Fine Details",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 5,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTCONTROL3",
+                                    "Name": "Control: Vigilance",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTCONTROL4",
+                                    "Name": "Control: Perception",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "FARSIGHTCONTROL5",
+                                    "Name": "Control: Panoramic Vision",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "FARSIGHTMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Control: Fine Details"
+                    },
+                    {
+                        "Name": "Control: Microscopic Details"
+                    },
+                    {
+                        "Name": "Control: Panoramic Vision"
+                    },
+                    {
+                        "Name": "Control: Perception"
+                    },
+                    {
+                        "Name": "Control: Transparent"
+                    },
+                    {
+                        "Name": "Control: Vigilance"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Farsight Basic Power"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    }
+                ]
+            },
+            "Description": "Please see page 36 of the Savage Spirits Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "ALTER",
+            "Name": "Alter",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 42
+            },
+            "Experience": 180,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "ALTERBASIC",
+                                "Name": "Alter Basic Power",
+                                "Cost": 15
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ALTERCONTROL1",
+                                    "Name": "Control: Survival",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ALTERRANGE",
+                                    "Name": "Range",
+                                    "Cost": 5
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "ALTERCONTROL2",
+                                    "Name": "Control: Concealment",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ALTERCONTROL3",
+                                    "Name": "Control: Animal Senses",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ALTERCONTROL4",
+                                    "Name": "Control: Firm Terrain",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "ALTERDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "ALTERSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 5
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ALTERRANGE",
+                                    "Name": "Range",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "ALTERCONTROL5",
+                                    "Name": "Control: Impassible Terrain",
+                                    "Cost": 15
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "ALTERSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "ALTERCONTROL6",
+                                    "Name": "Control: Corrosive Atmosphere",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "ALTERCONTROL7",
+                                    "Name": "Control: Upgrade Difficulty",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 2,
+                                    "Key": "ALTERMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 25,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "ALTERSTRENGTH",
+                                    "Name": "Strength",
+                                    "Cost": 15
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Alter Basic Power"
+                    },
+                    {
+                        "Name": "Control: Animal Senses"
+                    },
+                    {
+                        "Name": "Control: Concealment"
+                    },
+                    {
+                        "Name": "Control: Corrosive Atmosphere"
+                    },
+                    {
+                        "Name": "Control: Firm Terrain"
+                    },
+                    {
+                        "Name": "Control: Impassible Terrain"
+                    },
+                    {
+                        "Name": "Control: Survival"
+                    },
+                    {
+                        "Name": "Control: Upgrade Difficulty"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Range"
+                    },
+                    {
+                        "Name": "Strength"
+                    }
+                ]
+            },
+            "Description": "Enter description for Force Power \"Alter\" here.",
+            "Thumbnail": "img\/no_image.png"
+        },
+        {
+            "Key": "CONJURE",
+            "Name": "Conjure",
+            "Source": {
+                "Book": "Unlimited Power",
+                "Page": 39
+            },
+            "Experience": 180,
+            "Tree": {
+                "Row": [
+                    {
+                        "Nodes": {
+                            "Node": {
+                                "Col": 0,
+                                "Span": 4,
+                                "Key": "CONJUREBASIC",
+                                "Name": "Conjure Basic Power",
+                                "Cost": 20
+                            }
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "CONJUREDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "CONJURENUMBER",
+                                    "Name": "Number",
+                                    "Cost": 10
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 2,
+                                    "Key": "CONJUREMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 10
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            },
+                            {
+                                "Col": 3
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "CONJUREMAGNITUDE",
+                                    "Name": "Magnitude",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "CONJURECONTROL1",
+                                    "Name": "Control: Defense Qualities",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "CONJUREDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": [
+                            {
+                                "Col": 0
+                            },
+                            {
+                                "Col": 1
+                            },
+                            {
+                                "Col": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 1,
+                                    "Key": "CONJURENUMBER",
+                                    "Name": "Number",
+                                    "Cost": 10,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 1,
+                                    "Span": 1,
+                                    "Key": "CONJURECONTROL2",
+                                    "Name": "Control: Offense Qualities",
+                                    "Cost": 15,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1,
+                                    "Key": "CONJURERANGE",
+                                    "Name": "Range",
+                                    "Cost": 20,
+                                    "LinkRight": "true"
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1,
+                                    "Key": "CONJUREDURATION",
+                                    "Name": "Duration",
+                                    "Cost": 15
+                                }
+                            ]
+                        },
+                        "Down": {
+                            "Col": 0
+                        }
+                    },
+                    {
+                        "Nodes": {
+                            "Node": [
+                                {
+                                    "Col": 0,
+                                    "Span": 2,
+                                    "Key": "CONJUREMASTERY",
+                                    "Name": "Mastery",
+                                    "Cost": 20
+                                },
+                                {
+                                    "Col": 2,
+                                    "Span": 1
+                                },
+                                {
+                                    "Col": 3,
+                                    "Span": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Talents": {
+                "Talent": [
+                    {
+                        "Name": "Conjure Basic Power"
+                    },
+                    {
+                        "Name": "Control: Defense Qualities"
+                    },
+                    {
+                        "Name": "Control: Offense Qualities"
+                    },
+                    {
+                        "Name": "Duration"
+                    },
+                    {
+                        "Name": "Magnitude"
+                    },
+                    {
+                        "Name": "Mastery"
+                    },
+                    {
+                        "Name": "Number"
+                    },
+                    {
+                        "Name": "Range"
+                    }
+                ]
+            },
+            "Description": "Please see page 39 of the Unlimited Power Sourcebook for details.",
+            "Thumbnail": "img\/no_image.png"
+        }
+    ]
+}

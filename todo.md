@@ -35,13 +35,16 @@ Species is the one type that already read well, because its text comes from
 
 Still open on this front:
 
-- [ ] **Talent trees.** The wiki lists, per talent, which specializations offer
-      it and at what tier (`*'''Trees:'''`). That is real information the data
-      does not have, and `wiki_descriptions.py` deliberately drops it — it needs
-      a column of its own, not a paragraph glued to the description.
-- [ ] The other six types are still pointers. The wiki has pages for most of
-      them; the same machinery would cover them, one `SOURCES` entry each. Lower
-      value, since the stats already carry those rows.
+- [x] **Talent trees.** Solved from the data rather than from the wiki: the 123
+      specialization files under `oggdudes-data/Specializations/` say which
+      talents a tree offers and at what tier, so the **Talent Trees** tab draws
+      the tree itself and the *Teaches* dropdown answers "which trees offer
+      Grit?" directly. The wiki's `*'''Trees:'''` bullets stay dropped — the
+      data now says the same thing, and says it per tier.
+- [ ] The other six types are still pointers, and so are the two tree types.
+      The wiki has pages for most of them; the same machinery would cover them,
+      one `SOURCES` entry each. Lower value, since the stats — or, on the tree
+      tabs, the tree — already carry those rows.
 
 ## Get Missing Data from books
 
@@ -81,11 +84,15 @@ Surveyed against `oggdudes-data/`; the full table with volumes lives in
       characteristics and Force rating wired. OggDude ships no adversary export,
       so this is blocked on a data source, not on code. Do not treat those
       `ng-if`s as dead code.
-- [ ] **Specializations** (123), **Force powers** (20), **Signature abilities**
-      (38) — all talent *trees*: a 4x5 grid with directional links between
-      nodes. These need a renderer, not a table, which is UI this app does not
-      have. Specialization **names** already appear on the Careers tab, which is
-      most of the value for a fraction of the work.
+- [x] **Specializations** (123) and **Force powers** (20) — the **Talent Trees**
+      and **Force Trees** tabs. The grid is drawn in the row's expanded area,
+      laid out at import time by `oggdude_specializations_to_app.py`; see
+      *Talent trees and force trees* in `AGENTS.md`.
+- [ ] **Signature abilities** (38) — the third tree type and the only one left.
+      Structurally the force powers again, so the renderer and the layout code
+      already fit. One export quirk first: 26 of its 114 rows write 16 `<Span>`
+      entries for 4 cells, all four rows' spans flattened into the first row's
+      element, which `layout_row()` would silently mislay.
 
 ## Get misising books
 

@@ -86,6 +86,12 @@ TARGETS = OrderedDict([
                            r'^Category:', 'subcat')),
     ('talents',     Target('Talents',     'Talents.json',         'Talent',          'Name',
                            r'\s+talent$')),
+    # Both of these categories are SINGULAR on the wiki -- Category:Specializations
+    # and Category:Force Powers do not exist and come back empty. Their pages are
+    # titled with the bare name ('Advisor', 'Alter'), so unlike talents there is
+    # nothing to strip.
+    ('specializations', Target('Specialization', 'Specializations.json', 'Specialization', 'Name')),
+    ('forcepowers', Target('Force Power', 'ForcePowers.json',     'ForcePower',      'Name')),
 ])
 
 

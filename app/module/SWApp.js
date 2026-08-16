@@ -46,6 +46,8 @@ App.constant('tabs', [
     {label: 'Species', name: 'Species', url: 'data/json/Species.json'},
     {label: 'Careers', name: 'Career', url: 'data/json/Careers.json'},
     {label: 'Talents', name: 'Talent', url: 'data/json/Talents.json'},
+    {label: 'Talent Trees', name: 'Specialization', url: 'data/json/Specializations.json'},
+    {label: 'Force Trees', name: 'ForcePower', url: 'data/json/ForcePowers.json'},
 ]);
 
 /**
@@ -250,7 +252,11 @@ App.filter('searchFilter', function () {
                 pattern.test(item.Type) ||
                 pattern.test(item.SkillKey) ||
                 pattern.test(item.RangeValue) ||
-                (typeof item.Qualities == 'object' && pattern.test(JSON.stringify(item.Qualities)));
+                (typeof item.Qualities == 'object' && pattern.test(JSON.stringify(item.Qualities))) ||
+                // What a talent or force tree teaches. The tree itself is the
+                // content of those two tabs, so a search that could not see
+                // into it would only ever match a specialization's own name.
+                (typeof item.Talents == 'object' && pattern.test(JSON.stringify(item.Talents)));
                 if (!found) {
                     return false;
                 }
@@ -1743,6 +1749,7 @@ App.directive('itemList', function () {
                 $scope.sensorRanges = [];
                 $scope.skills = [];
                 $scope.grantedSkills = [];
+                $scope.treeTalents = [];
                 $scope.restrictions = [];
                 $scope.sources = [];
                 $scope.ranges = [];
@@ -1795,6 +1802,8 @@ App.directive('itemList', function () {
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxStrainThreshold, 'StrainThreshold');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minExperience, 'Experience');
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxExperience, 'Experience');
+                            filteredItems = $filter('min')(filteredItems, $scope.filters.minMinForceRating, 'MinForceRating');
+                            filteredItems = $filter('max')(filteredItems, $scope.filters.maxMinForceRating, 'MinForceRating');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minBrawn, 'Brawn');
                             filteredItems = $filter('max')(filteredItems, $scope.filters.maxBrawn, 'Brawn');
                             filteredItems = $filter('min')(filteredItems, $scope.filters.minAgility, 'Agility');
@@ -1814,6 +1823,7 @@ App.directive('itemList', function () {
                             filteredItems = $filter('fulltextFilter')(filteredItems, $scope.filters.restriction, 'Restricted');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.category, 'Categories', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.grantedSkill, 'Skills', 'Name');
+                            filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.treeTalent, 'Talents', 'Name');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.baseMod, 'BaseMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.addedMod, 'AddedMods', 'Key');
                             filteredItems = $filter('arrayFulltextFilter')(filteredItems, $scope.filters.quality, 'Qualities', 'Key');
@@ -2353,9 +2363,13 @@ App.directive('itemList', function () {
                             // Category filter. Vehicles, talents and careers only, until
                             // that shape is handled -- all three of those files are written
                             // by an importer that emits nothing but plain <Category>
-                            // strings. On careers the one value is 'Force'.
+                            // strings. On careers the one value is 'Force'; on
+                            // specializations it is the careers that offer the tree,
+                            // plus 'Universal' for the eleven any career may take --
+                            // which is what makes "the Guardian trees" a filter
+                            // rather than a column, the same trick careers play.
                             if ($scope.name == 'Vehicle' || $scope.name == 'Talent' ||
-                                $scope.name == 'Career') {
+                                $scope.name == 'Career' || $scope.name == 'Specialization') {
                                 if (typeof items[i].Categories == 'object') {
                                     if (typeof items[i].Categories.Category == 'string') {
                                         categories.push({'Key': items[i].Categories.Category});
@@ -2439,8 +2453,20 @@ App.directive('itemList', function () {
                             // one dropdown, which is why it is labelled just "Skill".
                             // The other types' Skills array is always empty; the gate
                             // says so rather than relying on it.
-                            if ($scope.name == 'Career' || $scope.name == 'Species') {
+                            if ($scope.name == 'Career' || $scope.name == 'Species' ||
+                                $scope.name == 'Specialization') {
                                 $scope.collectValues(items[i].Skills, 'Name', $scope.grantedSkills);
+                            }
+                            // The two tree tabs. Both carry <Tree>, and both list
+                            // what the tree teaches under <Talents> -- a force
+                            // power's entries are its abilities, written in the
+                            // species <Talent><Name> shape on purpose, so the
+                            // block above has already turned them into an array
+                            // and one column, one dropdown and one renderer
+                            // serve both tabs.
+                            if ($scope.name == 'Specialization' || $scope.name == 'ForcePower') {
+                                items[i].Tree = $scope.readTree(items[i]);
+                                $scope.collectValues(items[i].Talents, 'Name', $scope.treeTalents);
                             }
                             $scope.collectValues(items[i].Qualities, 'Key', $scope.qualities);
                             $scope.collectValues(items[i].BaseMods, 'Key', $scope.baseMods);
@@ -2463,6 +2489,12 @@ App.directive('itemList', function () {
                         $scope.max.StrainThreshold = $scope.getMaxValue(items, 'StrainThreshold');
                         $scope.min.Experience = $scope.getMinValue(items, 'Experience');
                         $scope.max.Experience = $scope.getMaxValue(items, 'Experience');
+                        // Only force powers carry one, and only 14 of the 20 state
+                        // it -- the six that do not are left out rather than
+                        // defaulted to 1, so the slider's floor is a number the
+                        // books actually print.
+                        $scope.min.MinForceRating = $scope.getMinValue(items, 'MinForceRating');
+                        $scope.max.MinForceRating = $scope.getMaxValue(items, 'MinForceRating');
                         $scope.min.Brawn = $scope.getMinValue(items, 'Brawn');
                         $scope.max.Brawn = $scope.getMaxValue(items, 'Brawn');
                         $scope.min.Agility = $scope.getMinValue(items, 'Agility');
@@ -2511,6 +2543,77 @@ App.directive('itemList', function () {
                         quality.Key = $filter('qualityFilter')(quality.Key);
                     }
                     return out;
+                };
+                $scope.readList = function (holder, child) {
+                    // SimpleXML's one-or-many shape, as an array every time:
+                    // one <Node> is an object, several are an array, none is a
+                    // missing key. The same three cases the Qualities, Sources
+                    // and Categories blocks each unwrap inline -- pulled out
+                    // here because a tree nests them four deep and doing it
+                    // inline would be unreadable.
+                    var i, l, out = [];
+                    if (typeof holder != 'object' || holder === null) {
+                        return out;
+                    }
+                    if (typeof holder[child] != 'object' || holder[child] === null) {
+                        return out;
+                    }
+                    if (typeof holder[child].length == 'number') {
+                        l = holder[child].length;
+                        for (i = 0; i < l; i++) {
+                            out.push(holder[child][i]);
+                        }
+                    } else {
+                        out.push(holder[child]);
+                    }
+                    return out;
+                };
+                $scope.readTree = function (item) {
+                    // A specialization's talent tree or a force power's upgrade
+                    // tree, flattened into what the renderer walks. The importer
+                    // has already done the layout -- see
+                    // oggdude_specializations_to_app.py -- so this only turns
+                    // SimpleXML's shapes into arrays and gives every row four
+                    // column slots to draw into.
+                    //
+                    // Two things are deliberately not four entries long. A row's
+                    // Nodes hold one entry per BOX, and a box may span several
+                    // columns, so a force power row can be a single node with a
+                    // Span of 4. Its Down list holds only the columns that are
+                    // joined to the row below, which is why it is expanded here
+                    // into four booleans the template can index by position.
+                    var rows, nodes, down, tree = [], i, l, i2, l2, node, bars;
+                    rows = $scope.readList(item.Tree, 'Row');
+                    l = rows.length;
+                    for (i = 0; i < l; i++) {
+                        nodes = $scope.readList(rows[i], 'Nodes');
+                        nodes = nodes.length ? $scope.readList(nodes[0], 'Node') : [];
+                        // Four slots, one per grid column: true where a connector
+                        // runs down to the row below. Written once, by the row
+                        // above, so the last row's list is simply empty.
+                        bars = [false, false, false, false];
+                        down = $scope.readList(rows[i], 'Down');
+                        l2 = down.length;
+                        for (i2 = 0; i2 < l2; i2++) {
+                            if (typeof down[i2].Col == 'number' &&
+                                down[i2].Col >= 0 && down[i2].Col < bars.length) {
+                                bars[down[i2].Col] = true;
+                            }
+                        }
+                        l2 = nodes.length;
+                        for (i2 = 0; i2 < l2; i2++) {
+                            node = nodes[i2];
+                            // "true"/"false" as a string, the way Restricted and
+                            // the vehicle flags are, so it has to be compared.
+                            node.Linked = node.LinkRight == 'true';
+                            // A cell with no talent in it is a hole in the grid
+                            // and still has to take up its column, or the row
+                            // would come out narrower than the ones around it.
+                            node.Empty = typeof node.Name != 'string';
+                        }
+                        tree.push({Cost: rows[i].Cost, Nodes: nodes, Down: bars});
+                    }
+                    return tree;
                 };
                 $scope.sizeLimit = function (min, max) {
                     // The silhouettes a vehicle attachment fits, as one string.

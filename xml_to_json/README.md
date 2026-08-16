@@ -17,10 +17,12 @@ xml_to_json/xml_sources/oggdude/*.xml     xml_to_json/xml_sources/fandom-wiki/*.
 ```
 
 `Armor.xml`, `Weapons.xml`, `ItemAttachments.xml` and `Gear.xml` are already in
-the app's schema and are copied straight into `xml_sources/oggdude/`. **Species,
-Vehicles, Careers and Talents are the exceptions** — the first three ship one
-file per row in a different schema, and Talents ships flat but with two fields
-the app would misread, so each goes through its own `oggdude_*_to_app.py` first.
+the app's schema and are copied straight into `xml_sources/oggdude/`. **Everything
+else goes through its own `oggdude_*_to_app.py` first.** Species, Vehicles,
+Careers, Specializations and Force Powers ship one file per row in a different
+schema; Talents ships flat but with two fields the app would misread; and the
+last two go further still, since what the app renders from them is a grid rather
+than a row — see *Specializations and force powers*.
 
 Both the XML sources and the generated JSON are committed. A data change is
 expected to include the regenerated JSON in the same commit.
@@ -36,6 +38,8 @@ expected to include the regenerated JSON in the same commit.
 | `oggdude_vehicles_to_app.py` | The same for the 413 per-vehicle files. |
 | `oggdude_careers_to_app.py` | The same for the 20 per-career files, resolving skill and specialization keys. |
 | `oggdude_talents_to_app.py` | Reshapes the single flat `Talents.xml` — see *Talents* below for why it is not just copied. |
+| `oggdude_specializations_to_app.py` | The 123 talent trees. Lays the grid out; see *Specializations and force powers*. |
+| `oggdude_force_powers_to_app.py` | The 20 force trees. Imports the layout code from the one above. |
 | `verify_convert.py` | Regression checks, one per importer. Run after touching any of the above. |
 | `wiki.py` | The shared, cached client for the fandom wiki. Imported by the two below; nothing else opens a connection. |
 | `wiki_diff.py` | Reports what a wiki category has that the JSON does not, and vice versa. Read-only. |
@@ -102,7 +106,7 @@ here that needs network access.
 ```bash
 python xml_to_json/wiki_diff.py --list        # the configured targets
 python xml_to_json/wiki_diff.py species       # one target
-python xml_to_json/wiki_diff.py --all         # all eight
+python xml_to_json/wiki_diff.py --all         # all ten
 ```
 
 Targets are one line each in `TARGETS` at the top of the script — wiki category,
@@ -445,14 +449,13 @@ what differs is the import.
 | **Careers** | 20 files | Done — `oggdude_careers_to_app.py`, see below |
 | **Vehicle attachments** | 125 rows | Done — no import at all, a second tab over `ItemAttachments.json` split by `attachmentClass`, the way Starships split off Vehicles. |
 | **Adversaries** | none | **Already half-built in `items.html`** (29 `name == 'Adversary'` conditions, full characteristic columns). OggDude ships no adversary export, so the UI exists and the data does not. Blocked on a data source, not on code. |
+| **Specializations** | 123 files | Done — `oggdude_specializations_to_app.py`, see below. The tree renderer this table said the app did not have now exists. |
+| **Force powers** | 20 files | Done — `oggdude_force_powers_to_app.py`, which imports the layout code from the specializations importer. |
 | Skills | 35 rows | Trivially table-shaped: flat single file, `Key`/`Name`/`Description`/`Sources`/`CharKey`/`TypeValue`. At 35 rows it is a reference list rather than something the sliders-and-filters table earns its keep on. |
-| Specializations | 123 files | Talent *trees* — a 4×5 grid with directional links between nodes. Needs a renderer, not a table. Their **names** are already listed on the Careers tab. |
-| Force powers | 20 files | Same shape as specializations: upgrade trees, not rows. |
-| Signature abilities | 38 files | Same tree problem as specializations. |
+| Signature abilities | 38 files | The third tree type, and the only one left. Structurally the force powers again — 3 rows of 4, spans and per-box costs, names out of a separate `SigAbilityNodes.xml` the way abilities come from `Force Abilities.xml` — so the renderer and the layout code are already in place. **One export quirk to handle first: 26 of the 114 rows write 16 `<Span>` entries for 4 cells**, all four rows' spans flattened into the first row's element. `layout_row()` would read the first four and quietly mislay the rest. |
 
-What is left is Skills, which is table-shaped and cheap but thin, and everything
-under Specializations, Force Powers and Signature Abilities, which is tree-shaped
-and would need UI this app does not have yet.
+What is left is Skills, which is table-shaped and cheap but thin, and Signature
+Abilities, which is tree-shaped and now has a renderer waiting for it.
 
 The Talents row is worth reading twice. It was estimated here as a straight copy —
 "single file, flat rows" — and it is not: `<ActivationValue>taPassive` would have
@@ -633,3 +636,78 @@ describing the talent, and is dropped: `DieModifiers` (31 rows), `SkillChars`,
 `SetForceRating`.
 
 Artwork: none, same as careers.
+
+---
+
+## Specializations and force powers
+
+The two tree types: 123 specializations under `oggdudes-data/Specializations/`
+and 20 force powers under `oggdudes-data/Force Powers/`, one file each.
+
+```bash
+python xml_to_json/oggdude_specializations_to_app.py   # rebuild the app-schema source
+python xml_to_json/oggdude_force_powers_to_app.py
+python xml_to_json/convert.py --only Specialization --only ForcePower
+```
+
+These two importers differ from the others in kind, not just in detail: **their
+output is a layout**. A specialization is not a row of stats, it is a picture —
+a grid of boxes with connectors between them — and the app draws it in the row's
+expandable detail area rather than in a cell. Everything geometric is decided
+here, so `SWApp.js` only unwraps SimpleXML shapes and `items.html` only draws.
+`oggdude_force_powers_to_app.py` imports the layout functions from the
+specializations importer rather than restating them.
+
+The rules, each derived from a census of all 143 files:
+
+- **Every row lays out to exactly four columns**, counting spans. That is the
+  invariant the renderer rests on, and `verify_convert.py` Check 7 tests it on
+  every row of every tree.
+- **A box can span up to four columns.** Only force powers do; Move's first row
+  is one Basic Power four wide. The covered cells repeat the same key as filler
+  and are dropped. Specializations are a clean 5×4 and never span — Check 7
+  asserts that too, since `layout_row()` reads spans only when passed them.
+- **A cell can be a hole.** A `<Span>` of 0 that nothing covers is a blank
+  column, not a missing box: Endure's last row is `0, 2, 0, 0` — a gap, a
+  double-wide Mastery, a gap. Warde's Foresight writes an empty `<Key />` with
+  a span of 1 and a cost of 5 XP. Both render blank and keep their column.
+- **Links are undirected and stated twice** — `Down` on the upper cell, `Up` on
+  the lower — and **nine of them are stated only once**. A link is emitted when
+  *either* end declares it. That is not a coin toss: under the intersection two
+  nodes in *Enhance* and *Farsight* become unreachable from the top row, which
+  no printed tree does. Every one-sided flag is reported and Check 7 counts them
+  (4 and 5 today), so a changed export surfaces instead of being absorbed.
+- **Each connector is written out once**, from the end that owns it: a vertical
+  link as `<Down><Col>` on the row *above*, a horizontal one as `<LinkRight>` on
+  the *left* box. Vertical links stay **per column** rather than per box,
+  because a four-wide box can be joined downward in all four.
+
+Nine horizontal links sit *inside* a spanning box, joining a cell to itself.
+There is nowhere to draw them and they are dropped; the box is already one box.
+
+Key resolution is the familiar part: talent keys against `Talents.xml` (591
+distinct, all resolve), force ability keys against `Force Abilities.xml` (all
+177 used), skill keys against `Skills.xml`. A specialization's careers are a
+**reverse lookup** — a specialization file never names its career, so
+`Careers/*.xml` is read backwards — and land in `<Categories>`, the tag the app
+already builds a multi-select from.
+
+Force powers alone carry `<MinForceRating>`, stated by 14 of 20 and **not
+defaulted** for the other six, and `<Experience>`, the summed cost of every box
+(90 to 215 XP). On a specialization that total is the constant 300 and is not
+written.
+
+Dropped: `<AddlCareerSkills>` (empty on 9 of the 10 specializations that have
+it), and the `<Attributes>` / `<Requirements>` blocks, which are all zeros on
+every one of the 123 files.
+
+Artwork: none, same as careers and talents. Descriptions are still OggDude's
+page pointers for both types — the tree is the content, so it costs far less
+here than it did for talents, but `wiki_descriptions.py` would cover them with
+one `SOURCES` entry each.
+
+Both have a `wiki_diff.py` target, and both report **0 data-only**: every
+specialization and force power in the data matches a wiki page. Note that the
+categories are **singular** — `Category:Specialization` and `Category:Force
+Power`; the plural forms do not exist and come back empty — and that their pages
+are titled with the bare name, so unlike talents there is nothing to `strip`.
